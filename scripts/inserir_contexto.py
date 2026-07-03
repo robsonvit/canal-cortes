@@ -1,0 +1,328 @@
+"""
+inserir_contexto.py
+───────────────────
+Passo 6 do Pipeline Canal Cortes.
+
+Enriquece o Short com:
+  1. Inserções visuais 1:1 (imagens/vídeos contextuais do Pexels)
+     sobrepostas no canto inferior direito por 3-4 segundos
+  2. Música de atenção ao fundo (mixada com volume baixo)
+
+Fluxo:
+  a. Envia a transcrição para Groq AI → extrai 2-3 temas visuais chave
+  b. Busca imagens/vídeos no Pexels para cada tema
+  c. Cria um plano de timing (quando mostrar cada inserção)
+  d. Aplica os overlays via FFmpeg filter_complex
+  e. Adiciona música de fundo mixada
+"""
+
+import os
+import json
+import re
+import random
+import subprocess
+import requests
+
+from groq import Groq
+
+ROOT_DIR      = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_DIR    = os.path.join(ROOT_DIR, "output")
+PEXELS_KEY    = os.environ.get("PEXELS_API_KEY", "")
+
+# Tamanho do overlay 1:1 (quadrado) em pixels na tela 9:16
+OVERLAY_SIZE  = 480   # 480×480px — visível mas não invasivo
+OVERLAY_GAP   = 40    # Margem das bordas
+OVERLAY_DUR   = 3.5   # Duração de cada inserção em segundos
+# Posição do overlay: canto inferior direito (ajustado para não cobrir legenda)
+OVERLAY_X     = f"{1080 - OVERLAY_SIZE - OVERLAY_GAP}"  # 560px
+OVERLAY_Y     = f"{1920 - OVERLAY_SIZE - 300}"          # 1140px (acima das legendas)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Análise de temas via Groq AI
+# ─────────────────────────────────────────────────────────────────────────────
+def _extrair_temas(texto: str) -> list:
+    """
+    Envia a transcrição para Groq AI e extrai temas visuais chave.
+    Retorna lista de dicts: [{termo_pt, termo_en, momento_inicio}]
+    """
+    cliente = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+
+    prompt = f"""Analise esta transcrição de um podcast em português brasileiro e extraia 3 temas visuais marcantes.
+
+Para cada tema, retorne:
+- Uma palavra-chave em português (o que foi citado/discutido)
+- Um termo de busca em inglês para encontrar imagens (simples, 2-3 palavras)
+- O segundo aproximado em que esse tema aparece na transcrição
+
+Retorne APENAS um JSON válido neste formato exato:
+[
+  {{"tema_pt": "inteligência artificial", "busca_en": "artificial intelligence technology", "segundo": 5}},
+  {{"tema_pt": "dinheiro", "busca_en": "money cash finance", "segundo": 20}},
+  {{"tema_pt": "família", "busca_en": "happy family together", "segundo": 40}}
+]
+
+Transcrição:
+{texto[:800]}
+
+Retorne apenas o JSON, sem explicações."""
+
+    try:
+        resp = cliente.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.3,
+            max_tokens=300,
+        )
+        conteudo = resp.choices[0].message.content.strip()
+
+        # Extrai o JSON da resposta
+        match = re.search(r"\[.*?\]", conteudo, re.DOTALL)
+        if match:
+            temas = json.loads(match.group())
+            print(f"  🧠 Temas extraídos pela IA: {[t['tema_pt'] for t in temas]}")
+            return temas
+    except Exception as e:
+        print(f"  ⚠️  Erro ao extrair temas: {e}")
+
+    # Fallback com temas genéricos de podcast
+    return [
+        {"tema_pt": "conversa", "busca_en": "people talking conversation", "segundo": 5},
+        {"tema_pt": "sucesso", "busca_en": "success achievement", "segundo": 25},
+        {"tema_pt": "pensamento", "busca_en": "thinking idea inspiration", "segundo": 45},
+    ]
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Busca de imagens no Pexels
+# ─────────────────────────────────────────────────────────────────────────────
+def _buscar_imagem_pexels(termo: str) -> str | None:
+    """
+    Busca uma imagem quadrada (1:1) no Pexels para o tema dado.
+    Retorna URL da imagem ou None se não encontrar.
+    """
+    if not PEXELS_KEY:
+        print(f"  ⚠️  PEXELS_API_KEY não configurada. Pulando inserção para '{termo}'.")
+        return None
+
+    try:
+        resp = requests.get(
+            "https://api.pexels.com/v1/search",
+            headers={"Authorization": PEXELS_KEY},
+            params={"query": termo, "per_page": 5, "size": "medium"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        fotos = resp.json().get("photos", [])
+        if fotos:
+            foto = random.choice(fotos)
+            # Usa versão medium (640px) para performance
+            return foto["src"].get("medium") or foto["src"]["original"]
+    except Exception as e:
+        print(f"  ⚠️  Pexels falhou para '{termo}': {e}")
+    return None
+
+
+def _baixar_imagem(url: str, destino: str) -> bool:
+    """Baixa imagem para disco. Retorna True se sucesso."""
+    try:
+        resp = requests.get(url, timeout=20)
+        resp.raise_for_status()
+        with open(destino, "wb") as f:
+            f.write(resp.content)
+        return True
+    except Exception as e:
+        print(f"  ⚠️  Falha ao baixar imagem: {e}")
+        return False
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Criação do overlay 1:1 com FFmpeg
+# ─────────────────────────────────────────────────────────────────────────────
+def _criar_overlay_quadrado(img_path: str, output_path: str, duracao: float):
+    """
+    Redimensiona a imagem para quadrado (1:1) com bordas arredondadas
+    e a converte em clipe de vídeo de 'duracao' segundos.
+    """
+    cmd = [
+        "ffmpeg", "-y",
+        "-loop", "1",
+        "-i", img_path,
+        "-t", str(duracao),
+        "-vf", (
+            f"scale={OVERLAY_SIZE}:{OVERLAY_SIZE}:force_original_aspect_ratio=increase,"
+            f"crop={OVERLAY_SIZE}:{OVERLAY_SIZE},"
+            "format=yuva420p"
+        ),
+        "-c:v", "libx264",
+        "-preset", "fast",
+        "-crf", "23",
+        "-pix_fmt", "yuv420p",
+        output_path,
+    ]
+    resultado = subprocess.run(cmd, capture_output=True, text=True)
+    return resultado.returncode == 0
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Função principal
+# ─────────────────────────────────────────────────────────────────────────────
+def inserir_contexto(
+    video_base: str,
+    texto_transcricao: str,
+    musica_path: str,
+    output_dir: str = OUTPUT_DIR,
+) -> str:
+    """
+    Adiciona inserções 1:1 contextuais e música de fundo ao Short.
+
+    Args:
+        video_base          : caminho do short_base.mp4 (9:16 com legendas)
+        texto_transcricao   : texto completo da transcrição
+        musica_path         : caminho da música de atenção
+        output_dir          : pasta de saída
+
+    Returns:
+        Caminho do vídeo final (output/short_final.mp4)
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    clips_dir  = os.path.join(output_dir, "clips")
+    os.makedirs(clips_dir, exist_ok=True)
+    output_final = os.path.join(output_dir, "short_final.mp4")
+
+    # ── 1. Extrai temas via IA ────────────────────────────────────────────────
+    print("  🧠 Analisando transcrição com Groq AI para extrair temas visuais...")
+    temas = _extrair_temas(texto_transcricao)
+
+    # ── 2. Baixa imagens do Pexels ────────────────────────────────────────────
+    overlays_prontos = []   # [(segundo_inicio, clip_path)]
+
+    for i, tema in enumerate(temas):
+        termo_en  = tema.get("busca_en", "podcast conversation")
+        segundo   = float(tema.get("segundo", i * 15 + 5))
+        tema_pt   = tema.get("tema_pt", "")
+
+        print(f"  🖼️  [{i+1}/{len(temas)}] Buscando imagem para: '{tema_pt}' ({termo_en})")
+
+        url_img = _buscar_imagem_pexels(termo_en)
+        if not url_img:
+            continue
+
+        img_path  = os.path.join(clips_dir, f"overlay_img_{i}.jpg")
+        clip_path = os.path.join(clips_dir, f"overlay_clip_{i}.mp4")
+
+        if not _baixar_imagem(url_img, img_path):
+            continue
+
+        if _criar_overlay_quadrado(img_path, clip_path, OVERLAY_DUR):
+            overlays_prontos.append((segundo, clip_path))
+            print(f"     ✅ Overlay pronto para ~{segundo:.0f}s")
+        else:
+            print(f"     ⚠️  Falha ao criar overlay para '{tema_pt}'")
+
+    # ── 3. Monta vídeo final com FFmpeg ──────────────────────────────────────
+    print(f"\n  🎬 Montando vídeo final com {len(overlays_prontos)} overlays + música...")
+
+    if not overlays_prontos:
+        # Sem overlays: apenas adiciona música de fundo
+        print("  📻 Sem overlays disponíveis. Adicionando apenas música...")
+        cmd = [
+            "ffmpeg", "-y",
+            "-i", video_base,
+            "-stream_loop", "-1",
+            "-i", musica_path,
+            "-filter_complex",
+            "[0:a]volume=1.0[voz];[1:a]volume=0.12[bg];[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]",
+            "-map", "0:v",
+            "-map", "[a]",
+            "-c:v", "copy",
+            "-c:a", "aac",
+            "-b:a", "192k",
+            "-movflags", "+faststart",
+            output_final,
+        ]
+        resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+        if resultado.returncode != 0:
+            # Fallback sem modificações
+            import shutil
+            shutil.copy(video_base, output_final)
+    else:
+        # Com overlays: usa filter_complex para inserir cada um no momento certo
+        inputs  = ["-i", video_base, "-stream_loop", "-1", "-i", musica_path]
+        filters = []
+        map_v   = "[0:v]"
+
+        for idx, (segundo, clip_path) in enumerate(overlays_prontos):
+            inputs += ["-i", clip_path]
+            overlay_label = f"[ov{idx}]"
+            main_label    = f"[main{idx}]" if idx < len(overlays_prontos) - 1 else "[vfinal]"
+
+            filters.append(
+                f"{map_v}[{idx+2}:v]overlay="
+                f"x={OVERLAY_X}:y={OVERLAY_Y}:"
+                f"enable='between(t,{segundo},{segundo+OVERLAY_DUR})'"
+                f"{main_label}"
+            )
+            map_v = main_label
+
+        # Adiciona fade de entrada/saída nos overlays
+        if "[vfinal]" not in "".join(filters):
+            filters[-1] = filters[-1].replace(filters[-1].split("overlay=")[-1].split("]")[-1] + "]", "]")
+
+        # Mix de áudio
+        filters.append(
+            "[0:a]volume=1.0[voz];[1:a]volume=0.12[bg];"
+            "[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]"
+        )
+
+        # Reconstrói último filtro com label correto
+        ultima = filters[-2] if len(filters) > 1 else filters[0]
+        if "[vfinal]" not in ultima:
+            filters[-2] = ultima.rsplit("[", 1)[0] + "[vfinal]"
+
+        filter_str = ";".join(filters)
+
+        cmd = [
+            "ffmpeg", "-y",
+        ] + inputs + [
+            "-filter_complex", filter_str,
+            "-map", "[vfinal]",
+            "-map", "[a]",
+            "-c:v", "libx264",
+            "-preset", "fast",
+            "-crf", "22",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac",
+            "-b:a", "192k",
+            "-movflags", "+faststart",
+            output_final,
+        ]
+
+        resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+        if resultado.returncode != 0:
+            print(f"  ⚠️  FFmpeg com overlays falhou. Tentando sem overlays...")
+            # Fallback: só música
+            cmd_fallback = [
+                "ffmpeg", "-y",
+                "-i", video_base,
+                "-stream_loop", "-1", "-i", musica_path,
+                "-filter_complex",
+                "[0:a]volume=1.0[voz];[1:a]volume=0.12[bg];[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]",
+                "-map", "0:v", "-map", "[a]",
+                "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+                "-movflags", "+faststart",
+                output_final,
+            ]
+            subprocess.run(cmd_fallback, capture_output=True, timeout=300)
+
+    tamanho_mb = os.path.getsize(output_final) / (1024 * 1024)
+    print(f"  ✅ Vídeo final com contexto: {output_final} ({tamanho_mb:.1f} MB)")
+    return output_final
+
+
+if __name__ == "__main__":
+    import sys
+    video   = sys.argv[1] if len(sys.argv) > 1 else "output/short_base.mp4"
+    texto   = sys.argv[2] if len(sys.argv) > 2 else "Teste de contexto visual com IA"
+    musica  = sys.argv[3] if len(sys.argv) > 3 else "assets/musicas/musica_atencao.mp3"
+    inserir_contexto(video, texto, musica)

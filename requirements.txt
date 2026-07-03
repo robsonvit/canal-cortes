@@ -1,0 +1,27 @@
+# Dependências Python — Canal Cortes Automação
+
+# Download de vídeos do YouTube + extração de heatmap
+yt-dlp>=2024.1.0
+
+# IA — transcrição Whisper + análise contextual
+groq>=0.9.0
+
+# Detecção de rosto (face tracking)
+mediapipe>=0.10.0
+
+# Processamento de vídeo frame a frame
+opencv-python-headless>=4.8.0
+
+# HTTP — Pexels API + downloads
+requests>=2.31.0
+
+# Imagens — overlay e composição
+Pillow>=10.0.0
+
+# Arrays numéricos para face tracking
+numpy>=1.24.0
+
+# YouTube Data API v3
+google-api-python-client>=2.100.0
+google-auth-oauthlib>=1.1.0
+google-auth-httplib2>=0.1.1

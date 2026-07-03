@@ -1,0 +1,106 @@
+name: 🎬 Gerar Short de Podcast
+
+on:
+  workflow_dispatch:      # Execução manual pelo painel do GitHub
+    inputs:
+      canal_url:
+        description: 'URL do canal (opcional, ex: https://www.youtube.com/@Podpah/videos)'
+        required: false
+        default: ''
+  schedule:
+    - cron: '0 13 * * *'  # 10h Brasília (UTC-3) — 1x por dia
+
+permissions:
+  contents: write         # Para salvar tracking de vídeos
+
+env:
+  GROQ_API_KEY:              ${{ secrets.GROQ_API_KEY }}
+  PEXELS_API_KEY:            ${{ secrets.PEXELS_API_KEY }}
+  YOUTUBE_CLIENT_ID:         ${{ secrets.YOUTUBE_CLIENT_ID }}
+  YOUTUBE_CLIENT_SECRET:     ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+  YOUTUBE_REFRESH_TOKEN:     ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+  CANAL_URL:                 ${{ github.event.inputs.canal_url }}
+
+jobs:
+  gerar-short:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: 📥 Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: 🐍 Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 🎬 Instalar FFmpeg e fontes
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y \
+            ffmpeg \
+            fonts-dejavu-extra \
+            fonts-liberation \
+            fonts-freefont-ttf \
+            libgl1-mesa-glx \
+            libglib2.0-0
+
+      - name: 🎥 Instalar yt-dlp (versão mais recente)
+        run: |
+          sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+          sudo chmod a+rx /usr/local/bin/yt-dlp
+          yt-dlp --version
+
+      - name: 📦 Instalar dependências Python
+        run: pip install -r requirements.txt
+
+      - name: 📁 Criar diretórios necessários
+        run: |
+          mkdir -p output/clips output/tmp data assets/musicas
+
+      - name: 🎬 Executar pipeline de cortes
+        run: python scripts/pipeline.py
+
+      - name: 📊 Verificar arquivos gerados
+        if: always()
+        run: |
+          echo "📁 Arquivos em output/:"
+          ls -lh output/ 2>/dev/null || echo "(vazia)"
+          echo ""
+          echo "📋 Vídeos já processados:"
+          cat data/videos_processados.json 2>/dev/null | python3 -c "
+          import json,sys
+          try:
+              data=json.load(sys.stdin)
+              print(f'Total processados: {len(data)}')
+              for vid_id, info in list(data.items())[-3:]:
+                  print(f'  • {vid_id}: {info.get(\"titulo\",\"-\")[:50]}')
+          except: print('(arquivo não encontrado ou inválido)')
+          " || echo ""
+
+      - name: 💾 Salvar tracking no repositório
+        if: always()
+        run: |
+          git config user.name "Canal Cortes Bot"
+          git config user.email "bot@canal-cortes.com"
+          git add data/videos_processados.json
+          git diff --staged --quiet || git commit -m "🎬 Atualiza tracking de vídeos processados [skip ci]"
+          git pull --rebase origin main || git pull --rebase origin master || true
+          git push || true
+
+      - name: 📤 Upload dos artefatos (backup por 7 dias)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: short-${{ github.run_number }}-${{ github.run_attempt }}
+          path: |
+            output/short_final.mp4
+            output/short_base.mp4
+            output/legendas.srt
+            output/metadados.json
+          retention-days: 7

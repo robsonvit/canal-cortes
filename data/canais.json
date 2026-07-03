@@ -1,0 +1,22 @@
+{
+  "canais": [
+    {
+      "nome": "Podpah",
+      "url": "https://www.youtube.com/@Podpah",
+      "handle": "@Podpah",
+      "ativo": true
+    },
+    {
+      "nome": "Flow Podcast",
+      "url": "https://www.youtube.com/@flowpodcast",
+      "handle": "@flowpodcast",
+      "ativo": true
+    },
+    {
+      "nome": "Inteligência Ltda",
+      "url": "https://www.youtube.com/@inteligencialtda",
+      "handle": "@inteligencialtda",
+      "ativo": true
+    }
+  ]
+}
