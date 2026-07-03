@@ -56,6 +56,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
         # Sem metadados desnecessários
         "--no-playlist",
         "--no-warnings",
+        "--extractor-args", "youtube:player_client=android",
 
         # Cookies do navegador para evitar bloqueios (se disponível)
         # "--cookies-from-browser", "chrome",  # Descomente se necessário
@@ -78,6 +79,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             "-o", output_path,
             "--no-playlist",
             "--no-warnings",
+            "--extractor-args", "youtube:player_client=android",
         ]
         if os.path.exists("cookies.txt"):
             cmd_fallback.extend(["--cookies", "cookies.txt"])

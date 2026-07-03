@@ -37,6 +37,7 @@ def _obter_metadados(video_url: str) -> dict:
         "--no-playlist",
         "--no-warnings",
         "--quiet",
+        "--extractor-args", "youtube:player_client=android",
     ]
     if os.path.exists("cookies.txt"):
         cmd.extend(["--cookies", "cookies.txt"])
