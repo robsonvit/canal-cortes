@@ -231,15 +231,15 @@ def _processar_dinamico_cv2_ffmpeg(
     # ── Configura os filtros do FFmpeg ─────────────────────────────────────────
     subtitle_style = ",".join([
         "Fontname=Arial Black",
-        "FontSize=42",           # Diminuído de 56 para 42
+        "FontSize=16",           # Ajustado para a escala do FFmpeg (equivale a ~100px no vídeo real)
         "PrimaryColour=&H00FFFFFF",
         "OutlineColour=&H00000000",
         "BackColour=&H80000000",
         "BorderStyle=1",
-        "Outline=3",
-        "Shadow=2",
+        "Outline=2",
+        "Shadow=1",
         "Alignment=2",           # Inferior centralizado
-        "MarginV=60",            # Diminuído de 120 para 60 (fica mais perto do rodapé)
+        "MarginV=20",            # Ajustado para ~130px de distância do rodapé real
     ])
 
     srt_escaped = _escape_srt_path(srt_path)
