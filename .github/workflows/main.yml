@@ -48,7 +48,7 @@ jobs:
             fonts-dejavu-extra \
             fonts-liberation \
             fonts-freefont-ttf \
-            libgl1-mesa-glx \
+            libgl1 \
             libglib2.0-0
 
       - name: 🎥 Instalar yt-dlp (versão mais recente)
