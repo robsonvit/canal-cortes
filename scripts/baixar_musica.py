@@ -8,30 +8,29 @@ repositórios públicos. Faz cache local para evitar downloads repetidos.
 """
 
 import os
-import requests
-import json
-import re
+import random
+import subprocess
 from groq import Groq
 
 ROOT_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MUSICA_DIR  = os.path.join(ROOT_DIR, "assets", "musicas")
 
-# Biblioteca de músicas royalty-free por sentimento (Pixabay)
+# Biblioteca de músicas royalty-free por sentimento (YouTube NCS/Lofi)
 BIBLIOTECA_MUSICAS = {
     "superacao": [
-        "https://cdn.pixabay.com/download/audio/2022/10/25/audio_89891a5a45.mp3", # Epic / Inspiring
-        "https://cdn.pixabay.com/download/audio/2022/11/06/audio_0313f890f4.mp3",
+        "https://www.youtube.com/watch?v=pLcw3dK1yU0", # Epic
+        "https://www.youtube.com/watch?v=xH3yN226z3Y",
     ],
     "licao": [
-        "https://cdn.pixabay.com/download/audio/2022/08/02/audio_884fe92c21.mp3", # Lo-Fi / Relax
-        "https://cdn.pixabay.com/download/audio/2021/11/25/audio_91b32e02f7.mp3",
+        "https://www.youtube.com/watch?v=n61ULEU7CO0", # Lofi
+        "https://www.youtube.com/watch?v=5qap5aO4i9A",
     ],
     "misterio": [
-        "https://cdn.pixabay.com/download/audio/2022/03/15/audio_6506f2dfcb.mp3", # Dark / Suspense
-        "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3",
+        "https://www.youtube.com/watch?v=680D9R9wOms", # Suspense
+        "https://www.youtube.com/watch?v=8q-ZAeYF3sU",
     ],
     "padrao": [
-        "https://cdn.pixabay.com/download/audio/2022/10/25/audio_89891a5a45.mp3",
+        "https://www.youtube.com/watch?v=pLcw3dK1yU0",
     ]
 }
 
@@ -57,7 +56,6 @@ Texto: {texto[:1000]}"""
             max_tokens=20,
         )
         sentimento = resp.choices[0].message.content.strip().lower()
-        # Garante que é uma das categorias
         for c in ["superacao", "licao", "misterio"]:
             if c in sentimento:
                 return c
@@ -69,20 +67,13 @@ Texto: {texto[:1000]}"""
 
 def baixar_musica(texto_transcricao: str = "") -> str:
     """
-    Baixa música baseada no sentimento da transcrição.
-    
-    Args:
-        texto_transcricao: Texto para análise de sentimento.
-        
-    Returns:
-        Caminho do arquivo MP3 da música.
+    Baixa música baseada no sentimento da transcrição usando yt-dlp.
     """
     os.makedirs(MUSICA_DIR, exist_ok=True)
     
     sentimento = _detectar_sentimento(texto_transcricao)
     print(f"  🧠 Sentimento detectado: {sentimento.upper()}")
     
-    # Define arquivo baseado no sentimento
     musica_path = os.path.join(MUSICA_DIR, f"musica_{sentimento}.mp3")
 
     if os.path.exists(musica_path):
@@ -90,29 +81,35 @@ def baixar_musica(texto_transcricao: str = "") -> str:
         if tamanho > 50_000:
             print(f"  🎵 Música já em cache: {musica_path}")
             return musica_path
+        else:
+            os.remove(musica_path) # Remove arquivo corrompido
 
-    print(f"  ⬇️  Baixando música royalty-free para clima de '{sentimento}'...")
+    print(f"  ⬇️  Baixando música via YouTube para clima de '{sentimento}'...")
     
-    import random
     urls = BIBLIOTECA_MUSICAS.get(sentimento, BIBLIOTECA_MUSICAS["padrao"])
     url_escolhida = random.choice(urls)
     
     try:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        resp = requests.get(url_escolhida, timeout=30, stream=True, headers=headers)
-        if resp.status_code == 200:
-            with open(musica_path, "wb") as f:
-                for chunk in resp.iter_content(chunk_size=8192):
-                    f.write(chunk)
+        cmd = [
+            "yt-dlp",
+            "-x", "--audio-format", "mp3",
+            "--audio-quality", "128K",
+            "--cookies", os.path.join(ROOT_DIR, "youtube_cookies.txt"), # Usa cookies pra evitar bot block
+            "-o", musica_path.replace(".mp3", "") + ".%(ext)s",
+            url_escolhida
+        ]
+        res = subprocess.run(cmd, capture_output=True, text=True)
+        if res.returncode == 0 and os.path.exists(musica_path):
             tamanho_kb = os.path.getsize(musica_path) / 1024
             print(f"  ✅ Música baixada: {musica_path} ({tamanho_kb:.0f} KB)")
             return musica_path
+        else:
+            print(f"  ⚠️  yt-dlp falhou. Erro:\n{res.stderr[-500:]}")
     except Exception as e:
-        print(f"  ⚠️  Falha ao baixar {url_escolhida}: {e}")
+        print(f"  ⚠️  Falha ao executar yt-dlp: {e}")
 
     # Fallback: gera silêncio se não conseguir baixar
     print("  ⚠️  Não foi possível baixar música. Usando silêncio...")
-    import subprocess
     subprocess.run([
         "ffmpeg", "-y", "-f", "lavfi",
         "-i", "anullsrc=r=44100:cl=stereo",
