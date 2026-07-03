@@ -193,7 +193,7 @@ def _obter_dimensoes_video(video_path: str) -> tuple:
     return 1920, 1080, 30, 1800
 
 
-def _aplicar_face_tracking_ffmpeg(
+def _processar_dinamico_cv2_ffmpeg(
     video_path: str,
     trajetoria: list,
     output_path: str,
@@ -202,53 +202,67 @@ def _aplicar_face_tracking_ffmpeg(
     srt_path: str,
 ):
     """
-    Usa sendcmd do FFmpeg para aplicar crop dinâmico frame a frame.
-    Mais leve que processar via OpenCV.
+    Processa o vídeo:
+      1. Lê frame a frame com OpenCV e corta usando a trajetória dinâmica
+      2. Envia frames cortados via pipe (stdin) para o FFmpeg
+      3. FFmpeg recebe, junta o áudio original, aplica filtros (escala, hflip, saturação, legendas) e codifica.
     """
-    # Gera arquivo de comandos sendcmd para crop dinâmico
-    cmd_file = output_path.replace(".mp4", "_sendcmd.txt")
-
-    # Pega dimensões do crop do primeiro frame
-    if trajetoria:
-        _, x0, y0, cw, ch = trajetoria[0]
-    else:
+    import cv2
+    import numpy as np
+    
+    if not trajetoria:
+        # Fallback se não há trajetória (crop central)
         cw = int(video_h * 9 / 16)
         ch = video_h
         x0 = (video_w - cw) // 2
         y0 = 0
-
+        trajetoria = [(i, x0, y0, cw, ch) for i in range(1800)] # dummy
+    
+    # Todos os crops devem ter o mesmo tamanho (do primeiro frame)
+    _, _, _, cw, ch = trajetoria[0]
     crop_w = min(cw, video_w)
     crop_h = min(ch, video_h)
-
+    
+    cap = cv2.VideoCapture(video_path)
+    fps = cap.get(cv2.CAP_PROP_FPS) or 30
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    
+    # ── Configura os filtros do FFmpeg ─────────────────────────────────────────
     subtitle_style = ",".join([
         "Fontname=Arial Black",
-        "FontSize=56",
+        "FontSize=42",           # Diminuído de 56 para 42
         "PrimaryColour=&H00FFFFFF",
         "OutlineColour=&H00000000",
         "BackColour=&H80000000",
         "BorderStyle=1",
         "Outline=3",
         "Shadow=2",
-        "Alignment=2",    # Baixo centralizado (ideal para Shorts)
-        "MarginV=120",
+        "Alignment=2",           # Inferior centralizado
+        "MarginV=60",            # Diminuído de 120 para 60 (fica mais perto do rodapé)
     ])
 
     srt_escaped = _escape_srt_path(srt_path)
 
-    # Filtro de crop estático no centro + escala para 9:16 + legendas
     filter_complex = (
-        f"[0:v]crop={crop_w}:{crop_h}:{x0}:{y0},"
-        f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
+        f"[0:v]scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
         f"pad={SHORT_W}:{SHORT_H}:(ow-iw)/2:(oh-ih)/2:black,"
+        f"hflip," # Inversão horizontal anti-cópia
+        f"eq=saturation=1.3," # Cores mais vivas
         f"subtitles='{srt_escaped}':force_style='{subtitle_style}'[v]"
     )
 
     cmd = [
         "ffmpeg", "-y",
-        "-i", video_path,
+        "-f", "rawvideo",
+        "-vcodec", "rawvideo",
+        "-s", f"{crop_w}x{crop_h}",
+        "-pix_fmt", "bgr24",
+        "-r", str(fps),
+        "-i", "-",               # Entrada 0: Pipe de vídeo do OpenCV
+        "-i", video_path,        # Entrada 1: Vídeo original (para pegar o áudio)
         "-filter_complex", filter_complex,
         "-map", "[v]",
-        "-map", "0:a",
+        "-map", "1:a",           # Mapeia áudio do arquivo original
         "-c:v", "libx264",
         "-preset", "fast",
         "-crf", "22",
@@ -259,9 +273,44 @@ def _aplicar_face_tracking_ffmpeg(
         output_path,
     ]
 
-    resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
-    if resultado.returncode != 0:
-        raise RuntimeError(f"FFmpeg falhou na montagem 9:16:\n{resultado.stderr[-500:]}")
+    print(f"  🔄 Processando {total_frames} frames com crop dinâmico e enviando ao FFmpeg...")
+    
+    # Inicia processo do FFmpeg aguardando frames pelo stdin
+    processo = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    
+    frame_idx = 0
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+                
+            # Garante que temos as coordenadas pro frame atual
+            if frame_idx < len(trajetoria):
+                _, x, y, _, _ = trajetoria[frame_idx]
+            else:
+                _, x, y, _, _ = trajetoria[-1]
+                
+            # Realiza o crop no OpenCV
+            frame_crop = frame[y:y+crop_h, x:x+crop_w]
+            
+            # Envia frame cortado pro FFmpeg
+            processo.stdin.write(frame_crop.tobytes())
+            frame_idx += 1
+            
+    except BrokenPipeError:
+        pass
+    except Exception as e:
+        print(f"  ⚠️ Erro durante o envio de frames: {e}")
+    finally:
+        cap.release()
+        if processo.stdin:
+            processo.stdin.close()
+        processo.wait()
+        
+    if processo.returncode != 0:
+        stderr_output = processo.stderr.read().decode('utf-8', errors='ignore')
+        raise RuntimeError(f"FFmpeg falhou na montagem 9:16:\n{stderr_output[-500:]}")
 
 
 def montar_short(
@@ -294,9 +343,9 @@ def montar_short(
     # Calcula trajetória suave do crop
     trajetoria = _calcular_trajetoria_suave(detections, total_frames, video_w, video_h)
 
-    # Aplica crop + escala + legendas via FFmpeg
-    print(f"  🎬 Montando Short 9:16 ({SHORT_W}×{SHORT_H}) com legendas...")
-    _aplicar_face_tracking_ffmpeg(
+    # Aplica crop dinâmico (OpenCV) + escala + filtros + legendas (FFmpeg)
+    print(f"  🎬 Montando Short 9:16 ({SHORT_W}×{SHORT_H}) com filtros visuais...")
+    _processar_dinamico_cv2_ffmpeg(
         video_path, trajetoria, output_path,
         video_w, video_h, srt_path
     )

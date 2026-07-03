@@ -30,12 +30,11 @@ OUTPUT_DIR    = os.path.join(ROOT_DIR, "output")
 PEXELS_KEY    = os.environ.get("PEXELS_API_KEY", "")
 
 # Tamanho do overlay 1:1 (quadrado) em pixels na tela 9:16
-OVERLAY_SIZE  = 480   # 480×480px — visível mas não invasivo
-OVERLAY_GAP   = 40    # Margem das bordas
+OVERLAY_SIZE  = 800   # Aumentado para 800px para ficar em destaque no centro
 OVERLAY_DUR   = 3.5   # Duração de cada inserção em segundos
-# Posição do overlay: canto inferior direito (ajustado para não cobrir legenda)
-OVERLAY_X     = f"{1080 - OVERLAY_SIZE - OVERLAY_GAP}"  # 560px
-OVERLAY_Y     = f"{1920 - OVERLAY_SIZE - 300}"          # 1140px (acima das legendas)
+# Posição do overlay: centro exato do vídeo
+OVERLAY_X     = f"{(1080 - OVERLAY_SIZE) // 2}"
+OVERLAY_Y     = f"{(1920 - OVERLAY_SIZE) // 2}"
 
 
 # ─────────────────────────────────────────────────────────────────────────────

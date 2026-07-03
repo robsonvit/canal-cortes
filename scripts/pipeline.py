@@ -116,7 +116,7 @@ def main():
     from scripts.baixar_musica import baixar_musica
     from scripts.inserir_contexto import inserir_contexto
 
-    musica_path = baixar_musica()
+    musica_path = baixar_musica(texto_transcricao)
     print(f"  🎵 Música: {musica_path}")
 
     short_final = inserir_contexto(
