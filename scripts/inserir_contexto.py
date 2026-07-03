@@ -40,11 +40,18 @@ OVERLAY_Y     = f"{(1920 - OVERLAY_SIZE) // 2}"
 # ─────────────────────────────────────────────────────────────────────────────
 # Análise de temas via Groq AI
 # ─────────────────────────────────────────────────────────────────────────────
-def _extrair_temas(texto: str) -> list:
+def _extrair_temas(texto: str, output_dir: str = OUTPUT_DIR) -> list:
     """
-    Envia a transcrição para Groq AI e extrai temas visuais chave.
+    Envia o conteúdo do SRT (ou a transcrição) para Groq AI e extrai temas visuais chave.
     Retorna lista de dicts: [{termo_pt, termo_en, momento_inicio}]
     """
+    srt_path = os.path.join(output_dir, "legendas.srt")
+    try:
+        with open(srt_path, "r", encoding="utf-8") as f:
+            texto_para_ia = f.read()[:2000] # Passa o SRT com os timestamps para a IA
+    except Exception:
+        texto_para_ia = texto[:800]
+
     cliente = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
     prompt = f"""Analise esta transcrição de um podcast em português brasileiro e extraia 3 temas visuais marcantes.
@@ -61,8 +68,8 @@ Retorne APENAS um JSON válido neste formato exato:
   {{"tema_pt": "família", "busca_en": "happy family together", "segundo": 40}}
 ]
 
-Transcrição:
-{texto[:800]}
+Transcrição com tempos (SRT):
+{texto_para_ia}
 
 Retorne apenas o JSON, sem explicações."""
 
@@ -191,7 +198,7 @@ def inserir_contexto(
 
     # ── 1. Extrai temas via IA ────────────────────────────────────────────────
     print("  🧠 Analisando transcrição com Groq AI para extrair temas visuais...")
-    temas = _extrair_temas(texto_transcricao)
+    temas = _extrair_temas(texto_transcricao, output_dir)
 
     # ── 2. Baixa imagens do Pexels ────────────────────────────────────────────
     overlays_prontos = []   # [(segundo_inicio, clip_path)]

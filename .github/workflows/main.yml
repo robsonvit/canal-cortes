@@ -1,15 +1,12 @@
 name: 🎬 Gerar Short de Podcast
 
 on:
-  push:
   workflow_dispatch:
     inputs:
       canal_url:
         description: 'URL do canal (opcional, ex: https://www.youtube.com/@Podpah/videos)'
         required: false
         default: ''
-  schedule:
-    - cron: '0 13 * * *'  # 10h Brasília (UTC-3) — 1x por dia
 
 permissions:
   contents: write
