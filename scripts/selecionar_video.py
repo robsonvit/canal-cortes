@@ -67,8 +67,11 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 5) -> list:
         "--dump-json",
         "--no-warnings",
         "--quiet",
-        url,
     ]
+    if os.path.exists("cookies.txt"):
+        cmd.extend(["--cookies", "cookies.txt"])
+    
+    cmd.append(url)
 
     try:
         resultado = subprocess.run(

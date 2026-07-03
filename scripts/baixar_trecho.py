@@ -59,9 +59,11 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
 
         # Cookies do navegador para evitar bloqueios (se disponível)
         # "--cookies-from-browser", "chrome",  # Descomente se necessário
-
-        video_url,
     ]
+    if os.path.exists("cookies.txt"):
+        cmd.extend(["--cookies", "cookies.txt"])
+    
+    cmd.append(video_url)
 
     resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
 
@@ -76,8 +78,11 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             "-o", output_path,
             "--no-playlist",
             "--no-warnings",
-            video_url,
         ]
+        if os.path.exists("cookies.txt"):
+            cmd_fallback.extend(["--cookies", "cookies.txt"])
+            
+        cmd_fallback.append(video_url)
         resultado2 = subprocess.run(cmd_fallback, capture_output=True, text=True, timeout=300)
         if resultado2.returncode != 0:
             raise RuntimeError(

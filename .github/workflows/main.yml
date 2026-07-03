@@ -60,6 +60,15 @@ jobs:
       - name: 📦 Instalar dependências Python
         run: pip install -r requirements.txt
 
+      - name: 🍪 Configurar Cookies do YouTube
+        run: |
+          if [ -n "${{ secrets.YOUTUBE_COOKIES }}" ]; then
+            echo "${{ secrets.YOUTUBE_COOKIES }}" > cookies.txt
+            echo "✅ Cookies configurados com sucesso!"
+          else
+            echo "⚠️ Secret YOUTUBE_COOKIES não encontrado."
+          fi
+
       - name: 📁 Criar diretórios necessários
         run: |
           mkdir -p output/clips output/tmp data assets/musicas

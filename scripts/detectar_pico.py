@@ -37,8 +37,11 @@ def _obter_metadados(video_url: str) -> dict:
         "--no-playlist",
         "--no-warnings",
         "--quiet",
-        video_url,
     ]
+    if os.path.exists("cookies.txt"):
+        cmd.extend(["--cookies", "cookies.txt"])
+    
+    cmd.append(video_url)
     resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
 
     if resultado.returncode != 0:
