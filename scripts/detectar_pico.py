@@ -126,9 +126,9 @@ def detectar_pico(video_url: str) -> dict:
     """
     metadados = _obter_metadados(video_url)
 
-    titulo    = metadados.get("title", "")
+    titulo        = metadados.get("title", "")
     duracao_total = metadados.get("duration", 0) or 0
-    heatmap   = metadados.get("heatmap", [])
+    heatmap       = metadados.get("heatmap") or []   # None → []
 
     print(f"  🎬 Título : {titulo}")
     print(f"  ⏱️  Duração: {duracao_total/60:.1f} min ({duracao_total}s)")
