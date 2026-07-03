@@ -1,6 +1,7 @@
 name: 🎬 Gerar Short de Podcast
 
 on:
+  push:
   workflow_dispatch:      # Execução manual pelo painel do GitHub
     inputs:
       canal_url:
