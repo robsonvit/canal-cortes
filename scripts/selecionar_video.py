@@ -93,8 +93,8 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 5) -> list:
                 titulo   = info.get("title", "Sem título")
                 duracao  = info.get("duration", 0)
 
-                # Filtra vídeos muito curtos (menos de 3 minutos) — não são podcasts completos
-                if duracao and duracao < 180:
+                # Filtra vídeos muito curtos (menos de 3 minutos) ou estreias futuras (duração 0/None)
+                if not duracao or duracao < 180:
                     continue
 
                 if vid_id:

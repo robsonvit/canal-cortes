@@ -49,9 +49,10 @@ def _detectar_rostos_mediapipe(video_path: str) -> list:
     try:
         import cv2
         import mediapipe as mp
+        # Import explícito para evitar problemas de attribute error em alguns envs
+        from mediapipe.python.solutions import face_detection as mp_face
         import numpy as np
 
-        mp_face = mp.solutions.face_detection
         detections_data = []
 
         cap = cv2.VideoCapture(video_path)
