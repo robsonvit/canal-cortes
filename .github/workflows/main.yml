@@ -2,7 +2,7 @@ name: 🎬 Gerar Short de Podcast
 
 on:
   push:
-  workflow_dispatch:      # Execução manual pelo painel do GitHub
+  workflow_dispatch:
     inputs:
       canal_url:
         description: 'URL do canal (opcional, ex: https://www.youtube.com/@Podpah/videos)'
@@ -12,7 +12,7 @@ on:
     - cron: '0 13 * * *'  # 10h Brasília (UTC-3) — 1x por dia
 
 permissions:
-  contents: write         # Para salvar tracking de vídeos
+  contents: write
 
 env:
   GROQ_API_KEY:              ${{ secrets.GROQ_API_KEY }}
@@ -40,9 +40,36 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: 🎬 Instalar FFmpeg e fontes
+      # ── Bypass YouTube: Cloudflare WARP ──────────────────────────────────────
+      # Roda o tráfego pelo WARP da Cloudflare para disfarçar o IP do datacenter
+      - name: 🌐 Instalar Cloudflare WARP
         run: |
+          curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
           sudo apt-get update -qq
+          sudo apt-get install -y cloudflare-warp
+          echo "✅ WARP instalado"
+
+      - name: 🔌 Conectar ao Cloudflare WARP
+        run: |
+          sudo warp-svc &
+          sleep 5
+          warp-cli --accept-tos registration new || true
+          sleep 3
+          warp-cli --accept-tos connect || true
+          sleep 5
+          warp-cli --accept-tos status || true
+          curl -s https://ifconfig.me || true
+          echo "✅ Conexão WARP ativada"
+
+      # ── Bypass YouTube: Deno para resolver JS challenges ─────────────────────
+      - name: 🦕 Instalar Deno (runtime JS para yt-dlp)
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: 🎬 Instalar FFmpeg e dependências
+        run: |
           sudo apt-get install -y \
             ffmpeg \
             fonts-dejavu-extra \
@@ -51,22 +78,26 @@ jobs:
             libgl1 \
             libglib2.0-0
 
-      - name: 🎥 Instalar yt-dlp (versão mais recente)
+      - name: 🎥 Instalar yt-dlp nightly (mais atualizado para anti-bot)
         run: |
+          sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/download/nightly/yt-dlp -o /usr/local/bin/yt-dlp 2>/dev/null || \
           sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
           sudo chmod a+rx /usr/local/bin/yt-dlp
           yt-dlp --version
 
-      - name: 📦 Instalar dependências Python
-        run: pip install -r requirements.txt
+      - name: 📦 Instalar dependências Python (incluindo curl-cffi para TLS)
+        run: |
+          pip install -r requirements.txt
+          pip install curl-cffi  # Fingerprint TLS de browser real
 
       - name: 🍪 Configurar Cookies do YouTube
         run: |
           if [ -n "${{ secrets.YOUTUBE_COOKIES }}" ]; then
             echo "${{ secrets.YOUTUBE_COOKIES }}" > cookies.txt
-            echo "✅ Cookies configurados com sucesso!"
+            echo "✅ Cookies configurados!"
+            wc -l cookies.txt
           else
-            echo "⚠️ Secret YOUTUBE_COOKIES não encontrado."
+            echo "⚠️ YOUTUBE_COOKIES não configurado."
           fi
 
       - name: 📁 Criar diretórios necessários

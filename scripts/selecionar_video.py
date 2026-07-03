@@ -17,7 +17,11 @@ import os
 import json
 import subprocess
 import random
+import sys
 from datetime import datetime, timezone
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ytdlp_helper import args_base_ytdlp
 
 ROOT_DIR       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CANAIS_FILE    = os.path.join(ROOT_DIR, "data", "canais.json")
@@ -60,19 +64,12 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 5) -> list:
     url = canal["url"] + "/videos"
     print(f"  🔍 Buscando vídeos de: {canal['nome']} ({url})")
 
-    cmd = [
-        "yt-dlp",
+    cmd = args_base_ytdlp([
         "--flat-playlist",
         "--playlist-end", str(max_videos),
         "--dump-json",
-        "--no-warnings",
         "--quiet",
-        "--extractor-args", "youtube:player_client=android",
-    ]
-    if os.path.exists("cookies.txt"):
-        cmd.extend(["--cookies", "cookies.txt"])
-    
-    cmd.append(url)
+    ]) + [url]
 
     try:
         resultado = subprocess.run(

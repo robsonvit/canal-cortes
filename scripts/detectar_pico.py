@@ -21,6 +21,10 @@ Estratégia:
 import subprocess
 import json
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ytdlp_helper import args_base_ytdlp
 
 # Duração alvo do trecho a recortar (segundos)
 DURACAO_MINIMA_S = 45
@@ -29,28 +33,40 @@ DURACAO_IDEAL_S  = 60   # Ponto médio ideal para Shorts
 
 
 def _obter_metadados(video_url: str) -> dict:
-    """Obtém metadados completos do vídeo via yt-dlp."""
+    """
+    Obtém metadados completos do vídeo via yt-dlp.
+    Usa múltiplas camadas anti-bloqueio (WARP + Deno + curl-cffi + cookies).
+    Tenta 3 estratégias em fallback se a primeira falhar.
+    """
     print(f"  📡 Obtendo metadados do vídeo...")
-    cmd = [
-        "yt-dlp",
-        "--dump-json",
-        "--no-playlist",
-        "--no-warnings",
-        "--quiet",
-        "--extractor-args", "youtube:player_client=android",
+
+    # Estratégias em ordem de confiabilidade
+    estrategias = [
+        # 1. Configuração completa com impersonation
+        args_base_ytdlp(["--dump-json", "--quiet"]) + [video_url],
+        # 2. Sem impersonation (fallback caso curl-cffi não esteja instalado)
+        ["yt-dlp", "--dump-json", "--quiet", "--no-warnings", "--no-playlist",
+         "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
+         video_url],
+        # 3. Modo tv (menos bloqueado em CIs)
+        ["yt-dlp", "--dump-json", "--quiet", "--no-warnings", "--no-playlist",
+         "--extractor-args", "youtube:player_client=tv_downgraded",
+         video_url],
     ]
-    if os.path.exists("cookies.txt"):
-        cmd.extend(["--cookies", "cookies.txt"])
-    
-    cmd.append(video_url)
-    resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
 
-    if resultado.returncode != 0:
-        raise RuntimeError(
-            f"Falha ao obter metadados do vídeo:\n{resultado.stderr[:400]}"
-        )
+    ultimo_erro = ""
+    for i, cmd in enumerate(estrategias, 1):
+        print(f"  🔄 Tentativa {i}/3...")
+        resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=90)
+        if resultado.returncode == 0 and resultado.stdout.strip():
+            print(f"  ✅ Metadados obtidos na tentativa {i}")
+            return json.loads(resultado.stdout)
+        ultimo_erro = resultado.stderr[:300]
+        print(f"  ⚠️  Tentativa {i} falhou: {ultimo_erro[:100]}")
 
-    return json.loads(resultado.stdout)
+    raise RuntimeError(
+        f"Falha ao obter metadados do vídeo (todas as tentativas falharam):\n{ultimo_erro}"
+    )
 
 
 def _janela_deslizante(heatmap: list, duracao_janela: float) -> tuple:

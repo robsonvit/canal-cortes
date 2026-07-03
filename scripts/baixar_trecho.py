@@ -6,12 +6,20 @@ Passo 3 do Pipeline Canal Cortes.
 Baixa apenas o trecho exato do vídeo (do pico de replay)
 usando yt-dlp com --download-sections.
 
-Qualidade: 1080p preferencial, fallback para melhor disponível.
-Formato: MP4 com áudio (necessário para transcrição).
+Técnicas anti-bloqueio aplicadas:
+  - curl-cffi: TLS fingerprint de Chrome real
+  - player_client múltiplo: web > android > tv_downgraded
+  - cookies autenticados (via ytdlp_helper)
+  - Deno para JS challenges (instalado pelo workflow)
+  - 3 tentativas com fallback automático de qualidade
 """
 
 import os
+import sys
 import subprocess
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ytdlp_helper import args_base_ytdlp
 
 ROOT_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
@@ -19,7 +27,7 @@ OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 
 def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str = OUTPUT_DIR) -> str:
     """
-    Baixa o trecho [inicio_s, fim_s] do vídeo.
+    Baixa o trecho [inicio_s, fim_s] do vídeo com múltiplas camadas anti-bloqueio.
 
     Args:
         video_url : URL completa do vídeo do YouTube
@@ -33,80 +41,81 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(os.path.join(output_dir, "tmp"), exist_ok=True)
 
-    trecho_str = f"*{_formatar_tempo(inicio_s)}-{_formatar_tempo(fim_s)}"
+    trecho_str  = f"*{_formatar_tempo(inicio_s)}-{_formatar_tempo(fim_s)}"
     output_path = os.path.join(output_dir, "trecho_original.mp4")
 
     print(f"  ⬇️  Baixando trecho {_formatar_tempo(inicio_s)} → {_formatar_tempo(fim_s)}...")
     print(f"     URL: {video_url}")
 
-    cmd = [
-        "yt-dlp",
-        # Seção específica (evita baixar o vídeo inteiro)
-        "--download-sections", trecho_str,
-
-        # Qualidade: 1080p com áudio, fallback para melhor disponível
-        "-f", "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/best",
-
-        # Força mesclar em MP4
-        "--merge-output-format", "mp4",
-
-        # Caminho de saída
-        "-o", output_path,
-
-        # Sem metadados desnecessários
-        "--no-playlist",
-        "--no-warnings",
-        "--extractor-args", "youtube:player_client=android",
-
-        # Cookies do navegador para evitar bloqueios (se disponível)
-        # "--cookies-from-browser", "chrome",  # Descomente se necessário
+    # ── Estratégias em ordem de qualidade/confiabilidade ─────────────────────
+    tentativas = [
+        {
+            "desc": "1080p + anti-bot completo (WARP + curl-cffi + cookies)",
+            "cmd": args_base_ytdlp([
+                "--download-sections", trecho_str,
+                "-f", "bestvideo[height<=1080]+bestaudio/best[height<=1080]/best",
+                "--merge-output-format", "mp4",
+                "-o", output_path,
+                "--quiet",
+            ]) + [video_url],
+        },
+        {
+            "desc": "Qualidade melhor disponível (sem impersonation)",
+            "cmd": [
+                "yt-dlp",
+                "--download-sections", trecho_str,
+                "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
+                "-f", "best[height<=1080]/best",
+                "--merge-output-format", "mp4",
+                "-o", output_path,
+                "--no-playlist", "--no-warnings", "--quiet",
+                video_url,
+            ],
+        },
+        {
+            "desc": "Fallback absoluto (tv_downgraded, qualquer formato)",
+            "cmd": [
+                "yt-dlp",
+                "--download-sections", trecho_str,
+                "--extractor-args", "youtube:player_client=tv_downgraded",
+                "-f", "best",
+                "--merge-output-format", "mp4",
+                "-o", output_path,
+                "--no-playlist", "--no-warnings", "--quiet",
+                video_url,
+            ],
+        },
     ]
-    if os.path.exists("cookies.txt"):
-        cmd.extend(["--cookies", "cookies.txt"])
-    
-    cmd.append(video_url)
 
-    resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+    for t in tentativas:
+        print(f"  🔄 {t['desc']}...")
+        resultado = subprocess.run(t["cmd"], capture_output=True, text=True, timeout=600)
 
-    if resultado.returncode != 0:
-        # Tenta fallback com qualidade menor
-        print(f"  ⚠️  Falha na qualidade premium. Tentando fallback...")
-        cmd_fallback = [
-            "yt-dlp",
-            "--download-sections", trecho_str,
-            "-f", "best",
-            "--merge-output-format", "mp4",
-            "-o", output_path,
-            "--no-playlist",
-            "--no-warnings",
-            "--extractor-args", "youtube:player_client=android",
-        ]
-        if os.path.exists("cookies.txt"):
-            cmd_fallback.extend(["--cookies", "cookies.txt"])
-            
-        cmd_fallback.append(video_url)
-        resultado2 = subprocess.run(cmd_fallback, capture_output=True, text=True, timeout=300)
-        if resultado2.returncode != 0:
-            raise RuntimeError(
-                f"Falha ao baixar o trecho:\n{resultado.stderr[-400:]}\n{resultado2.stderr[-400:]}"
-            )
+        if resultado.returncode == 0:
+            # Verifica se o arquivo existe (pode ter extensão diferente)
+            arquivo = _encontrar_arquivo(output_path)
+            if arquivo:
+                tamanho_mb = os.path.getsize(arquivo) / (1024 * 1024)
+                print(f"  ✅ Trecho baixado: {arquivo} ({tamanho_mb:.1f} MB)")
+                return arquivo
 
-    # Verifica se o arquivo foi criado
-    if not os.path.exists(output_path):
-        # yt-dlp pode ter adicionado extensão diferente — tenta encontrar
-        for ext in [".mp4", ".mkv", ".webm"]:
-            alt = output_path.replace(".mp4", ext)
-            if os.path.exists(alt):
-                output_path = alt
-                break
-        else:
-            raise FileNotFoundError(
-                f"Arquivo de saída não encontrado em: {output_path}"
-            )
+        print(f"  ⚠️  Falhou: {resultado.stderr[-150:]}")
 
-    tamanho_mb = os.path.getsize(output_path) / (1024 * 1024)
-    print(f"  ✅ Trecho baixado: {output_path} ({tamanho_mb:.1f} MB)")
-    return output_path
+    raise RuntimeError(
+        f"Todas as tentativas de download falharam para: {video_url}\n"
+        f"Último erro: {tentativas[-1]['cmd']}"
+    )
+
+
+def _encontrar_arquivo(output_path: str) -> str | None:
+    """Busca o arquivo gerado mesmo se a extensão for diferente do esperado."""
+    if os.path.exists(output_path):
+        return output_path
+    for ext in [".mp4", ".mkv", ".webm", ".m4v"]:
+        alt = output_path.rsplit(".", 1)[0] + ext
+        if os.path.exists(alt):
+            return alt
+    return None
 
 
 def _formatar_tempo(segundos: float) -> str:
@@ -118,7 +127,6 @@ def _formatar_tempo(segundos: float) -> str:
 
 
 if __name__ == "__main__":
-    import sys
     url      = sys.argv[1] if len(sys.argv) > 1 else "https://www.youtube.com/watch?v=example"
     inicio_s = float(sys.argv[2]) if len(sys.argv) > 2 else 600.0
     fim_s    = float(sys.argv[3]) if len(sys.argv) > 3 else 660.0
