@@ -98,7 +98,8 @@ def baixar_musica(texto_transcricao: str = "") -> str:
     url_escolhida = random.choice(urls)
     
     try:
-        resp = requests.get(url_escolhida, timeout=30, stream=True)
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+        resp = requests.get(url_escolhida, timeout=30, stream=True, headers=headers)
         if resp.status_code == 200:
             with open(musica_path, "wb") as f:
                 for chunk in resp.iter_content(chunk_size=8192):

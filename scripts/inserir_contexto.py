@@ -299,7 +299,7 @@ def inserir_contexto(
 
         resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         if resultado.returncode != 0:
-            print(f"  ⚠️  FFmpeg com overlays falhou. Tentando sem overlays...")
+            print(f"  ⚠️  FFmpeg com overlays falhou:\n{resultado.stderr[-500:]}\n  Tentando sem overlays...")
             # Fallback: só música
             cmd_fallback = [
                 "ffmpeg", "-y",
@@ -312,7 +312,11 @@ def inserir_contexto(
                 "-movflags", "+faststart",
                 output_final,
             ]
-            subprocess.run(cmd_fallback, capture_output=True, timeout=300)
+            res2 = subprocess.run(cmd_fallback, capture_output=True, text=True, timeout=300)
+            if res2.returncode != 0:
+                print(f"  ⚠️  Fallback também falhou:\n{res2.stderr[-500:]}")
+                import shutil
+                shutil.copy(video_base, output_final)
 
     tamanho_mb = os.path.getsize(output_final) / (1024 * 1024)
     print(f"  ✅ Vídeo final com contexto: {output_final} ({tamanho_mb:.1f} MB)")
