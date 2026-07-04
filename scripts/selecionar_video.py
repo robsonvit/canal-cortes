@@ -195,11 +195,35 @@ def selecionar_video() -> dict:
             # else: formato antigo ou esgotado \u2014 ignora
 
     if not todos_candidatos:
-        print("\u26a0\ufe0f  Nenhum v\u00eddeo eleg\u00edvel encontrado. Todos os v\u00eddeos recentes e seus picos j\u00e1 foram processados.")
+        print("⚠️  Nenhum vídeo elegível encontrado. Todos os vídeos recentes e seus picos já foram processados.")
         sys.exit(0)
 
-    # Embaralha para variar canais entre execu\u00e7\u00f5es, pega o primeiro
+    # Lógica de intercalação (alternar canais e vídeos)
+    ultimo_uso_canal = {}
+    ultimo_uso_video = {}
+
+    for vid, info in processados.items():
+        if isinstance(info, dict) and "data_ultimo" in info:
+            dt = datetime.fromisoformat(info["data_ultimo"])
+            c = info.get("canal", "")
+            if c not in ultimo_uso_canal or dt > ultimo_uso_canal[c]:
+                ultimo_uso_canal[c] = dt
+            if vid not in ultimo_uso_video or dt > ultimo_uso_video[vid]:
+                ultimo_uso_video[vid] = dt
+
+    # Data mínima para canais/vídeos nunca usados
+    min_date = datetime.min.replace(tzinfo=timezone.utc)
+
+    def chave_ordenacao(v):
+        t_canal = ultimo_uso_canal.get(v["canal"], min_date)
+        t_video = ultimo_uso_video.get(v["id"], min_date)
+        return (t_canal, t_video)
+
+    # Embaralha para variar empates aleatoriamente
     random.shuffle(todos_candidatos)
+    
+    # Ordena priorizando canais menos recentes e, em seguida, vídeos menos recentes
+    todos_candidatos.sort(key=chave_ordenacao)
     escolhido = todos_candidatos[0]
 
     print(f"\n  🎬 Vídeo selecionado:")
