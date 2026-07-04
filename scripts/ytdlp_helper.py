@@ -84,9 +84,10 @@ def args_download_ytdlp(trecho_str: str, output_path: str, extra: list = None) -
 
     cmd += [
         "--download-sections", trecho_str,
-        # Qualidade: 1080p com áudio, fallback para melhor disponível
-        "-f", "bestvideo[height<=1080]+bestaudio/best[height<=1080]/best",
+        # Qualidade: 1080p com áudio (forçando H.264/AVC para garantir suporte no OpenCV)
+        "-f", "bestvideo[ext=mp4][vcodec^=avc][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080]/best",
         "--merge-output-format", "mp4",
+        "--recode-video", "mp4",  # Garante re-encode para h264 caso não venha nativo
         "-o", output_path,
     ]
 

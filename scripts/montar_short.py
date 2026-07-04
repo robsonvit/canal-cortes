@@ -299,6 +299,10 @@ def _processar_dinamico_cv2_ffmpeg(
             processo.stdin.write(frame_crop.tobytes())
             frame_idx += 1
             
+        if frame_idx == 0:
+            raise RuntimeError("OpenCV falhou ao ler frames do vídeo original (codec não suportado?).")
+
+            
     except BrokenPipeError:
         pass
     except Exception as e:
