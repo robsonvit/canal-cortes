@@ -237,7 +237,7 @@ def inserir_contexto(
             "-stream_loop", "-1",
             "-i", m_in,
             "-filter_complex",
-            "[0:a]volume=1.0[voz];[1:a]volume=0.12[bg];[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]",
+            "[0:a]volume=1.0[voz];[1:a]volume=0.22[bg];[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]",
             "-map", "0:v",
             "-map", "[a]",
             "-c:v", "copy",
@@ -279,7 +279,7 @@ def inserir_contexto(
         # Mix de áudio
         filters.append(
             "[0:a]volume=1.0[voz];"
-            "[1:a]volume=0.12[bg];"
+            "[1:a]volume=0.22[bg];"
             "[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]"
         )
 

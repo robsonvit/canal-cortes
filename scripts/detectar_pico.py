@@ -27,9 +27,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ytdlp_helper import args_base_ytdlp
 
 # Duração alvo do trecho a recortar (segundos)
-DURACAO_MINIMA_S = 45
-DURACAO_MAXIMA_S = 90
-DURACAO_IDEAL_S  = 60   # Ponto médio ideal para Shorts
+DURACAO_MINIMA_S = 40
+DURACAO_MAXIMA_S = 180   # Sem limite rígido de 60s, pode ser até 3 minutos
+DURACAO_IDEAL_S  = 60    # Duração base de fallback
 
 # Espaçamento mínimo entre picos (segundos) — evita picos sobrepostos
 ESPACAMENTO_MIN_S = 120   # 2 minutos de distância mínima
@@ -75,36 +75,71 @@ def _obter_metadados(video_url: str) -> dict:
     )
 
 
-def _pontuar_posicoes(heatmap: list, duracao_total: float, duracao_janela: float) -> list:
+def _encontrar_picos_dinamicos(heatmap: list, duracao_total: float) -> list:
     """
-    Calcula a intensidade acumulada para cada posição de janela possível.
-    Retorna lista de (inicio_s, fim_s, intensidade_media) ordenada por início.
+    Encontra o 'morro' completo de cada pico de interesse.
+    Expande para a esquerda e para a direita a partir do ponto mais quente,
+    enquanto a intensidade for no mínimo 30% do pico.
+    Retorna lista de (inicio_s, fim_s, intensidade) ordenados por intensidade.
     """
+    if not heatmap:
+        return []
+
+    # Encontra picos locais (pontos que são maiores que seus vizinhos)
     heatmap_ord = sorted(heatmap, key=lambda x: x["start_time"])
-    candidatos = []
-
-    for seg in heatmap_ord:
-        inicio_janela = seg["start_time"]
-        fim_janela    = inicio_janela + duracao_janela
-
-        # Não usa janelas que ultrapassem o fim do vídeo
-        if fim_janela > duracao_total + 5:
+    
+    picos_locais = []
+    for i, seg in enumerate(heatmap_ord):
+        val = seg["value"]
+        if val < 0.1: # Ignora ruído baixo
             continue
-
-        fim_janela = min(fim_janela, duracao_total)
-
-        intensidade_acumulada = 0.0
-        n_segs = 0
-        for outro in heatmap_ord:
-            if outro["start_time"] < fim_janela and outro["end_time"] > inicio_janela:
-                sobreposicao = min(outro["end_time"], fim_janela) - max(outro["start_time"], inicio_janela)
-                duracao_seg  = outro["end_time"] - outro["start_time"]
-                peso = sobreposicao / duracao_seg if duracao_seg > 0 else 1.0
-                intensidade_acumulada += outro["value"] * peso
-                n_segs += 1
-
-        intensidade_media = intensidade_acumulada / n_segs if n_segs > 0 else 0.0
-        candidatos.append((inicio_janela, fim_janela, intensidade_media))
+        # Verifica se é pico local
+        esq = heatmap_ord[i-1]["value"] if i > 0 else 0
+        dir = heatmap_ord[i+1]["value"] if i < len(heatmap_ord)-1 else 0
+        if val >= esq and val >= dir:
+            picos_locais.append((i, seg))
+            
+    # Para cada pico local, expande
+    candidatos = []
+    for idx_pico, seg_pico in picos_locais:
+        intensidade_pico = seg_pico["value"]
+        limiar = intensidade_pico * 0.30  # Caiu 70% = acabou o assunto
+        
+        idx_esq = idx_pico
+        while idx_esq > 0 and heatmap_ord[idx_esq - 1]["value"] >= limiar:
+            idx_esq -= 1
+            
+        idx_dir = idx_pico
+        while idx_dir < len(heatmap_ord) - 1 and heatmap_ord[idx_dir + 1]["value"] >= limiar:
+            idx_dir += 1
+            
+        inicio = heatmap_ord[idx_esq]["start_time"]
+        fim    = heatmap_ord[idx_dir]["end_time"]
+        
+        # Garante duração mínima
+        dur = fim - inicio
+        if dur < DURACAO_MINIMA_S:
+            falta = DURACAO_MINIMA_S - dur
+            inicio = max(0, inicio - falta/2)
+            fim    = min(duracao_total, fim + falta/2)
+            
+        # Garante duração máxima
+        dur = fim - inicio
+        if dur > DURACAO_MAXIMA_S:
+            centro = (inicio + fim) / 2
+            inicio = max(0, centro - DURACAO_MAXIMA_S/2)
+            fim    = min(duracao_total, centro + DURACAO_MAXIMA_S/2)
+            
+        # Calcula intensidade média do trecho final
+        soma = 0
+        n = 0
+        for s in heatmap_ord:
+            if s["start_time"] >= inicio and s["end_time"] <= fim:
+                soma += s["value"]
+                n += 1
+                
+        media = soma / n if n > 0 else intensidade_pico
+        candidatos.append((inicio, fim, media))
 
     return candidatos
 
@@ -185,9 +220,9 @@ def detectar_picos(video_url: str, n_max: int = MAX_PICOS, espacamento_min: floa
         return picos
 
     # ── Usa heatmap real do YouTube ───────────────────────────────────────────
-    print(f"  ✅ Heatmap disponível! Calculando múltiplos picos de replay...")
+    print(f"  ✅ Heatmap disponível! Calculando múltiplos picos com duração dinâmica...")
 
-    candidatos = _pontuar_posicoes(heatmap, duracao_total, DURACAO_IDEAL_S)
+    candidatos = _encontrar_picos_dinamicos(heatmap, duracao_total)
     melhores   = _selecionar_picos_com_espacamento(candidatos, n_max, espacamento_min)
 
     resultado = []

@@ -108,16 +108,24 @@ def baixar_musica(texto_transcricao: str = "") -> str:
     except Exception as e:
         print(f"  ⚠️  Falha ao executar yt-dlp: {e}")
 
-    # Fallback: gera silêncio se não conseguir baixar
-    print("  ⚠️  Não foi possível baixar música. Usando silêncio...")
-    subprocess.run([
-        "ffmpeg", "-y", "-f", "lavfi",
-        "-i", "anullsrc=r=44100:cl=stereo",
-        "-t", "120",
-        "-b:a", "128k",
-        musica_path,
-    ], capture_output=True)
-    return musica_path
+    # Fallback 1: Download direto de um MP3 público
+    print("  ⚠️  Não foi possível baixar música via yt-dlp. Baixando MP3 direto de fallback...")
+    fallback_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    try:
+        import urllib.request
+        urllib.request.urlretrieve(fallback_url, musica_path)
+        print("  ✅ Fallback MP3 baixado com sucesso.")
+        return musica_path
+    except Exception as e:
+        print(f"  ⚠️  Fallback MP3 falhou: {e}. Usando silêncio absoluto...")
+        subprocess.run([
+            "ffmpeg", "-y", "-f", "lavfi",
+            "-i", "anullsrc=r=44100:cl=stereo",
+            "-t", "120",
+            "-b:a", "128k",
+            musica_path,
+        ], capture_output=True)
+        return musica_path
 
 
 if __name__ == "__main__":

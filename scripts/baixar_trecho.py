@@ -41,7 +41,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(os.path.join(output_dir, "tmp"), exist_ok=True)
 
-    trecho_str  = f"*{_formatar_tempo(inicio_s)}-{_formatar_tempo(fim_s)}"
+    trecho_str  = f"{_formatar_tempo(inicio_s)}-{_formatar_tempo(fim_s)}"
     output_path = os.path.join(output_dir, "trecho_original.mp4")
 
     print(f"  ⬇️  Baixando trecho {_formatar_tempo(inicio_s)} → {_formatar_tempo(fim_s)}...")
