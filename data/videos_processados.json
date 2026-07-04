@@ -139,5 +139,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "poyJKFrEBuY": {
+    "data_primeiro": "2026-07-04T22:38:13.095380+00:00",
+    "data_ultimo": "2026-07-04T22:38:13.095380+00:00",
+    "titulo": "COVERAGE FAILURE #272: Loose Foot",
+    "canal": "Podpah",
+    "picos_usados": [
+      1654.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
