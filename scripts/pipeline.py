@@ -154,16 +154,24 @@ def main():
     print(f"\n✅ Short final com contexto: {short_final}")
 
     # ──────────────────────────────────────────────────────────────────────────
-    # PASSO 7 — Upload para o YouTube
+    # PASSO 7 — Upload para o YouTube com SEO otimizado por IA
     # ──────────────────────────────────────────────────────────────────────────
-    _titulo(7, 7, "Publicando Short no YouTube...")
+    _titulo(7, 7, "Publicando Short no YouTube com SEO otimizado por IA...")
 
-    # Prepara metadados completos para upload
+    # Prepara metadados completos para upload (inclui temas da IA para SEO)
+    from scripts.inserir_contexto import _extrair_temas as _extrair_temas_seo
+    print("  🧠 Extraindo temas para enriquecer SEO do upload...")
+    try:
+        temas_seo = _extrair_temas_seo(texto_transcricao, OUTPUT_DIR)
+    except Exception:
+        temas_seo = []
+
     dados_upload = {
         **video_info,
         "titulo_video": pico.get("titulo_video", video_info["titulo"]),
         "texto_transcricao": texto_transcricao,
         "pico": pico,
+        "temas": temas_seo,   # 👈 temas da IA para o SEO de tags
     }
 
     if not os.environ.get("YOUTUBE_REFRESH_TOKEN"):

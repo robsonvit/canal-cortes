@@ -4,19 +4,22 @@
       "nome": "Podpah",
       "url": "https://www.youtube.com/@Podpah",
       "handle": "@Podpah",
-      "ativo": true
+      "ativo": true,
+      "playlist_id": "PL-yAhqwwhUFXgymxPPXsxaO369bF0PzKJ"
     },
     {
       "nome": "Flow Podcast",
       "url": "https://www.youtube.com/@flowpodcast",
       "handle": "@flowpodcast",
-      "ativo": true
+      "ativo": true,
+      "playlist_id": "PL-yAhqwwhUFXgymxPPXsxaO369bF0PzKJ"
     },
     {
       "nome": "Achismos TV",
       "url": "https://www.youtube.com/@AchismosTV",
       "handle": "@AchismosTV",
-      "ativo": true
+      "ativo": true,
+      "playlist_id": "COLE_O_ID_DA_PLAYLIST_AQUI"
     }
   ]
 }

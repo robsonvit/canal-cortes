@@ -27,7 +27,10 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLIENT_SECRET_FILE = os.path.join(ROOT_DIR, "client_secret.json")
 TOKEN_OUTPUT_FILE  = os.path.join(ROOT_DIR, "refresh_token_PRIVADO.json")
 
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+SCOPES = [
+    "https://www.googleapis.com/auth/youtube",          # Gerenciar playlists
+    "https://www.googleapis.com/auth/youtube.upload",   # Upload de vídeos
+]
 
 
 def obter_token():
@@ -60,6 +63,9 @@ def obter_token():
     print("  ✅ TOKEN OBTIDO COM SUCESSO!")
     print("═" * 60)
     print(f"\n  Arquivo salvo: {TOKEN_OUTPUT_FILE}")
+    print(f"\n  Scopes autorizados:")
+    print(f"    • youtube        — gerenciar playlists")
+    print(f"    • youtube.upload — fazer upload de vídeos")
     print(f"\n  Agora configure estes secrets no GitHub:")
     print(f"  (Settings → Secrets and variables → Actions → New repository secret)")
     print()
