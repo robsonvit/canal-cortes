@@ -106,5 +106,16 @@
     "picos_usados": [],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "tpIGYXxwlEw": {
+    "data_primeiro": "2026-07-04T01:37:15.361498+00:00",
+    "data_ultimo": "2026-07-04T01:37:15.361498+00:00",
+    "titulo": "LOOKING AT THE HEAVENS: WE ARE SO SMALL - Good morning, Jesus! 172/365 (2026)",
+    "canal": "Inteligência Ltda",
+    "picos_usados": [
+      34.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
