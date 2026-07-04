@@ -229,14 +229,13 @@ def inserir_contexto(
     # ── 3. Monta vídeo final com FFmpeg ──────────────────────────────────────
     print(f"\n  🎬 Montando vídeo final com {len(overlays_prontos)} overlays + música...")
 
-    if not overlays_prontos:
-        # Sem overlays: apenas adiciona música de fundo
-        print("  📻 Sem overlays disponíveis. Adicionando apenas música...")
-        cmd = [
+    def _cmd_so_musica(v_in, m_in, out):
+        """Apenas mescla voz + música sem overlays."""
+        return [
             "ffmpeg", "-y",
-            "-i", video_base,
+            "-i", v_in,
             "-stream_loop", "-1",
-            "-i", musica_path,
+            "-i", m_in,
             "-filter_complex",
             "[0:a]volume=1.0[voz];[1:a]volume=0.12[bg];[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]",
             "-map", "0:v",
@@ -245,46 +244,44 @@ def inserir_contexto(
             "-c:a", "aac",
             "-b:a", "192k",
             "-movflags", "+faststart",
-            output_final,
+            out,
         ]
+
+    if not overlays_prontos:
+        print("  📻 Sem overlays disponíveis. Adicionando apenas música...")
+        cmd = _cmd_so_musica(video_base, musica_path, output_final)
         resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
         if resultado.returncode != 0:
-            # Fallback sem modificações
+            print(f"  ⚠️  Falhou ao misturar música: {resultado.stderr[-200:]}")
             import shutil
             shutil.copy(video_base, output_final)
     else:
-        # Com overlays: usa filter_complex para inserir cada um no momento certo
-        inputs  = ["-i", video_base, "-stream_loop", "-1", "-i", musica_path]
-        filters = []
-        map_v   = "[0:v]"
-
-        for idx, (segundo, clip_path) in enumerate(overlays_prontos):
+        # Com overlays:
+        # Inputs: [0]=video_base, [1]=musica, [2..N]=overlay_clips
+        inputs = ["-i", video_base, "-stream_loop", "-1", "-i", musica_path]
+        for _, clip_path in overlays_prontos:
             inputs += ["-i", clip_path]
-            overlay_label = f"[ov{idx}]"
-            main_label    = f"[main{idx}]" if idx < len(overlays_prontos) - 1 else "[vfinal]"
 
+        # Encadeia overlays: [prev_v][N:v]overlay=...[next_v]
+        # Input 0 é o video_base, Inputs 2+ são os overlays
+        filters = []
+        prev_label = "[0:v]"
+        for idx, (segundo, _) in enumerate(overlays_prontos):
+            next_label = "[vfinal]" if idx == len(overlays_prontos) - 1 else f"[v{idx}]"
             filters.append(
-                f"{map_v}[{idx+2}:v]overlay="
+                f"{prev_label}[{idx + 2}:v]overlay="
                 f"x={OVERLAY_X}:y={OVERLAY_Y}:"
-                f"enable='between(t,{segundo},{segundo+OVERLAY_DUR})'"
-                f"{main_label}"
+                f"enable='between(t,{segundo},{segundo + OVERLAY_DUR})'"
+                f"{next_label}"
             )
-            map_v = main_label
-
-        # Adiciona fade de entrada/saída nos overlays
-        if "[vfinal]" not in "".join(filters):
-            filters[-1] = filters[-1].replace(filters[-1].split("overlay=")[-1].split("]")[-1] + "]", "]")
+            prev_label = next_label
 
         # Mix de áudio
         filters.append(
-            "[0:a]volume=1.0[voz];[1:a]volume=0.12[bg];"
+            "[0:a]volume=1.0[voz];"
+            "[1:a]volume=0.12[bg];"
             "[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]"
         )
-
-        # Reconstrói último filtro com label correto
-        ultima = filters[-2] if len(filters) > 1 else filters[0]
-        if "[vfinal]" not in ultima:
-            filters[-2] = ultima.rsplit("[", 1)[0] + "[vfinal]"
 
         filter_str = ";".join(filters)
 
@@ -306,22 +303,12 @@ def inserir_contexto(
 
         resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         if resultado.returncode != 0:
-            print(f"  ⚠️  FFmpeg com overlays falhou:\n{resultado.stderr[-500:]}\n  Tentando sem overlays...")
-            # Fallback: só música
-            cmd_fallback = [
-                "ffmpeg", "-y",
-                "-i", video_base,
-                "-stream_loop", "-1", "-i", musica_path,
-                "-filter_complex",
-                "[0:a]volume=1.0[voz];[1:a]volume=0.12[bg];[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]",
-                "-map", "0:v", "-map", "[a]",
-                "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
-                "-movflags", "+faststart",
-                output_final,
-            ]
+            print(f"  ⚠️  FFmpeg com overlays falhou. Usando só música como fallback...")
+            print(f"  stderr: {resultado.stderr[-300:]}")
+            cmd_fallback = _cmd_so_musica(video_base, musica_path, output_final)
             res2 = subprocess.run(cmd_fallback, capture_output=True, text=True, timeout=300)
             if res2.returncode != 0:
-                print(f"  ⚠️  Fallback também falhou:\n{res2.stderr[-500:]}")
+                print(f"  ⚠️  Fallback de música também falhou. Copiando vídeo sem música...")
                 import shutil
                 shutil.copy(video_base, output_final)
 
