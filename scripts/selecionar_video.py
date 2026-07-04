@@ -56,7 +56,7 @@ def salvar_processado(video_id: str, dados: dict):
 # ─────────────────────────────────────────────────────────────────────────────
 # Busca de vídeos recentes via yt-dlp
 # ─────────────────────────────────────────────────────────────────────────────
-def _buscar_videos_canal(canal: dict, max_videos: int = 5) -> list:
+def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
     """
     Usa yt-dlp para listar os vídeos mais recentes de um canal.
     Retorna lista de dicts com {id, titulo, duracao, url}.
@@ -145,16 +145,14 @@ def selecionar_video() -> dict:
         print(f"  🎯 Canal forçado via CANAL_URL: {canal_forcado_url}")
 
     for canal in canais_ativos:
-        videos = _buscar_videos_canal(canal, max_videos=5)
+        videos = _buscar_videos_canal(canal, max_videos=20)
         for v in videos:
             if v["id"] not in processados:
                 todos_candidatos.append(v)
 
     if not todos_candidatos:
-        raise RuntimeError(
-            "❌ Nenhum vídeo elegível encontrado. "
-            "Todos os vídeos recentes já foram processados."
-        )
+        print("⚠️  Nenhum vídeo elegível encontrado. Todos os vídeos recentes já foram processados.")
+        sys.exit(0)
 
     # Embaralha para variar canais entre execuções, pega o primeiro
     random.shuffle(todos_candidatos)
