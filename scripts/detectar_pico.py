@@ -3,8 +3,8 @@ detectar_pico.py
 ────────────────
 Passo 2 do Pipeline Canal Cortes.
 
-Extrai o heatmap do YouTube via yt-dlp e encontra o segmento
-com maior intensidade de replay (o trecho mais assistido).
+Extrai o heatmap do YouTube via yt-dlp e encontra os segmentos
+com maior intensidade de replay (os trechos mais assistidos).
 
 O heatmap retornado pelo yt-dlp é uma lista de objetos:
   [{"start_time": 0.0, "end_time": 5.0, "value": 0.3}, ...]
@@ -13,9 +13,9 @@ O heatmap retornado pelo yt-dlp é uma lista de objetos:
 Estratégia:
   1. Obtém metadados completos via yt-dlp --dump-json
   2. Extrai o campo "heatmap"
-  3. Aplica janela deslizante para encontrar segmento contínuo
-     de 45-90 segundos com maior soma de intensidade
-  4. Expande ligeiramente o início para capturar o contexto
+  3. Aplica janela deslizante para pontuação de cada posição
+  4. Seleciona os N melhores picos com espaçamento mínimo entre eles
+  5. Expande ligeiramente o início para capturar o contexto
 """
 
 import subprocess
@@ -30,6 +30,12 @@ from ytdlp_helper import args_base_ytdlp
 DURACAO_MINIMA_S = 45
 DURACAO_MAXIMA_S = 90
 DURACAO_IDEAL_S  = 60   # Ponto médio ideal para Shorts
+
+# Espaçamento mínimo entre picos (segundos) — evita picos sobrepostos
+ESPACAMENTO_MIN_S = 120   # 2 minutos de distância mínima
+
+# Máximo de picos por vídeo
+MAX_PICOS = 6
 
 
 def _obter_metadados(video_url: str) -> dict:
@@ -69,136 +75,152 @@ def _obter_metadados(video_url: str) -> dict:
     )
 
 
-def _janela_deslizante(heatmap: list, duracao_janela: float) -> tuple:
+def _pontuar_posicoes(heatmap: list, duracao_total: float, duracao_janela: float) -> list:
     """
-    Aplica janela deslizante no heatmap para encontrar o intervalo
-    de 'duracao_janela' segundos com maior intensidade acumulada.
-
-    Retorna: (inicio_s, fim_s, intensidade_media)
+    Calcula a intensidade acumulada para cada posição de janela possível.
+    Retorna lista de (inicio_s, fim_s, intensidade_media) ordenada por início.
     """
-    if not heatmap:
-        return None, None, 0.0
-
-    # Ordenar por tempo de início
     heatmap_ord = sorted(heatmap, key=lambda x: x["start_time"])
+    candidatos = []
 
-    melhor_inicio    = heatmap_ord[0]["start_time"]
-    melhor_fim       = melhor_inicio + duracao_janela
-    melhor_intensidade = 0.0
-
-    for i, seg in enumerate(heatmap_ord):
+    for seg in heatmap_ord:
         inicio_janela = seg["start_time"]
         fim_janela    = inicio_janela + duracao_janela
 
-        # Soma a intensidade de todos os segmentos dentro da janela
+        # Não usa janelas que ultrapassem o fim do vídeo
+        if fim_janela > duracao_total + 5:
+            continue
+
+        fim_janela = min(fim_janela, duracao_total)
+
         intensidade_acumulada = 0.0
-        n_segmentos = 0
+        n_segs = 0
         for outro in heatmap_ord:
-            # Verifica sobreposição
             if outro["start_time"] < fim_janela and outro["end_time"] > inicio_janela:
-                # Peso proporcional à sobreposição
                 sobreposicao = min(outro["end_time"], fim_janela) - max(outro["start_time"], inicio_janela)
                 duracao_seg  = outro["end_time"] - outro["start_time"]
                 peso = sobreposicao / duracao_seg if duracao_seg > 0 else 1.0
                 intensidade_acumulada += outro["value"] * peso
-                n_segmentos += 1
+                n_segs += 1
 
-        intensidade_media = intensidade_acumulada / n_segmentos if n_segmentos > 0 else 0.0
+        intensidade_media = intensidade_acumulada / n_segs if n_segs > 0 else 0.0
+        candidatos.append((inicio_janela, fim_janela, intensidade_media))
 
-        if intensidade_media > melhor_intensidade:
-            melhor_intensidade = intensidade_media
-            melhor_inicio      = inicio_janela
-            melhor_fim         = fim_janela
-
-    return melhor_inicio, melhor_fim, melhor_intensidade
+    return candidatos
 
 
-def detectar_pico(video_url: str) -> dict:
+def _selecionar_picos_com_espacamento(candidatos: list, n_max: int, espacamento_min: float) -> list:
     """
-    Detecta o trecho de maior replay no vídeo.
+    Seleciona os N melhores picos garantindo espaçamento mínimo entre eles.
+    Algoritmo greedy: ordena por intensidade, aceita se estiver longe de todos já selecionados.
 
-    Retorna dict com:
-      - inicio_s    : segundo de início do trecho
-      - fim_s       : segundo de fim do trecho
-      - duracao_s   : duração do trecho em segundos
-      - intensidade : intensidade média do pico (0.0-1.0)
-      - heatmap_disponivel : bool (se o YouTube forneceu o heatmap)
+    Returns:
+        Lista de (inicio_s, fim_s, intensidade) dos melhores picos, ordenada por intensidade desc.
+    """
+    # Ordena todos os candidatos por intensidade (maior primeiro)
+    ordenados = sorted(candidatos, key=lambda x: x[2], reverse=True)
+
+    selecionados = []
+    for inicio, fim, intensidade in ordenados:
+        # Verifica se está longe o suficiente de todos os picos já selecionados
+        muito_proximo = any(
+            abs(inicio - p[0]) < espacamento_min
+            for p in selecionados
+        )
+        if not muito_proximo:
+            selecionados.append((inicio, fim, intensidade))
+            if len(selecionados) >= n_max:
+                break
+
+    # Ordena pelo tempo de início para exibição
+    selecionados.sort(key=lambda x: x[2], reverse=True)
+    return selecionados
+
+
+def detectar_picos(video_url: str, n_max: int = MAX_PICOS, espacamento_min: float = ESPACAMENTO_MIN_S) -> list:
+    """
+    Detecta os N maiores picos de replay no vídeo com espaçamento mínimo.
+
+    Args:
+        video_url      : URL do vídeo
+        n_max          : número máximo de picos a retornar
+        espacamento_min: distância mínima em segundos entre picos
+
+    Returns:
+        Lista de dicts ordenada por intensidade (melhor primeiro):
+        [{inicio_s, fim_s, duracao_s, intensidade, rank, heatmap_disponivel, titulo_video}]
     """
     metadados = _obter_metadados(video_url)
 
     titulo        = metadados.get("title", "")
     duracao_total = metadados.get("duration", 0) or 0
-    heatmap       = metadados.get("heatmap") or []   # None → []
+    heatmap       = metadados.get("heatmap") or []
 
     print(f"  🎬 Título : {titulo}")
     print(f"  ⏱️  Duração: {duracao_total/60:.1f} min ({duracao_total}s)")
     print(f"  📊 Heatmap: {len(heatmap)} segmentos disponíveis")
 
-    if heatmap:
-        # ── Usar heatmap real do YouTube ─────────────────────────────────────
-        print(f"  ✅ Heatmap disponível! Calculando pico de replay...")
+    if not heatmap:
+        # ── Fallback sem heatmap: divide o vídeo em partes iguais ─────────────
+        print(f"  ⚠️  Heatmap não disponível. Gerando {n_max} trechos por posição...")
 
-        # Testa diferentes janelas de duração e pega a melhor
-        melhor_resultado = None
-        melhor_score     = 0.0
+        picos = []
+        # Divide o vídeo em segmentos distribuídos (excluindo os 10% iniciais e finais)
+        inicio_util = duracao_total * 0.10
+        fim_util    = duracao_total * 0.90
+        espaco      = (fim_util - inicio_util) / n_max
 
-        for duracao_janela in [DURACAO_MINIMA_S, DURACAO_IDEAL_S, DURACAO_MAXIMA_S]:
-            inicio, fim, intensidade = _janela_deslizante(heatmap, duracao_janela)
-            if intensidade > melhor_score:
-                melhor_score     = intensidade
-                melhor_resultado = (inicio, fim, intensidade, duracao_janela)
+        for i in range(n_max):
+            inicio_s = inicio_util + i * espaco
+            fim_s    = min(inicio_s + DURACAO_IDEAL_S, duracao_total)
+            picos.append({
+                "inicio_s":          round(inicio_s, 1),
+                "fim_s":             round(fim_s, 1),
+                "duracao_s":         round(fim_s - inicio_s, 1),
+                "intensidade":       0.0,
+                "rank":              i + 1,
+                "heatmap_disponivel": False,
+                "titulo_video":      titulo,
+            })
+        return picos
 
-        inicio_s, fim_s, intensidade, dur_janela = melhor_resultado
+    # ── Usa heatmap real do YouTube ───────────────────────────────────────────
+    print(f"  ✅ Heatmap disponível! Calculando múltiplos picos de replay...")
 
-        # Garante que não ultrapassa a duração do vídeo
-        if fim_s > duracao_total:
-            fim_s = duracao_total
-            inicio_s = max(0, fim_s - dur_janela)
+    candidatos = _pontuar_posicoes(heatmap, duracao_total, DURACAO_IDEAL_S)
+    melhores   = _selecionar_picos_com_espacamento(candidatos, n_max, espacamento_min)
 
-        print(f"  🎯 Pico encontrado:")
-        print(f"     Início   : {inicio_s:.1f}s ({inicio_s/60:.1f} min)")
-        print(f"     Fim      : {fim_s:.1f}s ({fim_s/60:.1f} min)")
-        print(f"     Duração  : {fim_s - inicio_s:.1f}s")
-        print(f"     Intensidade: {intensidade:.2%}")
-
-        return {
-            "inicio_s":           round(inicio_s, 1),
-            "fim_s":              round(fim_s, 1),
-            "duracao_s":          round(fim_s - inicio_s, 1),
-            "intensidade":        round(intensidade, 4),
+    resultado = []
+    for rank, (inicio_s, fim_s, intensidade) in enumerate(melhores, 1):
+        resultado.append({
+            "inicio_s":          round(inicio_s, 1),
+            "fim_s":             round(fim_s, 1),
+            "duracao_s":         round(fim_s - inicio_s, 1),
+            "intensidade":       round(intensidade, 4),
+            "rank":              rank,
             "heatmap_disponivel": True,
-            "titulo_video":       titulo,
-        }
+            "titulo_video":      titulo,
+        })
 
-    else:
-        # ── Fallback: sem heatmap, pega o terço médio do vídeo ──────────────
-        print(f"  ⚠️  Heatmap não disponível. Usando fallback (terço médio)...")
+    print(f"  🎯 {len(resultado)} picos encontrados:")
+    for p in resultado:
+        print(f"     Rank {p['rank']}: {p['inicio_s']:.0f}s–{p['fim_s']:.0f}s"
+              f" ({p['inicio_s']/60:.1f}–{p['fim_s']/60:.1f} min)"
+              f" | intensidade {p['intensidade']:.2%}")
 
-        # Podcasts tendem a ter momentos bons no terço médio
-        inicio_s = duracao_total * 0.35
-        fim_s    = inicio_s + DURACAO_IDEAL_S
+    return resultado
 
-        if fim_s > duracao_total:
-            fim_s    = duracao_total
-            inicio_s = max(0, fim_s - DURACAO_IDEAL_S)
 
-        print(f"  📍 Trecho selecionado (fallback):")
-        print(f"     Início  : {inicio_s:.1f}s ({inicio_s/60:.1f} min)")
-        print(f"     Fim     : {fim_s:.1f}s ({fim_s/60:.1f} min)")
-        print(f"     Duração : {fim_s - inicio_s:.1f}s")
-
-        return {
-            "inicio_s":           round(inicio_s, 1),
-            "fim_s":              round(fim_s, 1),
-            "duracao_s":          round(fim_s - inicio_s, 1),
-            "intensidade":        0.0,
-            "heatmap_disponivel": False,
-            "titulo_video":       titulo,
-        }
+def detectar_pico(video_url: str) -> dict:
+    """
+    Wrapper de compatibilidade — retorna apenas o MELHOR pico.
+    Use detectar_picos() para obter todos os picos disponíveis.
+    """
+    picos = detectar_picos(video_url, n_max=1)
+    return picos[0] if picos else {}
 
 
 if __name__ == "__main__":
-    import sys
     url = sys.argv[1] if len(sys.argv) > 1 else "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    resultado = detectar_pico(url)
-    print(json.dumps(resultado, ensure_ascii=False, indent=2))
+    picos = detectar_picos(url)
+    print(json.dumps(picos, ensure_ascii=False, indent=2))

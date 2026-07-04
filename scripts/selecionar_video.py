@@ -40,17 +40,55 @@ def _carregar_processados() -> dict:
     return {}
 
 
-def salvar_processado(video_id: str, dados: dict):
-    """Registra um vídeo como processado."""
+def salvar_processado(video_id: str, dados: dict, pico_inicio_s: float = None, total_picos: int = 1):
+    """
+    Registra um pico de um vídeo como processado.
+
+    - Se o vídeo ainda não existe no tracking, cria entrada.
+    - Adiciona pico_inicio_s à lista de picos_usados.
+    - Marca picos_esgotados=True quando todos os picos do vídeo tiverem sido usados.
+    """
     processados = _carregar_processados()
+    agora = datetime.now(timezone.utc).isoformat()
+
+    entrada = processados.get(video_id, {})
+
+    # Compatibilidade com formato antigo (chave 'data' direta)
+    if "data" in entrada and "picos_usados" not in entrada:
+        # Formato antigo — marca como esgotado
+        entrada = {
+            "data_primeiro":   entrada["data"],
+            "data_ultimo":     agora,
+            "titulo":          entrada.get("titulo", dados.get("titulo", "")),
+            "canal":           entrada.get("canal",  dados.get("canal",  "")),
+            "picos_usados":    [],
+            "total_picos":     0,
+            "picos_esgotados": True,   # Formato antigo: considera esgotado
+        }
+
+    picos_usados = entrada.get("picos_usados", [])
+
+    if pico_inicio_s is not None and pico_inicio_s not in picos_usados:
+        picos_usados.append(pico_inicio_s)
+
+    picos_esgotados = len(picos_usados) >= total_picos
+
     processados[video_id] = {
-        "data": datetime.now(timezone.utc).isoformat(),
-        "titulo": dados.get("titulo", ""),
-        "canal": dados.get("canal", ""),
+        "data_primeiro": entrada.get("data_primeiro", agora),
+        "data_ultimo":   agora,
+        "titulo":        dados.get("titulo", entrada.get("titulo", "")),
+        "canal":         dados.get("canal",  entrada.get("canal",  "")),
+        "picos_usados":  picos_usados,
+        "total_picos":   total_picos,
+        "picos_esgotados": picos_esgotados,
     }
+
     with open(TRACKING_FILE, "w", encoding="utf-8") as f:
         json.dump(processados, f, indent=2, ensure_ascii=False)
-    print(f"  ✅ Vídeo {video_id} registrado como processado.")
+
+    restantes = total_picos - len(picos_usados)
+    status = "esgotado" if picos_esgotados else f"{restantes} pico(s) restante(s)"
+    print(f"  ✅ Vídeo {video_id}: pico {pico_inicio_s}s registrado ({status})")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -147,14 +185,20 @@ def selecionar_video() -> dict:
     for canal in canais_ativos:
         videos = _buscar_videos_canal(canal, max_videos=20)
         for v in videos:
-            if v["id"] not in processados:
+            entrada = processados.get(v["id"])
+            if entrada is None:
+                # V\u00eddeo nunca processado \u2014 totalmente dispon\u00edvel
                 todos_candidatos.append(v)
+            elif isinstance(entrada, dict) and not entrada.get("picos_esgotados", True):
+                # V\u00eddeo j\u00e1 iniciado mas ainda tem picos dispon\u00edveis
+                todos_candidatos.append(v)
+            # else: formato antigo ou esgotado \u2014 ignora
 
     if not todos_candidatos:
-        print("⚠️  Nenhum vídeo elegível encontrado. Todos os vídeos recentes já foram processados.")
+        print("\u26a0\ufe0f  Nenhum v\u00eddeo eleg\u00edvel encontrado. Todos os v\u00eddeos recentes e seus picos j\u00e1 foram processados.")
         sys.exit(0)
 
-    # Embaralha para variar canais entre execuções, pega o primeiro
+    # Embaralha para variar canais entre execu\u00e7\u00f5es, pega o primeiro
     random.shuffle(todos_candidatos)
     escolhido = todos_candidatos[0]
 

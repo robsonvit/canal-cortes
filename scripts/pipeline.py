@@ -52,22 +52,48 @@ def main():
     print(f"   Canal: {video_info['canal']}")
     print(f"   URL  : {video_url}")
 
-    # ──────────────────────────────────────────────────────────────────────────
-    # PASSO 2 — Detectar pico de replay (heatmap)
-    # ──────────────────────────────────────────────────────────────────────────
-    _titulo(2, 7, "Detectando pico de replay via heatmap do YouTube...")
-    from scripts.detectar_pico import detectar_pico
+    # ──────────────────────────────────────────────────────────────────
+    # PASSO 2 — Detectar picos de replay (heatmap)
+    # ──────────────────────────────────────────────────────────────────
+    _titulo(2, 7, "Detectando picos de replay via heatmap do YouTube...")
+    from scripts.detectar_pico import detectar_picos
+    import json as _json
 
-    pico = detectar_pico(video_url)
+    todos_picos = detectar_picos(video_url)
 
-    print(f"\n✅ Pico detectado:")
+    # Descobre quais picos já foram usados para este vídeo
+    tracking_file = os.path.join(ROOT_DIR, "data", "videos_processados.json")
+    try:
+        with open(tracking_file, encoding="utf-8") as _f:
+            _processados = _json.load(_f)
+    except Exception:
+        _processados = {}
+
+    _entrada_video = _processados.get(video_id, {})
+    _picos_ja_usados = _entrada_video.get("picos_usados", []) if isinstance(_entrada_video, dict) else []
+
+    # Filtra picos ainda não utilizados (compara inicio_s)
+    picos_disponiveis = [
+        p for p in todos_picos
+        if p["inicio_s"] not in _picos_ja_usados
+    ]
+
+    if not picos_disponiveis:
+        print(f"\n⚠️  Todos os {len(todos_picos)} picos deste vídeo já foram usados. Encerrando.")
+        sys.exit(0)
+
+    # Usa o melhor pico disponível (já estão ordenados por intensidade)
+    pico = picos_disponiveis[0]
+
+    print(f"\n✅ Pico selecionado (rank {pico['rank']}/{len(todos_picos)}):")
     print(f"   Início  : {pico['inicio_s']:.1f}s ({pico['inicio_s']/60:.1f} min)")
     print(f"   Fim     : {pico['fim_s']:.1f}s ({pico['fim_s']/60:.1f} min)")
     print(f"   Duração : {pico['duracao_s']:.1f}s")
+    print(f"   Picos disponíveis restantes após este: {len(picos_disponiveis) - 1}")
     if pico["heatmap_disponivel"]:
         print(f"   Intensidade: {pico['intensidade']:.2%} (dado real do YouTube)")
     else:
-        print(f"   ⚠️  Heatmap não disponível — usando terço médio do vídeo")
+        print(f"   ⚠️  Heatmap não disponível — usando posição por divisão do vídeo")
 
     # ──────────────────────────────────────────────────────────────────────────
     # PASSO 3 — Baixar apenas o trecho do pico
@@ -149,11 +175,21 @@ def main():
         from scripts.upload_youtube import upload_youtube
         youtube_id = upload_youtube(short_final, dados_upload)
 
-        # Marca vídeo como processado APÓS upload bem-sucedido
-        salvar_processado(video_id, video_info)
+        # Marca o PICO específico como processado (não bloqueia o vídeo inteiro)
+        salvar_processado(
+            video_id,
+            video_info,
+            pico_inicio_s=pico["inicio_s"],
+            total_picos=len(todos_picos),
+        )
 
+        picos_restantes = len(todos_picos) - len(_picos_ja_usados) - 1
         print(f"\n🎉 PIPELINE CONCLUÍDO COM SUCESSO!")
         print(f"   📱 https://www.youtube.com/shorts/{youtube_id}")
+        if picos_restantes > 0:
+            print(f"   ⏳ Ainda há {picos_restantes} pico(s) não usados neste vídeo!")
+        else:
+            print(f"   ✅ Todos os picos deste vídeo foram esgotados.")
 
     # ── Salva metadados do processamento ──────────────────────────────────────
     metadados_path = os.path.join(OUTPUT_DIR, "metadados.json")
