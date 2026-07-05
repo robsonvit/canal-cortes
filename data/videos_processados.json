@@ -205,5 +205,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "BBhuPA08Xys": {
+    "data_primeiro": "2026-07-05T23:21:07.915567+00:00",
+    "data_ultimo": "2026-07-05T23:21:07.915567+00:00",
+    "titulo": "BALELA RESOLVING PAST DIFFERENCES - RANGO BRABO #136",
+    "canal": "Podpah",
+    "picos_usados": [
+      2003.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
