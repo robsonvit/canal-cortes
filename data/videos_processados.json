@@ -172,5 +172,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "EG5mMTuwlK4": {
+    "data_primeiro": "2026-07-05T11:28:40.950919+00:00",
+    "data_ultimo": "2026-07-05T11:28:40.950919+00:00",
+    "titulo": "FALHA DE COBERTURA #270: World Cup risk",
+    "canal": "Podpah",
+    "picos_usados": [
+      746.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
