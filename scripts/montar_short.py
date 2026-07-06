@@ -259,7 +259,7 @@ def _montar_ffmpeg_puro(
         cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
         idx = input_idx
         input_idx += 1
-        filter_complex += f"; [{idx}:a]volume=0.05[a_musica]"
+        filter_complex += f"; [{idx}:a]volume=0.10[a_musica]"
         audio_inputs.append("[a_musica]")
         
     if notificacao:
