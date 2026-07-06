@@ -282,5 +282,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "UOJWIZc6U-Q": {
+    "data_primeiro": "2026-07-06T14:26:06.926339+00:00",
+    "data_ultimo": "2026-07-06T14:26:06.926339+00:00",
+    "titulo": "VALUE is more IMPORTANT than PRICE - Lecture at Flow #01",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "XAZcpT9FGfo": {
+    "data_primeiro": "2026-07-06T14:26:14.598784+00:00",
+    "data_ultimo": "2026-07-06T14:26:14.598784+00:00",
+    "titulo": "GARIMPANDO ROUPAS USADAS EM NY: VALE A PENA? | #MEIOAMEIO #40",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "AAos_BExwHk": {
+    "data_primeiro": "2026-07-06T14:26:20.940885+00:00",
+    "data_ultimo": "2026-07-06T14:26:20.940885+00:00",
+    "titulo": "COVERAGE FAIL #281: Brazil vs. Extraterrestrials",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "vzzGh-0K_GY": {
+    "data_primeiro": "2026-07-06T14:26:27.020291+00:00",
+    "data_ultimo": "2026-07-06T14:26:27.020291+00:00",
+    "titulo": "CEO of CNN Brazil - João Vitor Xavier",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "xW91vK3y32Y": {
+    "data_primeiro": "2026-07-06T14:28:55.687286+00:00",
+    "data_ultimo": "2026-07-06T14:28:55.687286+00:00",
+    "titulo": "PROVAMOS AS COMIDAS VIRAIS EM NOVA YORK | #MEIOAMEIO #39",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      411.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
