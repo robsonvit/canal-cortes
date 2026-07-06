@@ -100,9 +100,6 @@ jobs:
         run: |
           mkdir -p output/clips output/tmp data assets/musicas
 
-      - name: 🎵 Baixar músicas de retenção
-        run: python scripts/baixar_audios.py
-
       - name: 🎬 Executar pipeline de cortes
         run: python scripts/pipeline.py
 
