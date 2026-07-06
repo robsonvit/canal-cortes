@@ -43,3 +43,8 @@ log_latest.txt
 # Música de fundo cacheada localmente
 assets/musicas/
 data/bg_music.mp3
+
+# Ignorar backups e audios pesados
+assets/audios/
+deu certo*/
+output_test/

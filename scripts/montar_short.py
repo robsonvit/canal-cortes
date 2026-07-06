@@ -21,6 +21,8 @@ import os
 import re
 import json
 import subprocess
+import random
+import glob
 
 ROOT_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
@@ -128,7 +130,27 @@ def _montar_ffmpeg_puro(
 
     srt_escaped = _escape_srt_path(srt_path)
 
-    vf = (
+    # --- Configuração dos Áudios Extras ---
+    musicas_dir = os.path.join(ROOT_DIR, "assets", "audios", "musicas")
+    efeitos_dir = os.path.join(ROOT_DIR, "assets", "audios", "efeitos")
+    
+    musica_escolhida = None
+    notificacao = None
+    
+    if os.path.exists(musicas_dir):
+        lista_musicas = glob.glob(os.path.join(musicas_dir, "*.mp3"))
+        if lista_musicas:
+            musica_escolhida = random.choice(lista_musicas)
+            
+    if os.path.exists(efeitos_dir):
+        lista_efeitos = glob.glob(os.path.join(efeitos_dir, "*.mp3"))
+        if lista_efeitos:
+            notificacao = random.choice(lista_efeitos)
+            
+    print(f"  🎵 Música escolhida: {os.path.basename(musica_escolhida) if musica_escolhida else 'Nenhuma'}")
+    print(f"  🔔 Notificação: {os.path.basename(notificacao) if notificacao else 'Nenhuma'}")
+
+    vf_base = (
         f"crop={crop_w}:{crop_h}:{x_off}:{y_off},"
         f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
         f"pad={SHORT_W}:{SHORT_H}:(ow-iw)/2:(oh-ih)/2:black,"
@@ -137,10 +159,39 @@ def _montar_ffmpeg_puro(
         f"subtitles='{srt_escaped}':force_style='{subtitle_style}'"
     )
 
-    cmd = [
-        "ffmpeg", "-y",
-        "-i", video_path,
-        "-vf", vf,
+    cmd = ["ffmpeg", "-y", "-i", video_path]
+    
+    audio_inputs = ["[0:a]"]
+    filter_complex = f"[0:v]{vf_base}[vout]"
+    
+    # Se houver música, adiciona em loop (stream_loop -1 precisa vir antes do -i)
+    if musica_escolhida:
+        cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
+        idx = len(audio_inputs)
+        filter_complex += f"; [{idx}:a]volume=0.15[a_musica]"
+        audio_inputs.append("[a_musica]")
+        
+    if notificacao:
+        cmd.extend(["-i", notificacao])
+        idx = len(audio_inputs) - 1 if not musica_escolhida else len(audio_inputs)
+        filter_complex += f"; [{idx}:a]volume=0.8[a_notif]"
+        audio_inputs.append("[a_notif]")
+
+    if len(audio_inputs) > 1:
+        inputs_str = "".join(audio_inputs)
+        num_inputs = len(audio_inputs)
+        filter_complex += f"; {inputs_str}amix=inputs={num_inputs}:duration=first:dropout_transition=2[aout]"
+        cmd.extend([
+            "-filter_complex", filter_complex,
+            "-map", "[vout]",
+            "-map", "[aout]"
+        ])
+    else:
+        cmd.extend([
+            "-vf", vf_base,
+        ])
+
+    cmd.extend([
         "-c:v", "libx264",
         "-preset", "fast",
         "-crf", "22",
@@ -149,7 +200,7 @@ def _montar_ffmpeg_puro(
         "-b:a", "192k",
         "-movflags", "+faststart",
         output_path,
-    ]
+    ])
 
     print(f"  🎬 Executando FFmpeg para montagem 9:16...")
     resultado = subprocess.run(cmd, capture_output=True, text=True)
