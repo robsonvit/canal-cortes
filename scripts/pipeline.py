@@ -39,27 +39,41 @@ def main():
     print("═" * 65)
 
     # ──────────────────────────────────────────────────────────────────────────
-    # PASSO 1 — Selecionar vídeo de podcast para cortar
+    # PASSO 1 & 2 — Selecionar vídeo e detectar picos (com trava anti-membros)
     # ──────────────────────────────────────────────────────────────────────────
-    _titulo(1, 7, "Selecionando vídeo de podcast para cortar...")
+    _titulo(1, 7, "Selecionando vídeo de podcast para cortar e detectando picos...")
     from scripts.selecionar_video import selecionar_video, salvar_processado
-
-    video_info = selecionar_video()
-    video_url  = video_info["url"]
-    video_id   = video_info["id"]
-
-    print(f"\n✅ Vídeo selecionado: {video_info['titulo']}")
-    print(f"   Canal: {video_info['canal']}")
-    print(f"   URL  : {video_url}")
-
-    # ──────────────────────────────────────────────────────────────────
-    # PASSO 2 — Detectar picos de replay (heatmap)
-    # ──────────────────────────────────────────────────────────────────
-    _titulo(2, 7, "Detectando picos de replay via heatmap do YouTube...")
     from scripts.detectar_pico import detectar_picos
     import json as _json
 
-    todos_picos = detectar_picos(video_url)
+    video_info = None
+    todos_picos = None
+
+    for tentativa in range(5):
+        video_info = selecionar_video()
+        video_url  = video_info["url"]
+        video_id   = video_info["id"]
+
+        print(f"\n✅ Vídeo selecionado: {video_info['titulo']}")
+        print(f"   Canal: {video_info['canal']}")
+        print(f"   URL  : {video_url}")
+
+        print("\n  📡 Tentando detectar picos de replay via heatmap do YouTube...")
+        try:
+            todos_picos = detectar_picos(video_url)
+            break  # Sucesso!
+        except Exception as e:
+            msg = str(e).lower()
+            if "members-only" in msg or "private video" in msg or "members only" in msg:
+                print(f"  ⚠️  Vídeo restrito (Members Only/Privado) detectado!")
+            else:
+                print(f"  ⚠️  Falha ao acessar vídeo: {e}")
+            print(f"  🔄 Marcando vídeo como esgotado e tentando o próximo (Tentativa {tentativa+1}/5)...")
+            # Marca com pico_inicio_s negativo e total 0 para esgotá-lo
+            salvar_processado(video_id, video_info, pico_inicio_s=-1.0, total_picos=0)
+    else:
+        print("\n❌ ERRO CRÍTICO: Não foi possível encontrar um vídeo acessível após 5 tentativas.")
+        sys.exit(1)
 
     # Descobre quais picos já foram usados para este vídeo
     tracking_file = os.path.join(ROOT_DIR, "data", "videos_processados.json")
