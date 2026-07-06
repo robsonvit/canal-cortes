@@ -260,5 +260,27 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "5BHpSHrWjto": {
+    "data_primeiro": "2026-07-06T05:35:17.510987+00:00",
+    "data_ultimo": "2026-07-06T05:35:17.510987+00:00",
+    "titulo": "ESQUENTA COPA DO MUNDO EM NY: MELHORES MOMENTOS DA VIAGEM PRO TEXAS | #MEIOAMEIO #38",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "2syC0ivrDx0": {
+    "data_primeiro": "2026-07-06T05:37:46.907571+00:00",
+    "data_ultimo": "2026-07-06T05:37:46.907571+00:00",
+    "titulo": "With all my belongings in Belém",
+    "canal": "Podpah",
+    "picos_usados": [
+      706.7
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
