@@ -150,19 +150,14 @@ def main():
     print(f"\n✅ Short base pronto: {short_base}")
 
     # ──────────────────────────────────────────────────────────────────────────
-    # PASSO 6 — Inserir contexto visual 1:1 + música de atenção
+    # PASSO 6 — Inserir contexto visual 1:1 (Pexels + Groq AI)
     # ──────────────────────────────────────────────────────────────────────────
-    _titulo(6, 7, "Inserindo contexto visual 1:1 (Pexels + Groq AI) e música...")
-    from scripts.baixar_musica import baixar_musica
+    _titulo(6, 7, "Inserindo contexto visual 1:1 (Pexels + Groq AI)...")
     from scripts.inserir_contexto import inserir_contexto
-
-    musica_path = baixar_musica(texto_transcricao)
-    print(f"  🎵 Música: {musica_path}")
 
     short_final = inserir_contexto(
         video_base=short_base,
         texto_transcricao=texto_transcricao,
-        musica_path=musica_path,
         output_dir=OUTPUT_DIR,
     )
     print(f"\n✅ Short final com contexto: {short_final}")

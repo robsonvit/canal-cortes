@@ -176,16 +176,14 @@ def _criar_overlay_quadrado(img_path: str, output_path: str, duracao: float):
 def inserir_contexto(
     video_base: str,
     texto_transcricao: str,
-    musica_path: str,
     output_dir: str = OUTPUT_DIR,
 ) -> str:
     """
-    Adiciona inserções 1:1 contextuais e música de fundo ao Short.
+    Adiciona inserções 1:1 contextuais ao Short (mantém o áudio intacto).
 
     Args:
-        video_base          : caminho do short_base.mp4 (9:16 com legendas)
+        video_base          : caminho do short_base.mp4 (9:16 com legendas e música)
         texto_transcricao   : texto completo da transcrição
-        musica_path         : caminho da música de atenção
         output_dir          : pasta de saída
 
     Returns:
@@ -227,61 +225,32 @@ def inserir_contexto(
             print(f"     ⚠️  Falha ao criar overlay para '{tema_pt}'")
 
     # ── 3. Monta vídeo final com FFmpeg ──────────────────────────────────────
-    print(f"\n  🎬 Montando vídeo final com {len(overlays_prontos)} overlays + música...")
+    print(f"\n  🎬 Montando vídeo final com {len(overlays_prontos)} overlays...")
 
-    def _cmd_so_musica(v_in, m_in, out):
-        """Apenas mescla voz + música sem overlays."""
-        return [
-            "ffmpeg", "-y",
-            "-i", v_in,
-            "-stream_loop", "-1",
-            "-i", m_in,
-            "-filter_complex",
-            "[0:a]volume=1.0[voz];[1:a]volume=0.22[bg];[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]",
-            "-map", "0:v",
-            "-map", "[a]",
-            "-c:v", "copy",
-            "-c:a", "aac",
-            "-b:a", "192k",
-            "-movflags", "+faststart",
-            out,
-        ]
-
+    import shutil
     if not overlays_prontos:
-        print("  📻 Sem overlays disponíveis. Adicionando apenas música...")
-        cmd = _cmd_so_musica(video_base, musica_path, output_final)
-        resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
-        if resultado.returncode != 0:
-            print(f"  ⚠️  Falhou ao misturar música: {resultado.stderr[-200:]}")
-            import shutil
-            shutil.copy(video_base, output_final)
+        print("  📻 Sem overlays disponíveis. Copiando vídeo intacto...")
+        shutil.copy(video_base, output_final)
     else:
         # Com overlays:
-        # Inputs: [0]=video_base, [1]=musica, [2..N]=overlay_clips
-        inputs = ["-i", video_base, "-stream_loop", "-1", "-i", musica_path]
+        # Input 0 é o video_base, Inputs 1..N são os overlays
+        inputs = ["-i", video_base]
         for _, clip_path in overlays_prontos:
             inputs += ["-i", clip_path]
 
         # Encadeia overlays: [prev_v][N:v]overlay=...[next_v]
-        # Input 0 é o video_base, Inputs 2+ são os overlays
+        # Input 0 é o video_base, Inputs 1+ são os overlays
         filters = []
         prev_label = "[0:v]"
         for idx, (segundo, _) in enumerate(overlays_prontos):
             next_label = "[vfinal]" if idx == len(overlays_prontos) - 1 else f"[v{idx}]"
             filters.append(
-                f"{prev_label}[{idx + 2}:v]overlay="
+                f"{prev_label}[{idx + 1}:v]overlay="
                 f"x={OVERLAY_X}:y={OVERLAY_Y}:"
                 f"enable='between(t,{segundo},{segundo + OVERLAY_DUR})'"
                 f"{next_label}"
             )
             prev_label = next_label
-
-        # Mix de áudio
-        filters.append(
-            "[0:a]volume=1.0[voz];"
-            "[1:a]volume=0.22[bg];"
-            "[voz][bg]amix=inputs=2:duration=first:dropout_transition=2[a]"
-        )
 
         filter_str = ";".join(filters)
 
@@ -290,27 +259,21 @@ def inserir_contexto(
         ] + inputs + [
             "-filter_complex", filter_str,
             "-map", "[vfinal]",
-            "-map", "[a]",
+            "-map", "0:a",
             "-c:v", "libx264",
             "-preset", "fast",
             "-crf", "22",
             "-pix_fmt", "yuv420p",
-            "-c:a", "aac",
-            "-b:a", "192k",
+            "-c:a", "copy",
             "-movflags", "+faststart",
             output_final,
         ]
 
         resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         if resultado.returncode != 0:
-            print(f"  ⚠️  FFmpeg com overlays falhou. Usando só música como fallback...")
+            print(f"  ⚠️  FFmpeg com overlays falhou. Copiando vídeo original...")
             print(f"  stderr: {resultado.stderr[-300:]}")
-            cmd_fallback = _cmd_so_musica(video_base, musica_path, output_final)
-            res2 = subprocess.run(cmd_fallback, capture_output=True, text=True, timeout=300)
-            if res2.returncode != 0:
-                print(f"  ⚠️  Fallback de música também falhou. Copiando vídeo sem música...")
-                import shutil
-                shutil.copy(video_base, output_final)
+            shutil.copy(video_base, output_final)
 
     tamanho_mb = os.path.getsize(output_final) / (1024 * 1024)
     print(f"  ✅ Vídeo final com contexto: {output_final} ({tamanho_mb:.1f} MB)")
@@ -321,5 +284,4 @@ if __name__ == "__main__":
     import sys
     video   = sys.argv[1] if len(sys.argv) > 1 else "output/short_base.mp4"
     texto   = sys.argv[2] if len(sys.argv) > 2 else "Teste de contexto visual com IA"
-    musica  = sys.argv[3] if len(sys.argv) > 3 else "assets/musicas/musica_atencao.mp3"
-    inserir_contexto(video, texto, musica)
+    inserir_contexto(video, texto)
