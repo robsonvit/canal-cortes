@@ -66,6 +66,8 @@ def main():
             msg = str(e).lower()
             if "members-only" in msg or "private video" in msg or "members only" in msg:
                 print(f"  ⚠️  Vídeo restrito (Members Only/Privado) detectado!")
+            elif "heatmap" in msg or "mapa de calor" in msg:
+                print(f"  ⚠️  Vídeo descartado por não possuir mapa de calor (sem dados de retenção)!")
             else:
                 print(f"  ⚠️  Falha ao acessar vídeo: {e}")
             print(f"  🔄 Marcando vídeo como esgotado e tentando o próximo (Tentativa {tentativa+1}/5)...")

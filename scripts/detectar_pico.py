@@ -196,28 +196,7 @@ def detectar_picos(video_url: str, n_max: int = MAX_PICOS, espacamento_min: floa
     print(f"  📊 Heatmap: {len(heatmap)} segmentos disponíveis")
 
     if not heatmap:
-        # ── Fallback sem heatmap: divide o vídeo em partes iguais ─────────────
-        print(f"  ⚠️  Heatmap não disponível. Gerando {n_max} trechos por posição...")
-
-        picos = []
-        # Divide o vídeo em segmentos distribuídos (excluindo os 10% iniciais e finais)
-        inicio_util = duracao_total * 0.10
-        fim_util    = duracao_total * 0.90
-        espaco      = (fim_util - inicio_util) / n_max
-
-        for i in range(n_max):
-            inicio_s = inicio_util + i * espaco
-            fim_s    = min(inicio_s + DURACAO_IDEAL_S, duracao_total)
-            picos.append({
-                "inicio_s":          round(inicio_s, 1),
-                "fim_s":             round(fim_s, 1),
-                "duracao_s":         round(fim_s - inicio_s, 1),
-                "intensidade":       0.0,
-                "rank":              i + 1,
-                "heatmap_disponivel": False,
-                "titulo_video":      titulo,
-            })
-        return picos
+        raise ValueError("Sem mapa de calor (heatmap). O vídeo não possui dados de retenção do YouTube.")
 
     # ── Usa heatmap real do YouTube ───────────────────────────────────────────
     print(f"  ✅ Heatmap disponível! Calculando múltiplos picos com duração dinâmica...")
