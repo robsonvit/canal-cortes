@@ -31,7 +31,7 @@ PEXELS_KEY    = os.environ.get("PEXELS_API_KEY", "")
 
 # Tamanho do overlay 1:1 (quadrado) em pixels na tela 9:16
 OVERLAY_SIZE  = 800   # Aumentado para 800px para ficar em destaque no centro
-OVERLAY_DUR   = 3.5   # Duração de cada inserção em segundos
+OVERLAY_DUR   = 2.45  # Duração de cada inserção em segundos (reduzido em 30%)
 # Posição do overlay: centro exato do vídeo
 OVERLAY_X     = f"{(1080 - OVERLAY_SIZE) // 2}"
 OVERLAY_Y     = f"{(1920 - OVERLAY_SIZE) // 2}"

@@ -174,13 +174,14 @@ def _montar_ffmpeg_puro(
     if notificacao:
         cmd.extend(["-i", notificacao])
         idx = len(audio_inputs) - 1 if not musica_escolhida else len(audio_inputs)
-        filter_complex += f"; [{idx}:a]volume=0.8[a_notif]"
+        # silenceremove arranca qualquer micro-atraso invisível típico do formato mp3, colando o som no frame zero
+        filter_complex += f"; [{idx}:a]silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB,volume=1.5[a_notif]"
         audio_inputs.append("[a_notif]")
 
     if len(audio_inputs) > 1:
         inputs_str = "".join(audio_inputs)
         num_inputs = len(audio_inputs)
-        filter_complex += f"; {inputs_str}amix=inputs={num_inputs}:duration=first:dropout_transition=2[aout]"
+        filter_complex += f"; {inputs_str}amix=inputs={num_inputs}:duration=first:dropout_transition=0[aout]"
         cmd.extend([
             "-filter_complex", filter_complex,
             "-map", "[vout]",
