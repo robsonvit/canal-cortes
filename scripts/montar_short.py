@@ -152,6 +152,12 @@ def _rastrear_rosto_opencv(video_path: str, output_path: str, original_w: int, o
     cap.release()
     out.release()
     
+    # Proteção: se o OpenCV falhou em ler (ex: codec não suportado tipo AV1),
+    # o arquivo terá poucos bytes (apenas o cabeçalho). Voltamos pro modo estático.
+    if os.path.getsize(output_path) < 1000:
+        print("  ⚠️  OpenCV falhou ao processar os frames (possível formato AV1 não suportado). Usando corte estático.")
+        return None
+    
     return output_path
 
 
@@ -237,16 +243,20 @@ def _montar_ffmpeg_puro(
         audio_inputs = ["[0:a]"]
         filter_complex = f"[0:v]{vf_base}[vout]"
     
+    input_idx = 2 if tracked_video_path else 1
+    
     # Se houver música, adiciona em loop (stream_loop -1 precisa vir antes do -i)
     if musica_escolhida:
         cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
-        idx = len(audio_inputs)
+        idx = input_idx
+        input_idx += 1
         filter_complex += f"; [{idx}:a]volume=0.15[a_musica]"
         audio_inputs.append("[a_musica]")
         
     if notificacao:
         cmd.extend(["-i", notificacao])
-        idx = len(audio_inputs) - 1 if not musica_escolhida else len(audio_inputs)
+        idx = input_idx
+        input_idx += 1
         # silenceremove arranca qualquer micro-atraso invisível típico do formato mp3, colando o som no frame zero
         filter_complex += f"; [{idx}:a]silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB,volume=1.5[a_notif]"
         audio_inputs.append("[a_notif]")
