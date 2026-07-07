@@ -381,5 +381,38 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "WuqRirznE_8": {
+    "data_primeiro": "2026-07-07T23:10:55.681966+00:00",
+    "data_ultimo": "2026-07-07T23:10:55.681966+00:00",
+    "titulo": "The PARADOX of ARTIFICIAL INTELLIGENCE - Lecture at Flow #03",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "ccDxK-PvmTg": {
+    "data_primeiro": "2026-07-07T23:11:03.568495+00:00",
+    "data_ultimo": "2026-07-07T23:11:03.568495+00:00",
+    "titulo": "PERDEMOS A COPA DO MUNDO (ESSE VÍDEO FOI AMALDIÇOADO) | #3CONTINENTES #127",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "kZnO7eYsr8w": {
+    "data_primeiro": "2026-07-07T23:13:41.011593+00:00",
+    "data_ultimo": "2026-07-07T23:13:41.011593+00:00",
+    "titulo": "COVERAGE FAIL #273: We’ve Got a Team to Fear Everyone",
+    "canal": "Podpah",
+    "picos_usados": [
+      1398.3
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
