@@ -447,5 +447,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "5EQ8l9Dfahg": {
+    "data_primeiro": "2026-07-08T20:54:12.412319+00:00",
+    "data_ultimo": "2026-07-08T20:54:12.412319+00:00",
+    "titulo": "FILIPE RET and IGOR in an ADULT CHAT",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      1580.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
