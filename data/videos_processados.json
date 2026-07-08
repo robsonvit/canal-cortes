@@ -425,5 +425,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "TeW9-qaWPbI": {
+    "data_primeiro": "2026-07-08T18:08:58.570387+00:00",
+    "data_ultimo": "2026-07-08T18:08:58.570387+00:00",
+    "titulo": "O QUE NINGUÉM TE CONTA SOBRE O TRABALHO FUNERÁRIO | #VIDAREAL #26",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "wuctIlqZ8c0": {
+    "data_primeiro": "2026-07-08T18:15:34.737691+00:00",
+    "data_ultimo": "2026-07-08T18:15:34.737691+00:00",
+    "titulo": "COVERAGE FAIL #274: Messi vs. CR7 vs. Modric, Battle of the Old-Timers",
+    "canal": "Podpah",
+    "picos_usados": [
+      1028.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
