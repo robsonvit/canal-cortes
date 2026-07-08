@@ -6,6 +6,15 @@ Orquestrador principal do Canal Cortes.
 Pipeline de 7 passos para criar Shorts automáticos a partir dos
 momentos mais assistidos de podcasts no YouTube.
 
+Passos:
+  1+2. Seleciona vídeo e detecta picos via heatmap do YouTube
+  2.5. Ajusta pontos de corte semanticamente via transcrição Groq Whisper
+  3.   Baixa o trecho exato (com A/V sync normalizado)
+  4.   Transcreve áudio com Groq Whisper (legendas SRT)
+  5.   Monta Short 9:16 com face tracking
+  6.   Insere contexto visual 1:1 (Pexels + IA)
+  7.   Publica no YouTube com SEO por IA
+
 Uso:
     python scripts/pipeline.py
     CANAL_URL=https://www.youtube.com/@Podpah/videos python scripts/pipeline.py
@@ -112,15 +121,39 @@ def main():
         print(f"   ⚠️  Heatmap não disponível — usando posição por divisão do vídeo")
 
     # ──────────────────────────────────────────────────────────────────────────
-    # PASSO 3 — Baixar apenas o trecho do pico
+    # PASSO 2.5 — Ajustar pontos de corte semanticamente via transcrição
     # ──────────────────────────────────────────────────────────────────────────
-    _titulo(3, 7, "Baixando trecho do pico de replay via yt-dlp...")
+    _titulo(3, 7, "Ajustando corte semanticamente (transcrição Groq Whisper)...")
+    from scripts.ajustar_corte_semantico import ajustar_corte_semantico
+
+    inicio_s_raw = pico["inicio_s"]
+    fim_s_raw    = pico["fim_s"]
+
+    inicio_s_final, fim_s_final = ajustar_corte_semantico(
+        video_url,
+        inicio_s=inicio_s_raw,
+        fim_s=fim_s_raw,
+        output_dir=OUTPUT_DIR,
+    )
+
+    # Log do delta de ajuste
+    delta_ini = inicio_s_final - inicio_s_raw
+    delta_fim = fim_s_final - fim_s_raw
+    print(f"\n✅ Ajuste semântico concluído:")
+    print(f"   Início : {inicio_s_raw:.1f}s → {inicio_s_final:.1f}s  (Δ {delta_ini:+.1f}s)")
+    print(f"   Fim    : {fim_s_raw:.1f}s → {fim_s_final:.1f}s  (Δ {delta_fim:+.1f}s)")
+    print(f"   Duração: {fim_s_final - inicio_s_final:.1f}s")
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # PASSO 3 — Baixar apenas o trecho do pico (tempos semanticamente ajustados)
+    # ──────────────────────────────────────────────────────────────────────────
+    _titulo(4, 7, "Baixando trecho (pontos de corte semanticamente ajustados)...")
     from scripts.baixar_trecho import baixar_trecho
 
     video_path = baixar_trecho(
         video_url,
-        inicio_s=pico["inicio_s"],
-        fim_s=pico["fim_s"],
+        inicio_s=inicio_s_final,
+        fim_s=fim_s_final,
         output_dir=OUTPUT_DIR,
     )
     print(f"\n✅ Trecho baixado: {video_path}")
@@ -128,7 +161,7 @@ def main():
     # ──────────────────────────────────────────────────────────────────────────
     # PASSO 4 — Transcrever áudio com Groq Whisper
     # ──────────────────────────────────────────────────────────────────────────
-    _titulo(4, 7, "Transcrevendo áudio com Groq Whisper (whisper-large-v3-turbo)...")
+    _titulo(5, 7, "Transcrevendo áudio com Groq Whisper (whisper-large-v3-turbo)...")
     from scripts.transcrever import transcrever
 
     texto_transcricao, srt_path = transcrever(video_path, OUTPUT_DIR)
@@ -141,7 +174,7 @@ def main():
     # ──────────────────────────────────────────────────────────────────────────
     # PASSO 5 — Montar Short 9:16 com face tracking
     # ──────────────────────────────────────────────────────────────────────────
-    _titulo(5, 7, "Montando Short 9:16 com face tracking (MediaPipe)...")
+    _titulo(6, 7, "Montando Short 9:16 com face tracking (MediaPipe)...")
     from scripts.montar_short import montar_short
 
     short_base = montar_short(
@@ -154,7 +187,7 @@ def main():
     # ──────────────────────────────────────────────────────────────────────────
     # PASSO 6 — Inserir contexto visual 1:1 (Pexels + Groq AI)
     # ──────────────────────────────────────────────────────────────────────────
-    _titulo(6, 7, "Inserindo contexto visual 1:1 (Pexels + Groq AI)...")
+    _titulo(7, 7, "Inserindo contexto visual 1:1 (Pexels + Groq AI)...")
     from scripts.inserir_contexto import inserir_contexto
 
     short_final = inserir_contexto(
