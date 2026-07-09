@@ -480,5 +480,38 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "DQCEqeHSX7k": {
+    "data_primeiro": "2026-07-09T20:51:22.992522+00:00",
+    "data_ultimo": "2026-07-09T20:51:22.992522+00:00",
+    "titulo": "AYRTON SENNA WOULD BE SURPRISED",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Q4V9Jkt08og": {
+    "data_primeiro": "2026-07-09T20:51:30.029820+00:00",
+    "data_ultimo": "2026-07-09T20:51:30.029820+00:00",
+    "titulo": "O LADO SOMBRIO QUE NINGUÉM TE CONTA SOBRE O IRÃ | #ACHISMOS PODCAST #422",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Tep_k3YED4w": {
+    "data_primeiro": "2026-07-09T20:56:42.471745+00:00",
+    "data_ultimo": "2026-07-09T20:56:42.471745+00:00",
+    "titulo": "ZANOLINI vs 5 WOMEN ft. THIMAGRO & NATHAN PEREIRA - Podpaquera #32",
+    "canal": "Podpah",
+    "picos_usados": [
+      735.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
