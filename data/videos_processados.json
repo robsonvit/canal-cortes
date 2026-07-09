@@ -513,5 +513,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "_y_r28Mr2eI": {
+    "data_primeiro": "2026-07-09T23:10:40.184997+00:00",
+    "data_ultimo": "2026-07-09T23:10:40.184997+00:00",
+    "titulo": "INSIDER CO-FOUNDER - Yuri Gricheno",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "x5vwF6xNIuA": {
+    "data_primeiro": "2026-07-09T23:10:48.188402+00:00",
+    "data_ultimo": "2026-07-09T23:10:48.188402+00:00",
+    "titulo": "COLÔMBIA X FRANÇA: ESSE FOI O QUEM SOU EU MAIS CONFUSO DO CANAL | #3CONTINENTES #126",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "NTHhJe8CXqk": {
+    "data_primeiro": "2026-07-09T23:10:56.961314+00:00",
+    "data_ultimo": "2026-07-09T23:10:56.961314+00:00",
+    "titulo": "FALHA DE COBERTURA #280: Cristiano Ronaldo is a Company",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "qfMR0sHGyAM": {
+    "data_primeiro": "2026-07-09T23:11:05.079967+00:00",
+    "data_ultimo": "2026-07-09T23:11:05.079967+00:00",
+    "titulo": "CEO and CO-FOUNDER OF CAJU - Eduardo Del Giglio",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "PnnitEn7ROw": {
+    "data_primeiro": "2026-07-09T23:11:13.936459+00:00",
+    "data_ultimo": "2026-07-09T23:11:13.936459+00:00",
+    "titulo": "RESOLVENDO TRETAS: O ENCONTRO COM GREGÓRIO DUVIVIER | #VARANDAGOURMET #64",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
