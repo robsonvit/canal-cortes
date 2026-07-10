@@ -612,5 +612,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "tOnOB6aYOyk": {
+    "data_primeiro": "2026-07-10T23:11:03.619721+00:00",
+    "data_ultimo": "2026-07-10T23:11:03.619721+00:00",
+    "titulo": "Something went wrong with the tire on the red Mercedes.",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "pPdwJCuCxn8": {
+    "data_primeiro": "2026-07-10T23:11:09.662920+00:00",
+    "data_ultimo": "2026-07-10T23:11:09.662920+00:00",
+    "titulo": "PROVAMOS AS COMIDAS VIRAIS EM NOVA YORK (PARTE 2) | #MEIOAMEIO #41",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "2pImyz5E2hg": {
+    "data_primeiro": "2026-07-10T23:11:15.728981+00:00",
+    "data_ultimo": "2026-07-10T23:11:15.728981+00:00",
+    "titulo": "MC LIVINHO HAD NO CLUE WHAT WAS GOING ON IN THIS SHOW - RANGO BRABO #137",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "o-u6wDe1x5w": {
+    "data_primeiro": "2026-07-10T23:11:23.301068+00:00",
+    "data_ultimo": "2026-07-10T23:11:23.301068+00:00",
+    "titulo": "backstage of the recording with Anitta",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "p6L-Aykkur4": {
+    "data_primeiro": "2026-07-10T23:14:03.987756+00:00",
+    "data_ultimo": "2026-07-10T23:14:03.987756+00:00",
+    "titulo": "A VERDADE SOBRE O PARAGUAI QUE OS AMERICANOS NÃO CONHECEM | #3CONTINENTES #123",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      2891.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
