@@ -711,5 +711,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "w6w6cCnWAag": {
+    "data_primeiro": "2026-07-11T23:10:44.856625+00:00",
+    "data_ultimo": "2026-07-11T23:10:44.856625+00:00",
+    "titulo": "Innovations beyond Artificial Intelligence - Lecture at Flow #02",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "sN_-fN1E_XU": {
+    "data_primeiro": "2026-07-11T23:14:40.469637+00:00",
+    "data_ultimo": "2026-07-11T23:14:40.469637+00:00",
+    "titulo": "QUANTO O RENATO CARIANI TEM (DECLARADO) NA CONTA? ft. IGORFINA | VARANDA GOURMET #63",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      448.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
