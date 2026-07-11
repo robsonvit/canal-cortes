@@ -689,5 +689,27 @@
     ],
     "total_picos": 4,
     "picos_esgotados": false
+  },
+  "ddZLtHmMV0Q": {
+    "data_primeiro": "2026-07-11T20:50:59.960721+00:00",
+    "data_ultimo": "2026-07-11T20:50:59.960721+00:00",
+    "titulo": "ONDE COMER BEM E BARATO NO CENTRO DE SÃO PAULO ft. Gabi Paveloski | Pensão Completa | #VIDAREAL #25",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "40eFkmCn8JQ": {
+    "data_primeiro": "2026-07-11T20:53:39.769044+00:00",
+    "data_ultimo": "2026-07-11T20:53:39.769044+00:00",
+    "titulo": "COVERAGE FAIL #271: Liters of Goals Project",
+    "canal": "Podpah",
+    "picos_usados": [
+      1600.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
