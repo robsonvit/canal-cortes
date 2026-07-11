@@ -667,5 +667,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "xd2e0lgQmxw": {
+    "data_primeiro": "2026-07-11T14:25:34.773807+00:00",
+    "data_ultimo": "2026-07-11T14:25:34.773807+00:00",
+    "titulo": "MC MENO K vs 5 WOMEN ft. MAUMAU, MC RICK & GORDÃO DA OUTLET - Podpaquera #33",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "OEe4gOjFdSg": {
+    "data_primeiro": "2026-07-11T14:30:27.703788+00:00",
+    "data_ultimo": "2026-07-11T14:30:27.703788+00:00",
+    "titulo": "Was Fusion better?",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      354.1
+    ],
+    "total_picos": 4,
+    "picos_esgotados": false
   }
 }
