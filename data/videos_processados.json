@@ -153,11 +153,12 @@
   },
   "-TARjg1liFI": {
     "data_primeiro": "2026-07-04T23:41:05.131452+00:00",
-    "data_ultimo": "2026-07-04T23:41:05.131452+00:00",
+    "data_ultimo": "2026-07-12T14:29:58.371863+00:00",
     "titulo": "IGOR 3K CALLED OUT TCAR",
     "canal": "Flow Podcast",
     "picos_usados": [
-      371.0
+      371.0,
+      665.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -733,5 +734,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "y3hJektWjDc": {
+    "data_primeiro": "2026-07-12T14:25:42.707403+00:00",
+    "data_ultimo": "2026-07-12T14:25:42.707403+00:00",
+    "titulo": "FALHA DE COBERTURA #284: The Spectacle of Struggle",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
