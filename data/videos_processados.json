@@ -768,5 +768,27 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "kME4IJvRjXM": {
+    "data_primeiro": "2026-07-12T23:10:31.776443+00:00",
+    "data_ultimo": "2026-07-12T23:10:31.776443+00:00",
+    "titulo": "QUANTO VALE A PERMUTA PRO CORTELLA? ft. IGORFINA | #VARANDAGOURMET #65",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Tae3dJ39cY8": {
+    "data_primeiro": "2026-07-12T23:15:12.404323+00:00",
+    "data_ultimo": "2026-07-12T23:15:12.404323+00:00",
+    "titulo": "COVERAGE FAILURE #277: Soft Feet in Mzoleira's Hands",
+    "canal": "Podpah",
+    "picos_usados": [
+      333.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
