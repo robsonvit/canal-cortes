@@ -221,14 +221,15 @@
   },
   "HVDvpPG69v4": {
     "data_primeiro": "2026-07-06T04:23:54.117038+00:00",
-    "data_ultimo": "2026-07-06T04:23:54.117038+00:00",
+    "data_ultimo": "2026-07-13T14:26:26.963539+00:00",
     "titulo": "I changed my torn tire.",
     "canal": "Flow Podcast",
     "picos_usados": [
-      46.9
+      46.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "f3N6Okd-rTA": {
     "data_primeiro": "2026-07-06T04:34:56.779003+00:00",
@@ -787,6 +788,17 @@
     "canal": "Podpah",
     "picos_usados": [
       333.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
+  },
+  "gnxXWMBHkPA": {
+    "data_primeiro": "2026-07-13T14:32:20.742866+00:00",
+    "data_ultimo": "2026-07-13T14:32:20.742866+00:00",
+    "titulo": "COLÔMBIA X ALEMANHA: HOJE VAI TER 7X1 MAS NÃO PODE CHORAR | #3CONTINENTES #125",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      916.0
     ],
     "total_picos": 6,
     "picos_esgotados": false
