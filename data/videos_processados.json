@@ -142,24 +142,22 @@
   },
   "poyJKFrEBuY": {
     "data_primeiro": "2026-07-04T22:38:13.095380+00:00",
-    "data_ultimo": "2026-07-13T20:56:03.310676+00:00",
+    "data_ultimo": "2026-07-04T22:38:13.095380+00:00",
     "titulo": "COVERAGE FAILURE #272: Loose Foot",
     "canal": "Podpah",
     "picos_usados": [
-      1654.8,
-      1019.3
+      1654.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
   },
   "-TARjg1liFI": {
     "data_primeiro": "2026-07-04T23:41:05.131452+00:00",
-    "data_ultimo": "2026-07-12T14:29:58.371863+00:00",
+    "data_ultimo": "2026-07-04T23:41:05.131452+00:00",
     "titulo": "IGOR 3K CALLED OUT TCAR",
     "canal": "Flow Podcast",
     "picos_usados": [
-      371.0,
-      665.5
+      371.0
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -188,12 +186,11 @@
   },
   "E0SBKgfpeLg": {
     "data_primeiro": "2026-07-05T14:31:05.329916+00:00",
-    "data_ultimo": "2026-07-12T20:53:23.580910+00:00",
+    "data_ultimo": "2026-07-05T14:31:05.329916+00:00",
     "titulo": "IGOR DRIVES THE STAFF'S CARS",
     "canal": "Flow Podcast",
     "picos_usados": [
-      677.6,
-      922.8
+      677.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -222,15 +219,14 @@
   },
   "HVDvpPG69v4": {
     "data_primeiro": "2026-07-06T04:23:54.117038+00:00",
-    "data_ultimo": "2026-07-13T14:26:26.963539+00:00",
+    "data_ultimo": "2026-07-06T04:23:54.117038+00:00",
     "titulo": "I changed my torn tire.",
     "canal": "Flow Podcast",
     "picos_usados": [
-      46.9,
-      -1.0
+      46.9
     ],
-    "total_picos": 0,
-    "picos_esgotados": true
+    "total_picos": 6,
+    "picos_esgotados": false
   },
   "f3N6Okd-rTA": {
     "data_primeiro": "2026-07-06T04:34:56.779003+00:00",
@@ -245,15 +241,14 @@
   },
   "TSAtCdPmMAg": {
     "data_primeiro": "2026-07-06T05:17:33.034704+00:00",
-    "data_ultimo": "2026-07-14T14:25:35.503592+00:00",
+    "data_ultimo": "2026-07-06T05:17:33.034704+00:00",
     "titulo": "COVERAGE FAILURE #276: Neymar Reinvented",
     "canal": "Podpah",
     "picos_usados": [
-      478.1,
-      -1.0
+      478.1
     ],
-    "total_picos": 0,
-    "picos_esgotados": true
+    "total_picos": 6,
+    "picos_esgotados": false
   },
   "gSzTnVdXOnU": {
     "data_primeiro": "2026-07-06T05:26:16.869876+00:00",
@@ -345,12 +340,11 @@
   },
   "H0I1_Dfs90I": {
     "data_primeiro": "2026-07-06T23:13:44.858686+00:00",
-    "data_ultimo": "2026-07-14T23:20:16.075053+00:00",
+    "data_ultimo": "2026-07-06T23:13:44.858686+00:00",
     "titulo": "THE MOST SHAMELESS EPISODE WITH NEGOT AND BIEL - Rango Brabo #137",
     "canal": "Podpah",
     "picos_usados": [
-      2240.8,
-      683.1
+      2240.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -423,407 +417,19 @@
   },
   "LUVJbPRaGbY": {
     "data_primeiro": "2026-07-08T14:27:33.692472+00:00",
-    "data_ultimo": "2026-07-13T23:13:23.585574+00:00",
+    "data_ultimo": "2026-07-08T14:27:33.692472+00:00",
     "titulo": "MORE THAN 100 RARE CARS",
     "canal": "Flow Podcast",
     "picos_usados": [
-      702.8,
-      408.1
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "TeW9-qaWPbI": {
-    "data_primeiro": "2026-07-08T18:08:58.570387+00:00",
-    "data_ultimo": "2026-07-08T18:08:58.570387+00:00",
-    "titulo": "O QUE NINGUÉM TE CONTA SOBRE O TRABALHO FUNERÁRIO | #VIDAREAL #26",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "wuctIlqZ8c0": {
-    "data_primeiro": "2026-07-08T18:15:34.737691+00:00",
-    "data_ultimo": "2026-07-08T18:15:34.737691+00:00",
-    "titulo": "COVERAGE FAIL #274: Messi vs. CR7 vs. Modric, Battle of the Old-Timers",
-    "canal": "Podpah",
-    "picos_usados": [
-      1028.8
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "5EQ8l9Dfahg": {
-    "data_primeiro": "2026-07-08T20:54:12.412319+00:00",
-    "data_ultimo": "2026-07-14T14:28:33.223819+00:00",
-    "titulo": "FILIPE RET and IGOR in an ADULT CHAT",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      1580.8,
-      1098.9
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "OtLkYq-hP1Q": {
-    "data_primeiro": "2026-07-08T23:16:19.758477+00:00",
-    "data_ultimo": "2026-07-08T23:16:19.758477+00:00",
-    "titulo": "VAMOS DESCOBRIR O QUE É UM CANCELAMENTO EM ANGOLA HOJE | ESPECIAL ANGOLA #EP11 | #3CONTINENTES",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      284.7
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "hE4lDPXmtjg": {
-    "data_primeiro": "2026-07-09T14:30:12.236636+00:00",
-    "data_ultimo": "2026-07-09T14:30:12.236636+00:00",
-    "titulo": "COVERAGE FAILURE #275: Let’s Plan the BBQ for Later",
-    "canal": "Podpah",
-    "picos_usados": [
-      611.5
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "DQCEqeHSX7k": {
-    "data_primeiro": "2026-07-09T20:51:22.992522+00:00",
-    "data_ultimo": "2026-07-09T20:51:22.992522+00:00",
-    "titulo": "AYRTON SENNA WOULD BE SURPRISED",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "Q4V9Jkt08og": {
-    "data_primeiro": "2026-07-09T20:51:30.029820+00:00",
-    "data_ultimo": "2026-07-09T20:51:30.029820+00:00",
-    "titulo": "O LADO SOMBRIO QUE NINGUÉM TE CONTA SOBRE O IRÃ | #ACHISMOS PODCAST #422",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "Tep_k3YED4w": {
-    "data_primeiro": "2026-07-09T20:56:42.471745+00:00",
-    "data_ultimo": "2026-07-09T20:56:42.471745+00:00",
-    "titulo": "ZANOLINI vs 5 WOMEN ft. THIMAGRO & NATHAN PEREIRA - Podpaquera #32",
-    "canal": "Podpah",
-    "picos_usados": [
-      735.4
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "_y_r28Mr2eI": {
-    "data_primeiro": "2026-07-09T23:10:40.184997+00:00",
-    "data_ultimo": "2026-07-09T23:10:40.184997+00:00",
-    "titulo": "INSIDER CO-FOUNDER - Yuri Gricheno",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "x5vwF6xNIuA": {
-    "data_primeiro": "2026-07-09T23:10:48.188402+00:00",
-    "data_ultimo": "2026-07-09T23:10:48.188402+00:00",
-    "titulo": "COLÔMBIA X FRANÇA: ESSE FOI O QUEM SOU EU MAIS CONFUSO DO CANAL | #3CONTINENTES #126",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "NTHhJe8CXqk": {
-    "data_primeiro": "2026-07-09T23:10:56.961314+00:00",
-    "data_ultimo": "2026-07-09T23:10:56.961314+00:00",
-    "titulo": "FALHA DE COBERTURA #280: Cristiano Ronaldo is a Company",
-    "canal": "Podpah",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "qfMR0sHGyAM": {
-    "data_primeiro": "2026-07-09T23:11:05.079967+00:00",
-    "data_ultimo": "2026-07-09T23:11:05.079967+00:00",
-    "titulo": "CEO and CO-FOUNDER OF CAJU - Eduardo Del Giglio",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "PnnitEn7ROw": {
-    "data_primeiro": "2026-07-09T23:11:13.936459+00:00",
-    "data_ultimo": "2026-07-09T23:11:13.936459+00:00",
-    "titulo": "RESOLVENDO TRETAS: O ENCONTRO COM GREGÓRIO DUVIVIER | #VARANDAGOURMET #64",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "mjBeyEtw79Q": {
-    "data_primeiro": "2026-07-10T14:25:32.299288+00:00",
-    "data_ultimo": "2026-07-10T14:25:32.299288+00:00",
-    "titulo": "FALHA DE COBERTURA #282: Too Late Goal",
-    "canal": "Podpah",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "pO7bmdk1e0Q": {
-    "data_primeiro": "2026-07-10T14:25:40.193962+00:00",
-    "data_ultimo": "2026-07-10T14:25:40.193962+00:00",
-    "titulo": "DELOREAN with a FERRARI ENGINE",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "0cPDp09EruA": {
-    "data_primeiro": "2026-07-10T14:30:38.259018+00:00",
-    "data_ultimo": "2026-07-10T14:30:38.259018+00:00",
-    "titulo": "COMO LIDAR COM O AUTISMO NA VIDA ADULTA | #ACHISMOS PODCAST #422",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      1522.0
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "rNis2nSctYc": {
-    "data_primeiro": "2026-07-10T20:55:35.171551+00:00",
-    "data_ultimo": "2026-07-10T20:55:35.171551+00:00",
-    "titulo": "MATHEUS THEODORO vs 5 WOMEN ft. MEIA BRASILEIRA AND PEDRO - PODPAQUERA #31",
-    "canal": "Podpah",
-    "picos_usados": [
-      1243.8
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "tOnOB6aYOyk": {
-    "data_primeiro": "2026-07-10T23:11:03.619721+00:00",
-    "data_ultimo": "2026-07-10T23:11:03.619721+00:00",
-    "titulo": "Something went wrong with the tire on the red Mercedes.",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "pPdwJCuCxn8": {
-    "data_primeiro": "2026-07-10T23:11:09.662920+00:00",
-    "data_ultimo": "2026-07-10T23:11:09.662920+00:00",
-    "titulo": "PROVAMOS AS COMIDAS VIRAIS EM NOVA YORK (PARTE 2) | #MEIOAMEIO #41",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "2pImyz5E2hg": {
-    "data_primeiro": "2026-07-10T23:11:15.728981+00:00",
-    "data_ultimo": "2026-07-10T23:11:15.728981+00:00",
-    "titulo": "MC LIVINHO HAD NO CLUE WHAT WAS GOING ON IN THIS SHOW - RANGO BRABO #137",
-    "canal": "Podpah",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "o-u6wDe1x5w": {
-    "data_primeiro": "2026-07-10T23:11:23.301068+00:00",
-    "data_ultimo": "2026-07-10T23:11:23.301068+00:00",
-    "titulo": "backstage of the recording with Anitta",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "p6L-Aykkur4": {
-    "data_primeiro": "2026-07-10T23:14:03.987756+00:00",
-    "data_ultimo": "2026-07-10T23:14:03.987756+00:00",
-    "titulo": "A VERDADE SOBRE O PARAGUAI QUE OS AMERICANOS NÃO CONHECEM | #3CONTINENTES #123",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      2891.2
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "xd2e0lgQmxw": {
-    "data_primeiro": "2026-07-11T14:25:34.773807+00:00",
-    "data_ultimo": "2026-07-11T14:25:34.773807+00:00",
-    "titulo": "MC MENO K vs 5 WOMEN ft. MAUMAU, MC RICK & GORDÃO DA OUTLET - Podpaquera #33",
-    "canal": "Podpah",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "OEe4gOjFdSg": {
-    "data_primeiro": "2026-07-11T14:30:27.703788+00:00",
-    "data_ultimo": "2026-07-15T14:30:09.307701+00:00",
-    "titulo": "Was Fusion better?",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      354.1,
-      74.6
-    ],
-    "total_picos": 4,
-    "picos_esgotados": false
-  },
-  "ddZLtHmMV0Q": {
-    "data_primeiro": "2026-07-11T20:50:59.960721+00:00",
-    "data_ultimo": "2026-07-11T20:50:59.960721+00:00",
-    "titulo": "ONDE COMER BEM E BARATO NO CENTRO DE SÃO PAULO ft. Gabi Paveloski | Pensão Completa | #VIDAREAL #25",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "40eFkmCn8JQ": {
-    "data_primeiro": "2026-07-11T20:53:39.769044+00:00",
-    "data_ultimo": "2026-07-11T20:53:39.769044+00:00",
-    "titulo": "COVERAGE FAIL #271: Liters of Goals Project",
-    "canal": "Podpah",
-    "picos_usados": [
-      1600.5
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "w6w6cCnWAag": {
-    "data_primeiro": "2026-07-11T23:10:44.856625+00:00",
-    "data_ultimo": "2026-07-11T23:10:44.856625+00:00",
-    "titulo": "Innovations beyond Artificial Intelligence - Lecture at Flow #02",
-    "canal": "Flow Podcast",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "sN_-fN1E_XU": {
-    "data_primeiro": "2026-07-11T23:14:40.469637+00:00",
-    "data_ultimo": "2026-07-11T23:14:40.469637+00:00",
-    "titulo": "QUANTO O RENATO CARIANI TEM (DECLARADO) NA CONTA? ft. IGORFINA | VARANDA GOURMET #63",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      448.0
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "y3hJektWjDc": {
-    "data_primeiro": "2026-07-12T14:25:42.707403+00:00",
-    "data_ultimo": "2026-07-12T14:25:42.707403+00:00",
-    "titulo": "FALHA DE COBERTURA #284: The Spectacle of Struggle",
-    "canal": "Podpah",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "4Oxr8bXtwFI": {
-    "data_primeiro": "2026-07-12T20:50:52.405208+00:00",
-    "data_ultimo": "2026-07-12T20:50:52.405208+00:00",
-    "titulo": "FRACASSOS E HUMILHAÇÃO: HOJE TEVE TERAPIA EM GRUPO NESSE CANAL | #3CONTINENTES #128",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "A_X283T1ypA": {
-    "data_primeiro": "2026-07-12T20:50:59.396097+00:00",
-    "data_ultimo": "2026-07-12T20:50:59.396097+00:00",
-    "titulo": "FAILING COVERAGE #283: Messi Is Worse Than a Grasshopper",
-    "canal": "Podpah",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "kME4IJvRjXM": {
-    "data_primeiro": "2026-07-12T23:10:31.776443+00:00",
-    "data_ultimo": "2026-07-12T23:10:31.776443+00:00",
-    "titulo": "QUANTO VALE A PERMUTA PRO CORTELLA? ft. IGORFINA | #VARANDAGOURMET #65",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "Tae3dJ39cY8": {
-    "data_primeiro": "2026-07-12T23:15:12.404323+00:00",
-    "data_ultimo": "2026-07-12T23:15:12.404323+00:00",
-    "titulo": "COVERAGE FAILURE #277: Soft Feet in Mzoleira's Hands",
-    "canal": "Podpah",
-    "picos_usados": [
-      333.5
-    ],
-    "total_picos": 6,
-    "picos_esgotados": false
-  },
-  "gnxXWMBHkPA": {
-    "data_primeiro": "2026-07-13T14:32:20.742866+00:00",
-    "data_ultimo": "2026-07-13T14:32:20.742866+00:00",
-    "titulo": "COLÔMBIA X ALEMANHA: HOJE VAI TER 7X1 MAS NÃO PODE CHORAR | #3CONTINENTES #125",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      916.0
+      702.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
   },
   "zw5XEvJqVxc": {
-    "data_primeiro": "2026-07-14T14:25:26.986586+00:00",
-    "data_ultimo": "2026-07-14T14:25:26.986586+00:00",
-    "titulo": "QUAL O LADO PSICOLÓGICO DE UM CRIME? FT. JU CASSINI | #ACHISMOS PODCAST #423",
-    "canal": "Achismos TV",
-    "picos_usados": [
-      -1.0
-    ],
-    "total_picos": 0,
-    "picos_esgotados": true
-  },
-  "9i69XPtwq9g": {
-    "data_primeiro": "2026-07-14T20:51:29.694261+00:00",
-    "data_ultimo": "2026-07-14T20:51:29.694261+00:00",
-    "titulo": "#FAQ #69 | AS PERGUNTAS QUE NINGUÉM TEVE CORAGEM DE FAZER AO LORD VINHETEIRO | #3CONTINENTES",
+    "data_primeiro": "2026-07-15T14:53:13.459210+00:00",
+    "data_ultimo": "2026-07-15T14:53:13.459210+00:00",
+    "titulo": "FASCÍNIO POR HISTÓRIAS DE SERIAL KILLERS EXISTE? FT. JU CASSINI | #ACHISMOS PODCAST #423",
     "canal": "Achismos TV",
     "picos_usados": [
       -1.0

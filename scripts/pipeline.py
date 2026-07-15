@@ -25,6 +25,13 @@ import sys
 import json
 import traceback
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+import traceback
+
 ROOT_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 sys.path.insert(0, ROOT_DIR)

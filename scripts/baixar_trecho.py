@@ -32,35 +32,28 @@ OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str = OUTPUT_DIR) -> str:
     """
     Baixa o trecho [inicio_s, fim_s] do vídeo com múltiplas camadas anti-bloqueio.
-
-    Args:
-        video_url : URL completa do vídeo do YouTube
-        inicio_s  : segundo de início do trecho
-        fim_s     : segundo de fim do trecho
-        output_dir: pasta de saída
-
-    Returns:
-        Caminho do arquivo MP4 baixado e com timestamps normalizados.
+    Utiliza uma margem de segurança de 10s antes do clipe e corta exato com ffmpeg
+    para garantir 0 delay de áudio/vídeo.
     """
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(os.path.join(output_dir, "tmp"), exist_ok=True)
 
-    trecho_str  = f"*{_formatar_tempo(inicio_s)}-{_formatar_tempo(fim_s)}"
-    output_path = os.path.join(output_dir, "trecho_original.mp4")
+    MARGEM_S = 10.0
+    inicio_dl = max(0.0, inicio_s - MARGEM_S)
+    trim_s = inicio_s - inicio_dl
 
-    print(f"  ⬇️  Baixando trecho {_formatar_tempo(inicio_s)} → {_formatar_tempo(fim_s)}...")
+    trecho_str  = f"*{_formatar_tempo(inicio_dl)}-{_formatar_tempo(fim_s)}"
+    output_path = os.path.join(output_dir, "tmp", "_raw_download.mp4")
+    final_path = os.path.join(output_dir, "trecho_original.mp4")
+
+    print(f"  ⬇️  Baixando trecho (com margem) {_formatar_tempo(inicio_dl)} → {_formatar_tempo(fim_s)}...")
     print(f"     URL: {video_url}")
 
-    # ── Estratégias em ordem de qualidade/confiabilidade ─────────────────────
-    # NOTA: Removido --downloader-args "ffmpeg:-async 1" de todas as tentativas.
-    # O -async 1 causava audio stretching. A sincronização é feita pelo passo
-    # _sincronizar_timestamps() após o download, que é mais robusto.
     tentativas = [
         {
             "desc": "1080p + anti-bot completo (WARP + curl-cffi + cookies)",
             "cmd": args_base_ytdlp([
                 "--download-sections", trecho_str,
-                "--force-keyframes-at-cuts",
                 "-f", "bestvideo[height<=1080]+bestaudio/best[height<=1080]/best",
                 "--merge-output-format", "mp4",
                 "-o", output_path,
@@ -72,7 +65,6 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
-                "--force-keyframes-at-cuts",
                 "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
                 "-f", "best[height<=1080]/best",
                 "--merge-output-format", "mp4",
@@ -86,7 +78,6 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
-                "--force-keyframes-at-cuts",
                 "--extractor-args", "youtube:player_client=tv_downgraded",
                 "-f", "best",
                 "--merge-output-format", "mp4",
@@ -99,15 +90,41 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
 
     for t in tentativas:
         print(f"  🔄 {t['desc']}...")
+        # Remove arquivo temp se existir de tentativa anterior
+        if os.path.exists(output_path):
+            os.remove(output_path)
+            
         resultado = subprocess.run(t["cmd"], capture_output=True, text=True, timeout=600)
 
         if resultado.returncode == 0:
-            # Verifica se o arquivo existe (pode ter extensão diferente)
             arquivo = _encontrar_arquivo(output_path)
             if arquivo:
                 tamanho_mb = os.path.getsize(arquivo) / (1024 * 1024)
-                print(f"  ✅ Trecho baixado: {arquivo} ({tamanho_mb:.1f} MB)")
-                return arquivo
+                print(f"  ✅ Trecho cru baixado: {arquivo} ({tamanho_mb:.1f} MB)")
+                
+                # Executa o corte exato removendo a margem e recodificando
+                cmd_trim = [
+                    "ffmpeg", "-y",
+                    "-i", arquivo,
+                    "-ss", str(trim_s),
+                    "-c:v", "libx264",
+                    "-preset", "fast",
+                    "-crf", "18",
+                    "-c:a", "aac",
+                    "-b:a", "192k",
+                    "-avoid_negative_ts", "make_zero",
+                    final_path
+                ]
+                print(f"  ✂️  Aparando {trim_s:.1f}s iniciais com recodificação para zerar delay...")
+                res_trim = subprocess.run(cmd_trim, capture_output=True, text=True)
+                if res_trim.returncode == 0 and os.path.exists(final_path):
+                    t_mb = os.path.getsize(final_path) / (1024 * 1024)
+                    print(f"  ✅ Corte exato concluído: {final_path} ({t_mb:.1f} MB)")
+                    return final_path
+                else:
+                    print(f"  ⚠️  Falha ao aparar trecho: {res_trim.stderr[-200:]}")
+                    # Retorna o arquivo bruto em caso de falha extrema
+                    return arquivo
 
         print(f"  ⚠️  Falhou: {resultado.stderr[-150:]}")
 
