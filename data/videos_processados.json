@@ -514,5 +514,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "pO7bmdk1e0Q": {
+    "data_primeiro": "2026-07-15T17:20:56.780020+00:00",
+    "data_ultimo": "2026-07-15T17:20:56.780020+00:00",
+    "titulo": "DELOREAN with a FERRARI ENGINE",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "9i69XPtwq9g": {
+    "data_primeiro": "2026-07-15T17:21:02.881120+00:00",
+    "data_ultimo": "2026-07-15T17:21:02.881120+00:00",
+    "titulo": "#FAQ #69 | AS PERGUNTAS QUE NINGUÉM TEVE CORAGEM DE FAZER AO LORD VINHETEIRO | #3CONTINENTES",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "A_X283T1ypA": {
+    "data_primeiro": "2026-07-15T17:21:09.282581+00:00",
+    "data_ultimo": "2026-07-15T17:21:09.282581+00:00",
+    "titulo": "FAILING COVERAGE #283: Messi Is Worse Than a Grasshopper",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "mXLAC4vmwCQ": {
+    "data_primeiro": "2026-07-15T17:21:16.361984+00:00",
+    "data_ultimo": "2026-07-15T17:21:16.361984+00:00",
+    "titulo": "CONVINCING IGOR 3K TO LIKE BMW",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "x5vwF6xNIuA": {
+    "data_primeiro": "2026-07-15T17:26:22.756640+00:00",
+    "data_ultimo": "2026-07-15T17:26:22.756640+00:00",
+    "titulo": "COLÔMBIA X FRANÇA: ESSE FOI O QUEM SOU EU MAIS CONFUSO DO CANAL | #3CONTINENTES #126",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      345.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
