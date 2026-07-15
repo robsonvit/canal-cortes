@@ -41,10 +41,11 @@ SHORT_H = 1920
 
 
 def _escape_srt_path(path: str) -> str:
-    """Escapa caminho do SRT para uso no filtro subtitles do FFmpeg."""
-    path = path.replace("\\", "/")
-    path = re.sub(r"^([A-Za-z]):", r"\1\\:", path)
-    return path
+    """Escapa caminho do SRT para uso no filtro subtitles do FFmpeg usando caminho relativo."""
+    # O uso de caminhos relativos evita os problemas crônicos do FFmpeg com "C:/" no Windows
+    rel_path = os.path.relpath(path).replace("\\", "/")
+    # O FFmpeg exige que vírgulas e aspas sejam escapadas, mas para caminhos simples isso basta
+    return rel_path
 
 
 def _obter_dimensoes_video(video_path: str) -> tuple:
@@ -240,10 +241,13 @@ def _montar_ffmpeg_puro(
     print(f"  🎵 Música escolhida: {os.path.basename(musica_escolhida) if musica_escolhida else 'Nenhuma'}")
     print(f"  🔔 Notificação: {os.path.basename(notificacao) if notificacao else 'Nenhuma'}")
 
+    zoom_expr = "1.0+0.05*(1-abs(mod(t,2)-1))"
     vf_base = (
         f"crop={crop_w}:{crop_h}:{x_off_str}:{y_off},"
         f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
         f"pad={SHORT_W}:{SHORT_H}:(ow-iw)/2:(oh-ih)/2:black,"
+        f"scale=w='{SHORT_W}*({zoom_expr})':h='{SHORT_H}*({zoom_expr})':eval=frame,"
+        f"crop={SHORT_W}:{SHORT_H}:(iw-{SHORT_W})/2:(ih-{SHORT_H})/2:exact=1,"
         f"hflip,"
         f"eq=saturation=1.3,"
         f"subtitles='{srt_escaped}':force_style='{subtitle_style}'"
@@ -304,10 +308,13 @@ def _montar_ffmpeg_puro(
         print(f"  ⚠️  FFmpeg com legendas falhou. Tentando sem legendas...")
         print(f"  stderr: {erro[-300:]}")
 
+        zoom_expr = "1.0+0.05*(1-abs(mod(t,2)-1))"
         vf_sem_sub = (
             f"crop={crop_w}:{crop_h}:{x_off_str}:{y_off},"
             f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
             f"pad={SHORT_W}:{SHORT_H}:(ow-iw)/2:(oh-ih)/2:black,"
+            f"scale=w='{SHORT_W}*({zoom_expr})':h='{SHORT_H}*({zoom_expr})':eval=frame,"
+            f"crop={SHORT_W}:{SHORT_H}:(iw-{SHORT_W})/2:(ih-{SHORT_H})/2:exact=1,"
             f"hflip,"
             f"eq=saturation=1.3"
         )
