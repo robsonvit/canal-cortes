@@ -60,6 +60,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             "desc": "1080p + anti-bot completo (WARP + curl-cffi + cookies)",
             "cmd": args_base_ytdlp([
                 "--download-sections", trecho_str,
+                "--force-keyframes-at-cuts",
                 "-f", "bestvideo[height<=1080]+bestaudio/best[height<=1080]/best",
                 "--merge-output-format", "mp4",
                 "-o", output_path,
@@ -71,6 +72,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
+                "--force-keyframes-at-cuts",
                 "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
                 "-f", "best[height<=1080]/best",
                 "--merge-output-format", "mp4",
@@ -84,6 +86,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
+                "--force-keyframes-at-cuts",
                 "--extractor-args", "youtube:player_client=tv_downgraded",
                 "-f", "best",
                 "--merge-output-format", "mp4",
@@ -104,8 +107,6 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             if arquivo:
                 tamanho_mb = os.path.getsize(arquivo) / (1024 * 1024)
                 print(f"  ✅ Trecho baixado: {arquivo} ({tamanho_mb:.1f} MB)")
-                # ── Normaliza timestamps para evitar delay A/V no início ──────
-                arquivo = _sincronizar_timestamps(arquivo, output_dir)
                 return arquivo
 
         print(f"  ⚠️  Falhou: {resultado.stderr[-150:]}")
@@ -114,53 +115,6 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
         f"Todas as tentativas de download falharam para: {video_url}\n"
         f"Último erro: {tentativas[-1]['cmd']}"
     )
-
-
-def _sincronizar_timestamps(input_path: str, output_dir: str) -> str:
-    """
-    Normaliza os PTS (presentation timestamps) do arquivo baixado.
-
-    Problema: ao usar --download-sections, o yt-dlp corta o vídeo a partir
-    do keyframe anterior ao ponto solicitado, mas o áudio começa no ponto
-    exato. Isso gera um offset de A/V nos primeiros segundos do clipe —
-    as pessoas aparecem mexendo a boca antes do som chegar.
-
-    Solução: '-avoid_negative_ts make_zero' + '-fflags +genpts' zeram os
-    timestamps negativos e regeneram os PTS, alinhando vídeo e áudio ao
-    mesmo ponto de início sem re-encode (cópia direta de streams).
-    Resultado: rápido e sem perda de qualidade.
-
-    Args:
-        input_path : caminho do arquivo baixado
-        output_dir : pasta de saída (tmp/)
-
-    Returns:
-        Caminho do arquivo sincronizado (mesmo input_path, substituído).
-    """
-    tmp_path = os.path.join(output_dir, "tmp", "_sync_tmp.mp4")
-    cmd = [
-        "ffmpeg", "-y",
-        "-i", input_path,
-        "-c", "copy",
-        "-avoid_negative_ts", "make_zero",
-        "-fflags", "+genpts",
-        tmp_path,
-    ]
-    print("  🔧 Normalizando timestamps A/V (avoid_negative_ts + genpts)...")
-    resultado = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-
-    if resultado.returncode == 0 and os.path.exists(tmp_path):
-        # Substitui o original pelo arquivo sincronizado
-        os.replace(tmp_path, input_path)
-        tamanho_mb = os.path.getsize(input_path) / (1024 * 1024)
-        print(f"  ✅ A/V sync corrigido: {input_path} ({tamanho_mb:.1f} MB)")
-    else:
-        # Se falhar, mantém o original sem crash (etapa opcional de qualidade)
-        print(f"  ⚠️  Normalização de timestamps falhou (mantendo original): {resultado.stderr[-150:]}")
-        if os.path.exists(tmp_path):
-            os.remove(tmp_path)
-
-    return input_path
 
 
 def _encontrar_arquivo(output_path: str) -> str | None:
