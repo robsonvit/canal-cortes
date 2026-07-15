@@ -208,7 +208,7 @@ def _montar_ffmpeg_puro(
 
     subtitle_style = ",".join([
         "Fontname=Arial Black",
-        "FontSize=16",
+        "FontSize=110",
         "PrimaryColour=&H0000FFFF",
         "OutlineColour=&H00000000",
         "BackColour=&H80000000",
