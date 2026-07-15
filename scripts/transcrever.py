@@ -115,7 +115,7 @@ def transcrever(video_path: str, output_dir: str) -> tuple:
 
         for i in range(0, len(palavras), PALAVRAS_BLOCO):
             bloco      = palavras[i: i + PALAVRAS_BLOCO]
-            texto_bloco= " ".join(bloco)
+            texto_bloco= " ".join(bloco).upper()
             t_inicio   = start + i * tempo_palavra
             t_fim      = start + (i + len(bloco)) * tempo_palavra
 

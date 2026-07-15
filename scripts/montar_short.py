@@ -118,11 +118,11 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
     tmp_dir = os.path.join(os.path.dirname(video_path), "tmp_frames_track")
     os.makedirs(tmp_dir, exist_ok=True)
     
-    # Extrai 1 frame a cada 4 segundos
+    # Extrai 1 frame a cada 1 segundo
     cmd_extract = [
         "ffmpeg", "-y", "-v", "error",
         "-i", video_path,
-        "-vf", "fps=1/4",
+        "-vf", "fps=1",
         "-q:v", "2",
         os.path.join(tmp_dir, "frame_%04d.jpg")
     ]
@@ -168,7 +168,7 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
     # Constrói a expressão de crop dinâmica
     # Ex: if(lt(t,4),X0,if(lt(t,8),X1,...))
     expr = str(x_values[-1])
-    interval = 4
+    interval = 1
     for i in range(len(x_values) - 2, -1, -1):
         limit = (i + 1) * interval
         expr = f"if(lt(t,{limit}),{x_values[i]},{expr})"
@@ -208,14 +208,14 @@ def _montar_ffmpeg_puro(
     subtitle_style = ",".join([
         "Fontname=Arial Black",
         "FontSize=16",
-        "PrimaryColour=&H00FFFFFF",
+        "PrimaryColour=&H0000FFFF",
         "OutlineColour=&H00000000",
         "BackColour=&H80000000",
         "BorderStyle=1",
         "Outline=2",
         "Shadow=1",
         "Alignment=2",
-        "MarginV=20",
+        "MarginV=290",
     ])
 
     srt_escaped = _escape_srt_path(srt_path)
