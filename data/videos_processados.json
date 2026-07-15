@@ -448,5 +448,27 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "qfMR0sHGyAM": {
+    "data_primeiro": "2026-07-15T15:41:06.662964+00:00",
+    "data_ultimo": "2026-07-15T15:41:06.662964+00:00",
+    "titulo": "CEO and CO-FOUNDER OF CAJU - Eduardo Del Giglio",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "0cPDp09EruA": {
+    "data_primeiro": "2026-07-15T15:53:16.781267+00:00",
+    "data_ultimo": "2026-07-15T15:53:16.781267+00:00",
+    "titulo": "COMO LIDAR COM O AUTISMO NA VIDA ADULTA | #ACHISMOS PODCAST #422",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      876.3
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
