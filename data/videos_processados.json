@@ -373,11 +373,12 @@
   },
   "Eb7AZogg6UA": {
     "data_primeiro": "2026-07-07T20:54:05.121586+00:00",
-    "data_ultimo": "2026-07-07T20:54:05.121586+00:00",
+    "data_ultimo": "2026-07-15T15:03:47.787520+00:00",
     "titulo": "WE WORKED AT THE BIGGEST MOTEL IN BRAZIL ft. VINI MAGA - Podpah Visita #113",
     "canal": "Podpah",
     "picos_usados": [
-      741.4
+      741.4,
+      1321.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -430,6 +431,17 @@
     "data_primeiro": "2026-07-15T14:53:13.459210+00:00",
     "data_ultimo": "2026-07-15T14:53:13.459210+00:00",
     "titulo": "FASCÍNIO POR HISTÓRIAS DE SERIAL KILLERS EXISTE? FT. JU CASSINI | #ACHISMOS PODCAST #423",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "PvzYIEnGs1E": {
+    "data_primeiro": "2026-07-15T15:00:20.464647+00:00",
+    "data_ultimo": "2026-07-15T15:00:20.464647+00:00",
+    "titulo": "COMENDO COMIDA CHINESA O DIA TODO COM PAULO CHINÊS | Pensão Completa | #VIDAREAL #27",
     "canal": "Achismos TV",
     "picos_usados": [
       -1.0
