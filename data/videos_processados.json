@@ -470,5 +470,49 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "mjBeyEtw79Q": {
+    "data_primeiro": "2026-07-15T16:59:12.226580+00:00",
+    "data_ultimo": "2026-07-15T16:59:12.226580+00:00",
+    "titulo": "FALHA DE COBERTURA #282: Too Late Goal",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "w6w6cCnWAag": {
+    "data_primeiro": "2026-07-15T16:59:19.826443+00:00",
+    "data_ultimo": "2026-07-15T16:59:19.826443+00:00",
+    "titulo": "Innovations beyond Artificial Intelligence - Lecture at Flow #02",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Q4V9Jkt08og": {
+    "data_primeiro": "2026-07-15T16:59:26.286275+00:00",
+    "data_ultimo": "2026-07-15T16:59:26.286275+00:00",
+    "titulo": "O LADO SOMBRIO QUE NINGUÉM TE CONTA SOBRE O IRÃ | #ACHISMOS PODCAST #422",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "wuctIlqZ8c0": {
+    "data_primeiro": "2026-07-15T17:05:19.142179+00:00",
+    "data_ultimo": "2026-07-15T17:05:19.142179+00:00",
+    "titulo": "COVERAGE FAIL #274: Messi vs. CR7 vs. Modric, Battle of the Old-Timers",
+    "canal": "Podpah",
+    "picos_usados": [
+      1028.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
