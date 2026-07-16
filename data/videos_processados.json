@@ -646,5 +646,38 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "_y_r28Mr2eI": {
+    "data_primeiro": "2026-07-16T15:52:22.618062+00:00",
+    "data_ultimo": "2026-07-16T15:52:22.618062+00:00",
+    "titulo": "INSIDER CO-FOUNDER - Yuri Gricheno",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "PnnitEn7ROw": {
+    "data_primeiro": "2026-07-16T15:52:30.569775+00:00",
+    "data_ultimo": "2026-07-16T15:52:30.569775+00:00",
+    "titulo": "RESOLVENDO TRETAS: O ENCONTRO COM GREGÓRIO DUVIVIER | #VARANDAGOURMET #64",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "hE4lDPXmtjg": {
+    "data_primeiro": "2026-07-16T15:58:15.371821+00:00",
+    "data_ultimo": "2026-07-16T15:58:15.371821+00:00",
+    "titulo": "COVERAGE FAILURE #275: Let’s Plan the BBQ for Later",
+    "canal": "Podpah",
+    "picos_usados": [
+      611.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
