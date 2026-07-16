@@ -20,7 +20,7 @@ import re
 from groq import Groq
 
 ROOT_DIR       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PALAVRAS_BLOCO = 6   # Palavras por bloco de legenda (ideal para 9:16)
+PALAVRAS_BLOCO = 3   # Palavras por bloco de legenda (ideal para Shorts com fonte grande)
 
 
 def _extrair_audio(video_path: str, output_dir: str) -> str:

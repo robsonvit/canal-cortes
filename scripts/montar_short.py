@@ -123,8 +123,13 @@ def _srt_para_drawtext(srt_path: str, font_path: str) -> str:
             .replace("%", "%%")
             .replace("\n", " ")
         )
-
-        linhas_texto = textwrap.wrap(texto, width=18)
+        palavras_texto = texto.split()
+        if len(palavras_texto) == 3:
+            linhas_texto = [f"{palavras_texto[0]} {palavras_texto[1]}", palavras_texto[2]]
+        elif len(palavras_texto) > 3:
+            linhas_texto = [" ".join(palavras_texto[i:i+2]) for i in range(0, len(palavras_texto), 2)]
+        else:
+            linhas_texto = [" ".join(palavras_texto)]
         
         fontsize = 75
         base_y = 220
