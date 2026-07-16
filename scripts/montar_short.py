@@ -206,15 +206,18 @@ def _montar_ffmpeg_puro(
         x_off_str = str(default_x_off)
         print(f"  ✂️  Crop Estático: {crop_w}×{crop_h} em ({x_off_str},{y_off}) → escala para {SHORT_W}×{SHORT_H}")
 
+    # Usa DejaVu Sans Bold — disponível em qualquer Ubuntu via fonts-dejavu-extra
+    # (Arial Black não existe no runner do GitHub Actions, causando legendas invisíveis)
     subtitle_style = ",".join([
-        "Fontname=Arial Black",
+        "Fontname=DejaVu Sans Bold",
         "FontSize=110",
         "PrimaryColour=&H0000FFFF",
         "OutlineColour=&H00000000",
         "BackColour=&H80000000",
-        "BorderStyle=1",
-        "Outline=2",
-        "Shadow=1",
+        "BorderStyle=4",
+        "Outline=4",
+        "Shadow=2",
+        "Bold=1",
         "Alignment=2",
         "MarginV=290",
     ])

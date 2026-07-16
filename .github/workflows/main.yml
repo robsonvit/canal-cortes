@@ -70,10 +70,15 @@ jobs:
           sudo apt-get install -y \
             ffmpeg \
             fonts-dejavu-extra \
+            fonts-dejavu \
             fonts-liberation \
             fonts-freefont-ttf \
             libgl1 \
             libglib2.0-0
+          # Rebuild fontconfig cache para garantir que as fontes sejam encontradas pelo libass
+          fc-cache -f -v > /dev/null 2>&1
+          echo "✅ Fontes disponíveis (DejaVu):"
+          fc-list | grep -i dejavu || echo "⚠️ Nenhuma fonte DejaVu encontrada!"
 
       - name: 🎥 Instalar yt-dlp (mais atualizado para anti-bot)
         run: |
