@@ -723,5 +723,27 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "ddZLtHmMV0Q": {
+    "data_primeiro": "2026-07-16T16:47:21.411555+00:00",
+    "data_ultimo": "2026-07-16T16:47:21.411555+00:00",
+    "titulo": "ONDE COMER BEM E BARATO NO CENTRO DE SÃO PAULO ft. Gabi Paveloski | Pensão Completa | #VIDAREAL #25",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "NTHhJe8CXqk": {
+    "data_primeiro": "2026-07-16T16:54:55.528165+00:00",
+    "data_ultimo": "2026-07-16T16:54:55.528165+00:00",
+    "titulo": "FALHA DE COBERTURA #280: Cristiano Ronaldo is a Company",
+    "canal": "Podpah",
+    "picos_usados": [
+      870.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
