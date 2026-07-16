@@ -249,7 +249,7 @@ def _montar_ffmpeg_puro(
     # Usa DejaVu Sans Bold — disponível em qualquer Ubuntu via fonts-dejavu-extra
     # (Arial Black não existe no runner do GitHub Actions, causando legendas invisíveis)
     subtitle_style = ",".join([
-        "Fontname=DejaVu Sans Bold",
+        "Fontname=DejaVu Sans",
         "FontSize=110",
         "PrimaryColour=&H0000FFFF",
         "OutlineColour=&H00000000",
