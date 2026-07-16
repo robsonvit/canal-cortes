@@ -386,41 +386,48 @@ def _montar_ffmpeg_puro(
     # Concatena drawtext se houver entradas válidas
     if drawtext_chain:
         vf_base = vf_base + "," + drawtext_chain
+    # Imprime preview do drawtext para debug no log
+    if drawtext_chain:
+        print(f"  📝 {drawtext_chain.count('drawtext=')} entrada(s) de legenda via drawtext.")
+        print(f"  📂 Fonte: {font_path}")
+    else:
+        print("  ⚠️  Nenhuma entrada de legenda gerada!")
+
     cmd = ["ffmpeg", "-y", "-i", video_path]
-    audio_inputs = ["[0:a]"]
-    filter_complex = f"[0:v]{vf_base}[vout]"
-    
     input_idx = 1
+    audio_filters = []
     
-    # Se houver música, adiciona em loop (stream_loop -1 precisa vir antes do -i)
+    # Áudios extras
     if musica_escolhida:
         cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
-        idx = input_idx
+        audio_filters.append((input_idx, "volume=0.10", "a_musica"))
         input_idx += 1
-        filter_complex += f"; [{idx}:a]volume=0.10[a_musica]"
-        audio_inputs.append("[a_musica]")
         
     if notificacao:
         cmd.extend(["-i", notificacao])
-        idx = input_idx
+        audio_filters.append((input_idx, "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB,volume=1.5", "a_notif"))
         input_idx += 1
-        # silenceremove arranca qualquer micro-atraso invisível típico do formato mp3, colando o som no frame zero
-        filter_complex += f"; [{idx}:a]silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB,volume=1.5[a_notif]"
-        audio_inputs.append("[a_notif]")
 
-    if len(audio_inputs) > 1:
-        inputs_str = "".join(audio_inputs)
-        num_inputs = len(audio_inputs)
-        filter_complex += f"; {inputs_str}amix=inputs={num_inputs}:duration=first:dropout_transition=0[aout]"
+    # SEMPRE usa -vf para o vídeo (evita conflito de aspas no filter_complex com drawtext)
+    cmd.extend(["-vf", vf_base])
+    
+    if audio_filters:
+        # Monta filter_complex só para o áudio
+        fc_parts = []
+        mix_inputs = ["[0:a]"]
+        for idx, filtro, label in audio_filters:
+            fc_parts.append(f"[{idx}:a]{filtro}[{label}]")
+            mix_inputs.append(f"[{label}]")
+        n = len(mix_inputs)
+        mix_str = "".join(mix_inputs)
+        fc_parts.append(f"{mix_str}amix=inputs={n}:duration=first:dropout_transition=0[aout]")
         cmd.extend([
-            "-filter_complex", filter_complex,
-            "-map", "[vout]",
-            "-map", "[aout]"
+            "-filter_complex", ";".join(fc_parts),
+            "-map", "0:v",
+            "-map", "[aout]",
         ])
     else:
-        cmd.extend([
-            "-vf", vf_base,
-        ])
+        cmd.extend(["-map", "0:v", "-map", "0:a"])
 
     cmd.extend([
         "-c:v", "libx264",
