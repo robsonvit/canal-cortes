@@ -124,20 +124,28 @@ def _srt_para_drawtext(srt_path: str, font_path: str) -> str:
             .replace("\n", " ")
         )
 
-        f = (
-            f"drawtext="
-            f"fontfile='{font_escaped}':"
-            f"text='{texto}':"
-            f"fontsize=90:"
-            f"fontcolor=yellow:"
-            f"x=(w-text_w)/2:"
-            f"y=h-text_h-220:"
-            f"box=1:"
-            f"boxcolor=black@0.55:"
-            f"boxborderw=15:"
-            f"enable='between(t,{t_inicio:.3f},{t_fim:.3f})'"
-        )
-        filtros.append(f)
+        linhas_texto = textwrap.wrap(texto, width=18)
+        
+        fontsize = 75
+        base_y = 220
+        line_spacing = 90
+        
+        for i, linha in enumerate(linhas_texto):
+            y_pos = f"h-text_h-{base_y + (len(linhas_texto) - 1 - i) * line_spacing}"
+            f = (
+                f"drawtext="
+                f"fontfile='{font_escaped}':"
+                f"text='{linha}':"
+                f"fontsize={fontsize}:"
+                f"fontcolor=yellow:"
+                f"x=(w-text_w)/2:"
+                f"y={y_pos}:"
+                f"box=1:"
+                f"boxcolor=black@0.55:"
+                f"boxborderw=15:"
+                f"enable='between(t,{t_inicio:.3f},{t_fim:.3f})'"
+            )
+            filtros.append(f)
 
     if not filtros:
         print("  ⚠️  SRT sem entradas válidas para drawtext.")
@@ -372,9 +380,8 @@ def _montar_ffmpeg_puro(
     zoom_expr = _gerar_expressao_zoom(duracao)
     print(f"  🔍 Zoom Aleatório (Jump Cuts): ativo para {duracao:.1f}s")
     
-    # Monta a cadeia de filtros de vídeo
-    # O drawtext é adicionado APÓS os demais filtros visuais
-    vf_base = (
+    # Monta a cadeia de filtros de vídeo (drawtext adicionado ao final)
+    vf_chain = (
         f"crop={crop_w}:{crop_h}:{x_off_str}:{y_off},"
         f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
         f"pad={SHORT_W}:{SHORT_H}:(ow-iw)/2:(oh-ih)/2:black,"
@@ -383,21 +390,15 @@ def _montar_ffmpeg_puro(
         f"hflip,"
         f"eq=saturation=1.3"
     )
-    # Concatena drawtext se houver entradas válidas
     if drawtext_chain:
-        vf_base = vf_base + "," + drawtext_chain
-    # Imprime preview do drawtext para debug no log
-    if drawtext_chain:
-        print(f"  📝 {drawtext_chain.count('drawtext=')} entrada(s) de legenda via drawtext.")
-        print(f"  📂 Fonte: {font_path}")
-    else:
-        print("  ⚠️  Nenhuma entrada de legenda gerada!")
+        vf_chain += "," + drawtext_chain
+    print(f"  {'📝 ' + str(drawtext_chain.count('drawtext=')) + ' entradas de legenda' if drawtext_chain else '⚠️  SEM legenda!'}")
 
     cmd = ["ffmpeg", "-y", "-i", video_path]
     input_idx = 1
-    audio_filters = []
     
     # Áudios extras
+    audio_filters = []
     if musica_escolhida:
         cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
         audio_filters.append((input_idx, "volume=0.10", "a_musica"))
@@ -408,28 +409,25 @@ def _montar_ffmpeg_puro(
         audio_filters.append((input_idx, "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB,volume=1.5", "a_notif"))
         input_idx += 1
 
-    # SEMPRE usa -vf para o vídeo (evita conflito de aspas no filter_complex com drawtext)
-    cmd.extend(["-vf", vf_base])
+    # Monta filter_complex completo (vídeo + áudio)
+    fc_parts = [f"[0:v]{vf_chain}[vout]"]
+    mix_inputs = ["[0:a]"]
     
-    if audio_filters:
-        # Monta filter_complex só para o áudio
-        fc_parts = []
-        mix_inputs = ["[0:a]"]
-        for idx, filtro, label in audio_filters:
-            fc_parts.append(f"[{idx}:a]{filtro}[{label}]")
-            mix_inputs.append(f"[{label}]")
+    for idx, filtro, label in audio_filters:
+        fc_parts.append(f"[{idx}:a]{filtro}[{label}]")
+        mix_inputs.append(f"[{label}]")
+    
+    if len(mix_inputs) > 1:
+        # amix divide o volume por num_inputs. Para compensar, multiplicamos o volume de saída por num_inputs.
         n = len(mix_inputs)
-        mix_str = "".join(mix_inputs)
-        fc_parts.append(f"{mix_str}amix=inputs={n}:duration=first:dropout_transition=0[aout]")
-        cmd.extend([
-            "-filter_complex", ";".join(fc_parts),
-            "-map", "0:v",
-            "-map", "[aout]",
-        ])
+        fc_parts.append(f"{''.join(mix_inputs)}amix=inputs={n}:duration=first:dropout_transition=0,volume={n}[aout]")
     else:
-        cmd.extend(["-map", "0:v", "-map", "0:a"])
+        fc_parts.append(f"[0:a]acopy[aout]")
 
     cmd.extend([
+        "-filter_complex", ";".join(fc_parts),
+        "-map", "[vout]",
+        "-map", "[aout]",
         "-c:v", "libx264",
         "-preset", "fast",
         "-crf", "22",
@@ -444,10 +442,9 @@ def _montar_ffmpeg_puro(
     resultado = subprocess.run(cmd, capture_output=True, text=True)
 
     if resultado.returncode != 0:
-        erro = resultado.stderr[-800:]
         print(f"  ⚠️  FFmpeg falhou. Detalhes:")
-        print(f"  stderr: {erro[-400:]}")
-        raise RuntimeError(f"FFmpeg falhou na montagem 9:16:\n{erro}")
+        print(f"  stderr: {resultado.stderr[-400:]}")
+        raise RuntimeError(f"FFmpeg falhou na montagem 9:16:\n{resultado.stderr}")
     else:
         print("  ✅ FFmpeg concluiu com sucesso.")
 
