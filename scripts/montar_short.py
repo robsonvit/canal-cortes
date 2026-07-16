@@ -50,13 +50,12 @@ def _escape_srt_path(path: str) -> str:
 
 
 def _garantir_fonte() -> str:
-    """Baixa a fonte Montserrat Black se não existir, e retorna o diretório escaped para FFmpeg."""
+    """Baixa a fonte Montserrat Black se não existir e retorna o caminho absoluto do .ttf."""
     fonts_dir = os.path.join(ROOT_DIR, "assets", "fonts")
     os.makedirs(fonts_dir, exist_ok=True)
-    
     font_path = os.path.join(fonts_dir, "Montserrat-Black.ttf")
     if not os.path.exists(font_path):
-        print("  🔠 Baixando fonte Montserrat Black para as legendas...")
+        print("  🔠 Baixando fonte Montserrat Black...")
         import urllib.request
         url = "https://github.com/JulietaUla/Montserrat/raw/master/fonts/ttf/Montserrat-Black.ttf"
         try:
@@ -64,9 +63,88 @@ def _garantir_fonte() -> str:
             print("  ✅ Fonte baixada com sucesso.")
         except Exception as e:
             print(f"  ⚠️  Erro ao baixar fonte: {e}")
-            
-    # Retorna o diretório escapado para o FFmpeg
-    return os.path.relpath(fonts_dir).replace("\\", "/").replace(":", "\\:")
+    return font_path
+
+
+def _srt_time_to_seconds(ts: str) -> float:
+    """Converte timestamp SRT (HH:MM:SS,mmm) para segundos float."""
+    ts = ts.replace(',', '.')
+    partes = ts.split(':')
+    return int(partes[0]) * 3600 + int(partes[1]) * 60 + float(partes[2])
+
+
+def _srt_para_drawtext(srt_path: str, font_path: str) -> str:
+    """
+    Lê o arquivo SRT e gera uma cadeia de filtros drawtext do FFmpeg.
+    Usa o arquivo .ttf diretamente — sem depender de fontconfig ou libass.
+    Retorna string vazia se não houver entradas.
+    """
+    try:
+        with open(srt_path, "r", encoding="utf-8") as f:
+            conteudo = f.read()
+    except Exception as e:
+        print(f"  ⚠️  Erro ao ler SRT: {e}")
+        return ""
+
+    # Escapa o caminho da fonte para FFmpeg (barras, dois-pontos)
+    font_escaped = font_path.replace("\\", "/")
+    if ":" in font_escaped:  # Windows C:\...
+        font_escaped = font_escaped.replace(":", "\\\\:")
+
+    # Parseia blocos SRT: número / timestamps / texto
+    blocos = re.split(r"\n\n+", conteudo.strip())
+    filtros = []
+
+    for bloco in blocos:
+        linhas = bloco.strip().splitlines()
+        if len(linhas) < 3:
+            continue
+        try:
+            # Linha 0: índice, Linha 1: timestamps, Linha 2+: texto
+            arrow_line = linhas[1]
+            if "-->" not in arrow_line:
+                continue
+            inicio_str, fim_str = arrow_line.split("-->")
+            t_inicio = _srt_time_to_seconds(inicio_str.strip())
+            t_fim    = _srt_time_to_seconds(fim_str.strip())
+            texto    = " ".join(linhas[2:]).strip()
+        except Exception:
+            continue
+
+        if not texto:
+            continue
+
+        # Escapa caracteres especiais do FFmpeg drawtext
+        texto = (
+            texto
+            .replace("\\", "")
+            .replace("'", "")
+            .replace(":", " ")
+            .replace("%", "%%")
+            .replace("\n", " ")
+        )
+
+        f = (
+            f"drawtext="
+            f"fontfile='{font_escaped}':"
+            f"text='{texto}':"
+            f"fontsize=90:"
+            f"fontcolor=yellow:"
+            f"x=(w-text_w)/2:"
+            f"y=h-text_h-220:"
+            f"box=1:"
+            f"boxcolor=black@0.55:"
+            f"boxborderw=15:"
+            f"enable='between(t,{t_inicio:.3f},{t_fim:.3f})'"
+        )
+        filtros.append(f)
+
+    if not filtros:
+        print("  ⚠️  SRT sem entradas válidas para drawtext.")
+        return ""
+
+    print(f"  📝 {len(filtros)} entradas de legenda via drawtext.")
+    return ",".join(filtros)
 
 
 def _obter_dimensoes_video(video_path: str) -> tuple:
@@ -267,24 +345,9 @@ def _montar_ffmpeg_puro(
         x_off_str = str(default_x_off)
         print(f"  ✂️  Crop Estático: {crop_w}×{crop_h} em ({x_off_str},{y_off}) → escala para {SHORT_W}×{SHORT_H}")
 
-    # Usa fonte embarcada no projeto para evitar falhas do sistema operacional
-    fonts_dir_escaped = _garantir_fonte()
-    
-    subtitle_style = ",".join([
-        "Fontname=Montserrat Black",
-        "FontSize=110",
-        "PrimaryColour=&H0000FFFF",
-        "OutlineColour=&H00000000",
-        "BackColour=&H80000000",
-        "BorderStyle=4",
-        "Outline=4",
-        "Shadow=2",
-        "Bold=1",
-        "Alignment=2",
-        "MarginV=290",
-    ])
-
-    srt_escaped = _escape_srt_path(srt_path)
+    # Usa fonte embarcada e drawtext (sem libass/fontconfig) para legendas garantidas
+    font_path = _garantir_fonte()
+    drawtext_chain = _srt_para_drawtext(srt_path, font_path)
 
     # --- Configuração dos Áudios Extras ---
     musicas_dir = os.path.join(ROOT_DIR, "assets", "audios", "musicas")
@@ -309,6 +372,8 @@ def _montar_ffmpeg_puro(
     zoom_expr = _gerar_expressao_zoom(duracao)
     print(f"  🔍 Zoom Aleatório (Jump Cuts): ativo para {duracao:.1f}s")
     
+    # Monta a cadeia de filtros de vídeo
+    # O drawtext é adicionado APÓS os demais filtros visuais
     vf_base = (
         f"crop={crop_w}:{crop_h}:{x_off_str}:{y_off},"
         f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
@@ -316,9 +381,11 @@ def _montar_ffmpeg_puro(
         f"scale=w='{SHORT_W}*({zoom_expr})':h='{SHORT_H}*({zoom_expr})':eval=frame,"
         f"crop={SHORT_W}:{SHORT_H}:(iw-{SHORT_W})/2:(ih-{SHORT_H})/2:exact=1,"
         f"hflip,"
-        f"eq=saturation=1.3,"
-        f"subtitles='{srt_escaped}':fontsdir='{fonts_dir_escaped}':force_style='{subtitle_style}'"
+        f"eq=saturation=1.3"
     )
+    # Concatena drawtext se houver entradas válidas
+    if drawtext_chain:
+        vf_base = vf_base + "," + drawtext_chain
     cmd = ["ffmpeg", "-y", "-i", video_path]
     audio_inputs = ["[0:a]"]
     filter_complex = f"[0:v]{vf_base}[vout]"
@@ -371,39 +438,9 @@ def _montar_ffmpeg_puro(
 
     if resultado.returncode != 0:
         erro = resultado.stderr[-800:]
-        # Tenta fallback sem legendas (se o SRT for o problema)
-        print(f"  ⚠️  FFmpeg com legendas falhou. Tentando sem legendas...")
-        print(f"  stderr: {erro[-300:]}")
-
-        # Mantém a mesma expressão na versão de fallback
-        vf_sem_sub = (
-            f"crop={crop_w}:{crop_h}:{x_off_str}:{y_off},"
-            f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
-            f"pad={SHORT_W}:{SHORT_H}:(ow-iw)/2:(oh-ih)/2:black,"
-            f"scale=w='{SHORT_W}*({zoom_expr})':h='{SHORT_H}*({zoom_expr})':eval=frame,"
-            f"crop={SHORT_W}:{SHORT_H}:(iw-{SHORT_W})/2:(ih-{SHORT_H})/2:exact=1,"
-            f"hflip,"
-            f"eq=saturation=1.3"
-        )
-        cmd_fallback = [
-            "ffmpeg", "-y",
-            "-i", video_path,
-            "-vf", vf_sem_sub,
-            "-c:v", "libx264",
-            "-preset", "fast",
-            "-crf", "22",
-            "-pix_fmt", "yuv420p",
-            "-c:a", "aac",
-            "-b:a", "192k",
-            "-movflags", "+faststart",
-            output_path,
-        ]
-        resultado2 = subprocess.run(cmd_fallback, capture_output=True, text=True)
-        if resultado2.returncode != 0:
-            raise RuntimeError(
-                f"FFmpeg falhou na montagem 9:16 (com e sem legendas):\n{resultado2.stderr[-500:]}"
-            )
-        print("  ℹ️  Short gerado sem legendas (SRT com problema).")
+        print(f"  ⚠️  FFmpeg falhou. Detalhes:")
+        print(f"  stderr: {erro[-400:]}")
+        raise RuntimeError(f"FFmpeg falhou na montagem 9:16:\n{erro}")
     else:
         print("  ✅ FFmpeg concluiu com sucesso.")
 
