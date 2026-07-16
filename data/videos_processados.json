@@ -447,5 +447,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "DQCEqeHSX7k": {
+    "data_primeiro": "2026-07-16T20:50:54.101093+00:00",
+    "data_ultimo": "2026-07-16T20:50:54.101093+00:00",
+    "titulo": "AYRTON SENNA WOULD BE SURPRISED",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "sN_-fN1E_XU": {
+    "data_primeiro": "2026-07-16T20:55:20.521010+00:00",
+    "data_ultimo": "2026-07-16T20:55:20.521010+00:00",
+    "titulo": "QUANTO O RENATO CARIANI TEM (DECLARADO) NA CONTA? ft. IGORFINA | VARANDA GOURMET #63",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      448.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
