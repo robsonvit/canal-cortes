@@ -178,12 +178,52 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
 
 
 
+def _gerar_expressao_zoom(duracao_total: float) -> str:
+    """
+    Gera uma expressão FFmpeg para jump cuts (saltos de zoom) aleatórios.
+    Cria segmentos de 3 a 6 segundos com zoom (1.15) ou sem zoom (1.0),
+    garantindo que não haja 3 cortes seguidos do mesmo tipo.
+    """
+    t_atual = 0.0
+    cortes = []
+    
+    opcoes = [1.0, 1.15]
+    historico = []
+    
+    while t_atual < duracao_total:
+        dur_corte = random.uniform(3.0, 6.0)
+        t_fim = t_atual + dur_corte
+        
+        # Se os dois últimos cortes foram iguais, força a troca
+        if len(historico) >= 2 and historico[-1] == historico[-2]:
+            opcoes_disp = [o for o in opcoes if o != historico[-1]]
+        else:
+            opcoes_disp = opcoes
+            
+        zoom_val = random.choice(opcoes_disp)
+        historico.append(zoom_val)
+        cortes.append((t_fim, zoom_val))
+        t_atual = t_fim
+        
+    # Monta a expressão FFmpeg com ifs aninhados:
+    # ex: if(lt(t, 4.5), 1.0, if(lt(t, 8.2), 1.15, 1.0))
+    if not cortes:
+        return "1.0"
+        
+    expr = str(cortes[-1][1]) # O último valor serve como fallback no final
+    for t_fim, zoom_val in reversed(cortes[:-1]):
+        expr = f"if(lt(t,{t_fim:.2f}),{zoom_val},{expr})"
+        
+    return expr
+
+
 def _montar_ffmpeg_puro(
     video_path: str,
     output_path: str,
     video_w: int,
     video_h: int,
     srt_path: str,
+    duracao: float,
     crop_x_expr: str = None,
 ):
     """
@@ -244,7 +284,9 @@ def _montar_ffmpeg_puro(
     print(f"  🎵 Música escolhida: {os.path.basename(musica_escolhida) if musica_escolhida else 'Nenhuma'}")
     print(f"  🔔 Notificação: {os.path.basename(notificacao) if notificacao else 'Nenhuma'}")
 
-    zoom_expr = "1.0+0.05*(1-abs(mod(t,2)-1))"
+    zoom_expr = _gerar_expressao_zoom(duracao)
+    print(f"  🔍 Zoom Aleatório (Jump Cuts): ativo para {duracao:.1f}s")
+    
     vf_base = (
         f"crop={crop_w}:{crop_h}:{x_off_str}:{y_off},"
         f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
@@ -311,7 +353,7 @@ def _montar_ffmpeg_puro(
         print(f"  ⚠️  FFmpeg com legendas falhou. Tentando sem legendas...")
         print(f"  stderr: {erro[-300:]}")
 
-        zoom_expr = "1.0+0.05*(1-abs(mod(t,2)-1))"
+        # Mantém a mesma expressão na versão de fallback
         vf_sem_sub = (
             f"crop={crop_w}:{crop_h}:{x_off_str}:{y_off},"
             f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
@@ -372,7 +414,7 @@ def montar_short(
         crop_x_expr = _calcular_tracking_dinamico_ffmpeg(video_path, video_w, video_h)
 
     # Monta o Short 9:16 com FFmpeg
-    _montar_ffmpeg_puro(video_path, output_path, video_w, video_h, srt_path, crop_x_expr)
+    _montar_ffmpeg_puro(video_path, output_path, video_w, video_h, srt_path, duracao, crop_x_expr)
 
     tamanho_mb = os.path.getsize(output_path) / (1024 * 1024)
     print(f"  ✅ Short base pronto: {output_path} ({tamanho_mb:.1f} MB)")
