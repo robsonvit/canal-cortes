@@ -41,11 +41,32 @@ SHORT_H = 1920
 
 
 def _escape_srt_path(path: str) -> str:
-    """Escapa caminho do SRT para uso no filtro subtitles do FFmpeg usando caminho relativo."""
-    # O uso de caminhos relativos evita os problemas crônicos do FFmpeg com "C:/" no Windows
+    """Escapa caminho para uso no filtro subtitles do FFmpeg."""
+    # O uso de caminhos relativos evita problemas crônicos do FFmpeg com "C:/" no Windows
+    # Mas no Linux podemos usar caminhos absolutos se preferir. Aqui usamos relativo limpo.
     rel_path = os.path.relpath(path).replace("\\", "/")
-    # O FFmpeg exige que vírgulas e aspas sejam escapadas, mas para caminhos simples isso basta
-    return rel_path
+    # O FFmpeg exige escape de dois pontos se formos usar caminho absoluto
+    return rel_path.replace(":", "\\:")
+
+
+def _garantir_fonte() -> str:
+    """Baixa a fonte Montserrat Black se não existir, e retorna o diretório escaped para FFmpeg."""
+    fonts_dir = os.path.join(ROOT_DIR, "assets", "fonts")
+    os.makedirs(fonts_dir, exist_ok=True)
+    
+    font_path = os.path.join(fonts_dir, "Montserrat-Black.ttf")
+    if not os.path.exists(font_path):
+        print("  🔠 Baixando fonte Montserrat Black para as legendas...")
+        import urllib.request
+        url = "https://github.com/JulietaUla/Montserrat/raw/master/fonts/ttf/Montserrat-Black.ttf"
+        try:
+            urllib.request.urlretrieve(url, font_path)
+            print("  ✅ Fonte baixada com sucesso.")
+        except Exception as e:
+            print(f"  ⚠️  Erro ao baixar fonte: {e}")
+            
+    # Retorna o diretório escapado para o FFmpeg
+    return os.path.relpath(fonts_dir).replace("\\", "/").replace(":", "\\:")
 
 
 def _obter_dimensoes_video(video_path: str) -> tuple:
@@ -246,10 +267,11 @@ def _montar_ffmpeg_puro(
         x_off_str = str(default_x_off)
         print(f"  ✂️  Crop Estático: {crop_w}×{crop_h} em ({x_off_str},{y_off}) → escala para {SHORT_W}×{SHORT_H}")
 
-    # Usa DejaVu Sans Bold — disponível em qualquer Ubuntu via fonts-dejavu-extra
-    # (Arial Black não existe no runner do GitHub Actions, causando legendas invisíveis)
+    # Usa fonte embarcada no projeto para evitar falhas do sistema operacional
+    fonts_dir_escaped = _garantir_fonte()
+    
     subtitle_style = ",".join([
-        "Fontname=DejaVu Sans",
+        "Fontname=Montserrat Black",
         "FontSize=110",
         "PrimaryColour=&H0000FFFF",
         "OutlineColour=&H00000000",
@@ -295,7 +317,7 @@ def _montar_ffmpeg_puro(
         f"crop={SHORT_W}:{SHORT_H}:(iw-{SHORT_W})/2:(ih-{SHORT_H})/2:exact=1,"
         f"hflip,"
         f"eq=saturation=1.3,"
-        f"subtitles='{srt_escaped}':force_style='{subtitle_style}'"
+        f"subtitles='{srt_escaped}':fontsdir='{fonts_dir_escaped}':force_style='{subtitle_style}'"
     )
     cmd = ["ffmpeg", "-y", "-i", video_path]
     audio_inputs = ["[0:a]"]
