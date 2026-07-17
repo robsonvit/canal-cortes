@@ -513,5 +513,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "w6w6cCnWAag": {
+    "data_primeiro": "2026-07-17T20:51:00.912270+00:00",
+    "data_ultimo": "2026-07-17T20:51:00.912270+00:00",
+    "titulo": "Innovations beyond Artificial Intelligence - Lecture at Flow #02",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "x5vwF6xNIuA": {
+    "data_primeiro": "2026-07-17T20:55:27.166559+00:00",
+    "data_ultimo": "2026-07-17T20:55:27.166559+00:00",
+    "titulo": "COLÔMBIA X FRANÇA: ESSE FOI O QUEM SOU EU MAIS CONFUSO DO CANAL | #3CONTINENTES #126",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      345.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
