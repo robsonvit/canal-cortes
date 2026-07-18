@@ -568,5 +568,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "hE4lDPXmtjg": {
+    "data_primeiro": "2026-07-18T23:14:28.494569+00:00",
+    "data_ultimo": "2026-07-18T23:14:28.494569+00:00",
+    "titulo": "COVERAGE FAILURE #275: Let’s Plan the BBQ for Later",
+    "canal": "Podpah",
+    "picos_usados": [
+      611.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
