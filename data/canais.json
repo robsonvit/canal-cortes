@@ -20,6 +20,90 @@
       "handle": "@AchismosTV",
       "ativo": true,
       "playlist_id": "COLE_O_ID_DA_PLAYLIST_AQUI"
+    },
+    {
+      "nome": "Poddelas",
+      "url": "https://www.youtube.com/@poddelas",
+      "handle": "@poddelas",
+      "ativo": true
+    },
+    {
+      "nome": "Inteligência Ltda.",
+      "url": "https://www.youtube.com/@inteligencialtda",
+      "handle": "@inteligencialtda",
+      "ativo": true
+    },
+    {
+      "nome": "Ticaracaticast",
+      "url": "https://www.youtube.com/@ticaracaticast",
+      "handle": "@ticaracaticast",
+      "ativo": true
+    },
+    {
+      "nome": "Groselha Talk",
+      "url": "https://www.youtube.com/@groselhatalk",
+      "handle": "@groselhatalk",
+      "ativo": true
+    },
+    {
+      "nome": "O Pod é Nosso",
+      "url": "https://www.youtube.com/@opodenosso",
+      "handle": "@opodenosso",
+      "ativo": true
+    },
+    {
+      "nome": "Festa da Firma",
+      "url": "https://www.youtube.com/@festadafirma",
+      "handle": "@festadafirma",
+      "ativo": true
+    },
+    {
+      "nome": "Vênus Podcast",
+      "url": "https://www.youtube.com/@venuspodcast",
+      "handle": "@venuspodcast",
+      "ativo": true
+    },
+    {
+      "nome": "Papagaio Falante",
+      "url": "https://www.youtube.com/@papagaiofalante",
+      "handle": "@papagaiofalante",
+      "ativo": true
+    },
+    {
+      "nome": "Benja Me Mucho",
+      "url": "https://www.youtube.com/@benjamemucho",
+      "handle": "@benjamemucho",
+      "ativo": true
+    },
+    {
+      "nome": "Gostosas Também Choram",
+      "url": "https://www.youtube.com/@gostosastambemchoram",
+      "handle": "@gostosastambemchoram",
+      "ativo": true
+    },
+    {
+      "nome": "Podpah Esportes",
+      "url": "https://www.youtube.com/@podpahesportes",
+      "handle": "@podpahesportes",
+      "ativo": true
+    },
+    {
+      "nome": "Charla Podcast",
+      "url": "https://www.youtube.com/@charlapodcast",
+      "handle": "@charlapodcast",
+      "ativo": true
+    },
+    {
+      "nome": "Os Sócios Podcast",
+      "url": "https://www.youtube.com/@ossociospodcast",
+      "handle": "@ossociospodcast",
+      "ativo": true
+    },
+    {
+      "nome": "Jota Jota Podcast",
+      "url": "https://www.youtube.com/@joeljota",
+      "handle": "@joeljota",
+      "ativo": true
     }
   ]
 }
