@@ -601,5 +601,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "y-i7zHIIRxs": {
+    "data_primeiro": "2026-07-19T14:54:21.188828+00:00",
+    "data_ultimo": "2026-07-19T14:54:21.188828+00:00",
+    "titulo": "COVERAGE FAILURE #285: Elbow of God",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "_y_r28Mr2eI": {
+    "data_primeiro": "2026-07-19T14:54:28.114120+00:00",
+    "data_ultimo": "2026-07-19T14:54:28.114120+00:00",
+    "titulo": "INSIDER CO-FOUNDER - Yuri Gricheno",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "8qJljC3t0ik": {
+    "data_primeiro": "2026-07-19T14:54:33.970985+00:00",
+    "data_ultimo": "2026-07-19T14:54:33.970985+00:00",
+    "titulo": "QUANTO CUSTA COMER EM CHINATOWN DE NY? | #MEIOAMEIO #42",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "y3hJektWjDc": {
+    "data_primeiro": "2026-07-19T14:54:40.755852+00:00",
+    "data_ultimo": "2026-07-19T14:54:40.755852+00:00",
+    "titulo": "FALHA DE COBERTURA #284: The Spectacle of Struggle",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "mXLAC4vmwCQ": {
+    "data_primeiro": "2026-07-19T14:54:48.090106+00:00",
+    "data_ultimo": "2026-07-19T14:54:48.090106+00:00",
+    "titulo": "INTRODUCING the BMW for IGOR",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
