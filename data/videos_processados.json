@@ -766,5 +766,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "qfMR0sHGyAM": {
+    "data_primeiro": "2026-07-19T23:52:13.745173+00:00",
+    "data_ultimo": "2026-07-19T23:52:13.745173+00:00",
+    "titulo": "CEO and CO-FOUNDER OF CAJU - Eduardo Del Giglio",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "pHq8DMJvGb8": {
+    "data_primeiro": "2026-07-19T23:52:31.984179+00:00",
+    "data_ultimo": "2026-07-19T23:52:31.984179+00:00",
+    "titulo": "Luana Couto - O Pod É Nosso Saúde #27",
+    "canal": "O Pod é Nosso",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "769jL2Nk07g": {
+    "data_primeiro": "2026-07-19T23:52:50.202493+00:00",
+    "data_ultimo": "2026-07-19T23:52:50.202493+00:00",
+    "titulo": "A HISTORICAL LESSON ON WHY PELÉ IS GREATER THAN MESSI",
+    "canal": "Charla Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "YlIH9JhDbNM": {
+    "data_primeiro": "2026-07-19T23:53:08.043148+00:00",
+    "data_ultimo": "2026-07-19T23:53:08.043148+00:00",
+    "titulo": "PANAM 5 x 4 ULTRA CHMICHA | MELHORES MOMENTOS: KINGS LEAGUE WORLD CUP | 1ª Rodada",
+    "canal": "Podpah Esportes",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "BoLK2IvuF74": {
+    "data_primeiro": "2026-07-19T23:58:41.958038+00:00",
+    "data_ultimo": "2026-07-19T23:58:41.958038+00:00",
+    "titulo": "How to BUILD a $2 BILLION BUSINESS from Scratch (LEONARDO REZENDE) | Jota Jota Podcast #276",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      3450.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
