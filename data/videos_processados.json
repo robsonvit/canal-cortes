@@ -700,5 +700,38 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "q-OAbQhktMA": {
+    "data_primeiro": "2026-07-19T15:53:03.997419+00:00",
+    "data_ultimo": "2026-07-19T15:53:03.997419+00:00",
+    "titulo": "TRUE WISDOM: CHOOSE YOUR WORDS WISELY - Good morning, Jesus! 195/365 (2026)",
+    "canal": "Inteligência Ltda.",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "DLQSR1Ztve8": {
+    "data_primeiro": "2026-07-19T15:53:22.305094+00:00",
+    "data_ultimo": "2026-07-19T15:53:22.305094+00:00",
+    "titulo": "WHAT WAS THE WORST CASE?!",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "wjnvYZ76YIA": {
+    "data_primeiro": "2026-07-19T15:59:37.936292+00:00",
+    "data_ultimo": "2026-07-19T15:59:37.936292+00:00",
+    "titulo": "AQUELA RESENHA ENTRE PRIMOS - JOÃO E EDUARDO -  TICARACATICAST | EP 748",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      1640.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
