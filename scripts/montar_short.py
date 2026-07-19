@@ -216,17 +216,17 @@ def _calcular_crop_central(video_w: int, video_h: int) -> tuple:
 
 import shutil
 
-def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, original_h: int) -> str:
+def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, original_h: int) -> tuple:
     """
-    Usa FFmpeg para extrair frames (1 a cada 4 segs), detecta rostos com MediaPipe,
-    e constrÃ³i a expressÃ£o de crop dinÃ¢mica para o FFmpeg, sem re-renderizar o vÃ­deo.
+    Usa FFmpeg para extrair frames (1 a cada 1 seg), detecta rostos com MediaPipe,
+    e constrói a expressão de crop dinâmica para o FFmpeg, incluindo zoom inteligente.
     """
     if not HAS_CV2_MP:
-        return None
+        return None, None
 
     crop_w, crop_h, _, y_off = _calcular_crop_central(original_w, original_h)
     
-    print("  ðŸ‘ï¸  Iniciando rastreamento facial (NÃ­vel 2 via anÃ¡lise matemÃ¡tica de 4s)...")
+    print("  👁️  Iniciando rastreamento facial (Nível 2 via análise matemática de 1s)...")
     
     tmp_dir = os.path.join(os.path.dirname(video_path), "tmp_frames_track")
     os.makedirs(tmp_dir, exist_ok=True)
@@ -243,8 +243,8 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
     
     frames = sorted(glob.glob(os.path.join(tmp_dir, "*.jpg")))
     if not frames:
-        print("  âš ï¸  Falha ao extrair frames para tracking. Usando corte estÃ¡tico.")
-        return None
+        print("  ⚠️  Falha ao extrair frames para tracking. Usando corte estático.")
+        return None, None
         
     mp_face_detection = mp.solutions.face_detection
     
@@ -252,42 +252,77 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
     last_x = center_x
     x_values = []
     
+    zoom_values = []
+    current_zoom = 1.0
+    time_since_last_zoom = 0
+    
     with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5) as face_detection:
-        for fpath in frames:
+        for i, fpath in enumerate(frames):
             img = cv2.imread(fpath)
             if img is None:
                 x_values.append(last_x)
+                zoom_values.append(current_zoom)
+                time_since_last_zoom += 1
                 continue
                 
             img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             results = face_detection.process(img_rgb)
             
+            ideal_x = last_x
             if results.detections:
                 det = results.detections[0]
                 bbox = det.location_data.relative_bounding_box
                 face_cx = int((bbox.xmin + bbox.width / 2) * original_w)
                 ideal_x = int(face_cx - (crop_w / 2))
                 ideal_x = max(0, min(ideal_x, original_w - crop_w))
-                last_x = ideal_x
                 
+            if i == 0:
+                last_x = ideal_x
+                x_values.append(last_x)
+                zoom_values.append(current_zoom)
+                continue
+                
+            diff = abs(ideal_x - last_x)
+            
+            # Anti-jitter: ignora movimentos menores que 2% da largura para evitar cortes de poucos milímetros
+            if diff < (0.02 * original_w):
+                ideal_x = last_x
+                
+            if ideal_x != last_x:
+                if diff < (0.20 * original_w):
+                    # Movimento pequeno (mesma pessoa reposicionada). Aplica zoom para suavizar o jump cut
+                    current_zoom = 1.2 if current_zoom == 1.0 else 1.0
+                    time_since_last_zoom = 0
+                else:
+                    # Movimento grande (outra pessoa / mudou de lado). Reseta zoom
+                    current_zoom = 1.0
+                    time_since_last_zoom = 0
+            else:
+                # Nao mudou de posicao, mas podemos dar jump cut aleatorio a cada 3-5s para manter dinamismo
+                time_since_last_zoom += 1
+                if time_since_last_zoom >= random.randint(3, 5):
+                    current_zoom = 1.2 if current_zoom == 1.0 else 1.0
+                    time_since_last_zoom = 0
+                    
+            last_x = ideal_x
             x_values.append(last_x)
+            zoom_values.append(current_zoom)
             
     # Limpeza
     shutil.rmtree(tmp_dir, ignore_errors=True)
     
     if not x_values:
-        return None
+        return None, None
         
-    # ConstrÃ³i a expressÃ£o de crop dinÃ¢mica
-    # Ex: if(lt(t,4),X0,if(lt(t,8),X1,...))
-    expr = str(x_values[-1])
+    expr_x = str(x_values[-1])
+    expr_z = str(zoom_values[-1])
     interval = 1
     for i in range(len(x_values) - 2, -1, -1):
         limit = (i + 1) * interval
-        expr = f"if(lt(t,{limit}),{x_values[i]},{expr})"
+        expr_x = f"if(lt(t,{limit}),{x_values[i]},{expr_x})"
+        expr_z = f"if(lt(t,{limit}),{zoom_values[i]},{expr_z})"
         
-    return expr
-
+    return expr_x, expr_z
 
 
 def _gerar_expressao_zoom(duracao_total: float) -> str:
@@ -337,6 +372,7 @@ def _montar_ffmpeg_puro(
     srt_path: str,
     duracao: float,
     crop_x_expr: str = None,
+    zoom_expr: str = None,
 ):
     """
     Monta o Short 9:16 inteiramente com FFmpeg â€” sem OpenCV.
@@ -353,16 +389,16 @@ def _montar_ffmpeg_puro(
 
     if crop_x_expr:
         x_off_str = f"'{crop_x_expr}'"
-        print(f"  âœ‚ï¸  Crop DinÃ¢mico: {crop_w}Ã—{crop_h} em Y={y_off} â†’ escala para {SHORT_W}Ã—{SHORT_H}")
+        print(f"  âœ‚ï¸   Crop DinÃ¢mico: {crop_w}Ã—{crop_h} em Y={y_off} â†’ escala para {SHORT_W}Ã—{SHORT_H}")
     else:
         x_off_str = str(default_x_off)
-        print(f"  âœ‚ï¸  Crop EstÃ¡tico: {crop_w}Ã—{crop_h} em ({x_off_str},{y_off}) â†’ escala para {SHORT_W}Ã—{SHORT_H}")
+        print(f"  âœ‚ï¸   Crop EstÃ¡tico: {crop_w}Ã—{crop_h} em ({x_off_str},{y_off}) â†’ escala para {SHORT_W}Ã—{SHORT_H}")
 
     # Usa fonte embarcada e drawtext (sem libass/fontconfig) para legendas garantidas
     font_path = _garantir_fonte()
     drawtext_chain = _srt_para_drawtext(srt_path, font_path)
 
-    # --- ConfiguraÃ§Ã£o dos Ãudios Extras ---
+    # --- ConfiguraÃ§Ã£o dos Ã udios Extras ---
     musicas_dir = os.path.join(ROOT_DIR, "assets", "audios", "musicas")
     efeitos_dir = os.path.join(ROOT_DIR, "assets", "audios", "efeitos")
     
@@ -382,8 +418,11 @@ def _montar_ffmpeg_puro(
     print(f"  ðŸŽµ MÃºsica escolhida: {os.path.basename(musica_escolhida) if musica_escolhida else 'Nenhuma'}")
     print(f"  ðŸ”” NotificaÃ§Ã£o: {os.path.basename(notificacao) if notificacao else 'Nenhuma'}")
 
-    zoom_expr = _gerar_expressao_zoom(duracao)
-    print(f"  ðŸ” Zoom AleatÃ³rio (Jump Cuts): ativo para {duracao:.1f}s")
+    if not zoom_expr:
+        zoom_expr = _gerar_expressao_zoom(duracao)
+        print(f"  🔍 Zoom Aleatório (Jump Cuts): ativo para {duracao:.1f}s")
+    else:
+        print(f"  🔍 Zoom Inteligente (Sincronizado com rastreamento): ativo para {duracao:.1f}s")
     
     # Monta a cadeia de filtros de vÃ­deo (drawtext adicionado ao final)
     vf_chain = (
@@ -479,11 +518,14 @@ def montar_short(
     print(f"  ðŸ“ VÃ­deo original: {video_w}Ã—{video_h} @ {fps:.1f}fps | {duracao:.1f}s ({total_frames} frames)")
 
     crop_x_expr = None
+    zoom_expr = None
     if HAS_CV2_MP:
-        crop_x_expr = _calcular_tracking_dinamico_ffmpeg(video_path, video_w, video_h)
+        res = _calcular_tracking_dinamico_ffmpeg(video_path, video_w, video_h)
+        if res:
+            crop_x_expr, zoom_expr = res
 
     # Monta o Short 9:16 com FFmpeg
-    _montar_ffmpeg_puro(video_path, output_path, video_w, video_h, srt_path, duracao, crop_x_expr)
+    _montar_ffmpeg_puro(video_path, output_path, video_w, video_h, srt_path, duracao, crop_x_expr, zoom_expr)
 
     tamanho_mb = os.path.getsize(output_path) / (1024 * 1024)
     print(f"  âœ… Short base pronto: {output_path} ({tamanho_mb:.1f} MB)")
