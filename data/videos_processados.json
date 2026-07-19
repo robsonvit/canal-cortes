@@ -733,5 +733,38 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Ypmhv16zgyc": {
+    "data_primeiro": "2026-07-19T18:46:42.431150+00:00",
+    "data_ultimo": "2026-07-19T18:46:42.431150+00:00",
+    "titulo": "EDDY JR e LUCAS VRAU - Groselha Talk #002",
+    "canal": "Groselha Talk",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "PvzYIEnGs1E": {
+    "data_primeiro": "2026-07-19T18:47:01.549658+00:00",
+    "data_ultimo": "2026-07-19T18:47:01.549658+00:00",
+    "titulo": "COMENDO COMIDA CHINESA O DIA TODO COM PAULO CHINÊS | Pensão Completa | #VIDAREAL #27",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Tae3dJ39cY8": {
+    "data_primeiro": "2026-07-19T18:52:41.801062+00:00",
+    "data_ultimo": "2026-07-19T18:52:41.801062+00:00",
+    "titulo": "COVERAGE FAILURE #277: Soft Feet in Mzoleira's Hands",
+    "canal": "Podpah",
+    "picos_usados": [
+      333.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
