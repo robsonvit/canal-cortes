@@ -1,20 +1,20 @@
 """
 montar_short.py
-───────────────
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 Passo 5 do Pipeline Canal Cortes.
 
-Monta o Short 9:16 (1080×1920) com:
-  1. Crop central inteligente (landscape → portrait)
-  2. Redimensionamento para 1080×1920 (9:16)
+Monta o Short 9:16 (1080Ã—1920) com:
+  1. Crop central inteligente (landscape â†’ portrait)
+  2. Redimensionamento para 1080Ã—1920 (9:16)
   3. Overlay de legendas SRT em estilo moderno (fonte grande, sombra)
-  4. Inversão horizontal anti-cópia + saturação elevada
+  4. InversÃ£o horizontal anti-cÃ³pia + saturaÃ§Ã£o elevada
 
-ARQUITETURA: 100% FFmpeg nativo — sem dependência de OpenCV/MediaPipe
-para decodificação. Garante compatibilidade com qualquer codec que o
+ARQUITETURA: 100% FFmpeg nativo â€” sem dependÃªncia de OpenCV/MediaPipe
+para decodificaÃ§Ã£o. Garante compatibilidade com qualquer codec que o
 yt-dlp baixar (H.264, AV1, VP9, etc.).
 
-Saída: output/short_base.mp4 (sem inserções 1:1 nem música)
-       (essas serão adicionadas pelo inserir_contexto.py)
+SaÃ­da: output/short_base.mp4 (sem inserÃ§Ãµes 1:1 nem mÃºsica)
+       (essas serÃ£o adicionadas pelo inserir_contexto.py)
 """
 
 import os
@@ -35,14 +35,14 @@ except ImportError:
 ROOT_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 
-# Resolução alvo para Shorts (9:16)
+# ResoluÃ§Ã£o alvo para Shorts (9:16)
 SHORT_W = 1080
 SHORT_H = 1920
 
 
 def _escape_srt_path(path: str) -> str:
     """Escapa caminho para uso no filtro subtitles do FFmpeg."""
-    # O uso de caminhos relativos evita problemas crônicos do FFmpeg com "C:/" no Windows
+    # O uso de caminhos relativos evita problemas crÃ´nicos do FFmpeg com "C:/" no Windows
     # Mas no Linux podemos usar caminhos absolutos se preferir. Aqui usamos relativo limpo.
     rel_path = os.path.relpath(path).replace("\\", "/")
     # O FFmpeg exige escape de dois pontos se formos usar caminho absoluto
@@ -50,19 +50,19 @@ def _escape_srt_path(path: str) -> str:
 
 
 def _garantir_fonte() -> str:
-    """Baixa a fonte Montserrat Black se não existir e retorna o caminho absoluto do .ttf."""
+    """Baixa a fonte Montserrat Black se nÃ£o existir e retorna o caminho absoluto do .ttf."""
     fonts_dir = os.path.join(ROOT_DIR, "assets", "fonts")
     os.makedirs(fonts_dir, exist_ok=True)
     font_path = os.path.join(fonts_dir, "Montserrat-Black.ttf")
     if not os.path.exists(font_path):
-        print("  🔠 Baixando fonte Montserrat Black...")
+        print("  ðŸ”  Baixando fonte Montserrat Black...")
         import urllib.request
         url = "https://github.com/JulietaUla/Montserrat/raw/master/fonts/ttf/Montserrat-Black.ttf"
         try:
             urllib.request.urlretrieve(url, font_path)
-            print("  ✅ Fonte baixada com sucesso.")
+            print("  âœ… Fonte baixada com sucesso.")
         except Exception as e:
-            print(f"  ⚠️  Erro ao baixar fonte: {e}")
+            print(f"  âš ï¸  Erro ao baixar fonte: {e}")
     return font_path
 
 
@@ -75,23 +75,23 @@ def _srt_time_to_seconds(ts: str) -> float:
 
 def _srt_para_drawtext(srt_path: str, font_path: str) -> str:
     """
-    Lê o arquivo SRT e gera uma cadeia de filtros drawtext do FFmpeg.
-    Usa o arquivo .ttf diretamente — sem depender de fontconfig ou libass.
-    Retorna string vazia se não houver entradas.
+    LÃª o arquivo SRT e gera uma cadeia de filtros drawtext do FFmpeg.
+    Usa o arquivo .ttf diretamente â€” sem depender de fontconfig ou libass.
+    Retorna string vazia se nÃ£o houver entradas.
     """
     try:
         with open(srt_path, "r", encoding="utf-8") as f:
             conteudo = f.read()
     except Exception as e:
-        print(f"  ⚠️  Erro ao ler SRT: {e}")
+        print(f"  âš ï¸  Erro ao ler SRT: {e}")
         return ""
 
     # Escapa o caminho da fonte para FFmpeg (barras, dois-pontos)
-    font_escaped = font_path.replace("\\", "/")
-    if ":" in font_escaped:  # Windows C:\...
+    font_escaped = os.path.relpath(font_path).replace("\\", "/")
+    if ":" in font_escaped:  # Should not happen with relpath, but just in case
         font_escaped = font_escaped.replace(":", "\\\\:")
 
-    # Parseia blocos SRT: número / timestamps / texto
+    # Parseia blocos SRT: nÃºmero / timestamps / texto
     blocos = re.split(r"\n\n+", conteudo.strip())
     filtros = []
 
@@ -100,7 +100,7 @@ def _srt_para_drawtext(srt_path: str, font_path: str) -> str:
         if len(linhas) < 3:
             continue
         try:
-            # Linha 0: índice, Linha 1: timestamps, Linha 2+: texto
+            # Linha 0: Ã­ndice, Linha 1: timestamps, Linha 2+: texto
             arrow_line = linhas[1]
             if "-->" not in arrow_line:
                 continue
@@ -153,22 +153,22 @@ def _srt_para_drawtext(srt_path: str, font_path: str) -> str:
             filtros.append(f)
 
     if not filtros:
-        print("  ⚠️  SRT sem entradas válidas para drawtext.")
+        print("  âš ï¸  SRT sem entradas vÃ¡lidas para drawtext.")
         return ""
 
-    print(f"  📝 {len(filtros)} entradas de legenda via drawtext.")
+    print(f"  ðŸ“ {len(filtros)} entradas de legenda via drawtext.")
     return ",".join(filtros)
 
 
 def _obter_dimensoes_video(video_path: str) -> tuple:
-    """Retorna (largura, altura, fps, total_frames, duracao_s) do vídeo."""
+    """Retorna (largura, altura, fps, total_frames, duracao_s) do vÃ­deo."""
     cmd = [
         "ffprobe", "-v", "quiet",
         "-print_format", "json",
         "-show_streams",
         video_path,
     ]
-    resultado = subprocess.run(cmd, capture_output=True, text=True)
+    resultado = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')
     dados = json.loads(resultado.stdout)
     for s in dados.get("streams", []):
         if s.get("codec_type") == "video":
@@ -182,20 +182,20 @@ def _obter_dimensoes_video(video_path: str) -> tuple:
             )
             frames = int(s.get("nb_frames", 0)) or int(dur * fps)
             codec  = s.get("codec_name", "unknown")
-            print(f"  ℹ️  Codec detectado: {codec}")
+            print(f"  â„¹ï¸  Codec detectado: {codec}")
             return w, h, fps, frames, dur
     return 1920, 1080, 30, 1800, 60.0
 
 
 def _calcular_crop_central(video_w: int, video_h: int) -> tuple:
     """
-    Calcula os parâmetros de crop para transformar landscape em portrait (9:16).
+    Calcula os parÃ¢metros de crop para transformar landscape em portrait (9:16).
     Retorna (crop_w, crop_h, x_offset, y_offset).
     """
     alvo_ratio = 9 / 16
 
     if video_w >= video_h:
-        # Landscape (mais largo): crop lateral, mantém altura total
+        # Landscape (mais largo): crop lateral, mantÃ©m altura total
         crop_h = video_h
         crop_w = int(video_h * alvo_ratio)
         if crop_w > video_w:
@@ -219,14 +219,14 @@ import shutil
 def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, original_h: int) -> str:
     """
     Usa FFmpeg para extrair frames (1 a cada 4 segs), detecta rostos com MediaPipe,
-    e constrói a expressão de crop dinâmica para o FFmpeg, sem re-renderizar o vídeo.
+    e constrÃ³i a expressÃ£o de crop dinÃ¢mica para o FFmpeg, sem re-renderizar o vÃ­deo.
     """
     if not HAS_CV2_MP:
         return None
 
     crop_w, crop_h, _, y_off = _calcular_crop_central(original_w, original_h)
     
-    print("  👁️  Iniciando rastreamento facial (Nível 2 via análise matemática de 4s)...")
+    print("  ðŸ‘ï¸  Iniciando rastreamento facial (NÃ­vel 2 via anÃ¡lise matemÃ¡tica de 4s)...")
     
     tmp_dir = os.path.join(os.path.dirname(video_path), "tmp_frames_track")
     os.makedirs(tmp_dir, exist_ok=True)
@@ -243,7 +243,7 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
     
     frames = sorted(glob.glob(os.path.join(tmp_dir, "*.jpg")))
     if not frames:
-        print("  ⚠️  Falha ao extrair frames para tracking. Usando corte estático.")
+        print("  âš ï¸  Falha ao extrair frames para tracking. Usando corte estÃ¡tico.")
         return None
         
     mp_face_detection = mp.solutions.face_detection
@@ -278,7 +278,7 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
     if not x_values:
         return None
         
-    # Constrói a expressão de crop dinâmica
+    # ConstrÃ³i a expressÃ£o de crop dinÃ¢mica
     # Ex: if(lt(t,4),X0,if(lt(t,8),X1,...))
     expr = str(x_values[-1])
     interval = 1
@@ -292,9 +292,9 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
 
 def _gerar_expressao_zoom(duracao_total: float) -> str:
     """
-    Gera uma expressão FFmpeg para jump cuts (saltos de zoom) aleatórios.
+    Gera uma expressÃ£o FFmpeg para jump cuts (saltos de zoom) aleatÃ³rios.
     Cria segmentos de 3 a 6 segundos com zoom (1.15) ou sem zoom (1.0),
-    garantindo que não haja 3 cortes seguidos do mesmo tipo.
+    garantindo que nÃ£o haja 3 cortes seguidos do mesmo tipo.
     """
     t_atual = 0.0
     cortes = []
@@ -306,7 +306,7 @@ def _gerar_expressao_zoom(duracao_total: float) -> str:
         dur_corte = random.uniform(3.0, 6.0)
         t_fim = t_atual + dur_corte
         
-        # Se os dois últimos cortes foram iguais, força a troca
+        # Se os dois Ãºltimos cortes foram iguais, forÃ§a a troca
         if len(historico) >= 2 and historico[-1] == historico[-2]:
             opcoes_disp = [o for o in opcoes if o != historico[-1]]
         else:
@@ -317,12 +317,12 @@ def _gerar_expressao_zoom(duracao_total: float) -> str:
         cortes.append((t_fim, zoom_val))
         t_atual = t_fim
         
-    # Monta a expressão FFmpeg com ifs aninhados:
+    # Monta a expressÃ£o FFmpeg com ifs aninhados:
     # ex: if(lt(t, 4.5), 1.0, if(lt(t, 8.2), 1.15, 1.0))
     if not cortes:
         return "1.0"
         
-    expr = str(cortes[-1][1]) # O último valor serve como fallback no final
+    expr = str(cortes[-1][1]) # O Ãºltimo valor serve como fallback no final
     for t_fim, zoom_val in reversed(cortes[:-1]):
         expr = f"if(lt(t,{t_fim:.2f}),{zoom_val},{expr})"
         
@@ -339,30 +339,30 @@ def _montar_ffmpeg_puro(
     crop_x_expr: str = None,
 ):
     """
-    Monta o Short 9:16 inteiramente com FFmpeg — sem OpenCV.
+    Monta o Short 9:16 inteiramente com FFmpeg â€” sem OpenCV.
 
     Filtros aplicados:
-      1. crop      — recorta a região central ou rastreada dinamicamente
-      2. scale     — redimensiona para 1080×1920
-      3. pad       — garante dimensões exatas com bordas pretas
-      4. hflip     — inversão horizontal anti-cópia
-      5. eq        — saturação elevada (cores mais vivas)
-      6. subtitles — legendas SRT em estilo moderno
+      1. crop      â€” recorta a regiÃ£o central ou rastreada dinamicamente
+      2. scale     â€” redimensiona para 1080Ã—1920
+      3. pad       â€” garante dimensÃµes exatas com bordas pretas
+      4. hflip     â€” inversÃ£o horizontal anti-cÃ³pia
+      5. eq        â€” saturaÃ§Ã£o elevada (cores mais vivas)
+      6. subtitles â€” legendas SRT em estilo moderno
     """
     crop_w, crop_h, default_x_off, y_off = _calcular_crop_central(video_w, video_h)
 
     if crop_x_expr:
         x_off_str = f"'{crop_x_expr}'"
-        print(f"  ✂️  Crop Dinâmico: {crop_w}×{crop_h} em Y={y_off} → escala para {SHORT_W}×{SHORT_H}")
+        print(f"  âœ‚ï¸  Crop DinÃ¢mico: {crop_w}Ã—{crop_h} em Y={y_off} â†’ escala para {SHORT_W}Ã—{SHORT_H}")
     else:
         x_off_str = str(default_x_off)
-        print(f"  ✂️  Crop Estático: {crop_w}×{crop_h} em ({x_off_str},{y_off}) → escala para {SHORT_W}×{SHORT_H}")
+        print(f"  âœ‚ï¸  Crop EstÃ¡tico: {crop_w}Ã—{crop_h} em ({x_off_str},{y_off}) â†’ escala para {SHORT_W}Ã—{SHORT_H}")
 
     # Usa fonte embarcada e drawtext (sem libass/fontconfig) para legendas garantidas
     font_path = _garantir_fonte()
     drawtext_chain = _srt_para_drawtext(srt_path, font_path)
 
-    # --- Configuração dos Áudios Extras ---
+    # --- ConfiguraÃ§Ã£o dos Ãudios Extras ---
     musicas_dir = os.path.join(ROOT_DIR, "assets", "audios", "musicas")
     efeitos_dir = os.path.join(ROOT_DIR, "assets", "audios", "efeitos")
     
@@ -379,13 +379,13 @@ def _montar_ffmpeg_puro(
         if lista_efeitos:
             notificacao = random.choice(lista_efeitos)
             
-    print(f"  🎵 Música escolhida: {os.path.basename(musica_escolhida) if musica_escolhida else 'Nenhuma'}")
-    print(f"  🔔 Notificação: {os.path.basename(notificacao) if notificacao else 'Nenhuma'}")
+    print(f"  ðŸŽµ MÃºsica escolhida: {os.path.basename(musica_escolhida) if musica_escolhida else 'Nenhuma'}")
+    print(f"  ðŸ”” NotificaÃ§Ã£o: {os.path.basename(notificacao) if notificacao else 'Nenhuma'}")
 
     zoom_expr = _gerar_expressao_zoom(duracao)
-    print(f"  🔍 Zoom Aleatório (Jump Cuts): ativo para {duracao:.1f}s")
+    print(f"  ðŸ” Zoom AleatÃ³rio (Jump Cuts): ativo para {duracao:.1f}s")
     
-    # Monta a cadeia de filtros de vídeo (drawtext adicionado ao final)
+    # Monta a cadeia de filtros de vÃ­deo (drawtext adicionado ao final)
     vf_chain = (
         f"crop={crop_w}:{crop_h}:{x_off_str}:{y_off},"
         f"scale={SHORT_W}:{SHORT_H}:force_original_aspect_ratio=decrease,"
@@ -397,12 +397,12 @@ def _montar_ffmpeg_puro(
     )
     if drawtext_chain:
         vf_chain += "," + drawtext_chain
-    print(f"  {'📝 ' + str(drawtext_chain.count('drawtext=')) + ' entradas de legenda' if drawtext_chain else '⚠️  SEM legenda!'}")
+    print(f"  {'ðŸ“ ' + str(drawtext_chain.count('drawtext=')) + ' entradas de legenda' if drawtext_chain else 'âš ï¸  SEM legenda!'}")
 
     cmd = ["ffmpeg", "-y", "-i", video_path]
     input_idx = 1
     
-    # Áudios extras
+    # Ãudios extras
     audio_filters = []
     if musica_escolhida:
         cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
@@ -414,7 +414,7 @@ def _montar_ffmpeg_puro(
         audio_filters.append((input_idx, "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB,volume=1.5", "a_notif"))
         input_idx += 1
 
-    # Monta filter_complex completo (vídeo + áudio)
+    # Monta filter_complex completo (vÃ­deo + Ã¡udio)
     fc_parts = [f"[0:v]{vf_chain}[vout]"]
     mix_inputs = ["[0:a]"]
     
@@ -423,7 +423,7 @@ def _montar_ffmpeg_puro(
         mix_inputs.append(f"[{label}]")
     
     if len(mix_inputs) > 1:
-        # amix divide o volume por num_inputs. Para compensar, multiplicamos o volume de saída por num_inputs.
+        # amix divide o volume por num_inputs. Para compensar, multiplicamos o volume de saÃ­da por num_inputs.
         n = len(mix_inputs)
         fc_parts.append(f"{''.join(mix_inputs)}amix=inputs={n}:duration=first:dropout_transition=0,volume={n}[aout]")
     else:
@@ -443,15 +443,16 @@ def _montar_ffmpeg_puro(
         output_path,
     ])
 
-    print(f"  🎬 Executando FFmpeg para montagem 9:16...")
-    resultado = subprocess.run(cmd, capture_output=True, text=True)
+    print(f"  ðŸŽ¬ Executando FFmpeg para montagem 9:16...")
+    resultado = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')
 
     if resultado.returncode != 0:
-        print(f"  ⚠️  FFmpeg falhou. Detalhes:")
-        print(f"  stderr: {resultado.stderr[-400:]}")
-        raise RuntimeError(f"FFmpeg falhou na montagem 9:16:\n{resultado.stderr}")
+        print(f"  âš ï¸  FFmpeg falhou. Detalhes:")
+        stderr_txt = resultado.stderr if resultado.stderr else (resultado.stdout if resultado.stdout else "Sem saÃ­da de erro")
+        print(f"  stderr: {stderr_txt[-400:]}")
+        raise RuntimeError(f"FFmpeg falhou na montagem 9:16:\n{stderr_txt}\nComando: {' '.join(cmd)}")
     else:
-        print("  ✅ FFmpeg concluiu com sucesso.")
+        print("  âœ… FFmpeg concluiu com sucesso.")
 
 
 def montar_short(
@@ -460,22 +461,22 @@ def montar_short(
     output_dir: str = OUTPUT_DIR,
 ) -> str:
     """
-    Formata o vídeo em 9:16 com crop central e legendas.
+    Formata o vÃ­deo em 9:16 com crop central e legendas.
 
     Args:
-        video_path : vídeo original baixado (qualquer codec)
+        video_path : vÃ­deo original baixado (qualquer codec)
         srt_path   : arquivo SRT com legendas
-        output_dir : pasta de saída
+        output_dir : pasta de saÃ­da
 
     Returns:
-        Caminho do vídeo processado (output/short_base.mp4)
+        Caminho do vÃ­deo processado (output/short_base.mp4)
     """
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, "short_base.mp4")
 
-    # Obtém dimensões do vídeo via ffprobe (funciona com qualquer codec)
+    # ObtÃ©m dimensÃµes do vÃ­deo via ffprobe (funciona com qualquer codec)
     video_w, video_h, fps, total_frames, duracao = _obter_dimensoes_video(video_path)
-    print(f"  📐 Vídeo original: {video_w}×{video_h} @ {fps:.1f}fps | {duracao:.1f}s ({total_frames} frames)")
+    print(f"  ðŸ“ VÃ­deo original: {video_w}Ã—{video_h} @ {fps:.1f}fps | {duracao:.1f}s ({total_frames} frames)")
 
     crop_x_expr = None
     if HAS_CV2_MP:
@@ -485,7 +486,7 @@ def montar_short(
     _montar_ffmpeg_puro(video_path, output_path, video_w, video_h, srt_path, duracao, crop_x_expr)
 
     tamanho_mb = os.path.getsize(output_path) / (1024 * 1024)
-    print(f"  ✅ Short base pronto: {output_path} ({tamanho_mb:.1f} MB)")
+    print(f"  âœ… Short base pronto: {output_path} ({tamanho_mb:.1f} MB)")
     return output_path
 
 
@@ -494,3 +495,4 @@ if __name__ == "__main__":
     video = sys.argv[1] if len(sys.argv) > 1 else "output/trecho_original.mp4"
     srt   = sys.argv[2] if len(sys.argv) > 2 else "output/legendas.srt"
     montar_short(video, srt)
+

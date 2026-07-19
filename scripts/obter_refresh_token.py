@@ -1,12 +1,12 @@
-"""
+﻿"""
 obter_refresh_token.py
-──────────────────────
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 Script auxiliar para gerar o refresh_token OAuth2 do YouTube.
 
-Execute UMA VEZ localmente para obter o token que será salvo
+Execute UMA VEZ localmente para obter o token que serÃ¡ salvo
 como secret YOUTUBE_REFRESH_TOKEN no GitHub.
 
-Pré-requisitos:
+PrÃ©-requisitos:
   1. Crie um projeto no Google Cloud Console
   2. Habilite YouTube Data API v3
   3. Crie credenciais OAuth 2.0 (tipo: Desktop App)
@@ -15,8 +15,8 @@ Pré-requisitos:
 Uso:
   python scripts/obter_refresh_token.py
 
-O script abrirá o browser para autenticação e salvará:
-  - refresh_token_PRIVADO.json (NÃO COMMITE ESTE ARQUIVO)
+O script abrirÃ¡ o browser para autenticaÃ§Ã£o e salvarÃ¡:
+  - refresh_token_PRIVADO.json (NÃƒO COMMITE ESTE ARQUIVO)
 """
 
 import os
@@ -29,7 +29,7 @@ TOKEN_OUTPUT_FILE  = os.path.join(ROOT_DIR, "refresh_token_PRIVADO.json")
 
 SCOPES = [
     "https://www.googleapis.com/auth/youtube",          # Gerenciar playlists
-    "https://www.googleapis.com/auth/youtube.upload",   # Upload de vídeos
+    "https://www.googleapis.com/auth/youtube.upload",   # Upload de vÃ­deos
 ]
 
 
@@ -37,13 +37,13 @@ def obter_token():
     from google_auth_oauthlib.flow import InstalledAppFlow
 
     if not os.path.exists(CLIENT_SECRET_FILE):
-        print("❌ Arquivo client_secret.json não encontrado!")
+        print("âŒ Arquivo client_secret.json nÃ£o encontrado!")
         print(f"   Esperado em: {CLIENT_SECRET_FILE}")
         print("\n   Passos:")
         print("   1. Acesse: https://console.cloud.google.com/")
-        print("   2. Crie projeto → Ative YouTube Data API v3")
-        print("   3. Credenciais → Criar credencial → ID do cliente OAuth")
-        print("   4. Tipo: App para computador → Baixar JSON")
+        print("   2. Crie projeto â†’ Ative YouTube Data API v3")
+        print("   3. Credenciais â†’ Criar credencial â†’ ID do cliente OAuth")
+        print("   4. Tipo: App para computador â†’ Baixar JSON")
         print("   5. Renomeie para client_secret.json e coloque na raiz")
         return
 
@@ -59,23 +59,24 @@ def obter_token():
     with open(TOKEN_OUTPUT_FILE, "w") as f:
         json.dump(token_data, f, indent=2)
 
-    print("\n" + "═" * 60)
-    print("  ✅ TOKEN OBTIDO COM SUCESSO!")
-    print("═" * 60)
+    print("\n" + "â•" * 60)
+    print("  âœ… TOKEN OBTIDO COM SUCESSO!")
+    print("â•" * 60)
     print(f"\n  Arquivo salvo: {TOKEN_OUTPUT_FILE}")
     print(f"\n  Scopes autorizados:")
-    print(f"    • youtube        — gerenciar playlists")
-    print(f"    • youtube.upload — fazer upload de vídeos")
+    print(f"    â€¢ youtube        â€” gerenciar playlists")
+    print(f"    â€¢ youtube.upload â€” fazer upload de vÃ­deos")
     print(f"\n  Agora configure estes secrets no GitHub:")
-    print(f"  (Settings → Secrets and variables → Actions → New repository secret)")
+    print(f"  (Settings â†’ Secrets and variables â†’ Actions â†’ New repository secret)")
     print()
     print(f"  YOUTUBE_REFRESH_TOKEN = {creds.refresh_token}")
     print(f"  YOUTUBE_CLIENT_ID     = {creds.client_id}")
     print(f"  YOUTUBE_CLIENT_SECRET = {creds.client_secret}")
     print()
-    print("  ⚠️  NÃO commite o arquivo refresh_token_PRIVADO.json!")
+    print("  âš ï¸  NÃƒO commite o arquivo refresh_token_PRIVADO.json!")
     print("=" * 60)
 
 
 if __name__ == "__main__":
     obter_token()
+
