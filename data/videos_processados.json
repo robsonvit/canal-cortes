@@ -656,5 +656,49 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "t7CbWJJXWls": {
+    "data_primeiro": "2026-07-19T15:13:41.673067+00:00",
+    "data_ultimo": "2026-07-19T15:13:41.673067+00:00",
+    "titulo": "Especial Melhores Momentos 2023 - O Pod é Nosso",
+    "canal": "O Pod é Nosso",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "xCdxyTEssm0": {
+    "data_primeiro": "2026-07-19T15:13:57.742542+00:00",
+    "data_ultimo": "2026-07-19T15:13:57.742542+00:00",
+    "titulo": "WILL THIAGO ALMADA BE A FLAMENGO PLAYER?",
+    "canal": "Charla Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "ZEZbsD-jvhM": {
+    "data_primeiro": "2026-07-19T15:14:14.272549+00:00",
+    "data_ultimo": "2026-07-19T15:14:14.272549+00:00",
+    "titulo": "ZETA 5 x 2 OLIMPO UNITED | MELHORES MOMENTOS: KINGS LEAGUE WORLD CUP | 1ª Rodada",
+    "canal": "Podpah Esportes",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "UQJMp0-6QTo": {
+    "data_primeiro": "2026-07-19T15:18:59.491465+00:00",
+    "data_ultimo": "2026-07-19T15:18:59.491465+00:00",
+    "titulo": "What He Learned From Interviewing Over 2,000 People (ROGÉRIO VILELA) | JOTA JOTA PODCAST #281",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      2238.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
