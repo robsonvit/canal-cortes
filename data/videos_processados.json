@@ -700,5 +700,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "hydQv3gyZ8Y": {
+    "data_primeiro": "2026-07-20T18:52:09.146931+00:00",
+    "data_ultimo": "2026-07-20T18:52:09.146931+00:00",
+    "titulo": "FLUMINENSE DISAPPOINTS IN BRASILEIRÃO RETURN",
+    "canal": "Charla Podcast",
+    "picos_usados": [
+      25.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
