@@ -689,5 +689,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "0UPWvzYBnFk": {
+    "data_primeiro": "2026-07-20T15:40:17.686032+00:00",
+    "data_ultimo": "2026-07-20T15:40:17.686032+00:00",
+    "titulo": "Dra Dafne Leiderman - O Pod É Nosso Saúde #19",
+    "canal": "O Pod é Nosso",
+    "picos_usados": [
+      409.3
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
