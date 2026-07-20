@@ -1,21 +1,21 @@
-﻿"""
+"""
 baixar_trecho.py
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+────────────────
 Passo 3 do Pipeline Canal Cortes.
 
-Baixa apenas o trecho exato do vÃ­deo (do pico de replay)
+Baixa apenas o trecho exato do vídeo (do pico de replay)
 usando yt-dlp com --download-sections.
 
-TÃ©cnicas anti-bloqueio aplicadas:
+Técnicas anti-bloqueio aplicadas:
   - curl-cffi: TLS fingerprint de Chrome real
-  - player_client mÃºltiplo: web > android > tv_downgraded
+  - player_client múltiplo: web > android > tv_downgraded
   - cookies autenticados (via ytdlp_helper)
   - Deno para JS challenges (instalado pelo workflow)
-  - 3 tentativas com fallback automÃ¡tico de qualidade
+  - 3 tentativas com fallback automático de qualidade
 
 Fix A/V sync:
-  ApÃ³s o download, normaliza os PTS via FFmpeg para evitar o delay
-  de Ã¡udio/vÃ­deo nos primeiros segundos do clipe.
+  Após o download, normaliza os PTS via FFmpeg para evitar o delay
+  de áudio/vídeo nos primeiros segundos do clipe.
 """
 
 import os
@@ -31,9 +31,9 @@ OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 
 def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str = OUTPUT_DIR) -> str:
     """
-    Baixa o trecho [inicio_s, fim_s] do vÃ­deo com mÃºltiplas camadas anti-bloqueio.
-    Utiliza uma margem de seguranÃ§a de 10s antes do clipe e corta exato com ffmpeg
-    para garantir 0 delay de Ã¡udio/vÃ­deo.
+    Baixa o trecho [inicio_s, fim_s] do vídeo com múltiplas camadas anti-bloqueio.
+    Utiliza uma margem de segurança de 10s antes do clipe e corta exato com ffmpeg
+    para garantir 0 delay de áudio/vídeo.
     """
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(os.path.join(output_dir, "tmp"), exist_ok=True)
@@ -46,7 +46,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
     output_path = os.path.join(output_dir, "tmp", "_raw_download.mp4")
     final_path = os.path.join(output_dir, "trecho_original.mp4")
 
-    print(f"  â¬‡ï¸  Baixando trecho (com margem) {_formatar_tempo(inicio_dl)} â†’ {_formatar_tempo(fim_s)}...")
+    print(f"  ⬇️  Baixando trecho (com margem) {_formatar_tempo(inicio_dl)} → {_formatar_tempo(fim_s)}...")
     print(f"     URL: {video_url}")
 
     tentativas = [
@@ -61,7 +61,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             ]) + [video_url],
         },
         {
-            "desc": "Qualidade melhor disponÃ­vel (sem impersonation)",
+            "desc": "Qualidade melhor disponível (sem impersonation)",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
@@ -89,7 +89,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
     ]
 
     for t in tentativas:
-        print(f"  ðŸ”„ {t['desc']}...")
+        print(f"  🔄 {t['desc']}...")
         # Remove arquivo temp se existir de tentativa anterior
         if os.path.exists(output_path):
             os.remove(output_path)
@@ -100,7 +100,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             arquivo = _encontrar_arquivo(output_path)
             if arquivo:
                 tamanho_mb = os.path.getsize(arquivo) / (1024 * 1024)
-                print(f"  âœ… Trecho cru baixado: {arquivo} ({tamanho_mb:.1f} MB)")
+                print(f"  ✅ Trecho cru baixado: {arquivo} ({tamanho_mb:.1f} MB)")
                 
                 # Executa o corte exato removendo a margem e recodificando
                 cmd_trim = [
@@ -115,27 +115,27 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                     "-avoid_negative_ts", "make_zero",
                     final_path
                 ]
-                print(f"  âœ‚ï¸  Aparando {trim_s:.1f}s iniciais com recodificaÃ§Ã£o para zerar delay...")
+                print(f"  ✂️  Aparando {trim_s:.1f}s iniciais com recodificação para zerar delay...")
                 res_trim = subprocess.run(cmd_trim, capture_output=True, text=True, encoding='utf-8', errors='replace')
                 if res_trim.returncode == 0 and os.path.exists(final_path):
                     t_mb = os.path.getsize(final_path) / (1024 * 1024)
-                    print(f"  âœ… Corte exato concluÃ­do: {final_path} ({t_mb:.1f} MB)")
+                    print(f"  ✅ Corte exato concluído: {final_path} ({t_mb:.1f} MB)")
                     return final_path
                 else:
-                    print(f"  âš ï¸  Falha ao aparar trecho: {res_trim.stderr[-200:]}")
+                    print(f"  ⚠️  Falha ao aparar trecho: {res_trim.stderr[-200:]}")
                     # Retorna o arquivo bruto em caso de falha extrema
                     return arquivo
 
-        print(f"  âš ï¸  Falhou: {resultado.stderr[-150:]}")
+        print(f"  ⚠️  Falhou: {resultado.stderr[-150:]}")
 
     raise RuntimeError(
         f"Todas as tentativas de download falharam para: {video_url}\n"
-        f"Ãšltimo erro: {tentativas[-1]['cmd']}"
+        f"Último erro: {tentativas[-1]['cmd']}"
     )
 
 
 def _encontrar_arquivo(output_path: str) -> str | None:
-    """Busca o arquivo gerado mesmo se a extensÃ£o for diferente do esperado."""
+    """Busca o arquivo gerado mesmo se a extensão for diferente do esperado."""
     if os.path.exists(output_path):
         return output_path
     for ext in [".mp4", ".mkv", ".webm", ".m4v"]:

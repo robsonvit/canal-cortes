@@ -1,16 +1,16 @@
-﻿"""
+"""
 selecionar_video.py
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+───────────────────
 Passo 1 do Pipeline Canal Cortes.
 
 Monitora os canais configurados em data/canais.json e seleciona
-o vÃ­deo mais recente ainda nÃ£o processado.
+o vídeo mais recente ainda não processado.
 
-LÃ³gica:
-  1. LÃª lista de canais de data/canais.json
-  2. Para cada canal ativo, busca os vÃ­deos mais recentes via yt-dlp
-  3. Filtra os jÃ¡ processados (data/videos_processados.json)
-  4. Retorna o vÃ­deo mais recente elegÃ­vel com seus metadados
+Lógica:
+  1. Lê lista de canais de data/canais.json
+  2. Para cada canal ativo, busca os vídeos mais recentes via yt-dlp
+  3. Filtra os já processados (data/videos_processados.json)
+  4. Retorna o vídeo mais recente elegível com seus metadados
 """
 
 import os
@@ -28,11 +28,11 @@ CANAIS_FILE    = os.path.join(ROOT_DIR, "data", "canais.json")
 TRACKING_FILE  = os.path.join(ROOT_DIR, "data", "videos_processados.json")
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 # Tracking
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
 def _carregar_processados() -> dict:
-    """Carrega JSON de vÃ­deos jÃ¡ processados."""
+    """Carrega JSON de vídeos já processados."""
     os.makedirs(os.path.join(ROOT_DIR, "data"), exist_ok=True)
     if os.path.exists(TRACKING_FILE):
         with open(TRACKING_FILE, encoding="utf-8") as f:
@@ -42,11 +42,11 @@ def _carregar_processados() -> dict:
 
 def salvar_processado(video_id: str, dados: dict, pico_inicio_s: float = None, total_picos: int = 1):
     """
-    Registra um pico de um vÃ­deo como processado.
+    Registra um pico de um vídeo como processado.
 
-    - Se o vÃ­deo ainda nÃ£o existe no tracking, cria entrada.
-    - Adiciona pico_inicio_s Ã  lista de picos_usados.
-    - Marca picos_esgotados=True quando todos os picos do vÃ­deo tiverem sido usados.
+    - Se o vídeo ainda não existe no tracking, cria entrada.
+    - Adiciona pico_inicio_s à lista de picos_usados.
+    - Marca picos_esgotados=True quando todos os picos do vídeo tiverem sido usados.
     """
     processados = _carregar_processados()
     agora = datetime.now(timezone.utc).isoformat()
@@ -55,7 +55,7 @@ def salvar_processado(video_id: str, dados: dict, pico_inicio_s: float = None, t
 
     # Compatibilidade com formato antigo (chave 'data' direta)
     if "data" in entrada and "picos_usados" not in entrada:
-        # Formato antigo â€” marca como esgotado
+        # Formato antigo — marca como esgotado
         entrada = {
             "data_primeiro":   entrada["data"],
             "data_ultimo":     agora,
@@ -88,19 +88,19 @@ def salvar_processado(video_id: str, dados: dict, pico_inicio_s: float = None, t
 
     restantes = total_picos - len(picos_usados)
     status = "esgotado" if picos_esgotados else f"{restantes} pico(s) restante(s)"
-    print(f"  âœ… VÃ­deo {video_id}: pico {pico_inicio_s}s registrado ({status})")
+    print(f"  ✅ Vídeo {video_id}: pico {pico_inicio_s}s registrado ({status})")
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-# Busca de vÃ­deos recentes via yt-dlp
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
+# Busca de vídeos recentes via yt-dlp
+# ─────────────────────────────────────────────────────────────────────────────
 def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
     """
-    Usa yt-dlp para listar os vÃ­deos mais recentes de um canal.
+    Usa yt-dlp para listar os vídeos mais recentes de um canal.
     Retorna lista de dicts com {id, titulo, duracao, url}.
     """
     url = canal["url"] + "/videos"
-    print(f"  ðŸ” Buscando vÃ­deos de: {canal['nome']} ({url})")
+    print(f"  🔍 Buscando vídeos de: {canal['nome']} ({url})")
 
     cmd = args_base_ytdlp([
         "--flat-playlist",
@@ -118,7 +118,7 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
         )
 
         if resultado.returncode != 0:
-            print(f"  âš ï¸  Erro ao buscar {canal['nome']}: {resultado.stderr[:200]}")
+            print(f"  ⚠️  Erro ao buscar {canal['nome']}: {resultado.stderr[:200]}")
             return []
 
         videos = []
@@ -128,10 +128,10 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
             try:
                 info = json.loads(linha)
                 vid_id   = info.get("id", "")
-                titulo   = info.get("title", "Sem tÃ­tulo")
+                titulo   = info.get("title", "Sem título")
                 duracao  = info.get("duration", 0)
 
-                # Filtra vÃ­deos muito curtos (menos de 3 minutos) ou estreias futuras (duraÃ§Ã£o 0/None)
+                # Filtra vídeos muito curtos (menos de 3 minutos) ou estreias futuras (duração 0/None)
                 if not duracao or duracao < 180:
                     continue
 
@@ -146,24 +146,24 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
             except json.JSONDecodeError:
                 continue
 
-        print(f"  ðŸ“‹ {len(videos)} vÃ­deos encontrados em {canal['nome']}")
+        print(f"  📋 {len(videos)} vídeos encontrados em {canal['nome']}")
         return videos
 
     except subprocess.TimeoutExpired:
-        print(f"  âš ï¸  Timeout ao buscar {canal['nome']}")
+        print(f"  ⚠️  Timeout ao buscar {canal['nome']}")
         return []
     except Exception as e:
-        print(f"  âš ï¸  Erro inesperado ao buscar {canal['nome']}: {e}")
+        print(f"  ⚠️  Erro inesperado ao buscar {canal['nome']}: {e}")
         return []
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-# SeleÃ§Ã£o principal
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# ─────────────────────────────────────────────────────────────────────────────
+# Seleção principal
+# ─────────────────────────────────────────────────────────────────────────────
 def selecionar_video() -> dict:
     """
-    Percorre todos os canais ativos e retorna o vÃ­deo mais recente
-    ainda nÃ£o processado. Raise RuntimeError se nÃ£o encontrar nenhum.
+    Percorre todos os canais ativos e retorna o vídeo mais recente
+    ainda não processado. Raise RuntimeError se não encontrar nenhum.
     """
     # Carrega configs
     with open(CANAIS_FILE, encoding="utf-8") as f:
@@ -172,15 +172,15 @@ def selecionar_video() -> dict:
     canais_ativos = [c for c in config["canais"] if c.get("ativo", True)]
     processados   = _carregar_processados()
 
-    print(f"  ðŸ“¡ Monitorando {len(canais_ativos)} canais...")
+    print(f"  📡 Monitorando {len(canais_ativos)} canais...")
 
     todos_candidatos = []
 
-    # Canal especÃ­fico forÃ§ado via env var (Ãºtil para testes)
+    # Canal específico forçado via env var (útil para testes)
     canal_forcado_url = os.environ.get("CANAL_URL")
     if canal_forcado_url:
-        canais_ativos = [{"nome": "ForÃ§ado", "url": canal_forcado_url, "ativo": True}]
-        print(f"  ðŸŽ¯ Canal forÃ§ado via CANAL_URL: {canal_forcado_url}")
+        canais_ativos = [{"nome": "Forçado", "url": canal_forcado_url, "ativo": True}]
+        print(f"  🎯 Canal forçado via CANAL_URL: {canal_forcado_url}")
 
     for canal in canais_ativos:
         videos = _buscar_videos_canal(canal, max_videos=20)
@@ -195,10 +195,10 @@ def selecionar_video() -> dict:
             # else: formato antigo ou esgotado \u2014 ignora
 
     if not todos_candidatos:
-        print("âš ï¸  Nenhum vÃ­deo elegÃ­vel encontrado. Todos os vÃ­deos recentes e seus picos jÃ¡ foram processados.")
+        print("⚠️  Nenhum vídeo elegível encontrado. Todos os vídeos recentes e seus picos já foram processados.")
         sys.exit(0)
 
-    # LÃ³gica de intercalaÃ§Ã£o (alternar canais e vÃ­deos)
+    # Lógica de intercalação (alternar canais e vídeos)
     ultimo_uso_canal = {}
     ultimo_uso_video = {}
 
@@ -211,7 +211,7 @@ def selecionar_video() -> dict:
             if vid not in ultimo_uso_video or dt > ultimo_uso_video[vid]:
                 ultimo_uso_video[vid] = dt
 
-    # Data mÃ­nima para canais/vÃ­deos nunca usados
+    # Data mínima para canais/vídeos nunca usados
     min_date = datetime.min.replace(tzinfo=timezone.utc)
 
     def chave_ordenacao(v):
@@ -222,16 +222,16 @@ def selecionar_video() -> dict:
     # Embaralha para variar empates aleatoriamente
     random.shuffle(todos_candidatos)
     
-    # Ordena priorizando canais menos recentes e, em seguida, vÃ­deos menos recentes
+    # Ordena priorizando canais menos recentes e, em seguida, vídeos menos recentes
     todos_candidatos.sort(key=chave_ordenacao)
     escolhido = todos_candidatos[0]
 
-    print(f"\n  ðŸŽ¬ VÃ­deo selecionado:")
+    print(f"\n  🎬 Vídeo selecionado:")
     print(f"     Canal : {escolhido['canal']}")
-    print(f"     TÃ­tulo: {escolhido['titulo']}")
+    print(f"     Título: {escolhido['titulo']}")
     print(f"     URL   : {escolhido['url']}")
     duracao_min = (escolhido.get('duracao') or 0) / 60
-    print(f"     DuraÃ§Ã£o: {duracao_min:.0f} min")
+    print(f"     Duração: {duracao_min:.0f} min")
 
     return escolhido
 
