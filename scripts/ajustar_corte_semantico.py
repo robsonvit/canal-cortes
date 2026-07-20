@@ -1,10 +1,10 @@
-﻿"""
+"""
 ajustar_corte_semantico.py
 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 Passo 2.5 do Pipeline Canal Cortes.
 
 ApÃ³s detectar a zona quente via heatmap, refina os pontos de corte
-usando a transcriÃ§Ã£o do trecho como guia semÃ¢ntico.
+usando a transcriÃ§Ã£o do trecho como guia semÃ¢ntico e um LLM para entender o contexto.
 
 Problema que resolve:
   O heatmap define os limites do clipe matematicamente â€” sem saber o
@@ -13,21 +13,17 @@ Problema que resolve:
 
 SoluÃ§Ã£o:
   1. Expande o trecho detectado (atÃ© 90s antes e depois) para ter contexto
-  2. Baixa apenas o ÃUDIO dessa janela expandida (baixo consumo)
+  2. Baixa apenas o Ã UDIO dessa janela expandida (baixo consumo)
   3. Transcreve com Groq Whisper (verbose_json com timestamps de segmentos)
-  4. Busca na transcriÃ§Ã£o:
-     - InÃ­cio ajustado: primeiro segmento que comeÃ§a apÃ³s inÃ­cio_heatmap
-       (dentro de Â±45s) e representa o comeÃ§o de uma sentenÃ§a/fala completa
-     - Fim ajustado: Ãºltimo segmento que TERMINA antes do fim_heatmap
-       (dentro de Â±45s) e representa o final de uma sentenÃ§a/ideia completa
-  5. Retorna (inicio_ajustado, fim_ajustado)
+  4. Envia os segmentos transcritos para um LLM da Groq (LLaMA 3.1) analisar
+     semanticamente onde a histÃ³ria/piada comeÃ§a e termina.
+  5. Retorna (inicio_ajustado, fim_ajustado) baseando-se na inteligÃªncia da IA.
 """
 
 import os
-import re
 import sys
 import subprocess
-import tempfile
+import json
 
 from groq import Groq
 
@@ -36,14 +32,6 @@ OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 
 # Janela de expansÃ£o para busca de contexto (em segundos)
 JANELA_EXPANSAO_S = 90.0   # Expande atÃ© 90s antes e depois do pico
-# Janela mÃ¡xima de busca do ponto de corte ajustado (em segundos em relaÃ§Ã£o ao pico original)
-JANELA_BUSCA_S    = 45.0   # Aceita ajuste de atÃ© 45s do ponto original
-
-# Marcadores de fim de sentenÃ§a
-MARCADORES_FIM = re.compile(r'[.!?â€¦]+\s*$')
-# Marcadores de inÃ­cio de nova ideia (comeÃ§o de frase apÃ³s pontuaÃ§Ã£o)
-MARCADORES_INICIO = re.compile(r'^[A-ZÃÃ‰ÃÃ“ÃšÃ‚ÃŠÃŽÃ”Ã›ÃƒÃ•Ã€Ã‡"\'"Â«\-â€“]')
-
 
 def _formatar_tempo(segundos: float) -> str:
     """Converte segundos para formato HH:MM:SS.mmm usado pelo yt-dlp."""
@@ -78,7 +66,7 @@ def _baixar_audio_expandido(
     os.makedirs(audio_dir, exist_ok=True)
     audio_path = os.path.join(audio_dir, "_semantico_audio.mp3")
 
-    print(f"  ðŸŽ™ï¸  [SemÃ¢ntico] Baixando Ã¡udio expandido: {_formatar_tempo(inicio_exp)} â†’ {_formatar_tempo(fim_exp)}...")
+    print(f"  ðŸŽ™ï¸   [SemÃ¢ntico] Baixando Ã¡udio expandido: {_formatar_tempo(inicio_exp)} â†’ {_formatar_tempo(fim_exp)}...")
 
     # Tenta com anti-bot completo primeiro
     cmds = [
@@ -111,9 +99,9 @@ def _baixar_audio_expandido(
         arquivo_real = _encontrar_audio(audio_path)
         if resultado.returncode == 0 and arquivo_real:
             tamanho_mb = os.path.getsize(arquivo_real) / (1024 * 1024)
-            print(f"  âœ… [SemÃ¢ntico] Ãudio baixado: {arquivo_real} ({tamanho_mb:.1f} MB)")
+            print(f"  âœ… [SemÃ¢ntico] Ã udio baixado: {arquivo_real} ({tamanho_mb:.1f} MB)")
             return arquivo_real, inicio_exp
-        print(f"  âš ï¸  [SemÃ¢ntico] Falhou: {resultado.stderr[-100:]}")
+        print(f"  âš ï¸   [SemÃ¢ntico] Falhou: {resultado.stderr[-100:]}")
 
     raise RuntimeError(f"[SemÃ¢ntico] NÃ£o foi possÃ­vel baixar Ã¡udio expandido de {video_url}")
 
@@ -130,7 +118,7 @@ def _encontrar_audio(output_path: str) -> str | None:
     return None
 
 
-def _transcrever_audio(audio_path: str) -> list:
+def _transcrever_audio(audio_path: str, groq_key: str) -> list:
     """
     Transcreve o Ã¡udio via Groq Whisper (verbose_json).
 
@@ -138,10 +126,6 @@ def _transcrever_audio(audio_path: str) -> list:
         Lista de segmentos [{start, end, text}, ...]
         onde start/end sÃ£o relativos ao inÃ­cio do arquivo de Ã¡udio.
     """
-    groq_key = os.environ.get("GROQ_API_KEY")
-    if not groq_key:
-        raise EnvironmentError("GROQ_API_KEY nÃ£o configurado.")
-
     cliente = Groq(api_key=groq_key)
 
     # Whisper aceita arquivos atÃ© 25 MB. Para Ã¡udios maiores, corta o trecho
@@ -173,25 +157,69 @@ def _transcrever_audio(audio_path: str) -> list:
     return resultado
 
 
-def _eh_inicio_de_frase(texto: str) -> bool:
+def _analisar_contexto_com_llm(segmentos_abs: list, inicio_heatmap: float, fim_heatmap: float, groq_key: str) -> tuple[float, float]:
     """
-    Verifica se o texto parece ser o inÃ­cio de uma nova ideia/frase.
-    HeurÃ­sticas: comeÃ§a com maiÃºscula, nÃ£o Ã© continuaÃ§Ã£o de conjunÃ§Ã£o, etc.
+    Envia a transcriÃ§Ã£o com tempos absolutos para o LLM analisar semanticamente
+    o melhor ponto de inÃ­cio e fim da histÃ³ria.
     """
-    if not texto:
-        return False
-    # ComeÃ§a com letra maiÃºscula ou aspas/travessÃ£o (diÃ¡logo)
-    return bool(MARCADORES_INICIO.match(texto))
+    if not segmentos_abs:
+        return None, None
+        
+    texto_formatado = []
+    for i, seg in enumerate(segmentos_abs):
+        texto_formatado.append(f"ID {i} | Tempo: {seg['start']:.1f}s - {seg['end']:.1f}s | Texto: {seg['text']}")
+    
+    transcricao_texto = "\n".join(texto_formatado)
+    
+    prompt = f"""VocÃª Ã© um editor de vÃ­deos virais especialista em retenÃ§Ã£o de pÃºblico no TikTok e YouTube Shorts.
+Sua tarefa Ã© ler a transcriÃ§Ã£o de um vÃ­deo e encontrar o MELHOR trecho contÃ­nuo que conte uma histÃ³ria, piada, ou ideia completa.
 
+Os algoritmos do YouTube apontaram que o clÃ­max de interesse do pÃºblico ocorreu entre {inicio_heatmap:.1f}s e {fim_heatmap:.1f}s.
+O seu corte final DEVE conter a informaÃ§Ã£o mais importante falada dentro desse intervalo, mas vocÃª deve recuar o inÃ­cio para pegar o contexto e avanÃ§ar o final para pegar a conclusÃ£o.
 
-def _eh_fim_de_frase(texto: str) -> bool:
-    """
-    Verifica se o texto termina uma sentenÃ§a/ideia completa.
-    HeurÃ­sticas: termina com '.', '!', '?', '...', etc.
-    """
-    if not texto:
-        return False
-    return bool(MARCADORES_FIM.search(texto))
+Regras Estritas:
+1. O id_inicio deve ser o momento EXATO onde a pessoa comeÃ§a a introduzir o contexto daquela histÃ³ria/ideia.
+2. O id_fim deve ser o momento EXATO onde o raciocÃ­nio Ã© plenamente concluÃ­do (uma reflexÃ£o, punchline ou encerramento da ideia). NUNCA corte no meio do assunto, durante uma respiraÃ§Ã£o no meio da histÃ³ria ou deixando a frase suspensa sem desfecho. O espectador precisa sentir que o vÃ­deo teve inÃ­cio, meio e fim!
+3. NÃ£o inclua conversas paralelas irrelevantes se nÃ£o fizerem parte do clÃ­max.
+4. Responda APENAS com um objeto JSON vÃ¡lido, contendo exatamente as chaves: "id_inicio", "id_fim" e "justificativa". NÃ£o adicione blocos de cÃ³digo ```json ao redor ou nenhum outro texto.
+
+Exemplo de formato esperado:
+{{"id_inicio": 4, "id_fim": 15, "justificativa": "O assunto principal comeÃ§a no ID 4 quando ele introduz a histÃ³ria, e a conclusÃ£o ocorre no ID 15."}}
+
+TranscriÃ§Ã£o DisponÃ­vel:
+{transcricao_texto}
+"""
+    
+    print("  ðŸ§  [SemÃ¢ntico] Solicitando anÃ¡lise de contexto ao LLM (llama-3.1-70b-versatile)...")
+    cliente = Groq(api_key=groq_key)
+    
+    try:
+        resposta = cliente.chat.completions.create(
+            model="llama-3.1-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.2,
+            response_format={"type": "json_object"}
+        )
+        
+        conteudo = resposta.choices[0].message.content.strip()
+        resultado = json.loads(conteudo)
+        
+        id_inicio = int(resultado["id_inicio"])
+        id_fim = int(resultado["id_fim"])
+        
+        # Garante que os IDs estÃ£o no intervalo
+        id_inicio = max(0, min(id_inicio, len(segmentos_abs) - 1))
+        id_fim = max(0, min(id_fim, len(segmentos_abs) - 1))
+        if id_inicio > id_fim:
+            id_inicio, id_fim = id_fim, id_inicio
+            
+        print(f"  âœ… [SemÃ¢ntico] LLM justificou: {resultado.get('justificativa', '')}")
+        
+        return segmentos_abs[id_inicio]["start"], segmentos_abs[id_fim]["end"]
+        
+    except Exception as e:
+        print(f"  âš ï¸   [SemÃ¢ntico] Falha na anÃ¡lise do LLM: {e}")
+        return None, None
 
 
 def ajustar_corte_semantico(
@@ -201,14 +229,13 @@ def ajustar_corte_semantico(
     output_dir: str = OUTPUT_DIR,
 ) -> tuple[float, float]:
     """
-    Refina os pontos de corte de um clipe usando transcriÃ§Ã£o como guia semÃ¢ntico.
+    Refina os pontos de corte de um clipe usando IA SemÃ¢ntica (LLM) para entender contexto.
 
     Fluxo:
       1. Baixa Ã¡udio expandido (Â±90s alÃ©m do pico)
       2. Transcreve com Groq Whisper
-      3. Encontra inÃ­cio de frase mais prÃ³ximo do inicio_s (Â±45s)
-      4. Encontra fim de frase mais prÃ³ximo do fim_s (Â±45s)
-      5. Retorna tempos ajustados
+      3. Envia os segmentos ao LLaMA para achar a histÃ³ria completa
+      4. Retorna os tempos ajustados
 
     Args:
         video_url : URL do vÃ­deo original
@@ -220,26 +247,29 @@ def ajustar_corte_semantico(
         (inicio_ajustado_s, fim_ajustado_s)
         Se o ajuste falhar, retorna os valores originais.
     """
-    print(f"\n  ðŸ” [Ajuste SemÃ¢ntico] Refinando corte {inicio_s:.0f}s â†’ {fim_s:.0f}s...")
+    print(f"\n  ðŸ”  [Ajuste SemÃ¢ntico] Refinando corte {inicio_s:.0f}s â†’ {fim_s:.0f}s com InteligÃªncia Artificial...")
+
+    groq_key = os.environ.get("GROQ_API_KEY")
+    if not groq_key:
+        print("  âš ï¸   [SemÃ¢ntico] GROQ_API_KEY nÃ£o configurado. Usando tempos originais.")
+        return inicio_s, fim_s
 
     try:
         # 1. Baixa Ã¡udio expandido
         audio_path, offset_s = _baixar_audio_expandido(video_url, inicio_s, fim_s, output_dir)
 
         # 2. Transcreve
-        segmentos = _transcrever_audio(audio_path)
+        segmentos = _transcrever_audio(audio_path, groq_key)
 
         # Remove arquivo de Ã¡udio temporÃ¡rio
         if os.path.exists(audio_path):
             os.remove(audio_path)
 
         if not segmentos:
-            print("  âš ï¸  [SemÃ¢ntico] Sem segmentos na transcriÃ§Ã£o. Usando tempos originais.")
+            print("  âš ï¸   [SemÃ¢ntico] Sem segmentos na transcriÃ§Ã£o. Usando tempos originais.")
             return inicio_s, fim_s
 
         # Converte timestamps relativos (ao inÃ­cio do arquivo de Ã¡udio) para absolutos
-        # Whisper retorna tempos relativos ao inÃ­cio do arquivo que enviamos.
-        # O arquivo comeÃ§a em offset_s do vÃ­deo original.
         segs_abs = [
             {
                 "start": s["start"] + offset_s,
@@ -249,59 +279,25 @@ def ajustar_corte_semantico(
             for s in segmentos
         ]
 
-        # â”€â”€â”€ Ajuste do INÃCIO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        # Busca o segmento cujo inÃ­cio Ã© mais prÃ³ximo do inicio_s
-        # PreferÃªncia: comeÃ§a uma frase nova (maiÃºscula) e estÃ¡ dentro da janela
-        candidatos_inicio = [
-            s for s in segs_abs
-            if abs(s["start"] - inicio_s) <= JANELA_BUSCA_S
-        ]
+        # 3. Analisa o Contexto com LLM
+        inicio_ajustado, fim_ajustado = _analisar_contexto_com_llm(segs_abs, inicio_s, fim_s, groq_key)
+        
+        if inicio_ajustado is None or fim_ajustado is None:
+            print("  âš ï¸   [SemÃ¢ntico] LLM nÃ£o retornou pontos vÃ¡lidos. Usando tempos originais.")
+            return inicio_s, fim_s
 
-        inicio_ajustado = inicio_s  # Default: mantÃ©m original
-        if candidatos_inicio:
-            # Prefere o segmento que Ã© inÃ­cio de frase e estÃ¡ mais perto do pico
-            frases_novas = [s for s in candidatos_inicio if _eh_inicio_de_frase(s["text"])]
-            pool = frases_novas if frases_novas else candidatos_inicio
-            # Escolhe o mais prÃ³ximo do ponto original (minimiza diferenÃ§a)
-            melhor = min(pool, key=lambda s: abs(s["start"] - inicio_s))
-            inicio_ajustado = melhor["start"]
-            print(f"  âœ… [SemÃ¢ntico] InÃ­cio ajustado: {inicio_s:.1f}s â†’ {inicio_ajustado:.1f}s")
-            print(f"     Frase: \"{melhor['text'][:80]}\"")
-        else:
-            print(f"  â„¹ï¸  [SemÃ¢ntico] Nenhum segmento prÃ³ximo do inÃ­cio. Mantendo {inicio_s:.1f}s")
-
-        # â”€â”€â”€ Ajuste do FIM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        # Busca segmentos cujo FIM Ã© mais prÃ³ximo de fim_s
-        # PreferÃªncia: termina uma frase completa (pontuaÃ§Ã£o) e estÃ¡ dentro da janela
-        candidatos_fim = [
-            s for s in segs_abs
-            if abs(s["end"] - fim_s) <= JANELA_BUSCA_S
-        ]
-
-        fim_ajustado = fim_s  # Default: mantÃ©m original
-        if candidatos_fim:
-            frases_completas = [s for s in candidatos_fim if _eh_fim_de_frase(s["text"])]
-            pool = frases_completas if frases_completas else candidatos_fim
-            # Escolhe o mais prÃ³ximo do ponto de fim original
-            melhor = min(pool, key=lambda s: abs(s["end"] - fim_s))
-            fim_ajustado = melhor["end"]
-            print(f"  âœ… [SemÃ¢ntico] Fim ajustado: {fim_s:.1f}s â†’ {fim_ajustado:.1f}s")
-            print(f"     Frase: \"...{melhor['text'][-80:]}\"")
-        else:
-            print(f"  â„¹ï¸  [SemÃ¢ntico] Nenhum segmento prÃ³ximo do fim. Mantendo {fim_s:.1f}s")
-
-        # Garante que o inÃ­cio Ã© sempre menor que o fim
         if inicio_ajustado >= fim_ajustado:
-            print("  âš ï¸  [SemÃ¢ntico] Ajuste invÃ¡lido (inÃ­cio >= fim). Usando originais.")
+            print("  âš ï¸   [SemÃ¢ntico] Ajuste invÃ¡lido (inÃ­cio >= fim). Usando originais.")
             return inicio_s, fim_s
 
         duracao = fim_ajustado - inicio_ajustado
-        print(f"  ðŸ“ [SemÃ¢ntico] DuraÃ§Ã£o final: {duracao:.1f}s ({duracao/60:.1f} min)")
+        print(f"  ðŸ“  [SemÃ¢ntico] DuraÃ§Ã£o final: {duracao:.1f}s ({duracao/60:.1f} min)")
+        print(f"     Ajuste: InÃ­cio {inicio_s:.1f}s â†’ {inicio_ajustado:.1f}s | Fim {fim_s:.1f}s â†’ {fim_ajustado:.1f}s")
 
         return inicio_ajustado, fim_ajustado
 
     except Exception as e:
-        print(f"  âš ï¸  [SemÃ¢ntico] Falha no ajuste semÃ¢ntico: {e}. Usando tempos originais.")
+        print(f"  âš ï¸   [SemÃ¢ntico] Falha crÃ­tica no ajuste semÃ¢ntico: {e}. Usando tempos originais.")
         return inicio_s, fim_s
 
 
@@ -311,5 +307,4 @@ if __name__ == "__main__":
     inicio_s = float(sys.argv[2]) if len(sys.argv) > 2 else 600.0
     fim_s    = float(sys.argv[3]) if len(sys.argv) > 3 else 700.0
     i, f = ajustar_corte_semantico(url, inicio_s, fim_s)
-    print(f"\nResultado: {i:.1f}s â†’ {f:.1f}s  (duraÃ§Ã£o: {f - i:.1f}s)")
-
+    print(f"\nResultado final: {i:.1f}s â†’ {f:.1f}s  (duraÃ§Ã£o: {f - i:.1f}s)")
