@@ -1,4 +1,4 @@
-﻿"""
+"""
 detectar_pico.py
 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 Passo 2 do Pipeline Canal Cortes.
@@ -191,15 +191,33 @@ def detectar_picos(video_url: str, n_max: int = MAX_PICOS, espacamento_min: floa
     duracao_total = metadados.get("duration", 0) or 0
     heatmap       = metadados.get("heatmap") or []
 
-    print(f"  ðŸŽ¬ TÃ­tulo : {titulo}")
-    print(f"  â±ï¸  DuraÃ§Ã£o: {duracao_total/60:.1f} min ({duracao_total}s)")
-    print(f"  ðŸ“Š Heatmap: {len(heatmap)} segmentos disponÃ­veis")
+    print(f"  🎬 Título : {titulo}")
+    print(f"  ⏱️  Duração: {duracao_total/60:.1f} min ({duracao_total}s)")
+    print(f"  📊 Heatmap: {len(heatmap)} segmentos disponíveis")
 
     if not heatmap:
-        raise ValueError("Sem mapa de calor (heatmap). O vÃ­deo nÃ£o possui dados de retenÃ§Ã£o do YouTube.")
+        print("  ⚠️  Sem mapa de calor (heatmap). O vídeo não possui dados de retenção do YouTube.")
+        print("  🔄 Gerando picos sintéticos por divisão do vídeo...")
+        resultado = []
+        segmento = duracao_total / (n_max + 1)
+        for i in range(1, n_max + 1):
+            inicio_s = (segmento * i) - (DURACAO_IDEAL_S / 2)
+            if inicio_s < 0: 
+                inicio_s = 0
+            fim_s = min(duracao_total, inicio_s + DURACAO_IDEAL_S)
+            resultado.append({
+                "inicio_s":          round(inicio_s, 1),
+                "fim_s":             round(fim_s, 1),
+                "duracao_s":         round(fim_s - inicio_s, 1),
+                "intensidade":       round(1.0 / i, 4),
+                "rank":              i,
+                "heatmap_disponivel": False,
+                "titulo_video":      titulo,
+            })
+        return resultado
 
-    # â”€â”€ Usa heatmap real do YouTube â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    print(f"  âœ… Heatmap disponÃ­vel! Calculando mÃºltiplos picos com duraÃ§Ã£o dinÃ¢mica...")
+    # ————————————————————————————————————————————————————————————————
+    print(f"  ✅ Heatmap disponível! Calculando múltiplos picos com duração dinâmica...")
 
     candidatos = _encontrar_picos_dinamicos(heatmap, duracao_total)
     melhores   = _selecionar_picos_com_espacamento(candidatos, n_max, espacamento_min)
