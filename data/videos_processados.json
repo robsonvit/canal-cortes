@@ -799,5 +799,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "wjnvYZ76YIA": {
+    "data_primeiro": "2026-07-22T18:53:11.119005+00:00",
+    "data_ultimo": "2026-07-22T18:53:11.119005+00:00",
+    "titulo": "AQUELA RESENHA ENTRE PRIMOS - JOÃO E EDUARDO -  TICARACATICAST | EP 748",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      1640.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
