@@ -766,5 +766,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "qfMR0sHGyAM": {
+    "data_primeiro": "2026-07-22T08:16:47.182762+00:00",
+    "data_ultimo": "2026-07-22T08:16:47.182762+00:00",
+    "titulo": "CEO and CO-FOUNDER OF CAJU - Eduardo Del Giglio",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      352.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
