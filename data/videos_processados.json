@@ -810,5 +810,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "w2JsZAigjhY": {
+    "data_primeiro": "2026-07-22T23:57:52.127183+00:00",
+    "data_ultimo": "2026-07-22T23:57:52.127183+00:00",
+    "titulo": "Andreza Aguida - O Pod É Nosso Saúde #15",
+    "canal": "O Pod é Nosso",
+    "picos_usados": [
+      501.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
