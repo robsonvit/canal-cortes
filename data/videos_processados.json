@@ -755,5 +755,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "mjBeyEtw79Q": {
+    "data_primeiro": "2026-07-22T00:18:14.460430+00:00",
+    "data_ultimo": "2026-07-22T00:18:14.460430+00:00",
+    "titulo": "FALHA DE COBERTURA #282: Too Late Goal",
+    "canal": "Podpah",
+    "picos_usados": [
+      498.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
