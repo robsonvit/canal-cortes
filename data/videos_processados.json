@@ -854,5 +854,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "4Vqrs1a_eHA": {
+    "data_primeiro": "2026-07-23T23:59:45.774598+00:00",
+    "data_ultimo": "2026-07-23T23:59:45.774598+00:00",
+    "titulo": "GABRIEL PATO (Hacker Ético) - Groselha Talk #006",
+    "canal": "Groselha Talk",
+    "picos_usados": [
+      1229.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
