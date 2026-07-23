@@ -821,5 +821,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "hnGehlTb9XY": {
+    "data_primeiro": "2026-07-23T08:13:17.219988+00:00",
+    "data_ultimo": "2026-07-23T08:13:17.219988+00:00",
+    "titulo": "WHAT ARE BOTAFOGO'S EXPECTATIONS FOR THE REST OF THE SEASON?",
+    "canal": "Charla Podcast",
+    "picos_usados": [
+      33.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
