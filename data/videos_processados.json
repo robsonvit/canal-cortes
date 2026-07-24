@@ -876,5 +876,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Kl1g9x8nif4": {
+    "data_primeiro": "2026-07-24T15:34:29.969553+00:00",
+    "data_ultimo": "2026-07-24T15:34:29.969553+00:00",
+    "titulo": "THE SCANNER REVEALED EVERYTHING",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "XLdfCb1gJtI": {
+    "data_primeiro": "2026-07-24T15:37:37.936148+00:00",
+    "data_ultimo": "2026-07-24T15:37:37.936148+00:00",
+    "titulo": "CLUELESS: TOTALLY OUT OF TOUCH - Good morning, Jesus! 199/365 (2026)",
+    "canal": "Inteligência Ltda.",
+    "picos_usados": [
+      21.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
