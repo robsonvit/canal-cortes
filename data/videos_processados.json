@@ -898,5 +898,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "67tADA787vY": {
+    "data_primeiro": "2026-07-24T18:56:44.924074+00:00",
+    "data_ultimo": "2026-07-24T18:56:44.924074+00:00",
+    "titulo": "PERDIGÃO | BENJA ME MUCHO #177",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      547.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
