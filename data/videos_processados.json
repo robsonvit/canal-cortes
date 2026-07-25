@@ -931,5 +931,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "-Fej4ZBbEkQ": {
+    "data_primeiro": "2026-07-25T12:59:12.500938+00:00",
+    "data_ultimo": "2026-07-25T12:59:12.500938+00:00",
+    "titulo": "PHILL IS WORRIED ABOUT FLAMENGO'S FUTURE THIS SEASON",
+    "canal": "Charla Podcast",
+    "picos_usados": [
+      27.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
