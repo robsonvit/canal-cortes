@@ -920,5 +920,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "iotkkfTVfvw": {
+    "data_primeiro": "2026-07-25T08:17:25.802153+00:00",
+    "data_ultimo": "2026-07-25T08:17:25.802153+00:00",
+    "titulo": "Dr. Jamal Azzam - O Pod É Nosso Saúde #17",
+    "canal": "O Pod é Nosso",
+    "picos_usados": [
+      432.7
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
