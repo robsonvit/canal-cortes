@@ -736,11 +736,12 @@
   },
   "Ypmhv16zgyc": {
     "data_primeiro": "2026-07-21T12:59:49.769285+00:00",
-    "data_ultimo": "2026-07-21T12:59:49.769285+00:00",
+    "data_ultimo": "2026-07-25T23:58:45.468346+00:00",
     "titulo": "EDDY JR e LUCAS VRAU - Groselha Talk #002",
     "canal": "Groselha Talk",
     "picos_usados": [
-      1244.6
+      1244.6,
+      2519.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
