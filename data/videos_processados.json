@@ -998,5 +998,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "mSnYf_Z9Am0": {
+    "data_primeiro": "2026-07-26T18:50:17.141919+00:00",
+    "data_ultimo": "2026-07-26T18:50:17.141919+00:00",
+    "titulo": "ARTIFICIAL OR NATURAL TURF!",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      5.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
