@@ -1009,5 +1009,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "cokaEl42L10": {
+    "data_primeiro": "2026-07-26T23:58:28.568745+00:00",
+    "data_ultimo": "2026-07-26T23:58:28.568745+00:00",
+    "titulo": "30 MILHÕES DE CÓPIAS VENDIDAS E MUITAS HISTÓRIAS DA MÚSICA - TICARACATICAST | EP 721",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      1027.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
