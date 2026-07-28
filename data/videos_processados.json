@@ -1121,5 +1121,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "hlGzVHgGHgM": {
+    "data_primeiro": "2026-07-28T17:54:25.155249+00:00",
+    "data_ultimo": "2026-07-28T17:54:25.155249+00:00",
+    "titulo": "Dra. Carolina Maria Prandini Curci - O Pod É Nosso Saúde #20",
+    "canal": "O Pod é Nosso",
+    "picos_usados": [
+      610.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
