@@ -314,13 +314,22 @@ def _calcular_tracking_dinamico_ffmpeg(video_path: str, original_w: int, origina
     if not x_values:
         return None, None
         
-    expr_x = str(x_values[-1])
-    expr_z = str(zoom_values[-1])
-    interval = 1
-    for i in range(len(x_values) - 2, -1, -1):
-        limit = (i + 1) * interval
-        expr_x = f"if(lt(t,{limit}),{x_values[i]},{expr_x})"
-        expr_z = f"if(lt(t,{limit}),{zoom_values[i]},{expr_z})"
+    def otimizar_expressao(valores, interval=1):
+        segmentos = []
+        val_atual = valores[0]
+        for idx, val in enumerate(valores):
+            if val != val_atual:
+                segmentos.append((idx * interval, val_atual))
+                val_atual = val
+        segmentos.append((len(valores) * interval, val_atual))
+        
+        expr = str(segmentos[-1][1])
+        for limite, val in reversed(segmentos[:-1]):
+            expr = f"if(lt(t,{limite}),{val},{expr})"
+        return expr
+
+    expr_x = otimizar_expressao(x_values, 1)
+    expr_z = otimizar_expressao(zoom_values, 1)
         
     return expr_x, expr_z
 
