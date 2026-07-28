@@ -26,15 +26,15 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ytdlp_helper import args_base_ytdlp
 
-# DuraÃ§Ã£o alvo do trecho a recortar (segundos)
-DURACAO_MINIMA_S = 40
-DURACAO_MAXIMA_S = 180   # Sem limite rÃ­gido de 60s, pode ser atÃ© 3 minutos
-DURACAO_IDEAL_S  = 60    # DuraÃ§Ã£o base de fallback
+# Duração alvo do trecho a recortar (segundos)
+DURACAO_MINIMA_S = 30
+DURACAO_MAXIMA_S = 60    # Limite rígido: Shorts devem ter até 60s
+DURACAO_IDEAL_S  = 55    # Duração base de fallback
 
-# EspaÃ§amento mÃ­nimo entre picos (segundos) â€” evita picos sobrepostos
-ESPACAMENTO_MIN_S = 120   # 2 minutos de distÃ¢ncia mÃ­nima
+# Espaçamento mínimo entre picos (segundos) — evita picos sobrepostos
+ESPACAMENTO_MIN_S = 120   # 2 minutos de distância mínima
 
-# MÃ¡ximo de picos por vÃ­deo
+# Máximo de picos por vídeo
 MAX_PICOS = 6
 
 

@@ -592,21 +592,25 @@ def inserir_contexto(
         ] + inputs + [
             "-filter_complex", filter_str,
             "-map", "[vfinal]",
-            "-map", "0:a",
+            "-map", "0:a?",          # "?" ignora graciosamente se não houver stream de áudio
             "-c:v", "libx264",
             "-preset", "fast",
             "-crf", "22",
             "-pix_fmt", "yuv420p",
-            "-c:a", "copy",
+            "-c:a", "aac",           # Recodifica áudio para garantir compatibilidade
+            "-b:a", "192k",
+            "-shortest",             # Limita duração ao stream mais curto (evita áudio cortado)
             "-movflags", "+faststart",
             output_final,
         ]
 
         resultado = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=600)
         if resultado.returncode != 0:
-            print(f"  ⚠️  FFmpeg com overlays falhou. Copiando vídeo original...")
-            print(f"  stderr: {resultado.stderr[-300:]}")
+            print(f"  ⚠️  FFmpeg com overlays falhou (returncode={resultado.returncode}). Copiando vídeo original...")
+            print(f"  stderr: {resultado.stderr[-500:]}")
             shutil.copy(video_base, output_final)
+        else:
+            print(f"  ✅ FFmpeg concluiu com {len(overlays_prontos)} overlay(s) aplicados com sucesso.")
 
     tamanho_mb = os.path.getsize(output_final) / (1024 * 1024)
     print(f"  ✅ Vídeo final com contexto: {output_final} ({tamanho_mb:.1f} MB)")

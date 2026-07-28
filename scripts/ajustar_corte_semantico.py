@@ -30,8 +30,22 @@ from groq import Groq
 ROOT_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 
-# Janela de expansÃ£o para busca de contexto (em segundos)
-JANELA_EXPANSAO_S = 90.0   # Expande atÃ© 90s antes e depois do pico
+# Janela de expansão para busca de contexto (em segundos)
+JANELA_EXPANSAO_S = 90.0   # Expande até 90s antes e depois do pico
+
+# Duração máxima permitida para o Short (segundos)
+DURACAO_MAX_SHORT_S = 60.0
+
+def _clampar_duracao(inicio: float, fim: float, max_s: float = DURACAO_MAX_SHORT_S) -> tuple:
+    """
+    Garante que o trecho não exceda max_s segundos.
+    Se exceder, trunca o FIM a partir do início (preserva contexto inicial).
+    """
+    duracao = fim - inicio
+    if duracao > max_s:
+        print(f"  ✂️  [Clamp] Trecho {duracao:.1f}s > {max_s}s. Truncando fim para {inicio + max_s:.1f}s.")
+        fim = inicio + max_s
+    return inicio, fim
 
 def _formatar_tempo(segundos: float) -> str:
     """Converte segundos para formato HH:MM:SS.mmm usado pelo yt-dlp."""
@@ -283,26 +297,27 @@ def ajustar_corte_semantico(
         inicio_ajustado, fim_ajustado = _analisar_contexto_com_llm(segs_abs, inicio_s, fim_s, groq_key)
         
         if inicio_ajustado is None or fim_ajustado is None:
-            print("  âš ï¸   [SemÃ¢ntico] LLM nÃ£o retornou pontos vÃ¡lidos. Usando tempos originais.")
-            return inicio_s, fim_s
+            print("  ⚠️   [Semântico] LLM não retornou pontos válidos. Usando tempos originais.")
+            return _clampar_duracao(inicio_s, fim_s)
 
         if inicio_ajustado >= fim_ajustado:
-            print("  âš ï¸   [SemÃ¢ntico] Ajuste invÃ¡lido (inÃ­cio >= fim). Usando originais.")
-            return inicio_s, fim_s
+            print("  ⚠️   [Semântico] Ajuste inválido (início >= fim). Usando originais.")
+            return _clampar_duracao(inicio_s, fim_s)
 
+        inicio_ajustado, fim_ajustado = _clampar_duracao(inicio_ajustado, fim_ajustado)
         duracao = fim_ajustado - inicio_ajustado
-        print(f"  ðŸ“  [SemÃ¢ntico] DuraÃ§Ã£o final: {duracao:.1f}s ({duracao/60:.1f} min)")
-        print(f"     Ajuste: InÃ­cio {inicio_s:.1f}s â†’ {inicio_ajustado:.1f}s | Fim {fim_s:.1f}s â†’ {fim_ajustado:.1f}s")
+        print(f"  📐 [Semântico] Duração final: {duracao:.1f}s ({duracao/60:.1f} min)")
+        print(f"     Ajuste: Início {inicio_s:.1f}s → {inicio_ajustado:.1f}s | Fim {fim_s:.1f}s → {fim_ajustado:.1f}s")
 
         return inicio_ajustado, fim_ajustado
 
     except Exception as e:
-        print(f"  âš ï¸   [SemÃ¢ntico] Falha crÃ­tica no ajuste semÃ¢ntico: {e}. Usando tempos originais.")
-        return inicio_s, fim_s
+        print(f"  ⚠️   [Semântico] Falha crítica no ajuste semântico: {e}. Usando tempos originais.")
+        return _clampar_duracao(inicio_s, fim_s)
 
 
 if __name__ == "__main__":
-    # Teste rÃ¡pido
+    # Teste rápido
     url      = sys.argv[1] if len(sys.argv) > 1 else "https://www.youtube.com/watch?v=example"
     inicio_s = float(sys.argv[2]) if len(sys.argv) > 2 else 600.0
     fim_s    = float(sys.argv[3]) if len(sys.argv) > 3 else 700.0
