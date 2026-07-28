@@ -182,21 +182,47 @@ def selecionar_video() -> dict:
         canais_ativos = [{"nome": "Forçado", "url": canal_forcado_url, "ativo": True}]
         print(f"  🎯 Canal forçado via CANAL_URL: {canal_forcado_url}")
 
+    # Identifica canais que já foram processados hoje no horário local
+    hoje_local = datetime.now().date()
+    canais_processados_hoje = set()
+    for vid, info in processados.items():
+        if isinstance(info, dict) and "data_ultimo" in info:
+            try:
+                dt_utc = datetime.fromisoformat(info["data_ultimo"])
+                dt_local = dt_utc.astimezone()
+                if dt_local.date() == hoje_local:
+                    c = info.get("canal")
+                    if c:
+                        canais_processados_hoje.add(c)
+            except Exception:
+                pass
+
+    if canais_processados_hoje:
+        print(f"  🚫 Canais que já postaram hoje e serão evitados: {', '.join(canais_processados_hoje)}")
+
     for canal in canais_ativos:
         videos = _buscar_videos_canal(canal, max_videos=20)
         for v in videos:
             entrada = processados.get(v["id"])
             if entrada is None:
-                # V\u00eddeo nunca processado \u2014 totalmente dispon\u00edvel
+                # Vídeo nunca processado — totalmente disponível
                 todos_candidatos.append(v)
             elif isinstance(entrada, dict) and not entrada.get("picos_esgotados", True):
-                # V\u00eddeo j\u00e1 iniciado mas ainda tem picos dispon\u00edveis
+                # Vídeo já iniciado mas ainda tem picos disponíveis
                 todos_candidatos.append(v)
-            # else: formato antigo ou esgotado \u2014 ignora
+            # else: formato antigo ou esgotado — ignora
 
     if not todos_candidatos:
         print("⚠️  Nenhum vídeo elegível encontrado. Todos os vídeos recentes e seus picos já foram processados.")
         sys.exit(0)
+
+    # Filtra candidatos para evitar canais que já postaram hoje
+    candidatos_filtrados = [v for v in todos_candidatos if v["canal"] not in canais_processados_hoje]
+    if candidatos_filtrados:
+        print(f"  🎯 Filtro ativo: Removidos {len(todos_candidatos) - len(candidatos_filtrados)} vídeos de canais que já postaram hoje.")
+        todos_candidatos = candidatos_filtrados
+    else:
+        print("  ⚠️ Todos os canais ativos já postaram hoje. Usando fallback de repetição para evitar travamento da automação.")
 
     # Lógica de intercalação (alternar canais e vídeos)
     ultimo_uso_canal = {}
