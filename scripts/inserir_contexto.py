@@ -4,16 +4,20 @@ inserir_contexto.py
 Passo 6 do Pipeline Canal Cortes.
 
 Enriquece o Short com:
-  1. Inserções visuais 1:1 (imagens/vídeos contextuais do Pexels)
+  1. Inserções visuais 1:1 (imagens contextuais de alta qualidade)
      sobrepostas no canto inferior direito por 3-4 segundos
-  2. Música de atenção ao fundo (mixada com volume baixo)
+  2. Estratégia dupla de busca de imagens:
+     - Estratégia 1: DuckDuckGo (via ddgs) → CDN do Bing em &w=800 (HD)
+     - Estratégia 2: API Wikipedia PT (fallback) → pithumbsize=1000
+     - Abortagem de segurança se nenhuma imagem for encontrada
 
 Fluxo:
-  a. Envia a transcrição para Groq AI → extrai 2-3 temas visuais chave
-  b. Busca imagens/vídeos no Pexels para cada tema
-  c. Cria um plano de timing (quando mostrar cada inserção)
-  d. Aplica os overlays via FFmpeg filter_complex
-  e. Adiciona música de fundo mixada
+  a. Envia o SRT para Groq AI → extrai 2-3 temas visuais com termos HIPER-ESPECÍFICOS
+  b. Busca imagens via DuckDuckGo → Bing CDN HD (Estratégia 1)
+  c. Fallback para Wikipedia PT se DuckDuckGo falhar (Estratégia 2)
+  d. Aborta se nenhuma imagem for encontrada (evita vídeos quebrados)
+  e. Cria um plano de timing (quando mostrar cada inserção)
+  f. Aplica os overlays via FFmpeg filter_complex
 """
 
 import os
@@ -22,12 +26,13 @@ import re
 import random
 import subprocess
 import requests
+import time
+import urllib.parse
 
 from groq import Groq
 
 ROOT_DIR      = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR    = os.path.join(ROOT_DIR, "output")
-PEXELS_KEY    = os.environ.get("PEXELS_API_KEY", "")
 
 # Tamanho do overlay 1:1 (quadrado) em pixels na tela 9:16
 OVERLAY_SIZE  = 800   # Aumentado para 800px para ficar em destaque no centro
@@ -36,36 +41,53 @@ OVERLAY_DUR   = 2.45  # Duração de cada inserção em segundos (reduzido em 30
 OVERLAY_X     = f"{(1080 - OVERLAY_SIZE) // 2}"
 OVERLAY_Y     = f"{(1920 - OVERLAY_SIZE) // 2}"
 
+# User-Agent realista para evitar bloqueios
+_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/126.0.0.0 Safari/537.36"
+)
+
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Análise de temas via Groq AI
+# Análise de temas via Groq AI — prompt hiper-específico
 # ─────────────────────────────────────────────────────────────────────────────
 def _extrair_temas(texto: str, output_dir: str = OUTPUT_DIR) -> list:
     """
     Envia o conteúdo do SRT (ou a transcrição) para Groq AI e extrai temas visuais chave.
-    Retorna lista de dicts: [{termo_pt, termo_en, momento_inicio}]
+    Retorna lista de dicts: [{tema_pt, termo_busca_a, segundo}]
+
+    O campo 'termo_busca_a' é projetado para achar a foto EXATA no Bing Imagens —
+    muito específico, como 'Zinedine Zidane rosto HD' ou 'Copa do Mundo 2006 final'.
     """
     srt_path = os.path.join(output_dir, "legendas.srt")
     try:
         with open(srt_path, "r", encoding="utf-8") as f:
-            texto_para_ia = f.read()[:2000] # Passa o SRT com os timestamps para a IA
+            texto_para_ia = f.read()[:2500]  # Passa o SRT com os timestamps para a IA
     except Exception:
         texto_para_ia = texto[:800]
 
     cliente = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
-    prompt = f"""Analise esta transcrição de um podcast em português brasileiro e extraia 3 temas visuais marcantes.
+    prompt = f"""Analise esta transcrição de um podcast em português brasileiro e extraia 3 momentos visuais marcantes.
 
-Para cada tema, retorne:
-- Uma palavra-chave em português (o que foi citado/discutido)
-- Um termo de busca em inglês para encontrar imagens (simples, 2-3 palavras)
-- O segundo aproximado em que esse tema aparece na transcrição
+Para cada momento, retorne:
+- "tema_pt": o tema em português (ex: "Zinedine Zidane")
+- "termo_busca_a": TERMO MUITO ESPECÍFICO para achar a foto EXATA no Bing Imagens.
+  REGRAS OBRIGATÓRIAS para termo_busca_a:
+  * Inclua nome completo de pessoas famosas + contexto (ex: "Zinedine Zidane rosto HD", "Neymar Jr Barcelona camisa 11")
+  * Para eventos: inclua ano e nome completo (ex: "Copa do Mundo 2006 final Berlim", "Libertadores 2023 troféu")
+  * Para objetos/lugares: seja ultra-específico (ex: "Ferrari F40 vermelha lateral", "Cristo Redentor Rio de Janeiro aéreo")
+  * NUNCA use termos genéricos como "futebol", "dinheiro", "sucesso" — seja SEMPRE específico
+  * Prefira nomes próprios, marcas, anos, locais ou modelos exatos
+  * Escreva em português ou inglês, o que for mais comum para aquele termo no Bing
+- "segundo": o segundo aproximado em que esse tema aparece na transcrição
 
 Retorne APENAS um JSON válido neste formato exato:
 [
-  {{"tema_pt": "inteligência artificial", "busca_en": "artificial intelligence technology", "segundo": 5}},
-  {{"tema_pt": "dinheiro", "busca_en": "money cash finance", "segundo": 20}},
-  {{"tema_pt": "família", "busca_en": "happy family together", "segundo": 40}}
+  {{"tema_pt": "Zidane cabeçada final 2006", "termo_busca_a": "Zinedine Zidane headbutt Materazzi 2006 World Cup final", "segundo": 5}},
+  {{"tema_pt": "Taça Libertadores da América", "termo_busca_a": "Taça Libertadores da América troféu HD dourado", "segundo": 20}},
+  {{"tema_pt": "Pelé Santos FC", "termo_busca_a": "Pelé Santos FC camisa 10 foto histórica HD", "segundo": 40}}
 ]
 
 Transcrição com tempos (SRT):
@@ -78,7 +100,7 @@ Retorne apenas o JSON, sem explicações."""
             model="llama-3.3-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
-            max_tokens=300,
+            max_tokens=400,
         )
         conteudo = resp.choices[0].message.content.strip()
 
@@ -87,56 +109,277 @@ Retorne apenas o JSON, sem explicações."""
         if match:
             temas = json.loads(match.group())
             print(f"  🧠 Temas extraídos pela IA: {[t['tema_pt'] for t in temas]}")
+            print(f"  🔍 Termos de busca: {[t.get('termo_busca_a', '?') for t in temas]}")
             return temas
     except Exception as e:
         print(f"  ⚠️  Erro ao extrair temas: {e}")
 
-    # Fallback com temas genéricos de podcast
+    # Fallback mínimo (sem temas genéricos — serão abortados se não acharem imagem)
     return [
-        {"tema_pt": "conversa", "busca_en": "people talking conversation", "segundo": 5},
-        {"tema_pt": "sucesso", "busca_en": "success achievement", "segundo": 25},
-        {"tema_pt": "pensamento", "busca_en": "thinking idea inspiration", "segundo": 45},
+        {"tema_pt": "podcast conversa", "termo_busca_a": "podcast microphone studio HD professional", "segundo": 5},
+        {"tema_pt": "sucesso profissional", "termo_busca_a": "businessman success achievement trophy winner", "segundo": 25},
     ]
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Busca de imagens no Pexels
+# ESTRATÉGIA 1: DuckDuckGo Images → Bing CDN em alta resolução (&w=800)
 # ─────────────────────────────────────────────────────────────────────────────
-def _buscar_imagem_pexels(termo: str) -> str | None:
+def _buscar_imagem_ddgs(termo: str) -> str | None:
     """
-    Busca uma imagem quadrada (1:1) no Pexels para o tema dado.
-    Retorna URL da imagem ou None se não encontrar.
+    Busca imagem via DuckDuckGo Images (biblioteca duckduckgo-search).
+    Se encontrar imagem hospedada no CDN do Bing, manipula a URL para
+    forçar download em alta resolução com &w=800.
+
+    Retorna URL da imagem ou None se falhar.
     """
-    if not PEXELS_KEY:
-        print(f"  ⚠️  PEXELS_API_KEY não configurada. Pulando inserção para '{termo}'.")
+    try:
+        from duckduckgo_search import DDGS
+    except ImportError:
+        print("  ⚠️  [DDG] duckduckgo-search não instalado. Pulando Estratégia 1.")
         return None
 
+    print(f"  🦆 [DDG] Buscando: '{termo}'")
     try:
-        resp = requests.get(
-            "https://api.pexels.com/v1/search",
-            headers={"Authorization": PEXELS_KEY},
-            params={"query": termo, "per_page": 5, "size": "medium"},
-            timeout=15,
-        )
-        resp.raise_for_status()
-        fotos = resp.json().get("photos", [])
-        if fotos:
-            foto = random.choice(fotos)
-            # Usa versão medium (640px) para performance
-            return foto["src"].get("medium") or foto["src"]["original"]
+        with DDGS() as ddgs:
+            resultados = list(ddgs.images(
+                keywords=termo,
+                region="br-pt",
+                safesearch="off",
+                size=None,
+                type_image=None,
+                layout=None,
+                license_image=None,
+                max_results=10,
+            ))
+
+        if not resultados:
+            print(f"  ⚠️  [DDG] Nenhum resultado para '{termo}'")
+            return None
+
+        # Prioriza imagens do CDN do Bing (th.bing.com ou tse1.mm.bing.net)
+        # pois permitem manipulação de resolução via parâmetros de URL
+        urls_bing = [
+            r["image"] for r in resultados
+            if r.get("image") and (
+                "th.bing.com" in r["image"] or
+                "tse1.mm.bing.net" in r["image"] or
+                "tse2.mm.bing.net" in r["image"] or
+                "bing.net" in r["image"]
+            )
+        ]
+
+        urls_outras = [
+            r["image"] for r in resultados
+            if r.get("image") and r["image"] not in urls_bing
+        ]
+
+        # Tenta Bing CDN primeiro (permite forçar alta resolução)
+        for url_original in urls_bing[:5]:
+            url_hd = _forcar_resolucao_bing(url_original, largura=800)
+            if _testar_url(url_hd):
+                print(f"  ✅ [DDG→Bing] Imagem HD encontrada: {url_hd[:80]}...")
+                return url_hd
+
+        # Tenta outras URLs
+        for url in urls_outras[:5]:
+            if _testar_url(url):
+                print(f"  ✅ [DDG→Outra] Imagem encontrada: {url[:80]}...")
+                return url
+
+        print(f"  ⚠️  [DDG] Nenhuma URL válida para '{termo}'")
+        return None
+
     except Exception as e:
-        print(f"  ⚠️  Pexels falhou para '{termo}': {e}")
+        print(f"  ⚠️  [DDG] Erro na busca: {e}")
+        return None
+
+
+def _forcar_resolucao_bing(url: str, largura: int = 800) -> str:
+    """
+    Manipula URL do CDN do Bing para forçar download em alta resolução.
+    Adiciona/substitui os parâmetros w= e h= pela largura desejada.
+    """
+    try:
+        parsed = urllib.parse.urlparse(url)
+        params = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
+
+        # Remove parâmetros de tamanho existentes e substitui
+        params.pop("w", None)
+        params.pop("h", None)
+        params.pop("rs", None)  # Remove resize/quality params antigos
+        params["w"] = [str(largura)]
+
+        nova_query = urllib.parse.urlencode(params, doseq=True)
+        url_hd = parsed._replace(query=nova_query).geturl()
+        return url_hd
+    except Exception:
+        return url  # Retorna URL original se a manipulação falhar
+
+
+def _testar_url(url: str, timeout: int = 8) -> bool:
+    """Testa se a URL retorna uma imagem válida (HEAD request)."""
+    try:
+        resp = requests.head(
+            url,
+            timeout=timeout,
+            headers={"User-Agent": _UA},
+            allow_redirects=True,
+        )
+        content_type = resp.headers.get("content-type", "")
+        return (
+            resp.status_code == 200 and
+            ("image" in content_type or content_type == "")
+        )
+    except Exception:
+        return False
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ESTRATÉGIA 2: API Oficial da Wikipedia PT (Fallback)
+# ─────────────────────────────────────────────────────────────────────────────
+def _buscar_imagem_wikipedia(termo: str) -> str | None:
+    """
+    Consulta a API oficial da Wikipédia em português para o termo dado.
+    Retorna a URL da imagem principal da página em alta qualidade (pithumbsize=1000).
+    Retorna None se não encontrar artigo ou imagem válida.
+    """
+    # Limpa o termo: remove palavras como "HD", "foto", "rosto" etc.
+    # para melhorar a busca na Wikipedia
+    termo_wiki = _limpar_termo_para_wiki(termo)
+    print(f"  📖 [Wiki] Buscando: '{termo_wiki}'")
+
+    try:
+        # Passo 1: Busca o artigo mais relevante na Wikipedia PT
+        url_search = "https://pt.wikipedia.org/w/api.php"
+        params_search = {
+            "action": "query",
+            "list": "search",
+            "srsearch": termo_wiki,
+            "srlimit": 3,
+            "format": "json",
+            "utf8": 1,
+        }
+        resp_search = requests.get(
+            url_search,
+            params=params_search,
+            timeout=10,
+            headers={"User-Agent": f"CanalCortes/1.0 ({_UA})"},
+        )
+        resp_search.raise_for_status()
+        resultados = resp_search.json().get("query", {}).get("search", [])
+
+        if not resultados:
+            print(f"  ⚠️  [Wiki] Sem artigos para '{termo_wiki}'")
+            return None
+
+        # Passo 2: Para cada artigo encontrado, busca a imagem principal
+        for artigo in resultados[:3]:
+            titulo_pagina = artigo["title"]
+            print(f"  📖 [Wiki] Artigo: '{titulo_pagina}'")
+
+            params_img = {
+                "action": "query",
+                "titles": titulo_pagina,
+                "prop": "pageimages",
+                "pithumbsize": 1000,      # Alta qualidade: 1000px
+                "piprop": "thumbnail",
+                "format": "json",
+                "utf8": 1,
+            }
+            resp_img = requests.get(
+                url_search,
+                params=params_img,
+                timeout=10,
+                headers={"User-Agent": f"CanalCortes/1.0 ({_UA})"},
+            )
+            resp_img.raise_for_status()
+
+            pages = resp_img.json().get("query", {}).get("pages", {})
+            for page_data in pages.values():
+                thumbnail = page_data.get("thumbnail", {})
+                url_img = thumbnail.get("source", "")
+                if url_img and _testar_url(url_img):
+                    print(f"  ✅ [Wiki] Imagem encontrada: {url_img[:80]}...")
+                    return url_img
+
+        print(f"  ⚠️  [Wiki] Nenhuma imagem válida nos artigos para '{termo_wiki}'")
+        return None
+
+    except Exception as e:
+        print(f"  ⚠️  [Wiki] Erro na API: {e}")
+        return None
+
+
+def _limpar_termo_para_wiki(termo: str) -> str:
+    """
+    Remove palavras de qualidade (HD, foto, rosto, etc.) do termo
+    para melhorar a precisão da busca na Wikipédia.
+    """
+    palavras_ruido = [
+        "hd", "hd foto", "foto", "rosto", "imagem", "picture", "image",
+        "high resolution", "alta resolução", "alta qualidade", "professional",
+        "studio", "winner", "trophy", "achievement",
+    ]
+    termo_lower = termo.lower()
+    for ruido in palavras_ruido:
+        termo_lower = termo_lower.replace(ruido, "")
+    return " ".join(termo_lower.split()).strip() or termo
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Motor de busca principal: executa as estratégias em cascata
+# ─────────────────────────────────────────────────────────────────────────────
+def _buscar_melhor_imagem(termo: str, tema_pt: str) -> str | None:
+    """
+    Executa as estratégias de busca em ordem de qualidade:
+      1. DuckDuckGo → Bing CDN HD (&w=800)
+      2. Wikipedia PT API (pithumbsize=1000)
+
+    Se NENHUMA estratégia encontrar imagem, retorna None.
+    O chamador deve ABORTAR o overlay para este tema (sem placeholders).
+    """
+    print(f"\n  🔎 Buscando imagem para: '{tema_pt}'")
+    print(f"     Termo específico: '{termo}'")
+
+    # ── Estratégia 1: DuckDuckGo / Bing CDN ──────────────────────────────────
+    url = _buscar_imagem_ddgs(termo)
+    if url:
+        return url
+
+    # ── Estratégia 2: Wikipedia PT ───────────────────────────────────────────
+    print(f"  🔄 [DDG] Falhou. Tentando Wikipedia PT...")
+    url = _buscar_imagem_wikipedia(termo)
+    if url:
+        return url
+
+    # ── Abortagem de Segurança ───────────────────────────────────────────────
+    print(f"  ❌ [ABORT] Nenhuma estratégia encontrou imagem para '{tema_pt}'.")
+    print(f"     Overlay ignorado (evitando vídeo com imagem quebrada).")
     return None
 
 
 def _baixar_imagem(url: str, destino: str) -> bool:
     """Baixa imagem para disco. Retorna True se sucesso."""
     try:
-        resp = requests.get(url, timeout=20)
+        resp = requests.get(
+            url,
+            timeout=25,
+            headers={"User-Agent": _UA},
+            allow_redirects=True,
+        )
         resp.raise_for_status()
-        with open(destino, "wb") as f:
-            f.write(resp.content)
-        return True
+
+        # Verifica se é realmente uma imagem
+        content_type = resp.headers.get("content-type", "")
+        if resp.content[:2] in [b'\xff\xd8', b'\x89P'] or "image" in content_type:
+            with open(destino, "wb") as f:
+                f.write(resp.content)
+            tamanho_kb = len(resp.content) / 1024
+            print(f"     📥 Imagem baixada: {tamanho_kb:.0f} KB")
+            return True
+        else:
+            print(f"  ⚠️  Conteúdo não é imagem (content-type: {content_type})")
+            return False
     except Exception as e:
         print(f"  ⚠️  Falha ao baixar imagem: {e}")
         return False
@@ -181,6 +424,11 @@ def inserir_contexto(
     """
     Adiciona inserções 1:1 contextuais ao Short (mantém o áudio intacto).
 
+    Estratégia de busca de imagens:
+      1. DuckDuckGo → Bing CDN HD (&w=800)
+      2. Wikipedia PT API (pithumbsize=1000)
+      Aborta overlay se nenhuma estratégia funcionar (sem placeholders/imagens quebradas).
+
     Args:
         video_base          : caminho do short_base.mp4 (9:16 com legendas e música)
         texto_transcricao   : texto completo da transcrição
@@ -198,25 +446,33 @@ def inserir_contexto(
     print("  🧠 Analisando transcrição com Groq AI para extrair temas visuais...")
     temas = _extrair_temas(texto_transcricao, output_dir)
 
-    # ── 2. Baixa imagens do Pexels ────────────────────────────────────────────
+    # ── 2. Busca imagens com estratégia dupla ────────────────────────────────
     overlays_prontos = []   # [(segundo_inicio, clip_path)]
 
     for i, tema in enumerate(temas):
-        termo_en  = tema.get("busca_en", "podcast conversation")
+        termo     = tema.get("termo_busca_a", tema.get("busca_en", "podcast microphone"))
         segundo   = float(tema.get("segundo", i * 15 + 5))
         tema_pt   = tema.get("tema_pt", "")
 
-        print(f"  🖼️  [{i+1}/{len(temas)}] Buscando imagem para: '{tema_pt}' ({termo_en})")
+        print(f"\n  🖼️  [{i+1}/{len(temas)}] Tema: '{tema_pt}'")
 
-        url_img = _buscar_imagem_pexels(termo_en)
+        # Busca imagem com cascata DDG → Wikipedia
+        url_img = _buscar_melhor_imagem(termo, tema_pt)
+
         if not url_img:
+            # Abortagem de segurança: pula este overlay
+            print(f"     ⏭️  Overlay ignorado para '{tema_pt}' (sem imagem válida)")
             continue
 
         img_path  = os.path.join(clips_dir, f"overlay_img_{i}.jpg")
         clip_path = os.path.join(clips_dir, f"overlay_clip_{i}.mp4")
 
         if not _baixar_imagem(url_img, img_path):
+            print(f"     ⏭️  Download falhou — overlay ignorado para '{tema_pt}'")
             continue
+
+        # Pequena pausa anti-rate-limit entre overlays
+        time.sleep(0.5)
 
         if _criar_overlay_quadrado(img_path, clip_path, OVERLAY_DUR):
             overlays_prontos.append((segundo, clip_path))
@@ -239,7 +495,6 @@ def inserir_contexto(
             inputs += ["-i", clip_path]
 
         # Encadeia overlays: [prev_v][N:v]overlay=...[next_v]
-        # Input 0 é o video_base, Inputs 1+ são os overlays
         filters = []
         prev_label = "[0:v]"
         for idx, (segundo, _) in enumerate(overlays_prontos):
@@ -285,4 +540,3 @@ if __name__ == "__main__":
     video   = sys.argv[1] if len(sys.argv) > 1 else "output/short_base.mp4"
     texto   = sys.argv[2] if len(sys.argv) > 2 else "Teste de contexto visual com IA"
     inserir_contexto(video, texto)
-

@@ -12,8 +12,11 @@ mediapipe==0.10.14
 # Processamento de vídeo frame a frame
 opencv-python-headless>=4.8.0
 
-# HTTP — Pexels API + downloads
+# HTTP — downloads e APIs de imagem
 requests>=2.31.0
+
+# Busca de imagens via DuckDuckGo (Estratégia 1: Bing CDN HD)
+duckduckgo-search>=6.0.0
 
 # Imagens — overlay e composição
 Pillow>=10.0.0
