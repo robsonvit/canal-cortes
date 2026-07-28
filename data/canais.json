@@ -15,18 +15,6 @@
       "playlist_id": "PL-yAhqwwhUFXgymxPPXsxaO369bF0PzKJ"
     },
     {
-      "nome": "Poddelas",
-      "url": "https://www.youtube.com/@poddelas",
-      "handle": "@poddelas",
-      "ativo": true
-    },
-    {
-      "nome": "Inteligência Ltda.",
-      "url": "https://www.youtube.com/@inteligencialtda",
-      "handle": "@inteligencialtda",
-      "ativo": true
-    },
-    {
       "nome": "Ticaracaticast",
       "url": "https://www.youtube.com/@ticaracaticast",
       "handle": "@ticaracaticast",
@@ -69,21 +57,9 @@
       "ativo": true
     },
     {
-      "nome": "Gostosas Também Choram",
-      "url": "https://www.youtube.com/@gostosastambemchoram",
-      "handle": "@gostosastambemchoram",
-      "ativo": true
-    },
-    {
       "nome": "Podpah Esportes",
       "url": "https://www.youtube.com/@podpahesportes",
       "handle": "@podpahesportes",
-      "ativo": true
-    },
-    {
-      "nome": "Charla Podcast",
-      "url": "https://www.youtube.com/@charlapodcast",
-      "handle": "@charlapodcast",
       "ativo": true
     },
     {
@@ -96,6 +72,12 @@
       "nome": "Jota Jota Podcast",
       "url": "https://www.youtube.com/@joeljota",
       "handle": "@joeljota",
+      "ativo": true
+    },
+    {
+      "nome": "Ciência Sem Fim",
+      "url": "https://www.youtube.com/@cienciasemfim",
+      "handle": "@cienciasemfim",
       "ativo": true
     }
   ]
