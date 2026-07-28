@@ -55,10 +55,10 @@ _UA = (
 def _extrair_temas(texto: str, output_dir: str = OUTPUT_DIR) -> list:
     """
     Envia o conteúdo do SRT (ou a transcrição) para Groq AI e extrai temas visuais chave.
-    Retorna lista de dicts: [{tema_pt, termo_busca_a, segundo}]
+    Retorna lista de dicts: [{tema_pt, termo_busca_a, sujeito_wikipedia, segundo}]
 
-    O campo 'termo_busca_a' é projetado para achar a foto EXATA no Bing Imagens —
-    muito específico, como 'Zinedine Zidane rosto HD' ou 'Copa do Mundo 2006 final'.
+    O campo 'termo_busca_a' é projetado para achar a foto EXATA no Bing Imagens.
+    O campo 'sujeito_wikipedia' é o termo limpo, apenas a entidade/sujeito (ex: 'Michael Phelps', 'Watergate').
     """
     srt_path = os.path.join(output_dir, "legendas.srt")
     try:
@@ -72,7 +72,7 @@ def _extrair_temas(texto: str, output_dir: str = OUTPUT_DIR) -> list:
     prompt = f"""Analise esta transcrição de um podcast em português brasileiro e extraia 3 momentos visuais marcantes.
 
 Para cada momento, retorne:
-- "tema_pt": o tema em português (ex: "Zinedine Zidane")
+- "tema_pt": o tema em português (ex: "Zidane")
 - "termo_busca_a": TERMO MUITO ESPECÍFICO para achar a foto EXATA no Bing Imagens.
   REGRAS OBRIGATÓRIAS para termo_busca_a:
   * Inclua nome completo de pessoas famosas + contexto (ex: "Zinedine Zidane rosto HD", "Neymar Jr Barcelona camisa 11")
@@ -80,14 +80,14 @@ Para cada momento, retorne:
   * Para objetos/lugares: seja ultra-específico (ex: "Ferrari F40 vermelha lateral", "Cristo Redentor Rio de Janeiro aéreo")
   * NUNCA use termos genéricos como "futebol", "dinheiro", "sucesso" — seja SEMPRE específico
   * Prefira nomes próprios, marcas, anos, locais ou modelos exatos
-  * Escreva em português ou inglês, o que for mais comum para aquele termo no Bing
+- "sujeito_wikipedia": APENAS o nome limpo da entidade principal/sujeito para busca na Wikipedia (ex: "Zinedine Zidane", "Taça Libertadores da América", "Pelé", "Ferrari F40")
 - "segundo": o segundo aproximado em que esse tema aparece na transcrição
 
 Retorne APENAS um JSON válido neste formato exato:
 [
-  {{"tema_pt": "Zidane cabeçada final 2006", "termo_busca_a": "Zinedine Zidane headbutt Materazzi 2006 World Cup final", "segundo": 5}},
-  {{"tema_pt": "Taça Libertadores da América", "termo_busca_a": "Taça Libertadores da América troféu HD dourado", "segundo": 20}},
-  {{"tema_pt": "Pelé Santos FC", "termo_busca_a": "Pelé Santos FC camisa 10 foto histórica HD", "segundo": 40}}
+  {{"tema_pt": "Zidane cabeçada final 2006", "termo_busca_a": "Zinedine Zidane headbutt Materazzi 2006 World Cup final", "sujeito_wikipedia": "Zinedine Zidane", "segundo": 5}},
+  {{"tema_pt": "Taça Libertadores da América", "termo_busca_a": "Taça Libertadores da América troféu HD dourado", "sujeito_wikipedia": "Copa Libertadores da América", "segundo": 20}},
+  {{"tema_pt": "Pelé Santos FC", "termo_busca_a": "Pelé Santos FC camisa 10 foto histórica HD", "sujeito_wikipedia": "Pelé", "segundo": 40}}
 ]
 
 Transcrição com tempos (SRT):
@@ -109,15 +109,16 @@ Retorne apenas o JSON, sem explicações."""
         if match:
             temas = json.loads(match.group())
             print(f"  🧠 Temas extraídos pela IA: {[t['tema_pt'] for t in temas]}")
-            print(f"  🔍 Termos de busca: {[t.get('termo_busca_a', '?') for t in temas]}")
+            print(f"  🔍 Termos de busca (Bing): {[t.get('termo_busca_a', '?') for t in temas]}")
+            print(f"  📖 Entidades Wikipedia: {[t.get('sujeito_wikipedia', '?') for t in temas]}")
             return temas
     except Exception as e:
         print(f"  ⚠️  Erro ao extrair temas: {e}")
 
-    # Fallback mínimo (sem temas genéricos — serão abortados se não acharem imagem)
+    # Fallback mínimo
     return [
-        {"tema_pt": "podcast conversa", "termo_busca_a": "podcast microphone studio HD professional", "segundo": 5},
-        {"tema_pt": "sucesso profissional", "termo_busca_a": "businessman success achievement trophy winner", "segundo": 25},
+        {"tema_pt": "podcast conversa", "termo_busca_a": "podcast microphone studio HD professional", "sujeito_wikipedia": "Microfone", "segundo": 5},
+        {"tema_pt": "sucesso profissional", "termo_busca_a": "businessman success achievement trophy winner", "sujeito_wikipedia": "Troféu", "segundo": 25},
     ]
 
 
@@ -237,16 +238,22 @@ def _testar_url(url: str, timeout: int = 8) -> bool:
 # ─────────────────────────────────────────────────────────────────────────────
 # ESTRATÉGIA 2: API Oficial da Wikipedia PT (Fallback)
 # ─────────────────────────────────────────────────────────────────────────────
-def _buscar_imagem_wikipedia(termo: str) -> str | None:
+# ESTRATÉGIA 2: API Oficial da Wikipedia PT (Fallback)
+# ─────────────────────────────────────────────────────────────────────────────
+def _buscar_imagem_wikipedia(termo: str, sujeito: str = "") -> str | None:
     """
-    Consulta a API oficial da Wikipédia em português para o termo dado.
+    Consulta a API oficial da Wikipédia em português para o sujeito ou termo dado.
     Retorna a URL da imagem principal da página em alta qualidade (pithumbsize=1000).
-    Retorna None se não encontrar artigo ou imagem válida.
     """
-    # Limpa o termo: remove palavras como "HD", "foto", "rosto" etc.
-    # para melhorar a busca na Wikipedia
-    termo_wiki = _limpar_termo_para_wiki(termo)
-    print(f"  📖 [Wiki] Buscando: '{termo_wiki}'")
+    # Se o Groq identificou uma entidade limpa para wikipedia, prioriza ela
+    termo_busca = sujeito.strip() if sujeito else _limpar_termo_para_wiki(termo)
+    if not termo_busca:
+        return None
+
+    print(f"  📖 [Wiki] Buscando artigo para: '{termo_busca}'")
+    
+    # User-Agent específico exigido pela política da Wikipedia para evitar erro 429
+    wiki_ua = "CanalCortesBot/1.0 (robsonvit@github.com)"
 
     try:
         # Passo 1: Busca o artigo mais relevante na Wikipedia PT
@@ -254,7 +261,7 @@ def _buscar_imagem_wikipedia(termo: str) -> str | None:
         params_search = {
             "action": "query",
             "list": "search",
-            "srsearch": termo_wiki,
+            "srsearch": termo_busca,
             "srlimit": 3,
             "format": "json",
             "utf8": 1,
@@ -263,25 +270,25 @@ def _buscar_imagem_wikipedia(termo: str) -> str | None:
             url_search,
             params=params_search,
             timeout=10,
-            headers={"User-Agent": f"CanalCortes/1.0 ({_UA})"},
+            headers={"User-Agent": wiki_ua},
         )
         resp_search.raise_for_status()
         resultados = resp_search.json().get("query", {}).get("search", [])
 
         if not resultados:
-            print(f"  ⚠️  [Wiki] Sem artigos para '{termo_wiki}'")
+            print(f"  ⚠️  [Wiki] Sem artigos para '{termo_busca}'")
             return None
 
         # Passo 2: Para cada artigo encontrado, busca a imagem principal
         for artigo in resultados[:3]:
             titulo_pagina = artigo["title"]
-            print(f"  📖 [Wiki] Artigo: '{titulo_pagina}'")
+            print(f"  📖 [Wiki] Artigo encontrado: '{titulo_pagina}'")
 
             params_img = {
                 "action": "query",
                 "titles": titulo_pagina,
                 "prop": "pageimages",
-                "pithumbsize": 1000,      # Alta qualidade: 1000px
+                "pithumbsize": 1000,      # Alta qualidade
                 "piprop": "thumbnail",
                 "format": "json",
                 "utf8": 1,
@@ -290,7 +297,7 @@ def _buscar_imagem_wikipedia(termo: str) -> str | None:
                 url_search,
                 params=params_img,
                 timeout=10,
-                headers={"User-Agent": f"CanalCortes/1.0 ({_UA})"},
+                headers={"User-Agent": wiki_ua},
             )
             resp_img.raise_for_status()
 
@@ -298,11 +305,11 @@ def _buscar_imagem_wikipedia(termo: str) -> str | None:
             for page_data in pages.values():
                 thumbnail = page_data.get("thumbnail", {})
                 url_img = thumbnail.get("source", "")
-                if url_img and _testar_url(url_img):
+                if url_img and _testar_url(url_img, headers={"User-Agent": wiki_ua}):
                     print(f"  ✅ [Wiki] Imagem encontrada: {url_img[:80]}...")
                     return url_img
 
-        print(f"  ⚠️  [Wiki] Nenhuma imagem válida nos artigos para '{termo_wiki}'")
+        print(f"  ⚠️  [Wiki] Nenhuma imagem com thumbnail nos artigos para '{termo_busca}'")
         return None
 
     except Exception as e:
@@ -312,13 +319,12 @@ def _buscar_imagem_wikipedia(termo: str) -> str | None:
 
 def _limpar_termo_para_wiki(termo: str) -> str:
     """
-    Remove palavras de qualidade (HD, foto, rosto, etc.) do termo
-    para melhorar a precisão da busca na Wikipédia.
+    Remove palavras de ruído para melhorar a busca na Wikipédia.
     """
     palavras_ruido = [
         "hd", "hd foto", "foto", "rosto", "imagem", "picture", "image",
         "high resolution", "alta resolução", "alta qualidade", "professional",
-        "studio", "winner", "trophy", "achievement",
+        "studio", "winner", "trophy", "achievement", "logotipo oficial", "logo"
     ]
     termo_lower = termo.lower()
     for ruido in palavras_ruido:
@@ -327,19 +333,80 @@ def _limpar_termo_para_wiki(termo: str) -> str:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# ESTRATÉGIA 3: API do Pexels (Fallback do Fallback)
+# ─────────────────────────────────────────────────────────────────────────────
+def _buscar_imagem_pexels(termo: str) -> str | None:
+    """
+    Busca uma imagem no Pexels para o termo como fallback final de segurança.
+    """
+    pexels_key = os.environ.get("PEXELS_API_KEY", "")
+    if not pexels_key:
+        return None
+
+    # Limpa um pouco do ruído de 'HD' ou 'logotipo' do termo para o Pexels
+    termo_pexels = _limpar_termo_para_wiki(termo)
+    print(f"  📷 [Pexels] Buscando: '{termo_pexels}'")
+    try:
+        resp = requests.get(
+            "https://api.pexels.com/v1/search",
+            headers={"Authorization": pexels_key},
+            params={"query": termo_pexels, "per_page": 5, "size": "medium"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        fotos = resp.json().get("photos", [])
+        if fotos:
+            foto = random.choice(fotos)
+            url_img = foto["src"].get("medium") or foto["src"]["original"]
+            print(f"  ✅ [Pexels] Imagem encontrada: {url_img[:80]}...")
+            return url_img
+    except Exception as e:
+        print(f"  ⚠️  [Pexels] Falha na API: {e}")
+    return None
+
+
+def _testar_url(url: str, timeout: int = 8, headers: dict = None) -> bool:
+    """Testa se a URL retorna status válido."""
+    if headers is None:
+        headers = {"User-Agent": _UA}
+    try:
+        resp = requests.head(
+            url,
+            timeout=timeout,
+            headers=headers,
+            allow_redirects=True,
+        )
+        return resp.status_code in [200, 301, 302]
+    except Exception:
+        # Se falhar no HEAD por bloqueio de método, tentamos GET rápido
+        try:
+            resp = requests.get(
+                url,
+                timeout=timeout,
+                headers=headers,
+                stream=True,
+            )
+            return resp.status_code in [200, 301, 302]
+        except Exception:
+            return False
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Motor de busca principal: executa as estratégias em cascata
 # ─────────────────────────────────────────────────────────────────────────────
-def _buscar_melhor_imagem(termo: str, tema_pt: str) -> str | None:
+def _buscar_melhor_imagem(termo: str, tema_pt: str, sujeito_wiki: str = "") -> str | None:
     """
     Executa as estratégias de busca em ordem de qualidade:
       1. DuckDuckGo → Bing CDN HD (&w=800)
       2. Wikipedia PT API (pithumbsize=1000)
+      3. Pexels API (Fallback Final)
 
     Se NENHUMA estratégia encontrar imagem, retorna None.
-    O chamador deve ABORTAR o overlay para este tema (sem placeholders).
     """
     print(f"\n  🔎 Buscando imagem para: '{tema_pt}'")
-    print(f"     Termo específico: '{termo}'")
+    print(f"     Termo específico (Bing): '{termo}'")
+    if sujeito_wiki:
+        print(f"     Sujeito Wikipédia: '{sujeito_wiki}'")
 
     # ── Estratégia 1: DuckDuckGo / Bing CDN ──────────────────────────────────
     url = _buscar_imagem_ddgs(termo)
@@ -347,8 +414,14 @@ def _buscar_melhor_imagem(termo: str, tema_pt: str) -> str | None:
         return url
 
     # ── Estratégia 2: Wikipedia PT ───────────────────────────────────────────
-    print(f"  🔄 [DDG] Falhou. Tentando Wikipedia PT...")
-    url = _buscar_imagem_wikipedia(termo)
+    print(f"  🔄 [DDG] Falhou ou deu Block. Tentando Wikipedia PT...")
+    url = _buscar_imagem_wikipedia(termo, sujeito_wiki)
+    if url:
+        return url
+
+    # ── Estratégia 3: Pexels API (Fallback Final) ────────────────────────────
+    print(f"  🔄 [Wiki] Falhou. Tentando Pexels API...")
+    url = _buscar_imagem_pexels(termo)
     if url:
         return url
 
@@ -360,25 +433,29 @@ def _buscar_melhor_imagem(termo: str, tema_pt: str) -> str | None:
 
 def _baixar_imagem(url: str, destino: str) -> bool:
     """Baixa imagem para disco. Retorna True se sucesso."""
+    # Define User-Agent baseado no domínio para evitar erro 429
+    ua = _UA
+    if "wikipedia.org" in url or "wikimedia.org" in url:
+        ua = "CanalCortesBot/1.0 (robsonvit@github.com)"
+        
     try:
         resp = requests.get(
             url,
             timeout=25,
-            headers={"User-Agent": _UA},
+            headers={"User-Agent": ua},
             allow_redirects=True,
         )
         resp.raise_for_status()
 
-        # Verifica se é realmente uma imagem
-        content_type = resp.headers.get("content-type", "")
-        if resp.content[:2] in [b'\xff\xd8', b'\x89P'] or "image" in content_type:
+        # Verifica se é realmente uma imagem ou se o conteúdo tem tamanho
+        if len(resp.content) > 1000:
             with open(destino, "wb") as f:
                 f.write(resp.content)
             tamanho_kb = len(resp.content) / 1024
-            print(f"     📥 Imagem baixada: {tamanho_kb:.0f} KB")
+            print(f"     📥 Imagem baixada com sucesso: {tamanho_kb:.0f} KB")
             return True
         else:
-            print(f"  ⚠️  Conteúdo não é imagem (content-type: {content_type})")
+            print(f"  ⚠️  Conteúdo baixado é muito pequeno ou vazio")
             return False
     except Exception as e:
         print(f"  ⚠️  Falha ao baixar imagem: {e}")
@@ -450,14 +527,15 @@ def inserir_contexto(
     overlays_prontos = []   # [(segundo_inicio, clip_path)]
 
     for i, tema in enumerate(temas):
-        termo     = tema.get("termo_busca_a", tema.get("busca_en", "podcast microphone"))
-        segundo   = float(tema.get("segundo", i * 15 + 5))
-        tema_pt   = tema.get("tema_pt", "")
+        termo        = tema.get("termo_busca_a", tema.get("busca_en", "podcast microphone"))
+        sujeito_wiki = tema.get("sujeito_wikipedia", "")
+        segundo      = float(tema.get("segundo", i * 15 + 5))
+        tema_pt      = tema.get("tema_pt", "")
 
         print(f"\n  🖼️  [{i+1}/{len(temas)}] Tema: '{tema_pt}'")
 
-        # Busca imagem com cascata DDG → Wikipedia
-        url_img = _buscar_melhor_imagem(termo, tema_pt)
+        # Busca imagem com cascata DDG → Wikipedia → Pexels
+        url_img = _buscar_melhor_imagem(termo, tema_pt, sujeito_wiki)
 
         if not url_img:
             # Abortagem de segurança: pula este overlay
