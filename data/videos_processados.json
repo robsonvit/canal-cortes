@@ -1189,5 +1189,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "-QLleJyVEhU": {
+    "data_primeiro": "2026-07-30T08:13:48.649273+00:00",
+    "data_ultimo": "2026-07-30T08:13:48.649273+00:00",
+    "titulo": "JOEL DIVO + GABIRU - TICARACATICAST | EP 707",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      5572.0
+    ],
+    "total_picos": 4,
+    "picos_esgotados": false
   }
 }
