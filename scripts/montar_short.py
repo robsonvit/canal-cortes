@@ -454,7 +454,7 @@ def _montar_ffmpeg_puro(
     audio_filters = []
     if musica_escolhida:
         cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
-        audio_filters.append((input_idx, "volume=0.10", "a_musica"))
+        audio_filters.append((input_idx, "volume=0.03", "a_musica"))
         input_idx += 1
         
     if notificacao:
