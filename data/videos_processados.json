@@ -1234,5 +1234,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "vzofcr04onY": {
+    "data_primeiro": "2026-07-30T23:52:22.481167+00:00",
+    "data_ultimo": "2026-07-30T23:52:22.481167+00:00",
+    "titulo": "EXPERTS DISAPPROVE OF PINK FUSION",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
