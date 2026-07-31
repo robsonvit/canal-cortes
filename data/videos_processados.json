@@ -1245,5 +1245,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "QtSLGho2xaY": {
+    "data_primeiro": "2026-07-31T08:13:16.519347+00:00",
+    "data_ultimo": "2026-07-31T08:13:16.519347+00:00",
+    "titulo": "ONDE está TODO MUNDO? | TRAGÉDIAS CIENTÍFICAS #03",
+    "canal": "Ciência Sem Fim",
+    "picos_usados": [
+      72.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
