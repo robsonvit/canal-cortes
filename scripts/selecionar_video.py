@@ -97,7 +97,7 @@ def salvar_processado(video_id: str, dados: dict, pico_inicio_s: float = None, t
 def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
     """
     Usa yt-dlp para listar os vídeos mais recentes de um canal.
-    Retorna lista de dicts com {id, titulo, duracao, url}.
+    Retorna lista de dicts com {id, titulo, duracao, url, views}.
     """
     url = canal["url"] + "/videos"
     print(f"  🔍 Buscando vídeos de: {canal['nome']} ({url})")
@@ -117,9 +117,24 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
             timeout=60,
         )
 
+        # Fallback caso yt-dlp dê erro (ex: cookies.txt inválido ou problema de sessão)
         if resultado.returncode != 0:
             print(f"  ⚠️  Erro ao buscar {canal['nome']}: {resultado.stderr[:200]}")
-            return []
+            # Se deu erro e tínhamos cookies, tenta rodar de novo sem cookies
+            if "--cookies" in cmd:
+                print("  🔄 Tentando buscar sem cookies como fallback...")
+                cmd_sem_cookies = [arg for arg in cmd if arg != "cookies.txt" and arg != "--cookies"]
+                resultado = subprocess.run(
+                    cmd_sem_cookies,
+                    capture_output=True,
+                    text=True, encoding='utf-8', errors='replace',
+                    timeout=60,
+                )
+                if resultado.returncode != 0:
+                    print(f"  ⚠️  Erro persistente sem cookies: {resultado.stderr[:200]}")
+                    return []
+            else:
+                return []
 
         videos = []
         for linha in resultado.stdout.strip().split("\n"):
@@ -130,6 +145,7 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
                 vid_id   = info.get("id", "")
                 titulo   = info.get("title", "Sem título")
                 duracao  = info.get("duration", 0)
+                views    = info.get("view_count", 0) or 0
 
                 # Filtra vídeos muito curtos (menos de 3 minutos) ou estreias futuras (duração 0/None)
                 if not duracao or duracao < 180:
@@ -140,6 +156,7 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
                         "id":      vid_id,
                         "titulo":  titulo,
                         "duracao": duracao,
+                        "views":   views,
                         "canal":   canal["nome"],
                         "url":     f"https://www.youtube.com/watch?v={vid_id}",
                     })
@@ -213,8 +230,86 @@ def selecionar_video() -> dict:
             # else: formato antigo ou esgotado — ignora
 
     if not todos_candidatos:
-        print("⚠️  Nenhum vídeo elegível encontrado. Todos os vídeos recentes e seus picos já foram processados.")
-        sys.exit(0)
+        print("⚠️  Nenhum vídeo recente elegível encontrado. Buscando vídeos populares (com mais visualizações) como fallback...")
+        # Altera a busca para trazer os mais populares usando playlist_sort=popular do extractor-args
+        # Para isso passamos a flag correspondente na config de busca
+        for canal in canais_ativos:
+            # Para popular, podemos buscar em uma playlist maior (ex: 40 vídeos) para ter boa variedade
+            url_popular = canal["url"] + "/videos"
+            print(f"  🔍 Buscando vídeos populares de: {canal['nome']}")
+            
+            # Vamos construir o comando do yt-dlp usando a flag de popular
+            cmd = args_base_ytdlp([
+                "--flat-playlist",
+                "--playlist-end", "40",
+                "--dump-json",
+                "--quiet",
+                "--extractor-args", "youtube:playlist_sort=popular",
+                "--compat-options", "no-youtube-channel-redirect",
+            ]) + [url_popular]
+            
+            try:
+                resultado = subprocess.run(
+                    cmd,
+                    capture_output=True,
+                    text=True, encoding='utf-8', errors='replace',
+                    timeout=60,
+                )
+                
+                # Fallback sem cookies caso falhe
+                if resultado.returncode != 0 and "--cookies" in cmd:
+                    cmd_sem_cookies = [arg for arg in cmd if arg != "cookies.txt" and arg != "--cookies"]
+                    resultado = subprocess.run(
+                        cmd_sem_cookies,
+                        capture_output=True,
+                        text=True, encoding='utf-8', errors='replace',
+                        timeout=60,
+                    )
+                
+                if resultado.returncode == 0:
+                    videos_populares = []
+                    for linha in resultado.stdout.strip().split("\n"):
+                        if not linha.strip():
+                            continue
+                        try:
+                            info = json.loads(linha)
+                            vid_id   = info.get("id", "")
+                            titulo   = info.get("title", "Sem título")
+                            duracao  = info.get("duration", 0)
+                            views    = info.get("view_count", 0) or 0
+                            
+                            if not duracao or duracao < 180:
+                                continue
+                                
+                            if vid_id:
+                                videos_populares.append({
+                                    "id":      vid_id,
+                                    "titulo":  titulo,
+                                    "duracao": duracao,
+                                    "views":   views,
+                                    "canal":   canal["nome"],
+                                    "url":     f"https://www.youtube.com/watch?v={vid_id}",
+                                })
+                        except json.JSONDecodeError:
+                            continue
+                    
+                    # Filtra candidatos populares
+                    for v in videos_populares:
+                        entrada = processados.get(v["id"])
+                        if entrada is None:
+                            todos_candidatos.append(v)
+                        elif isinstance(entrada, dict) and not entrada.get("picos_esgotados", True):
+                            todos_candidatos.append(v)
+            except Exception as e:
+                print(f"  ⚠️  Erro ao buscar populares de {canal['nome']}: {e}")
+                
+        if not todos_candidatos:
+            print("❌ ERRO: Mesmo buscando vídeos populares, nenhum candidato elegível com picos disponíveis foi encontrado.")
+            sys.exit(0)
+        else:
+            # Como são populares, vamos ordenar pelo view_count decrescente (o de mais views primeiro)
+            todos_candidatos.sort(key=lambda x: x.get("views", 0), reverse=True)
+            print(f"  🔥 Encontrados {len(todos_candidatos)} vídeos populares elegíveis como fallback. Ordenados por visualizações.")
 
     # Filtra candidatos para evitar canais que já postaram hoje
     candidatos_filtrados = [v for v in todos_candidatos if v["canal"] not in canais_processados_hoje]
