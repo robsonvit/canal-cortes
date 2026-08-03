@@ -34,10 +34,9 @@ def args_base_ytdlp(extra: list = None) -> list:
     Retorna a lista de argumentos base robusta para o yt-dlp.
 
     Camadas anti-bloqueio:
-      1. player_client múltiplo: web > android > tv_downgraded
-      2. TLS impersonation (curl-cffi): mimics real Chrome request
-      3. cookies autenticados se disponíveis
-      4. Deno no PATH para JS challenges (GitHub Actions instala via setup-deno)
+      1. player_client: web (simplificado para compatibilidade de TLS e cookies)
+      2. cookies autenticados se disponíveis
+      3. Deno no PATH para JS challenges (GitHub Actions instala via setup-deno)
 
     Args:
         extra: argumentos extras a adicionar ANTES da URL
@@ -47,10 +46,8 @@ def args_base_ytdlp(extra: list = None) -> list:
     """
     cmd = [
         "yt-dlp",
-        # ── Anti-bot: múltiplos clientes em ordem de confiabilidade ──────────
-        "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
-        # ── TLS fingerprint de browser real (requer curl-cffi instalado) ──────
-        "--impersonate", "chrome",
+        # ── Anti-bot: usando cliente web simplificado que suporta cookies no Actions ──
+        "--extractor-args", "youtube:player_client=web",
         # ── Não poluir output ────────────────────────────────────────────────
         "--no-warnings",
         "--no-playlist",
