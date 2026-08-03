@@ -1323,5 +1323,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "vpmLun7a93o": {
+    "data_primeiro": "2026-08-03T23:58:05.811611+00:00",
+    "data_ultimo": "2026-08-03T23:58:05.811611+00:00",
+    "titulo": "SILL ESTEVES | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      795.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
