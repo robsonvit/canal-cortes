@@ -595,7 +595,7 @@ def inserir_contexto(
             "-map", "0:a?",          # "?" ignora graciosamente se não houver stream de áudio
             "-c:v", "libx264",
             "-preset", "fast",
-            "-crf", "22",
+            "-crf", "18",
             "-pix_fmt", "yuv420p",
             "-c:a", "aac",           # Recodifica áudio para garantir compatibilidade
             "-b:a", "192k",

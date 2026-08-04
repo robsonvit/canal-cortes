@@ -440,12 +440,13 @@ def _montar_ffmpeg_puro(
         f"pad={SHORT_W}:{SHORT_H}:(ow-iw)/2:(oh-ih)/2:black,"
         f"scale=w='{SHORT_W}*({zoom_expr})':h='{SHORT_H}*({zoom_expr})':eval=frame,"
         f"crop={SHORT_W}:{SHORT_H}:(iw-{SHORT_W})/2:(ih-{SHORT_H})/2:exact=1,"
+        f"unsharp=5:5:0.8:3:3:0.0,"
         f"hflip,"
         f"eq=saturation=1.3"
     )
     if drawtext_chain:
         vf_chain += "," + drawtext_chain
-    print(f"  {'ðŸ“ ' + str(drawtext_chain.count('drawtext=')) + ' entradas de legenda' if drawtext_chain else 'âš ï¸  SEM legenda!'}")
+    print(f"  {'ðŸ“  ' + str(drawtext_chain.count('drawtext=')) + ' entradas de legenda' if drawtext_chain else 'âš ï¸   SEM legenda!'}")
 
     cmd = ["ffmpeg", "-y", "-i", video_path]
     input_idx = 1
@@ -483,7 +484,7 @@ def _montar_ffmpeg_puro(
         "-map", "[aout]",
         "-c:v", "libx264",
         "-preset", "fast",
-        "-crf", "22",
+        "-crf", "18",
         "-pix_fmt", "yuv420p",
         "-c:a", "aac",
         "-b:a", "192k",

@@ -51,10 +51,10 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
 
     tentativas = [
         {
-            "desc": "1080p + anti-bot completo (WARP + curl-cffi + cookies)",
+            "desc": "1080p+ ou max resolution + anti-bot completo (WARP + curl-cffi + cookies)",
             "cmd": args_base_ytdlp([
                 "--download-sections", trecho_str,
-                "-f", "bestvideo[height<=1080]+bestaudio/best[height<=1080]/best",
+                "-f", "bestvideo+bestaudio/best",
                 "--merge-output-format", "mp4",
                 "-o", output_path,
                 "--quiet",
@@ -66,7 +66,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                 "yt-dlp",
                 "--download-sections", trecho_str,
                 "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
-                "-f", "best[height<=1080]/best",
+                "-f", "bestvideo+bestaudio/best",
                 "--merge-output-format", "mp4",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
@@ -109,7 +109,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                     "-ss", str(trim_s),
                     "-c:v", "libx264",
                     "-preset", "fast",
-                    "-crf", "18",
+                    "-crf", "16",
                     "-c:a", "aac",
                     "-b:a", "192k",
                     "-avoid_negative_ts", "make_zero",
