@@ -43,7 +43,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
     trim_s = inicio_s - inicio_dl
 
     trecho_str  = f"*{_formatar_tempo(inicio_dl)}-{_formatar_tempo(fim_s)}"
-    output_path = os.path.join(output_dir, "tmp", "_raw_download.mp4")
+    output_path = os.path.join(output_dir, "tmp", "_raw_download.mkv")
     final_path = os.path.join(output_dir, "trecho_original.mp4")
 
     print(f"  ⬇️  Baixando trecho (com margem) {_formatar_tempo(inicio_dl)} → {_formatar_tempo(fim_s)}...")
@@ -55,7 +55,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             "cmd": args_base_ytdlp([
                 "--download-sections", trecho_str,
                 "-f", "bestvideo+bestaudio/best",
-                "--merge-output-format", "mp4",
+                "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--quiet",
             ]) + [video_url],
@@ -67,7 +67,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                 "--download-sections", trecho_str,
                 "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
                 "-f", "bestvideo+bestaudio/best",
-                "--merge-output-format", "mp4",
+                "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
                 video_url,
@@ -80,7 +80,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                 "--download-sections", trecho_str,
                 "--extractor-args", "youtube:player_client=tv_downgraded",
                 "-f", "best",
-                "--merge-output-format", "mp4",
+                "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
                 video_url,
