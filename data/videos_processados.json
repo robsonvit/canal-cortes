@@ -1334,5 +1334,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "uHIS7p6guKE": {
+    "data_primeiro": "2026-08-04T08:12:01.769782+00:00",
+    "data_ultimo": "2026-08-04T08:12:01.769782+00:00",
+    "titulo": "WHO'S THE LIAR? [with Meio Brasileira & Duda Kropf] - Aquelas Minas",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      2329.7
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
