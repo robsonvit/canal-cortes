@@ -1389,5 +1389,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "mHxme1eYcJQ": {
+    "data_primeiro": "2026-08-04T23:57:30.928634+00:00",
+    "data_ultimo": "2026-08-04T23:57:30.928634+00:00",
+    "titulo": "REPORTER TOURETTE + DANILO SOTO - TICARACATICAST | EP 703",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      2162.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
