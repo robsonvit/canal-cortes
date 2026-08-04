@@ -1356,5 +1356,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "XwGnNuHML6M": {
+    "data_primeiro": "2026-08-04T15:39:42.382934+00:00",
+    "data_ultimo": "2026-08-04T15:39:42.382934+00:00",
+    "titulo": "GENERAL MOTORS VICE PRESIDENT - Fabio Rua",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      374.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
