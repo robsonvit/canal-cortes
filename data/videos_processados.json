@@ -1423,5 +1423,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "SxLrEJ0jApg": {
+    "data_primeiro": "2026-08-05T18:56:55.393592+00:00",
+    "data_ultimo": "2026-08-05T18:56:55.393592+00:00",
+    "titulo": "FALHA DE COBERTURA #287: Boredom ＞ Despair",
+    "canal": "Podpah",
+    "picos_usados": [
+      350.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
