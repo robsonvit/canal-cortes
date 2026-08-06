@@ -1434,5 +1434,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Tu0XerrMeYc": {
+    "data_primeiro": "2026-08-06T00:00:48.197684+00:00",
+    "data_ultimo": "2026-08-06T00:00:48.197684+00:00",
+    "titulo": "THE WORST BUSINESS ADVICE (be careful with it)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      53.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
