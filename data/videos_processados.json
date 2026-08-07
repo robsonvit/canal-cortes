@@ -1478,5 +1478,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "OvdoPgH7gJg": {
+    "data_primeiro": "2026-08-07T12:55:09.546400+00:00",
+    "data_ultimo": "2026-08-07T12:55:09.546400+00:00",
+    "titulo": "V2 TOURETTE SIMULATOR",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "-bEcqUXvr6w": {
+    "data_primeiro": "2026-08-07T13:01:31.659778+00:00",
+    "data_ultimo": "2026-08-07T13:01:31.659778+00:00",
+    "titulo": "ESTAMOS perto da SEXTA EXTINÇÃO EM MASSA ???",
+    "canal": "Ciência Sem Fim",
+    "picos_usados": [
+      387.6
+    ],
+    "total_picos": 4,
+    "picos_esgotados": false
   }
 }
