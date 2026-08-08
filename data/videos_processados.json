@@ -1567,5 +1567,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "8_DONvocZCw": {
+    "data_primeiro": "2026-08-08T21:03:06.148032+00:00",
+    "data_ultimo": "2026-08-08T21:03:06.148032+00:00",
+    "titulo": "LUCAS SOUZA | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      926.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
