@@ -1556,5 +1556,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "fwXIjfBTwDo": {
+    "data_primeiro": "2026-08-08T20:04:06.443493+00:00",
+    "data_ultimo": "2026-08-08T20:04:06.443493+00:00",
+    "titulo": "John Bogle’s Strategy for BETTER INVESTING Without Picking STOCKS",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      22.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
