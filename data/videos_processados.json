@@ -1578,5 +1578,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "K17KcTXunuE": {
+    "data_primeiro": "2026-08-08T22:21:35.051494+00:00",
+    "data_ultimo": "2026-08-08T22:21:35.051494+00:00",
+    "titulo": "INSPIRING WOMEN with CRISTINA BOHRER and ANNE WILIANS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      411.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
