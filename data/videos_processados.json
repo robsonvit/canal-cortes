@@ -1589,5 +1589,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "ur9rflUPJeo": {
+    "data_primeiro": "2026-08-09T01:01:03.201913+00:00",
+    "data_ultimo": "2026-08-09T01:01:03.201913+00:00",
+    "titulo": "QUANDO COMEÇARAM A FALAR DE FINANÇAS?",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      29.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
