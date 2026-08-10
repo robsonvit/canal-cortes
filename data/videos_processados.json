@@ -1690,5 +1690,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "nQesRhLkTns": {
+    "data_primeiro": "2026-08-10T02:39:40.375635+00:00",
+    "data_ultimo": "2026-08-10T02:39:40.375635+00:00",
+    "titulo": "YOU DON'T LOVE YOURSELF ENOUGH - LOVES OF VENUS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      370.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
