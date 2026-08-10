@@ -1724,5 +1724,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "0ChAMeyI6_8": {
+    "data_primeiro": "2026-08-10T17:10:30.766286+00:00",
+    "data_ultimo": "2026-08-10T17:10:30.766286+00:00",
+    "titulo": "DR. MOISES COHEN | BENJA ME MUCHO #181",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      529.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
