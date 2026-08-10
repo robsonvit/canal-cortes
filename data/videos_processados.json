@@ -1735,5 +1735,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "GPB4Je1Gb-0": {
+    "data_primeiro": "2026-08-10T20:09:29.537848+00:00",
+    "data_ultimo": "2026-08-10T20:09:29.537848+00:00",
+    "titulo": "O REPRESENTANTE BRASILEIRO NA NBA - GUI SANTOS - TICARACATICAST | EP 766",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      4970.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
