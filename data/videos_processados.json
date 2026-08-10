@@ -1679,5 +1679,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "UX3NN3d98c0": {
+    "data_primeiro": "2026-08-10T01:02:34.018302+00:00",
+    "data_ultimo": "2026-08-10T01:02:34.018302+00:00",
+    "titulo": "BABU SANTANA BBB26 | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      1262.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
