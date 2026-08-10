@@ -1701,5 +1701,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "pHPy-zXv7OI": {
+    "data_primeiro": "2026-08-10T11:42:06.552998+00:00",
+    "data_ultimo": "2026-08-10T11:42:06.552998+00:00",
+    "titulo": "NEM TUDO É O QUE PARECE!",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      9.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
