@@ -408,8 +408,8 @@ def _montar_ffmpeg_puro(
     drawtext_chain = _srt_para_drawtext(srt_path, font_path)
 
     # --- Configuração dos Áudios Extras ---
-    musicas_dir = os.path.join(ROOT_DIR, "assets", "musicas")
-    efeitos_dir = os.path.join(ROOT_DIR, "assets", "efeitos")
+    musicas_dir = os.path.join(ROOT_DIR, "assets", "audios", "musicas")
+    efeitos_dir = os.path.join(ROOT_DIR, "assets", "audios", "efeitos")
     
     musica_escolhida = None
     notificacao = None
