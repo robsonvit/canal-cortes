@@ -407,9 +407,9 @@ def _montar_ffmpeg_puro(
     font_path = _garantir_fonte()
     drawtext_chain = _srt_para_drawtext(srt_path, font_path)
 
-    # --- ConfiguraÃ§Ã£o dos Ã udios Extras ---
-    musicas_dir = os.path.join(ROOT_DIR, "assets", "audios", "musicas")
-    efeitos_dir = os.path.join(ROOT_DIR, "assets", "audios", "efeitos")
+    # --- Configuração dos Áudios Extras ---
+    musicas_dir = os.path.join(ROOT_DIR, "assets", "musicas")
+    efeitos_dir = os.path.join(ROOT_DIR, "assets", "efeitos")
     
     musica_escolhida = None
     notificacao = None
@@ -455,7 +455,8 @@ def _montar_ffmpeg_puro(
     audio_filters = []
     if musica_escolhida:
         cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
-        audio_filters.append((input_idx, "volume=0.03", "a_musica"))
+        # Volume 0.15 (15%): audível como fundo sem cobrir a voz do podcast
+        audio_filters.append((input_idx, "volume=0.15", "a_musica"))
         input_idx += 1
         
     if notificacao:

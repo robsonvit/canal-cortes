@@ -179,6 +179,18 @@ def main():
     print(f"   Preview: {texto_transcricao[:120]}...")
 
     # ──────────────────────────────────────────────────────────────────────────
+    # PASSO 5 — Baixar música de fundo (baseada no sentimento da transcrição)
+    # ──────────────────────────────────────────────────────────────────────────
+    _titulo(5, 7, "Baixando música de fundo por sentimento (royalty-free)...")
+    from scripts.baixar_musica import baixar_musica
+
+    try:
+        musica_path = baixar_musica(texto_transcricao)
+        print(f"\n✅ Música de fundo pronta: {musica_path}")
+    except Exception as e:
+        print(f"\n⚠️  Falha ao baixar música de fundo: {e}. Prosseguindo sem música.")
+
+    # ──────────────────────────────────────────────────────────────────────────
     # PASSO 5 — Montar Short 9:16 com face tracking
     # ──────────────────────────────────────────────────────────────────────────
     _titulo(6, 7, "Montando Short 9:16 com face tracking (MediaPipe)...")
@@ -190,6 +202,7 @@ def main():
         output_dir=OUTPUT_DIR,
     )
     print(f"\n✅ Short base pronto: {short_base}")
+
 
     # ──────────────────────────────────────────────────────────────────────────
     # PASSO 6 — Inserir contexto visual 1:1 (Pexels + Groq AI)
