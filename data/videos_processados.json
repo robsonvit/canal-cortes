@@ -1824,5 +1824,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Lc3WcrUrFrs": {
+    "data_primeiro": "2026-08-11T19:58:11.168803+00:00",
+    "data_ultimo": "2026-08-11T19:58:11.168803+00:00",
+    "titulo": "DILERA DROPPING SPOILERS FOR HIS NEW SHOW",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "jl7dGDtQd8o": {
+    "data_primeiro": "2026-08-11T20:06:35.490100+00:00",
+    "data_ultimo": "2026-08-11T20:06:35.490100+00:00",
+    "titulo": "WATER SHOULD BE COLORED - ADHD",
+    "canal": "Ciência Sem Fim",
+    "picos_usados": [
+      217.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
