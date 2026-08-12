@@ -1891,5 +1891,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Q5nC63gXGAw": {
+    "data_primeiro": "2026-08-12T13:31:32.726617+00:00",
+    "data_ultimo": "2026-08-12T13:31:32.726617+00:00",
+    "titulo": "How do ETFs simplify investing?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      62.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
