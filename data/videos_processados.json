@@ -1902,5 +1902,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "pRiGPt571i4": {
+    "data_primeiro": "2026-08-12T15:22:45.249025+00:00",
+    "data_ultimo": "2026-08-12T15:22:45.249025+00:00",
+    "titulo": "LIZI BENITES | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      1010.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
