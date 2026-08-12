@@ -1935,5 +1935,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "06aLieKY5fk": {
+    "data_primeiro": "2026-08-12T20:58:47.087097+00:00",
+    "data_ultimo": "2026-08-12T20:58:47.087097+00:00",
+    "titulo": "IGOR 3K NEEDS TO SELL THE SLK",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "XZkSAiLHfwA": {
+    "data_primeiro": "2026-08-12T21:06:20.407810+00:00",
+    "data_ultimo": "2026-08-12T21:06:20.407810+00:00",
+    "titulo": "STARSHIP DIRETO DO GOLFO DO MÉXICO!!! - PRÉ-LANÇAMENTO",
+    "canal": "Ciência Sem Fim",
+    "picos_usados": [
+      228.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
