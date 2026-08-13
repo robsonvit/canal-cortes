@@ -2047,5 +2047,16 @@
     ],
     "total_picos": 5,
     "picos_esgotados": false
+  },
+  "lhSrRTeqVIA": {
+    "data_primeiro": "2026-08-13T22:22:25.413092+00:00",
+    "data_ultimo": "2026-08-13T22:22:25.413092+00:00",
+    "titulo": "MÁRCIO CANUTO, FLÁVIO PRADO, AND CASAGRANDE - WORLD CUP SPECIAL #189",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      158.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
