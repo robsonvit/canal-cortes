@@ -1991,5 +1991,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Gv2152td-A4": {
+    "data_primeiro": "2026-08-13T11:43:22.101575+00:00",
+    "data_ultimo": "2026-08-13T11:43:22.101575+00:00",
+    "titulo": "BRAZIL MAY LOSE ITS GREATEST OIL OPPORTUNITY IN DECADES",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      38.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
