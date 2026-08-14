@@ -2124,5 +2124,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "WAV3EkLj1PM": {
+    "data_primeiro": "2026-08-14T17:07:45.583767+00:00",
+    "data_ultimo": "2026-08-14T17:07:45.583767+00:00",
+    "titulo": "O UNIVERSO DOS ENDINHEIRADOS!",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      1.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
