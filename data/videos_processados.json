@@ -1104,11 +1104,12 @@
   },
   "vXAZt6e-fOs": {
     "data_primeiro": "2026-07-28T17:01:54.279126+00:00",
-    "data_ultimo": "2026-07-28T17:01:54.279126+00:00",
+    "data_ultimo": "2026-08-14T20:04:55.037129+00:00",
     "titulo": "CIÊNCIA e ARQUEOLOGIA  | Tour com Rodrigo Silva",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      972.2
+      972.2,
+      973.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -2135,5 +2136,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "UZDsrbXjpao": {
+    "data_primeiro": "2026-08-14T19:57:16.443644+00:00",
+    "data_ultimo": "2026-08-14T19:57:16.443644+00:00",
+    "titulo": "What are Flow's plans for 2026? | Q&A",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
