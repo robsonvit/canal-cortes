@@ -2113,5 +2113,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "akO92ZmmMIU": {
+    "data_primeiro": "2026-08-14T15:23:21.568764+00:00",
+    "data_ultimo": "2026-08-14T15:23:21.568764+00:00",
+    "titulo": "INSPIRING WOMEN with VANESSA GORDILHO and NATHALIA GARCIA - Venus Podcast",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      427.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
