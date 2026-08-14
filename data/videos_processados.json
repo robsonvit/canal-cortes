@@ -2147,5 +2147,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "OUQf_IWRlts": {
+    "data_primeiro": "2026-08-14T21:05:21.282508+00:00",
+    "data_ultimo": "2026-08-14T21:05:21.282508+00:00",
+    "titulo": "FÁBIO SORMANI | BENJA ME MUCHO #180",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      2546.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
