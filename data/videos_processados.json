@@ -2192,5 +2192,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "2lbn0fn_wR4": {
+    "data_primeiro": "2026-08-15T11:46:54.628387+00:00",
+    "data_ultimo": "2026-08-15T11:46:54.628387+00:00",
+    "titulo": "Solange Couto BBB26 | Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      975.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
