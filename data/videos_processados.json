@@ -1184,11 +1184,12 @@
   },
   "1oEaEB0j3bc": {
     "data_primeiro": "2026-07-29T18:52:48.335403+00:00",
-    "data_ultimo": "2026-07-29T18:52:48.335403+00:00",
+    "data_ultimo": "2026-08-15T21:04:06.109144+00:00",
     "titulo": "RESENHA COM DAVI CALAZANS - Ciência Sem Fim #126",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      1432.3
+      1432.3,
+      24.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
