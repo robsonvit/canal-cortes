@@ -2203,5 +2203,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "ymc5iMG3o_E": {
+    "data_primeiro": "2026-08-15T13:33:53.423117+00:00",
+    "data_ultimo": "2026-08-15T13:33:53.423117+00:00",
+    "titulo": "LOVE LANGUAGE? WE NEED TO STOP THIS - LOVES OF VENUS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      271.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
