@@ -509,11 +509,12 @@
   },
   "NTHhJe8CXqk": {
     "data_primeiro": "2026-07-17T14:31:41.705317+00:00",
-    "data_ultimo": "2026-07-17T14:31:41.705317+00:00",
+    "data_ultimo": "2026-08-15T02:35:27.614369+00:00",
     "titulo": "FALHA DE COBERTURA #280: Cristiano Ronaldo is a Company",
     "canal": "Podpah",
     "picos_usados": [
-      870.0
+      870.0,
+      875.0
     ],
     "total_picos": 6,
     "picos_esgotados": false
