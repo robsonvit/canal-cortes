@@ -1388,11 +1388,12 @@
   },
   "dHUzNhYSr5w": {
     "data_primeiro": "2026-08-04T17:30:30.009805+00:00",
-    "data_ultimo": "2026-08-04T17:30:30.009805+00:00",
+    "data_ultimo": "2026-08-16T17:10:34.588592+00:00",
     "titulo": "CHARLEY JUNIOR E MATEUS VIEIRA [BRAVO AEROSPACE] - Ciência Sem Fim #107",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      1347.8
+      1347.8,
+      2723.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
