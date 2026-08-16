@@ -188,15 +188,16 @@
   },
   "E0SBKgfpeLg": {
     "data_primeiro": "2026-07-05T14:31:05.329916+00:00",
-    "data_ultimo": "2026-07-29T15:37:06.856577+00:00",
+    "data_ultimo": "2026-08-16T15:16:31.379864+00:00",
     "titulo": "IGOR DRIVES THE STAFF'S CARS",
     "canal": "Flow Podcast",
     "picos_usados": [
       677.6,
-      678.8
+      678.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "IlrkiiezDM4": {
     "data_primeiro": "2026-07-05T21:00:24.656874+00:00",
@@ -2336,6 +2337,50 @@
     "data_ultimo": "2026-08-16T11:38:24.452530+00:00",
     "titulo": "How to Find Opportunities That No One Is Seeing (ÍNDIO DA COSTA) | JOTA JOTA PODCAST #290",
     "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Do3i3oYv3Kg": {
+    "data_primeiro": "2026-08-16T15:15:36.218567+00:00",
+    "data_ultimo": "2026-08-16T15:15:36.218567+00:00",
+    "titulo": "WHY IS IT SO HARD TO DO BUSINESS IN BRAZIL?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "IN3iud8c9sw": {
+    "data_primeiro": "2026-08-16T15:15:49.727707+00:00",
+    "data_ultimo": "2026-08-16T15:15:49.727707+00:00",
+    "titulo": "ALINE CAMPOS BBB26 | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "uAbwcyCgz3U": {
+    "data_primeiro": "2026-08-16T15:16:03.743923+00:00",
+    "data_ultimo": "2026-08-16T15:16:03.743923+00:00",
+    "titulo": "IS LOVE STILL WORTH IT? [with TINTIN PEDRO] - LOVES OF VENUS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "7jCd85O7VpY": {
+    "data_primeiro": "2026-08-16T15:16:17.409064+00:00",
+    "data_ultimo": "2026-08-16T15:16:17.409064+00:00",
+    "titulo": "MICHEL ALCOFORADO | FESTA DA FIRMA PODCAST #113",
+    "canal": "Festa da Firma",
     "picos_usados": [
       -1.0
     ],
