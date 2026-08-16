@@ -2283,5 +2283,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "GjjLNLlYunI": {
+    "data_primeiro": "2026-08-16T02:32:27.351173+00:00",
+    "data_ultimo": "2026-08-16T02:32:27.351173+00:00",
+    "titulo": "WHO ISN'T A COMEDIAN? - Those Mines",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      1985.3
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
