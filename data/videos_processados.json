@@ -2398,5 +2398,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "BaaqdWdbnI8": {
+    "data_primeiro": "2026-08-16T21:05:46.940210+00:00",
+    "data_ultimo": "2026-08-16T21:05:46.940210+00:00",
+    "titulo": "GRACYANNE BARBOSA - TICARACATICAST | EP 720",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      2164.7
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
