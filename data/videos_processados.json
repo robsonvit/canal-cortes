@@ -2294,5 +2294,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "ppBwOTAmMmU": {
+    "data_primeiro": "2026-08-16T09:39:35.052994+00:00",
+    "data_ultimo": "2026-08-16T09:39:35.052994+00:00",
+    "titulo": "RAFAEL CORTE | FESTA DA FIRMA PODCAST #117",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      472.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
