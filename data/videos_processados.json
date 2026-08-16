@@ -769,14 +769,15 @@
   },
   "mjBeyEtw79Q": {
     "data_primeiro": "2026-07-22T00:18:14.460430+00:00",
-    "data_ultimo": "2026-07-22T00:18:14.460430+00:00",
+    "data_ultimo": "2026-08-16T00:56:58.813101+00:00",
     "titulo": "FALHA DE COBERTURA #282: Too Late Goal",
     "canal": "Podpah",
     "picos_usados": [
-      498.9
+      498.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "qfMR0sHGyAM": {
     "data_primeiro": "2026-07-22T08:16:47.182762+00:00",
@@ -2238,5 +2239,49 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "IbkY95ATV9E": {
+    "data_primeiro": "2026-08-16T00:56:31.215805+00:00",
+    "data_ultimo": "2026-08-16T00:56:31.215805+00:00",
+    "titulo": "EPISÓDIO ESPECIAL 800 - GUI SANTANA + MARCELO ZANGRANDI",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "R71XPoGVFoM": {
+    "data_primeiro": "2026-08-16T00:56:44.587732+00:00",
+    "data_ultimo": "2026-08-16T00:56:44.587732+00:00",
+    "titulo": "Como SUPERAR CRISES e REINVENTAR sua CARREIRA do Zero (OTAVIANO COSTA) | Jota Jota Podcast #274",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "xIDOlDIiusI": {
+    "data_primeiro": "2026-08-16T00:57:12.169809+00:00",
+    "data_ultimo": "2026-08-16T00:57:12.169809+00:00",
+    "titulo": "Don't make this MISTAKE when INVESTING in ETFs",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "fU2i0EGKS-g": {
+    "data_primeiro": "2026-08-16T00:57:25.393269+00:00",
+    "data_ultimo": "2026-08-16T00:57:25.393269+00:00",
+    "titulo": "Sensitivo Malagueta - Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
