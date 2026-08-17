@@ -1378,14 +1378,15 @@
   },
   "XwGnNuHML6M": {
     "data_primeiro": "2026-08-04T15:39:42.382934+00:00",
-    "data_ultimo": "2026-08-04T15:39:42.382934+00:00",
+    "data_ultimo": "2026-08-17T11:38:15.705123+00:00",
     "titulo": "GENERAL MOTORS VICE PRESIDENT - Fabio Rua",
     "canal": "Flow Podcast",
     "picos_usados": [
-      374.8
+      374.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "dHUzNhYSr5w": {
     "data_primeiro": "2026-08-04T17:30:30.009805+00:00",
@@ -2421,5 +2422,49 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "afQzgj6LoDk": {
+    "data_primeiro": "2026-08-17T11:37:24.727823+00:00",
+    "data_ultimo": "2026-08-17T11:37:24.727823+00:00",
+    "titulo": "HOW TO USE INTELLIGENCE IN YOUR BUSINESS? (Real-world use with Tallis Gomes)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "gN_mR7hd7ng": {
+    "data_primeiro": "2026-08-17T11:37:37.441343+00:00",
+    "data_ultimo": "2026-08-17T11:37:37.441343+00:00",
+    "titulo": "GUSTAVO MENDES | PODCAST PAPAGAIO FALANTE",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "yI9B8evClcI": {
+    "data_primeiro": "2026-08-17T11:37:50.174809+00:00",
+    "data_ultimo": "2026-08-17T11:37:50.174809+00:00",
+    "titulo": "WE DISCOVERED the SECRETS of ATTACHMENT in LOVE - LOVES OF VENUS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "zm0QlTJ6ycc": {
+    "data_primeiro": "2026-08-17T11:38:02.897223+00:00",
+    "data_ultimo": "2026-08-17T11:38:02.897223+00:00",
+    "titulo": "O QUE É SER RICO NO BRASIL?",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
