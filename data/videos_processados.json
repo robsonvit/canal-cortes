@@ -806,11 +806,12 @@
   },
   "Nf8h6vMnjLM": {
     "data_primeiro": "2026-07-22T15:40:39.722417+00:00",
-    "data_ultimo": "2026-07-22T15:40:39.722417+00:00",
+    "data_ultimo": "2026-08-17T15:21:48.808855+00:00",
     "titulo": "CAFU, RICARDO ROCHA, JUNIOR - WORLD CUP SPECIAL #186",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      195.3
+      195.3,
+      197.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
