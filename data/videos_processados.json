@@ -1512,11 +1512,12 @@
   },
   "-bEcqUXvr6w": {
     "data_primeiro": "2026-08-07T13:01:31.659778+00:00",
-    "data_ultimo": "2026-08-07T13:01:31.659778+00:00",
+    "data_ultimo": "2026-08-17T13:29:52.721090+00:00",
     "titulo": "ESTAMOS perto da SEXTA EXTINÇÃO EM MASSA ???",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      387.6
+      387.6,
+      0
     ],
     "total_picos": 4,
     "picos_esgotados": false
