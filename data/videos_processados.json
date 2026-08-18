@@ -2535,5 +2535,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "yKgaJCkiLQw": {
+    "data_primeiro": "2026-08-18T11:44:36.256424+00:00",
+    "data_ultimo": "2026-08-18T11:44:36.256424+00:00",
+    "titulo": "PICHAU CEO - João Carlos",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      325.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
