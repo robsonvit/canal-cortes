@@ -2570,5 +2570,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "az2eJ30hBlA": {
+    "data_primeiro": "2026-08-18T21:05:20.225727+00:00",
+    "data_ultimo": "2026-08-18T21:05:20.225727+00:00",
+    "titulo": "Falha de Cobertura #291: Save Corinthians",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "jzUGS61yt_g": {
+    "data_primeiro": "2026-08-18T21:05:34.589760+00:00",
+    "data_ultimo": "2026-08-18T21:05:34.589760+00:00",
+    "titulo": "HOW WAS G4 BORN? (from the POKER table to a MILLION-DOLLAR company)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "fmdBcQvArOo": {
+    "data_primeiro": "2026-08-18T21:05:49.151051+00:00",
+    "data_ultimo": "2026-08-18T21:05:49.151051+00:00",
+    "titulo": "CATARINA ABDALLA | PODCAST PAPAGAIO FALANTE",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "jS_YKAgr9Qs": {
+    "data_primeiro": "2026-08-18T21:06:03.689299+00:00",
+    "data_ultimo": "2026-08-18T21:06:03.689299+00:00",
+    "titulo": "The women who are transforming Brazil - inspiring women.",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "WxvOW-R03NU": {
+    "data_primeiro": "2026-08-18T21:06:19.106871+00:00",
+    "data_ultimo": "2026-08-18T21:06:19.106871+00:00",
+    "titulo": "TECNOLOGIA NA ALIMENTAÇÃO?",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
