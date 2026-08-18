@@ -1625,11 +1625,12 @@
   },
   "VxAYRW0ACwM": {
     "data_primeiro": "2026-08-09T09:38:52.138486+00:00",
-    "data_ultimo": "2026-08-09T09:38:52.138486+00:00",
+    "data_ultimo": "2026-08-18T13:31:53.920626+00:00",
     "titulo": "Os BASTIDORES do CIÊNCIA SEM FIM no TEATRO",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      64.2
+      64.2,
+      155.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
