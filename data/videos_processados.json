@@ -2513,5 +2513,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "tm3hxhBxRBo": {
+    "data_primeiro": "2026-08-18T02:40:08.699011+00:00",
+    "data_ultimo": "2026-08-18T02:40:08.699011+00:00",
+    "titulo": "INSPIRING WOMEN with BIA FIGUEIREDO and RE GOMIDE - Venus Podcast",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      457.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
