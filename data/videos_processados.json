@@ -2502,5 +2502,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "MATelZ_xPnk": {
+    "data_primeiro": "2026-08-18T01:13:52.654040+00:00",
+    "data_ultimo": "2026-08-18T01:13:52.654040+00:00",
+    "titulo": "Podcast Revela: \"Eu Gosto de Menina\" - E Mais!",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      10.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
