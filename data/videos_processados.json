@@ -690,11 +690,12 @@
   },
   "7cjccu7X6WA": {
     "data_primeiro": "2026-07-20T10:55:08.589527+00:00",
-    "data_ultimo": "2026-07-20T10:55:08.589527+00:00",
+    "data_ultimo": "2026-08-19T09:42:45.143814+00:00",
     "titulo": "CASTRO + PAGANOTTO (OPERAÇÕES POLÍCIAIS) - TICARACATICAST | EP 718",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1671.8
+      1671.8,
+      1683.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
