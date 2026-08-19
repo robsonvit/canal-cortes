@@ -821,14 +821,15 @@
   },
   "wjnvYZ76YIA": {
     "data_primeiro": "2026-07-22T18:53:11.119005+00:00",
-    "data_ultimo": "2026-07-22T18:53:11.119005+00:00",
+    "data_ultimo": "2026-08-19T17:20:54.640966+00:00",
     "titulo": "AQUELA RESENHA ENTRE PRIMOS - JOÃO E EDUARDO -  TICARACATICAST | EP 748",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1640.8
+      1640.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "w2JsZAigjhY": {
     "data_primeiro": "2026-07-22T23:57:52.127183+00:00",
@@ -1130,14 +1131,15 @@
   },
   "tiYT4Cen5D0": {
     "data_primeiro": "2026-07-28T17:17:15.509240+00:00",
-    "data_ultimo": "2026-07-28T17:17:15.509240+00:00",
+    "data_ultimo": "2026-08-19T17:20:40.523977+00:00",
     "titulo": "NICHOLAS SANTOS | BENJA ME MUCHO #179",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      622.1
+      622.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "VbCxQHerUt8": {
     "data_primeiro": "2026-07-28T17:38:12.023504+00:00",
@@ -1863,14 +1865,15 @@
   },
   "jl7dGDtQd8o": {
     "data_primeiro": "2026-08-11T20:06:35.490100+00:00",
-    "data_ultimo": "2026-08-11T20:06:35.490100+00:00",
+    "data_ultimo": "2026-08-19T17:20:25.826872+00:00",
     "titulo": "WATER SHOULD BE COLORED - ADHD",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      217.1
+      217.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "6bGNjh7Ewrc": {
     "data_primeiro": "2026-08-11T21:03:09.347506+00:00",
@@ -2691,6 +2694,28 @@
     "data_ultimo": "2026-08-19T13:27:35.071222+00:00",
     "titulo": "SER EMPRESÁRIO NÃO É FÁCIL!",
     "canal": "Festa da Firma",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "FMBrUUxXfMQ": {
+    "data_primeiro": "2026-08-19T17:21:09.312965+00:00",
+    "data_ultimo": "2026-08-19T17:21:09.312965+00:00",
+    "titulo": "How to BUILD SUCCESS without LOSING your IDENTITY (MUMUZINHO) | JOTA JOTA PODCAST #280",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "35knnjxnNhA": {
+    "data_primeiro": "2026-08-19T17:21:23.748854+00:00",
+    "data_ultimo": "2026-08-19T17:21:23.748854+00:00",
+    "titulo": "ED GAMA vs 5 WOMEN ft. VINI MAGA, RAQUEL REAL & THAIZOCA - PODPAQUERA #36",
+    "canal": "Podpah",
     "picos_usados": [
       -1.0
     ],
