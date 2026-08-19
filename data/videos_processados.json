@@ -1738,11 +1738,12 @@
   },
   "bLYfSXUczi8": {
     "data_primeiro": "2026-08-10T15:19:06.850850+00:00",
-    "data_ultimo": "2026-08-10T15:19:06.850850+00:00",
+    "data_ultimo": "2026-08-19T00:59:04.004005+00:00",
     "titulo": "WE ARE ALREADY EXPOSED, because... | SCIENTIFIC TRAGEDIES #02",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      63.9
+      63.9,
+      155.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
