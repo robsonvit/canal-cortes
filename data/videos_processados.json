@@ -939,14 +939,15 @@
   },
   "xUO4b44qP_Q": {
     "data_primeiro": "2026-07-24T23:57:44.829202+00:00",
-    "data_ultimo": "2026-07-24T23:57:44.829202+00:00",
+    "data_ultimo": "2026-08-20T13:27:23.823556+00:00",
     "titulo": "DOCUMENTOS DE GERAÇÕES PASSADAS E ÁRVORE GENEALÓGICA - TICARACATICAST | EP 770",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1058.9
+      1058.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "iotkkfTVfvw": {
     "data_primeiro": "2026-07-25T08:17:25.802153+00:00",
@@ -1006,15 +1007,16 @@
   },
   "NIvk3mPM4nk": {
     "data_primeiro": "2026-07-26T13:04:47.487218+00:00",
-    "data_ultimo": "2026-08-15T17:12:29.586189+00:00",
+    "data_ultimo": "2026-08-20T13:26:44.918194+00:00",
     "titulo": "CEO OF HASHTAG TREINAMENTOS - João Martins",
     "canal": "Flow Podcast",
     "picos_usados": [
       274.6,
-      277.1
+      277.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "MoNy7Fu7gdw": {
     "data_primeiro": "2026-07-26T15:36:48.399837+00:00",
@@ -1210,14 +1212,15 @@
   },
   "RjYxqOD9oUI": {
     "data_primeiro": "2026-07-29T23:55:21.125617+00:00",
-    "data_ultimo": "2026-07-29T23:55:21.125617+00:00",
+    "data_ultimo": "2026-08-20T13:27:10.906411+00:00",
     "titulo": "FLAMENGO FANS REALLY HOLD THE TEAM ACCOUNTABLE!",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      10.1
+      10.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "-QLleJyVEhU": {
     "data_primeiro": "2026-07-30T08:13:48.649273+00:00",
@@ -1977,14 +1980,15 @@
   },
   "XZkSAiLHfwA": {
     "data_primeiro": "2026-08-12T21:06:20.407810+00:00",
-    "data_ultimo": "2026-08-12T21:06:20.407810+00:00",
+    "data_ultimo": "2026-08-20T13:26:58.193091+00:00",
     "titulo": "STARSHIP DIRETO DO GOLFO DO MÉXICO!!! - PRÉ-LANÇAMENTO",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      228.9
+      228.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "fkRlSJWLOf0": {
     "data_primeiro": "2026-08-12T22:22:29.769132+00:00",
@@ -2755,5 +2759,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "ZNX88wRI8og": {
+    "data_primeiro": "2026-08-20T13:27:36.729608+00:00",
+    "data_ultimo": "2026-08-20T13:27:36.729608+00:00",
+    "titulo": "The MANAGEMENT PRINCIPLES That Build COMPANIES (NICOLAI MARIANO) | JOTA JOTA PODCAST #278",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
