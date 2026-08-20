@@ -2732,5 +2732,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "YrIqfZwrIv8": {
+    "data_primeiro": "2026-08-20T02:33:15.642632+00:00",
+    "data_ultimo": "2026-08-20T02:33:15.642632+00:00",
+    "titulo": "Raul Gazolla | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      1719.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
