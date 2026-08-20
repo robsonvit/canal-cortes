@@ -1189,11 +1189,12 @@
   },
   "yV-dze6yWGE": {
     "data_primeiro": "2026-07-29T13:23:35.621485+00:00",
-    "data_ultimo": "2026-07-29T13:23:35.621485+00:00",
+    "data_ultimo": "2026-08-20T15:16:56.149503+00:00",
     "titulo": "Falha de Cobertura #288: Lucas Mugni 2026 World Cup",
     "canal": "Podpah",
     "picos_usados": [
-      220.2
+      220.2,
+      1589.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
