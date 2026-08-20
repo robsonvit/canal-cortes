@@ -1292,14 +1292,15 @@
   },
   "DLQSR1Ztve8": {
     "data_primeiro": "2026-07-31T12:58:00.292764+00:00",
-    "data_ultimo": "2026-07-31T12:58:00.292764+00:00",
+    "data_ultimo": "2026-08-20T20:59:33.106222+00:00",
     "titulo": "WHAT WAS THE WORST CASE?!",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      2.5
+      2.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "LR8CCcb0fCs": {
     "data_primeiro": "2026-07-31T15:40:14.825792+00:00",
@@ -1504,14 +1505,15 @@
   },
   "gZoiiYFJ7Bw": {
     "data_primeiro": "2026-08-07T08:17:59.688801+00:00",
-    "data_ultimo": "2026-08-07T08:17:59.688801+00:00",
+    "data_ultimo": "2026-08-20T20:58:50.382382+00:00",
     "titulo": "RETROSPECTIVA 2025 - PARTE 2 | FESTA DA FIRMA PODCAST #115",
     "canal": "Festa da Firma",
     "picos_usados": [
-      444.4
+      444.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "OvdoPgH7gJg": {
     "data_primeiro": "2026-08-07T12:55:09.546400+00:00",
@@ -2070,14 +2072,15 @@
   },
   "e_ClHMUQ9Qk": {
     "data_primeiro": "2026-08-13T21:05:32.949648+00:00",
-    "data_ultimo": "2026-08-13T21:05:32.949648+00:00",
+    "data_ultimo": "2026-08-20T20:59:18.587086+00:00",
     "titulo": "WHAT IF EARTH WERE IN A 3-BODY PROBLEM? | SCIENTIFIC TRAGEDIES #01",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
-      39.4
+      39.4,
+      -1.0
     ],
-    "total_picos": 5,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "lhSrRTeqVIA": {
     "data_primeiro": "2026-08-13T22:22:25.413092+00:00",
@@ -2554,14 +2557,15 @@
   },
   "yKgaJCkiLQw": {
     "data_primeiro": "2026-08-18T11:44:36.256424+00:00",
-    "data_ultimo": "2026-08-18T11:44:36.256424+00:00",
+    "data_ultimo": "2026-08-20T20:59:04.353246+00:00",
     "titulo": "PICHAU CEO - João Carlos",
     "canal": "Flow Podcast",
     "picos_usados": [
-      325.6
+      325.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "fotuegXGFco": {
     "data_primeiro": "2026-08-18T17:12:02.459511+00:00",
@@ -2793,5 +2797,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "vaaD9tds-As": {
+    "data_primeiro": "2026-08-20T20:58:36.652419+00:00",
+    "data_ultimo": "2026-08-20T20:58:36.652419+00:00",
+    "titulo": "Why is emotional support so important? - LOVES OF VENUS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
