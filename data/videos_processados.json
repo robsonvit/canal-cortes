@@ -1043,14 +1043,15 @@
   },
   "cokaEl42L10": {
     "data_primeiro": "2026-07-26T23:58:28.568745+00:00",
-    "data_ultimo": "2026-07-26T23:58:28.568745+00:00",
+    "data_ultimo": "2026-08-20T22:15:24.349602+00:00",
     "titulo": "30 MILHÕES DE CÓPIAS VENDIDAS E MUITAS HISTÓRIAS DA MÚSICA - TICARACATICAST | EP 721",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1027.1
+      1027.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "yXx2avc-g0M": {
     "data_primeiro": "2026-07-27T08:15:57.592505+00:00",
@@ -1258,14 +1259,15 @@
   },
   "QFfHVi8m8PM": {
     "data_primeiro": "2026-07-30T18:55:43.745399+00:00",
-    "data_ultimo": "2026-07-30T18:55:43.745399+00:00",
-    "titulo": "MC PH REVEALS THE SECRETS OF HIS BEGINNINGS AT 4M - Podpah Visita #115",
+    "data_ultimo": "2026-08-20T22:15:53.515270+00:00",
+    "titulo": "MC PH SHOWS OFF HIS LUXURY BAG COLLECTION - Podpah Visits #115",
     "canal": "Podpah",
     "picos_usados": [
-      167.1
+      167.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "vzofcr04onY": {
     "data_primeiro": "2026-07-30T23:52:22.481167+00:00",
@@ -2803,6 +2805,39 @@
     "data_ultimo": "2026-08-20T20:58:36.652419+00:00",
     "titulo": "Why is emotional support so important? - LOVES OF VENUS",
     "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "rF1Ll9ug7nc": {
+    "data_primeiro": "2026-08-20T22:15:38.430458+00:00",
+    "data_ultimo": "2026-08-20T22:15:38.430458+00:00",
+    "titulo": "THE OBSESSION that took RENATO CARIANI to the TOP | JOTA JOTA PODCAST #292",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "GlUHBc53V4M": {
+    "data_primeiro": "2026-08-20T22:16:07.715825+00:00",
+    "data_ultimo": "2026-08-20T22:16:07.715825+00:00",
+    "titulo": "How to CHOOSE a Business Partner Without Putting Your COMPANY at RISK 2",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "WpjpEWstL7M": {
+    "data_primeiro": "2026-08-20T22:16:21.857109+00:00",
+    "data_ultimo": "2026-08-20T22:16:21.857109+00:00",
+    "titulo": "Fábio Villa Verde | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
     "picos_usados": [
       -1.0
     ],
