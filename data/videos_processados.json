@@ -2721,5 +2721,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "MVbGAFAoXIc": {
+    "data_primeiro": "2026-08-20T00:59:15.099049+00:00",
+    "data_ultimo": "2026-08-20T00:59:15.099049+00:00",
+    "titulo": "CAN ARTIFICIAL INTELLIGENCE CAUSE AN ENERGY CRISIS?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      28.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
