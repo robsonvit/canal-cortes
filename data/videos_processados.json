@@ -2743,5 +2743,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "1OXcCn_z9rc": {
+    "data_primeiro": "2026-08-20T09:35:40.926854+00:00",
+    "data_ultimo": "2026-08-20T09:35:40.926854+00:00",
+    "titulo": "WHO IS THE PASTOR? – Those Mines with Amanda Souza and Nat Guareschi",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      1701.0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
