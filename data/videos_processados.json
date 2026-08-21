@@ -2901,5 +2901,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "rRMW_hTol1E": {
+    "data_primeiro": "2026-08-21T20:00:26.111221+00:00",
+    "data_ultimo": "2026-08-21T20:00:26.111221+00:00",
+    "titulo": "WHY IS YOUR COMPANY NOT GROWING? (90% fail to execute their strategies)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      41.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
