@@ -556,16 +556,17 @@
   },
   "pO7bmdk1e0Q": {
     "data_primeiro": "2026-07-18T14:29:59.048412+00:00",
-    "data_ultimo": "2026-08-18T22:17:49.031893+00:00",
+    "data_ultimo": "2026-08-21T02:30:40.743874+00:00",
     "titulo": "DELOREAN with a FERRARI ENGINE",
     "canal": "Flow Podcast",
     "picos_usados": [
       2167.6,
       2169.4,
-      446.2
+      446.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "PnnitEn7ROw": {
     "data_primeiro": "2026-07-18T20:54:03.818524+00:00",
@@ -1122,15 +1123,16 @@
   },
   "vXAZt6e-fOs": {
     "data_primeiro": "2026-07-28T17:01:54.279126+00:00",
-    "data_ultimo": "2026-08-14T20:04:55.037129+00:00",
+    "data_ultimo": "2026-08-21T02:30:53.188687+00:00",
     "titulo": "CIÊNCIA e ARQUEOLOGIA  | Tour com Rodrigo Silva",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
       972.2,
-      973.4
+      973.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "tiYT4Cen5D0": {
     "data_primeiro": "2026-07-28T17:17:15.509240+00:00",
@@ -1146,14 +1148,15 @@
   },
   "VbCxQHerUt8": {
     "data_primeiro": "2026-07-28T17:38:12.023504+00:00",
-    "data_ultimo": "2026-07-28T17:38:12.023504+00:00",
+    "data_ultimo": "2026-08-21T02:31:17.335233+00:00",
     "titulo": "ROQUE MALIAS E JOEY PONZI - TICARACATICAST | EP 732",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      103.2
+      103.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "hlGzVHgGHgM": {
     "data_primeiro": "2026-07-28T17:54:25.155249+00:00",
@@ -1419,14 +1422,15 @@
   },
   "qCSusS1AWAY": {
     "data_primeiro": "2026-08-04T18:51:48.953423+00:00",
-    "data_ultimo": "2026-08-04T18:51:48.953423+00:00",
+    "data_ultimo": "2026-08-21T02:31:05.240666+00:00",
     "titulo": "Indecent proposal! 😂",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      0.2
+      0.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "mHxme1eYcJQ": {
     "data_primeiro": "2026-08-04T23:57:30.928634+00:00",
@@ -1630,14 +1634,15 @@
   },
   "ur9rflUPJeo": {
     "data_primeiro": "2026-08-09T01:01:03.201913+00:00",
-    "data_ultimo": "2026-08-09T01:01:03.201913+00:00",
+    "data_ultimo": "2026-08-21T02:30:28.890519+00:00",
     "titulo": "QUANDO COMEÇARAM A FALAR DE FINANÇAS?",
     "canal": "Festa da Firma",
     "picos_usados": [
-      29.6
+      29.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "VxAYRW0ACwM": {
     "data_primeiro": "2026-08-09T09:38:52.138486+00:00",
