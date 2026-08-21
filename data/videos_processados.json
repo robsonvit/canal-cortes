@@ -2912,5 +2912,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "iR46xxbJP2k": {
+    "data_primeiro": "2026-08-21T21:01:10.922905+00:00",
+    "data_ultimo": "2026-08-21T21:01:10.922905+00:00",
+    "titulo": "Dra  Deolane Bezerra   Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      1220.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
