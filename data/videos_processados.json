@@ -1343,14 +1343,15 @@
   },
   "I2nzINW-eBM": {
     "data_primeiro": "2026-08-01T13:02:12.163066+00:00",
-    "data_ultimo": "2026-08-01T13:02:12.163066+00:00",
+    "data_ultimo": "2026-08-21T11:37:14.949005+00:00",
     "titulo": "CHRISTIAN FIGUEIREDO VS 5 WOMEN ft. ZOO, VINI MAGA, MAURO NAKADA & THAIZOCA - PODPAQUERA #34",
     "canal": "Podpah",
     "picos_usados": [
-      381.1
+      381.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "mUAA1y4Xa1M": {
     "data_primeiro": "2026-08-03T22:06:11.345107+00:00",
@@ -1747,14 +1748,15 @@
   },
   "pHPy-zXv7OI": {
     "data_primeiro": "2026-08-10T11:42:06.552998+00:00",
-    "data_ultimo": "2026-08-10T11:42:06.552998+00:00",
+    "data_ultimo": "2026-08-21T11:38:03.682957+00:00",
     "titulo": "NEM TUDO É O QUE PARECE!",
     "canal": "Festa da Firma",
     "picos_usados": [
-      9.8
+      9.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "bLYfSXUczi8": {
     "data_primeiro": "2026-08-10T15:19:06.850850+00:00",
@@ -2860,5 +2862,38 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "am1PVP2rtCk": {
+    "data_primeiro": "2026-08-21T11:37:27.294641+00:00",
+    "data_ultimo": "2026-08-21T11:37:27.294641+00:00",
+    "titulo": "WHY ARE DATA CENTERS NOT COMING TO BRAZIL?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "xICKNudf5-k": {
+    "data_primeiro": "2026-08-21T11:37:39.245669+00:00",
+    "data_ultimo": "2026-08-21T11:37:39.245669+00:00",
+    "titulo": "MARCOS OLIVEIRA (BEIÇOLA)  | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "VdqGkVeEW_Y": {
+    "data_primeiro": "2026-08-21T11:37:51.320190+00:00",
+    "data_ultimo": "2026-08-21T11:37:51.320190+00:00",
+    "titulo": "FETISH, DESIRE and SHAME: IS IT POSSIBLE TO TALK ABOUT EVERYTHING? - AMORES DE VENUS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
