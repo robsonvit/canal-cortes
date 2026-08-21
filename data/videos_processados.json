@@ -2843,5 +2843,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "0cCnDXxJJgM": {
+    "data_primeiro": "2026-08-21T00:59:24.782702+00:00",
+    "data_ultimo": "2026-08-21T00:59:24.782702+00:00",
+    "titulo": "BETRAYAL: SIGNS, TYPES and CONSEQUENCES - LOVES OF VENUS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      372.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
