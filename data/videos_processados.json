@@ -1315,11 +1315,12 @@
   },
   "LR8CCcb0fCs": {
     "data_primeiro": "2026-07-31T15:40:14.825792+00:00",
-    "data_ultimo": "2026-07-31T15:40:14.825792+00:00",
+    "data_ultimo": "2026-08-22T00:59:18.914450+00:00",
     "titulo": "EDUARDO NUNES + GUSTAVO SARTI - TICARACATICAST | EP 702",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1016.1
+      1016.1,
+      2059.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
