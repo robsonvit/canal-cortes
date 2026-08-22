@@ -2971,5 +2971,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "2InwEiFOWJU": {
+    "data_primeiro": "2026-08-22T17:05:27.212810+00:00",
+    "data_ultimo": "2026-08-22T17:05:27.212810+00:00",
+    "titulo": "BRAZIL could GO BACK to being an OIL IMPORTER",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      102.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
