@@ -1721,14 +1721,15 @@
   },
   "lUVu-4re1y4": {
     "data_primeiro": "2026-08-09T21:07:52.235701+00:00",
-    "data_ultimo": "2026-08-09T21:07:52.235701+00:00",
+    "data_ultimo": "2026-08-22T15:16:39.234484+00:00",
     "titulo": "FLIRTY VIBES WITH TZ DA CORONEL - Rango Brabo #140",
     "canal": "Podpah",
     "picos_usados": [
-      436.2
+      436.2,
+      941.6
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 1,
+    "picos_esgotados": true
   },
   "gBronP06koQ": {
     "data_primeiro": "2026-08-09T22:22:55.602731+00:00",
