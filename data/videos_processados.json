@@ -978,14 +978,15 @@
   },
   "KpPZ5SyU9JU": {
     "data_primeiro": "2026-07-25T15:40:59.928564+00:00",
-    "data_ultimo": "2026-07-25T15:40:59.928564+00:00",
+    "data_ultimo": "2026-08-22T02:30:09.116422+00:00",
     "titulo": "How to Sell MORE and BETTER?",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      448.6
+      448.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "6_vY1IohdKs": {
     "data_primeiro": "2026-07-25T18:54:33.648884+00:00",
@@ -1372,25 +1373,27 @@
   },
   "vpmLun7a93o": {
     "data_primeiro": "2026-08-03T23:58:05.811611+00:00",
-    "data_ultimo": "2026-08-03T23:58:05.811611+00:00",
+    "data_ultimo": "2026-08-22T02:30:48.024418+00:00",
     "titulo": "SILL ESTEVES | Podcast Papagaio Falante",
     "canal": "Papagaio Falante",
     "picos_usados": [
-      795.9
+      795.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "uHIS7p6guKE": {
     "data_primeiro": "2026-08-04T08:12:01.769782+00:00",
-    "data_ultimo": "2026-08-04T08:12:01.769782+00:00",
+    "data_ultimo": "2026-08-22T02:31:00.766748+00:00",
     "titulo": "WHO'S THE LIAR? [with Meio Brasileira & Duda Kropf] - Aquelas Minas",
     "canal": "Vênus Podcast",
     "picos_usados": [
-      2329.7
+      2329.7,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "9T-xNQKlWEY": {
     "data_primeiro": "2026-08-04T12:58:17.117368+00:00",
@@ -1601,14 +1604,15 @@
   },
   "YAiPsig2Lq4": {
     "data_primeiro": "2026-08-08T15:43:43.254419+00:00",
-    "data_ultimo": "2026-08-08T15:43:43.254419+00:00",
+    "data_ultimo": "2026-08-22T02:30:22.220034+00:00",
     "titulo": "Falha de Cobertura #289: Dangers of the Brasileirão",
     "canal": "Podpah",
     "picos_usados": [
-      160.8
+      160.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "fwXIjfBTwDo": {
     "data_primeiro": "2026-08-08T20:04:06.443493+00:00",
@@ -2934,6 +2938,17 @@
     "data_ultimo": "2026-08-21T22:15:26.412209+00:00",
     "titulo": "TARCIANA MEDEIROS e JANDARACI ARAÚJO - MULHERES INSPIRADORAS",
     "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "CkIiF6cngw0": {
+    "data_primeiro": "2026-08-22T02:30:34.916613+00:00",
+    "data_ultimo": "2026-08-22T02:30:34.916613+00:00",
+    "titulo": "WHY DOES OIL STILL DRIVE THE ENTIRE GLOBAL ECONOMY?",
+    "canal": "Os Sócios Podcast",
     "picos_usados": [
       -1.0
     ],
