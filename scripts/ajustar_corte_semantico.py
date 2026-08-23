@@ -151,10 +151,79 @@ def _transcrever_audio(audio_path: str, api_key: str) -> list:
             "text": seg.text
         })
     return segmentos_lista
-_abs[id_inicio]["start"], segmentos_abs[id_fim]["end"]
-        
+
+
+def _analisar_contexto_com_llm(
+    segmentos_abs: list,
+    inicio_heatmap: float,
+    fim_heatmap: float,
+    openrouter_key: str,
+) -> tuple[float, float]:
+    """
+    Envia a transcrição com tempos absolutos para o LLM analisar semanticamente
+    onde a história/piada começa e termina de verdade.
+
+    Returns:
+        (inicio_ajustado, fim_ajustado) em segundos absolutos, ou (None, None) se falhar.
+    """
+    if not segmentos_abs:
+        return None, None
+
+    print("  🧠 [Semântico] Solicitando análise de contexto ao LLM (llama-3.3-70b-instruct)...")
+    cliente = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=openrouter_key)
+
+    # Monta texto dos segmentos para o LLM
+    linhas = []
+    for i, seg in enumerate(segmentos_abs):
+        linhas.append(f"[{seg['start']:.1f}s - {seg['end']:.1f}s] {seg['text'].strip()}")
+    texto_transcricao = "\n".join(linhas)
+
+    prompt = f"""Você é um editor de vídeo especializado em Shorts do YouTube.
+
+Você recebeu a transcrição de um podcast, com timestamps em segundos.
+O sistema identificou que o trecho mais interessante está entre {inicio_heatmap:.1f}s e {fim_heatmap:.1f}s.
+
+Sua tarefa: encontrar o início e fim ideais para um Short de até 60 segundos que conte uma história completa.
+- O início deve ser no começo de uma frase/ideia (não no meio)
+- O fim deve ser em uma conclusão natural (não cortar no meio)
+- O trecho deve ter entre 30s e 60s de duração
+
+Transcrição:
+{texto_transcricao}
+
+Responda APENAS com dois números no formato:
+INICIO: <segundos>
+FIM: <segundos>"""
+
+    try:
+        resp = cliente.chat.completions.create(
+            model="meta-llama/llama-3.3-70b-instruct:free",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=50,
+            temperature=0.1,
+        )
+        texto_resp = resp.choices[0].message.content.strip()
+
+        inicio_novo = None
+        fim_novo = None
+        for linha in texto_resp.split("\n"):
+            if linha.upper().startswith("INICIO:"):
+                try:
+                    inicio_novo = float(linha.split(":")[1].strip())
+                except Exception:
+                    pass
+            elif linha.upper().startswith("FIM:"):
+                try:
+                    fim_novo = float(linha.split(":")[1].strip())
+                except Exception:
+                    pass
+
+        if inicio_novo is not None and fim_novo is not None:
+            return inicio_novo, fim_novo
+        return None, None
+
     except Exception as e:
-        print(f"  âš ï¸   [SemÃ¢ntico] Falha na anÃ¡lise do LLM: {e}")
+        print(f"  ⚠️   [Semântico] Falha na análise do LLM: {e}")
         return None, None
 
 
