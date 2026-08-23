@@ -1793,16 +1793,17 @@
   },
   "bLYfSXUczi8": {
     "data_primeiro": "2026-08-10T15:19:06.850850+00:00",
-    "data_ultimo": "2026-08-23T15:17:21.452576+00:00",
+    "data_ultimo": "2026-08-23T22:16:51.331839+00:00",
     "titulo": "WE ARE ALREADY EXPOSED, because... | SCIENTIFIC TRAGEDIES #02",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
       63.9,
       155.4,
-      246.8
+      246.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "0ChAMeyI6_8": {
     "data_primeiro": "2026-08-10T17:10:30.766286+00:00",
@@ -1886,14 +1887,15 @@
   },
   "KyShBbQRgLA": {
     "data_primeiro": "2026-08-11T15:17:37.452209+00:00",
-    "data_ultimo": "2026-08-11T15:17:37.452209+00:00",
+    "data_ultimo": "2026-08-23T22:16:02.193435+00:00",
     "titulo": "WHO IS THE EX VEGAN? - Those Mines",
     "canal": "Vênus Podcast",
     "picos_usados": [
-      1323.0
+      1323.0,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "7yNzR-FmazY": {
     "data_primeiro": "2026-08-11T17:06:03.006550+00:00",
@@ -1989,14 +1991,15 @@
   },
   "pRiGPt571i4": {
     "data_primeiro": "2026-08-12T15:22:45.249025+00:00",
-    "data_ultimo": "2026-08-12T15:22:45.249025+00:00",
+    "data_ultimo": "2026-08-23T22:15:41.510698+00:00",
     "titulo": "LIZI BENITES | Podcast Papagaio Falante",
     "canal": "Papagaio Falante",
     "picos_usados": [
-      1010.5
+      1010.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "rI1Ksw7Gb48": {
     "data_primeiro": "2026-08-12T17:11:33.316907+00:00",
@@ -2238,14 +2241,15 @@
   },
   "OUQf_IWRlts": {
     "data_primeiro": "2026-08-14T21:05:21.282508+00:00",
-    "data_ultimo": "2026-08-14T21:05:21.282508+00:00",
+    "data_ultimo": "2026-08-23T22:17:04.974295+00:00",
     "titulo": "FÁBIO SORMANI | BENJA ME MUCHO #180",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      2546.0
+      2546.0,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "MgQNuOaT8vU": {
     "data_primeiro": "2026-08-14T22:22:02.801781+00:00",
@@ -2382,14 +2386,15 @@
   },
   "ppBwOTAmMmU": {
     "data_primeiro": "2026-08-16T09:39:35.052994+00:00",
-    "data_ultimo": "2026-08-16T09:39:35.052994+00:00",
+    "data_ultimo": "2026-08-23T22:16:22.838312+00:00",
     "titulo": "RAFAEL CORTE | FESTA DA FIRMA PODCAST #117",
     "canal": "Festa da Firma",
     "picos_usados": [
-      472.8
+      472.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "oHDm-OpHLnI": {
     "data_primeiro": "2026-08-16T11:37:57.811650+00:00",
