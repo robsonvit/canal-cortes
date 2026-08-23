@@ -1461,11 +1461,12 @@
   },
   "0k0l8_Fllpw": {
     "data_primeiro": "2026-08-05T08:17:09.679783+00:00",
-    "data_ultimo": "2026-08-05T08:17:09.679783+00:00",
+    "data_ultimo": "2026-08-23T17:12:51.565248+00:00",
     "titulo": "Are you GOOD, but Nobody Knows It? How to STOP Being INVISIBLE (JOEL JOTA) | JOTA JOTA PODCAST #285",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      1212.2
+      1212.2,
+      232.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
