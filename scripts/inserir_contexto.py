@@ -29,7 +29,7 @@ import requests
 import time
 import urllib.parse
 
-from groq import Groq
+from openai import OpenAI
 
 ROOT_DIR      = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR    = os.path.join(ROOT_DIR, "output")
@@ -67,7 +67,7 @@ def _extrair_temas(texto: str, output_dir: str = OUTPUT_DIR) -> list:
     except Exception:
         texto_para_ia = texto[:800]
 
-    cliente = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+    cliente = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ.get("OPENROUTER_API_KEY"))
 
     prompt = f"""Analise esta transcrição de um podcast em português brasileiro e extraia 3 momentos visuais marcantes.
 
@@ -97,7 +97,7 @@ Retorne apenas o JSON, sem explicações."""
 
     try:
         resp = cliente.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="meta-llama/llama-3.3-70b-instruct:free",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=400,

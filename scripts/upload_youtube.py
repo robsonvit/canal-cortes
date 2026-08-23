@@ -17,7 +17,7 @@ Secrets necessários (GitHub → Settings → Secrets → Actions):
   YOUTUBE_CLIENT_ID
   YOUTUBE_CLIENT_SECRET
   YOUTUBE_REFRESH_TOKEN
-  GROQ_API_KEY
+  OPENROUTER_API_KEY
 """
 
 import os
@@ -76,9 +76,9 @@ def _gerar_seo_com_ia(dados: dict) -> dict:
 
     Retorna dict com: titulo, descricao, tags (list)
     """
-    groq_key = os.environ.get("GROQ_API_KEY", "")
-    if not groq_key:
-        print("  ⚠️  GROQ_API_KEY não configurado — usando SEO básico.")
+    openrouter_key = os.environ.get("OPENROUTER_API_KEY", "")
+    if not openrouter_key:
+        print("  ⚠️  OPENROUTER_API_KEY não configurado — usando SEO básico.")
         return {}
 
     canal        = dados.get("canal", "Podcast")
@@ -133,10 +133,10 @@ Retorne APENAS um JSON válido neste formato exato:
 Retorne apenas o JSON, sem explicações adicionais."""
 
     try:
-        from groq import Groq
-        cliente = Groq(api_key=groq_key)
+        from openai import OpenAI
+        cliente = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ.get("OPENROUTER_API_KEY"))
         resp = cliente.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="meta-llama/llama-3.3-70b-instruct:free",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
             max_tokens=800,

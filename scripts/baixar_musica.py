@@ -10,7 +10,7 @@ repositórios públicos. Faz cache local para evitar downloads repetidos.
 import os
 import random
 import subprocess
-from groq import Groq
+from openai import OpenAI
 
 ROOT_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MUSICA_DIR  = os.path.join(ROOT_DIR, "assets", "musicas")
@@ -39,7 +39,7 @@ def _detectar_sentimento(texto: str) -> str:
     if not texto:
         return "padrao"
         
-    cliente = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+    cliente = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ.get("OPENROUTER_API_KEY"))
     prompt = f"""Leia o texto abaixo e classifique o SENTIMENTO PREDOMINANTE em APENAS UMA dessas 3 categorias:
 1. "superacao" (Motivação, sucesso, energia alta, conquista)
 2. "licao" (Reflexão, ensinamento, calmo, conselho, filosofia)
@@ -50,7 +50,7 @@ Texto: {texto[:1000]}"""
 
     try:
         resp = cliente.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="meta-llama/llama-3.3-70b-instruct:free",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
             max_tokens=20,

@@ -25,7 +25,7 @@ import sys
 import subprocess
 import json
 
-from groq import Groq
+from openai import OpenAI
 
 ROOT_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
@@ -132,104 +132,26 @@ def _encontrar_audio(output_path: str) -> str | None:
     return None
 
 
-def _transcrever_audio(audio_path: str, groq_key: str) -> list:
+def _transcrever_audio(audio_path: str, api_key: str) -> list:
     """
-    Transcreve o Ã¡udio via Groq Whisper (verbose_json).
-
-    Returns:
-        Lista de segmentos [{start, end, text}, ...]
-        onde start/end sÃ£o relativos ao inÃ­cio do arquivo de Ã¡udio.
+    Transcreve o áudio via faster-whisper. (api_key é mantido na assinatura para compatibilidade mas não é usado)
     """
-    cliente = Groq(api_key=groq_key)
-
-    # Whisper aceita arquivos atÃ© 25 MB. Para Ã¡udios maiores, corta o trecho
+    from faster_whisper import WhisperModel
     tamanho_mb = os.path.getsize(audio_path) / (1024 * 1024)
-    print(f"  ðŸ¤– [SemÃ¢ntico] Transcrevendo {tamanho_mb:.1f} MB com Groq Whisper...")
+    print(f"  🤖 [Semântico] Transcrevendo {tamanho_mb:.1f} MB com faster-whisper...")
 
-    with open(audio_path, "rb") as f:
-        transcricao = cliente.audio.transcriptions.create(
-            file=(os.path.basename(audio_path), f.read()),
-            model="whisper-large-v3-turbo",
-            response_format="verbose_json",
-            language="pt",
-        )
-
-    if isinstance(transcricao, dict):
-        segmentos = transcricao.get("segments", [])
-    else:
-        segmentos = getattr(transcricao, "segments", [])
-
-    # Normaliza para dicts
-    resultado = []
-    for seg in segmentos:
-        start = seg.start if hasattr(seg, "start") else seg["start"]
-        end   = seg.end   if hasattr(seg, "end")   else seg["end"]
-        text  = seg.text  if hasattr(seg, "text")  else seg["text"]
-        resultado.append({"start": float(start), "end": float(end), "text": text.strip()})
-
-    print(f"  âœ… [SemÃ¢ntico] {len(resultado)} segmentos transcritos")
-    return resultado
-
-
-def _analisar_contexto_com_llm(segmentos_abs: list, inicio_heatmap: float, fim_heatmap: float, groq_key: str) -> tuple[float, float]:
-    """
-    Envia a transcriÃ§Ã£o com tempos absolutos para o LLM analisar semanticamente
-    o melhor ponto de inÃ­cio e fim da histÃ³ria.
-    """
-    if not segmentos_abs:
-        return None, None
-        
-    texto_formatado = []
-    for i, seg in enumerate(segmentos_abs):
-        texto_formatado.append(f"ID {i} | Tempo: {seg['start']:.1f}s - {seg['end']:.1f}s | Texto: {seg['text']}")
+    model = WhisperModel("base", device="cpu", compute_type="int8")
+    segments, _ = model.transcribe(audio_path, language="pt", beam_size=5)
     
-    transcricao_texto = "\n".join(texto_formatado)
-    
-    prompt = f"""VocÃª Ã© um editor de vÃ­deos virais especialista em retenÃ§Ã£o de pÃºblico no TikTok e YouTube Shorts.
-Sua tarefa Ã© ler a transcriÃ§Ã£o de um vÃ­deo e encontrar o MELHOR trecho contÃ­nuo que conte uma histÃ³ria, piada, ou ideia completa.
-
-Os algoritmos do YouTube apontaram que o clÃ­max de interesse do pÃºblico ocorreu entre {inicio_heatmap:.1f}s e {fim_heatmap:.1f}s.
-O seu corte final DEVE conter a informaÃ§Ã£o mais importante falada dentro desse intervalo, mas vocÃª deve recuar o inÃ­cio para pegar o contexto e avanÃ§ar o final para pegar a conclusÃ£o.
-
-Regras Estritas:
-1. O id_inicio deve ser o momento EXATO onde a pessoa comeÃ§a a introduzir o contexto daquela histÃ³ria/ideia.
-2. O id_fim deve ser o momento EXATO onde o raciocÃ­nio Ã© plenamente concluÃ­do (uma reflexÃ£o, punchline ou encerramento da ideia). NUNCA corte no meio do assunto, durante uma respiraÃ§Ã£o no meio da histÃ³ria ou deixando a frase suspensa sem desfecho. O espectador precisa sentir que o vÃ­deo teve inÃ­cio, meio e fim!
-3. NÃ£o inclua conversas paralelas irrelevantes se nÃ£o fizerem parte do clÃ­max.
-4. Responda APENAS com um objeto JSON vÃ¡lido, contendo exatamente as chaves: "id_inicio", "id_fim" e "justificativa". NÃ£o adicione blocos de cÃ³digo ```json ao redor ou nenhum outro texto.
-
-Exemplo de formato esperado:
-{{"id_inicio": 4, "id_fim": 15, "justificativa": "O assunto principal comeÃ§a no ID 4 quando ele introduz a histÃ³ria, e a conclusÃ£o ocorre no ID 15."}}
-
-TranscriÃ§Ã£o DisponÃ­vel:
-{transcricao_texto}
-"""
-    
-    print("  🧠 [Semântico] Solicitando análise de contexto ao LLM (llama-3.1-70b-versatile)...")
-    cliente = Groq(api_key=groq_key)
-    
-    try:
-        resposta = cliente.chat.completions.create(
-            model="llama-3.1-70b-versatile",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.2,
-            response_format={"type": "json_object"}
-        )
-        
-        conteudo = resposta.choices[0].message.content.strip()
-        resultado = json.loads(conteudo)
-        
-        id_inicio = int(resultado["id_inicio"])
-        id_fim = int(resultado["id_fim"])
-        
-        # Garante que os IDs estÃ£o no intervalo
-        id_inicio = max(0, min(id_inicio, len(segmentos_abs) - 1))
-        id_fim = max(0, min(id_fim, len(segmentos_abs) - 1))
-        if id_inicio > id_fim:
-            id_inicio, id_fim = id_fim, id_inicio
-            
-        print(f"  âœ… [SemÃ¢ntico] LLM justificou: {resultado.get('justificativa', '')}")
-        
-        return segmentos_abs[id_inicio]["start"], segmentos_abs[id_fim]["end"]
+    segmentos_lista = []
+    for seg in segments:
+        segmentos_lista.append({
+            "start": seg.start,
+            "end": seg.end,
+            "text": seg.text
+        })
+    return segmentos_lista
+_abs[id_inicio]["start"], segmentos_abs[id_fim]["end"]
         
     except Exception as e:
         print(f"  âš ï¸   [SemÃ¢ntico] Falha na anÃ¡lise do LLM: {e}")
@@ -263,9 +185,9 @@ def ajustar_corte_semantico(
     """
     print(f"\n  ðŸ”  [Ajuste SemÃ¢ntico] Refinando corte {inicio_s:.0f}s â†’ {fim_s:.0f}s com InteligÃªncia Artificial...")
 
-    groq_key = os.environ.get("GROQ_API_KEY")
-    if not groq_key:
-        print("  âš ï¸   [SemÃ¢ntico] GROQ_API_KEY nÃ£o configurado. Usando tempos originais.")
+    openrouter_key = os.environ.get("OPENROUTER_API_KEY")
+    if not openrouter_key:
+        print("  âš ï¸   [SemÃ¢ntico] OPENROUTER_API_KEY nÃ£o configurado. Usando tempos originais.")
         return inicio_s, fim_s
 
     try:
@@ -273,7 +195,7 @@ def ajustar_corte_semantico(
         audio_path, offset_s = _baixar_audio_expandido(video_url, inicio_s, fim_s, output_dir)
 
         # 2. Transcreve
-        segmentos = _transcrever_audio(audio_path, groq_key)
+        segmentos = _transcrever_audio(audio_path, openrouter_key)
 
         # Remove arquivo de Ã¡udio temporÃ¡rio
         if os.path.exists(audio_path):
@@ -294,7 +216,7 @@ def ajustar_corte_semantico(
         ]
 
         # 3. Analisa o Contexto com LLM
-        inicio_ajustado, fim_ajustado = _analisar_contexto_com_llm(segs_abs, inicio_s, fim_s, groq_key)
+        inicio_ajustado, fim_ajustado = _analisar_contexto_com_llm(segs_abs, inicio_s, fim_s, openrouter_key)
         
         if inicio_ajustado is None or fim_ajustado is None:
             print("  ⚠️   [Semântico] LLM não retornou pontos válidos. Usando tempos originais.")

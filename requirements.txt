@@ -3,8 +3,9 @@
 # Download de vídeos do YouTube + extração de heatmap
 yt-dlp>=2024.1.0
 
-# IA — transcrição Whisper + análise contextual
-groq>=0.9.0
+# IA — LLM (OpenRouter) e transcrição leve (faster-whisper)
+openai>=1.14.0
+faster-whisper>=1.0.0
 
 # Detecção de rosto (face tracking)
 mediapipe==0.10.14
