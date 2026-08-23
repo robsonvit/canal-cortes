@@ -1330,14 +1330,15 @@
   },
   "5cVb67-6DNs": {
     "data_primeiro": "2026-07-31T18:55:02.335445+00:00",
-    "data_ultimo": "2026-07-31T18:55:02.335445+00:00",
+    "data_ultimo": "2026-08-23T15:58:13.143433+00:00",
     "titulo": "What EVERYONE needs to LEARN to GROW (MARÍLIA CARDOSO) | JOTA JOTA PODCAST #288",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      679.8
+      679.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "pdPJXiiEL2o": {
     "data_primeiro": "2026-07-31T23:56:51.276607+00:00",
@@ -1695,14 +1696,15 @@
   },
   "zEl0iANsFI4": {
     "data_primeiro": "2026-08-09T13:32:29.454800+00:00",
-    "data_ultimo": "2026-08-09T13:32:29.454800+00:00",
+    "data_ultimo": "2026-08-23T15:58:00.554133+00:00",
     "titulo": "O HÉTERO MAIS AFEMINADO DO BRASIL - TICARACATICAST | EP 722",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      3050.5
+      3050.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "UQoeIj6vZ_s": {
     "data_primeiro": "2026-08-09T15:31:02.379363+00:00",
@@ -1751,14 +1753,15 @@
   },
   "UX3NN3d98c0": {
     "data_primeiro": "2026-08-10T01:02:34.018302+00:00",
-    "data_ultimo": "2026-08-10T01:02:34.018302+00:00",
+    "data_ultimo": "2026-08-23T15:58:52.314046+00:00",
     "titulo": "BABU SANTANA BBB26 | Podcast Papagaio Falante",
     "canal": "Papagaio Falante",
     "picos_usados": [
-      1262.1
+      1262.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "nQesRhLkTns": {
     "data_primeiro": "2026-08-10T02:39:40.375635+00:00",
@@ -1957,14 +1960,15 @@
   },
   "957zyccxl6Q": {
     "data_primeiro": "2026-08-12T11:49:35.375432+00:00",
-    "data_ultimo": "2026-08-12T11:49:35.375432+00:00",
+    "data_ultimo": "2026-08-23T15:58:25.776214+00:00",
     "titulo": "Falha de Cobertura #290: The Ghost Signing",
     "canal": "Podpah",
     "picos_usados": [
-      249.2
+      249.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Q5nC63gXGAw": {
     "data_primeiro": "2026-08-12T13:31:32.726617+00:00",
@@ -3000,6 +3004,17 @@
     "data_primeiro": "2026-08-23T09:33:45.528260+00:00",
     "data_ultimo": "2026-08-23T09:33:45.528260+00:00",
     "titulo": "WHY DO SMALL BUSINESSES FAIL?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "jb0_Yq5YNdw": {
+    "data_primeiro": "2026-08-23T15:58:39.230367+00:00",
+    "data_ultimo": "2026-08-23T15:58:39.230367+00:00",
+    "titulo": "WHY DOES NO ONE WANT TO INVEST IN REFINERIES IN BRAZIL?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       -1.0
