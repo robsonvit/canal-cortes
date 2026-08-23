@@ -1671,16 +1671,17 @@
   },
   "VxAYRW0ACwM": {
     "data_primeiro": "2026-08-09T09:38:52.138486+00:00",
-    "data_ultimo": "2026-08-23T01:00:01.723613+00:00",
+    "data_ultimo": "2026-08-23T16:04:17.039001+00:00",
     "titulo": "Os BASTIDORES do CIÊNCIA SEM FIM no TEATRO",
     "canal": "Ciência Sem Fim",
     "picos_usados": [
       64.2,
       155.9,
-      247.6
+      247.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "atbChiWDkN0": {
     "data_primeiro": "2026-08-09T11:40:56.229278+00:00",
@@ -1765,14 +1766,15 @@
   },
   "nQesRhLkTns": {
     "data_primeiro": "2026-08-10T02:39:40.375635+00:00",
-    "data_ultimo": "2026-08-10T02:39:40.375635+00:00",
+    "data_ultimo": "2026-08-23T16:03:51.225409+00:00",
     "titulo": "YOU DON'T LOVE YOURSELF ENOUGH - LOVES OF VENUS",
     "canal": "Vênus Podcast",
     "picos_usados": [
-      370.6
+      370.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "pHPy-zXv7OI": {
     "data_primeiro": "2026-08-10T11:42:06.552998+00:00",
@@ -1813,14 +1815,15 @@
   },
   "GPB4Je1Gb-0": {
     "data_primeiro": "2026-08-10T20:09:29.537848+00:00",
-    "data_ultimo": "2026-08-10T20:09:29.537848+00:00",
+    "data_ultimo": "2026-08-23T16:04:43.223497+00:00",
     "titulo": "O REPRESENTANTE BRASILEIRO NA NBA - GUI SANTOS - TICARACATICAST | EP 766",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      4970.0
+      4970.0,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "h4VRnwnyDHE": {
     "data_primeiro": "2026-08-10T22:37:09.990665+00:00",
@@ -2131,14 +2134,15 @@
   },
   "lhSrRTeqVIA": {
     "data_primeiro": "2026-08-13T22:22:25.413092+00:00",
-    "data_ultimo": "2026-08-13T22:22:25.413092+00:00",
+    "data_ultimo": "2026-08-23T16:04:30.231719+00:00",
     "titulo": "MÁRCIO CANUTO, FLÁVIO PRADO, AND CASAGRANDE - WORLD CUP SPECIAL #189",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      158.9
+      158.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "cIfKv3AF2vQ": {
     "data_primeiro": "2026-08-14T01:02:25.848931+00:00",
@@ -2297,14 +2301,15 @@
   },
   "zqtlaK4sNYs": {
     "data_primeiro": "2026-08-15T15:19:13.422354+00:00",
-    "data_ultimo": "2026-08-15T15:19:13.422354+00:00",
+    "data_ultimo": "2026-08-23T16:04:04.100903+00:00",
     "titulo": "QUANTO CUSTA O RELÓGIO MAIS CARO DO MUNDO!?",
     "canal": "Festa da Firma",
     "picos_usados": [
-      0.5
+      0.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "KdzC6Dmb49E": {
     "data_primeiro": "2026-08-15T22:20:14.012966+00:00",
