@@ -50,13 +50,14 @@ jobs:
       - name: 🔌 Conectar ao Cloudflare WARP
         run: |
           sudo warp-svc &
-          sleep 5
+          sleep 8
           warp-cli --accept-tos registration new || true
-          sleep 3
-          warp-cli --accept-tos connect || true
           sleep 5
+          warp-cli --accept-tos connect || true
+          sleep 10
           warp-cli --accept-tos status || true
-          curl -s https://ifconfig.me || true
+          IP=$(curl -s https://ifconfig.me || true)
+          echo "🌍 IP atual: $IP"
           echo "✅ Conexão WARP ativada"
 
       # ── Bypass YouTube: Deno para resolver JS challenges ─────────────────────
@@ -95,11 +96,14 @@ jobs:
         run: |
           if [ -n "${{ secrets.YOUTUBE_COOKIES }}" ]; then
             echo "${{ secrets.YOUTUBE_COOKIES }}" > cookies.txt
-            echo "✅ Cookies configurados!"
-            wc -l cookies.txt
+            echo "✅ Cookies carregados do Secret YOUTUBE_COOKIES"
+          elif [ -f "cookies.txt" ] && [ $(wc -c < cookies.txt) -gt 100 ]; then
+            echo "✅ Usando cookies.txt do repositório"
           else
-            echo "⚠️ YOUTUBE_COOKIES não configurado."
+            echo "⚠️ Nenhum cookie disponível — downloads podem falhar!"
           fi
+          echo "📋 cookies.txt ($(wc -l < cookies.txt 2>/dev/null || echo 0) linhas):" 
+          head -5 cookies.txt 2>/dev/null || true
 
       - name: 📁 Criar diretórios necessários
         run: |

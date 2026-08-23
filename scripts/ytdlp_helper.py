@@ -46,8 +46,10 @@ def args_base_ytdlp(extra: list = None) -> list:
     """
     cmd = [
         "yt-dlp",
-        # ── Anti-bot: usando cliente web simplificado que suporta cookies no Actions ──
-        "--extractor-args", "youtube:player_client=web",
+        # ── Anti-bot: mweb é menos detectado em IPs de datacenter ──────────────
+        "--extractor-args", "youtube:player_client=mweb,android",
+        # ── Simular user-agent de mobile para reforçar o mweb ──────────────────
+        "--add-headers", "User-Agent:Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36",
         # ── Não poluir output ────────────────────────────────────────────────
         "--no-warnings",
         "--no-playlist",
@@ -61,7 +63,7 @@ def args_base_ytdlp(extra: list = None) -> list:
     else:
         print("    ⚠️  Sem cookies.txt — usando sessão anônima")
 
-    # ── Argumentos extras ─────────────────────────────────────────────────────
+    # ── Argumentos extras ─────────────────────────────────────────────────────────
     if extra:
         cmd.extend(extra)
 
