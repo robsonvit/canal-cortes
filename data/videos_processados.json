@@ -1917,11 +1917,12 @@
   },
   "6bGNjh7Ewrc": {
     "data_primeiro": "2026-08-11T21:03:09.347506+00:00",
-    "data_ultimo": "2026-08-11T21:03:09.347506+00:00",
+    "data_ultimo": "2026-08-23T02:32:42.803235+00:00",
     "titulo": "ZÉ LOVE | BENJA ME MUCHO #184",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      473.8
+      473.8,
+      975.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
