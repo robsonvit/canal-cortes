@@ -444,12 +444,13 @@
   },
   "2pImyz5E2hg": {
     "data_primeiro": "2026-07-16T17:35:10.040169+00:00",
-    "data_ultimo": "2026-08-13T09:43:14.573543+00:00",
+    "data_ultimo": "2026-08-23T20:01:34.065880+00:00",
     "titulo": "MC LIVINHO É O MAIOR FUNKEIRO DO BRASIL? - RANGO BRABO #137",
     "canal": "Podpah",
     "picos_usados": [
       1108.9,
-      2299.3
+      2299.3,
+      380.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
