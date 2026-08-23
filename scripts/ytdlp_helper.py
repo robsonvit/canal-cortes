@@ -3,13 +3,13 @@ ytdlp_helper.py
 ────────────────
 Módulo central de configuração do yt-dlp.
 
-Constrói os argumentos base com as técnicas anti-bloqueio mais atuais (2026):
-  1. player_client=web,android,tv_downgraded  — múltiplos clientes em fallback
-  2. --impersonate chrome  — TLS fingerprint de browser real (via curl-cffi)
-  3. --cookies cookies.txt — sessão autenticada do usuário
-  4. Deno disponível no PATH — yt-dlp usa automaticamente para JS challenges
+Constroi dois conjuntos de args separados:
+  1. args_base_ytdlp()         — para DOWNLOAD de vídeos (player_client=mweb,android)
+  2. args_base_ytdlp_listing() — para LISTAGEM de canais (player_client=web)
 
-Todos os scripts de download importam daqui para manter consistência.
+A separação é necessária pois:
+  - mweb/android bypassa bot-check no download mas não suporta flat-playlist
+  - web suporta listagem de canais mas é mais bloqueado para downloads
 """
 
 import os
@@ -31,18 +31,9 @@ def _cookies_path() -> str | None:
 
 def args_base_ytdlp(extra: list = None) -> list:
     """
-    Retorna a lista de argumentos base robusta para o yt-dlp.
-
-    Camadas anti-bloqueio:
-      1. player_client: web (simplificado para compatibilidade de TLS e cookies)
-      2. cookies autenticados se disponíveis
-      3. Deno no PATH para JS challenges (GitHub Actions instala via setup-deno)
-
-    Args:
-        extra: argumentos extras a adicionar ANTES da URL
-
-    Returns:
-        lista de args prontos para subprocess.run
+    Args para DOWNLOAD de vídeos individuais.
+    Usa mweb,android que bypassa bot-check em IPs de datacenter.
+    NÃO usar para listagem de canais/playlists.
     """
     cmd = [
         "yt-dlp",
@@ -55,7 +46,6 @@ def args_base_ytdlp(extra: list = None) -> list:
         "--no-playlist",
     ]
 
-    # ── Cookies autenticados ──────────────────────────────────────────────────
     cookies = _cookies_path()
     if cookies:
         cmd.extend(["--cookies", cookies])
@@ -63,7 +53,32 @@ def args_base_ytdlp(extra: list = None) -> list:
     else:
         print("    ⚠️  Sem cookies.txt — usando sessão anônima")
 
-    # ── Argumentos extras ─────────────────────────────────────────────────────────
+    if extra:
+        cmd.extend(extra)
+
+    return cmd
+
+
+def args_base_ytdlp_listing(extra: list = None) -> list:
+    """
+    Args para LISTAGEM de canais e playlists.
+    Usa player_client=web que suporta flat-playlist corretamente.
+    NÃO usar para download de vídeos individuais em servidores (será bloqueado).
+    """
+    cmd = [
+        "yt-dlp",
+        # ── web é o único que suporta listagem de canais/playlists ────────────
+        "--extractor-args", "youtube:player_client=web",
+        "--no-warnings",
+    ]
+
+    cookies = _cookies_path()
+    if cookies:
+        cmd.extend(["--cookies", cookies])
+        print(f"    🍪 Usando cookies: {cookies}")
+    else:
+        print("    ⚠️  Sem cookies.txt — usando sessão anônima")
+
     if extra:
         cmd.extend(extra)
 

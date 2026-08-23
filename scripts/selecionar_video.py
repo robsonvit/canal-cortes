@@ -21,7 +21,7 @@ import sys
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from ytdlp_helper import args_base_ytdlp
+from ytdlp_helper import args_base_ytdlp_listing
 
 ROOT_DIR       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CANAIS_FILE    = os.path.join(ROOT_DIR, "data", "canais.json")
@@ -102,7 +102,7 @@ def _buscar_videos_canal(canal: dict, max_videos: int = 20) -> list:
     url = canal["url"] + "/videos"
     print(f"  🔍 Buscando vídeos de: {canal['nome']} ({url})")
 
-    cmd = args_base_ytdlp([
+    cmd = args_base_ytdlp_listing([
         "--flat-playlist",
         "--playlist-end", str(max_videos),
         "--dump-json",
@@ -239,7 +239,7 @@ def selecionar_video() -> dict:
             print(f"  🔍 Buscando vídeos populares de: {canal['nome']}")
             
             # Vamos construir o comando do yt-dlp usando a flag de popular
-            cmd = args_base_ytdlp([
+            cmd = args_base_ytdlp_listing([
                 "--flat-playlist",
                 "--playlist-end", "40",
                 "--dump-json",
