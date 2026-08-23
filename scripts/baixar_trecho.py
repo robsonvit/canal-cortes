@@ -51,22 +51,22 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
 
     tentativas = [
         {
-            "desc": "1080p+ ou max resolution + anti-bot completo (WARP + curl-cffi + cookies)",
+            "desc": "Prioridade 1: 1080p exato ou superior + anti-bot completo (WARP + curl-cffi)",
             "cmd": args_base_ytdlp([
                 "--download-sections", trecho_str,
-                "-f", "bestvideo+bestaudio/best",
+                "-f", "bestvideo[height>=1080]+bestaudio/best[height>=1080]",
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--quiet",
             ]) + [video_url],
         },
         {
-            "desc": "Qualidade melhor disponível (sem impersonation)",
+            "desc": "Prioridade 2: 720p exato ou superior (sem impersonation)",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
-                "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
-                "-f", "bestvideo+bestaudio/best",
+                "--extractor-args", "youtube:player_client=web,android",
+                "-f", "bestvideo[height>=720]+bestaudio/best[height>=720]",
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
@@ -74,11 +74,24 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             ],
         },
         {
-            "desc": "Fallback absoluto (tv_downgraded, qualquer formato)",
+            "desc": "Prioridade 3: Fallback alternativo forçando HD (720p+)",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
-                "--extractor-args", "youtube:player_client=tv_downgraded",
+                "--extractor-args", "youtube:player_client=android,ios",
+                "-f", "bestvideo[height>=720]+bestaudio/best[height>=720]",
+                "--merge-output-format", "mkv",
+                "-o", output_path,
+                "--no-playlist", "--no-warnings", "--quiet",
+                video_url,
+            ],
+        },
+        {
+            "desc": "Prioridade 4: Fallback absoluto (aceita o que vier, último caso)",
+            "cmd": [
+                "yt-dlp",
+                "--download-sections", trecho_str,
+                "--extractor-args", "youtube:player_client=android,ios",
                 "-f", "best",
                 "--merge-output-format", "mkv",
                 "-o", output_path,

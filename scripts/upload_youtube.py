@@ -136,7 +136,7 @@ Retorne apenas o JSON, sem explicações adicionais."""
         from groq import Groq
         cliente = Groq(api_key=groq_key)
         resp = cliente.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="llama-3.1-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
             max_tokens=800,

@@ -455,8 +455,8 @@ def _montar_ffmpeg_puro(
     audio_filters = []
     if musica_escolhida:
         cmd.extend(["-stream_loop", "-1", "-i", musica_escolhida])
-        # Volume 0.15 (15%): audível como fundo sem cobrir a voz do podcast
-        audio_filters.append((input_idx, "volume=0.15", "a_musica"))
+        # Nivelamento loudnorm para igualar volumes de diferentes faixas, seguido da redução (15%)
+        audio_filters.append((input_idx, "loudnorm,volume=0.15", "a_musica"))
         input_idx += 1
         
     if notificacao:

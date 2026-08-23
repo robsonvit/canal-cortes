@@ -204,12 +204,12 @@ TranscriÃ§Ã£o DisponÃ­vel:
 {transcricao_texto}
 """
     
-    print("  🧠 [Semântico] Solicitando análise de contexto ao LLM (llama-3.3-70b-versatile)...")
+    print("  🧠 [Semântico] Solicitando análise de contexto ao LLM (llama-3.1-70b-versatile)...")
     cliente = Groq(api_key=groq_key)
     
     try:
         resposta = cliente.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="llama-3.1-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
             response_format={"type": "json_object"}
