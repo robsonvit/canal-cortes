@@ -2206,11 +2206,12 @@
   },
   "IWTTacWMKy8": {
     "data_primeiro": "2026-08-14T13:34:20.925659+00:00",
-    "data_ultimo": "2026-08-14T13:34:20.925659+00:00",
+    "data_ultimo": "2026-08-24T21:02:24.488379+00:00",
     "titulo": "Henri Castelli BBB26 | Podcast Papagaio Falante",
     "canal": "Papagaio Falante",
     "picos_usados": [
-      1186.4
+      1186.4,
+      2400.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
