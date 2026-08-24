@@ -1748,11 +1748,12 @@
   },
   "gBronP06koQ": {
     "data_primeiro": "2026-08-09T22:22:55.602731+00:00",
-    "data_ultimo": "2026-08-09T22:22:55.602731+00:00",
+    "data_ultimo": "2026-08-24T20:00:40.375279+00:00",
     "titulo": "WHY DID G4 ENTER THE BUSINESS EDUCATION MARKET?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      42.2
+      42.2,
+      111.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
