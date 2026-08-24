@@ -2326,11 +2326,12 @@
   },
   "KdzC6Dmb49E": {
     "data_primeiro": "2026-08-15T22:20:14.012966+00:00",
-    "data_ultimo": "2026-08-15T22:20:14.012966+00:00",
+    "data_ultimo": "2026-08-24T11:40:29.717125+00:00",
     "titulo": "ALECGOL | BENJA ME MUCHO #178",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      837.4
+      837.4,
+      1702.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
