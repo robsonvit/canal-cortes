@@ -814,15 +814,16 @@
   },
   "Nf8h6vMnjLM": {
     "data_primeiro": "2026-07-22T15:40:39.722417+00:00",
-    "data_ultimo": "2026-08-17T15:21:48.808855+00:00",
+    "data_ultimo": "2026-08-25T20:58:46.368246+00:00",
     "titulo": "CAFU, RICARDO ROCHA, JUNIOR - WORLD CUP SPECIAL #186",
     "canal": "Benja Me Mucho",
     "picos_usados": [
       195.3,
-      197.8
+      197.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "wjnvYZ76YIA": {
     "data_primeiro": "2026-07-22T18:53:11.119005+00:00",
@@ -2129,15 +2130,16 @@
   },
   "iFuIU8cdHuA": {
     "data_primeiro": "2026-08-13T17:07:05.544514+00:00",
-    "data_ultimo": "2026-08-22T22:18:08.722208+00:00",
+    "data_ultimo": "2026-08-25T20:58:32.533987+00:00",
     "titulo": "“O NEGÓCIO JÁ TINHA DADO ERRADO”",
     "canal": "Festa da Firma",
     "picos_usados": [
       3.5,
-      34.5
+      34.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "e_ClHMUQ9Qk": {
     "data_primeiro": "2026-08-13T21:05:32.949648+00:00",
@@ -2177,14 +2179,15 @@
   },
   "daNELQUK4eU": {
     "data_primeiro": "2026-08-14T02:45:09.896535+00:00",
-    "data_ultimo": "2026-08-14T02:45:09.896535+00:00",
+    "data_ultimo": "2026-08-25T20:59:13.796962+00:00",
     "titulo": "What Nobody Tells You About SUCCESS, MONEY, and PERFORMANCE (ALEX ATALA) | JOTA JOTA PODCAST #277",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      1736.0
+      1736.0,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "sEUggOfU23w": {
     "data_primeiro": "2026-08-14T09:43:59.343687+00:00",
@@ -2270,14 +2273,15 @@
   },
   "MgQNuOaT8vU": {
     "data_primeiro": "2026-08-14T22:22:02.801781+00:00",
-    "data_ultimo": "2026-08-14T22:22:02.801781+00:00",
+    "data_ultimo": "2026-08-25T20:58:59.620003+00:00",
     "titulo": "ZÉ TAPIOCA + ALUÍSIO (HUMOR CEARENSE) - TICARACATICAST | EP 706",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      3050.2
+      3050.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "lofn5JYtA70": {
     "data_primeiro": "2026-08-15T01:01:46.435819+00:00",
@@ -3066,5 +3070,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "TLBxDhPOxKA": {
+    "data_primeiro": "2026-08-25T20:59:27.078250+00:00",
+    "data_ultimo": "2026-08-25T20:59:27.078250+00:00",
+    "titulo": "Falha de Cobertura #292: Metaphorical Machine Gun",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
