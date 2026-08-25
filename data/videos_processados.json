@@ -2489,11 +2489,12 @@
   },
   "l82CgciiUG8": {
     "data_primeiro": "2026-08-16T20:03:41.150564+00:00",
-    "data_ultimo": "2026-08-16T20:03:41.150564+00:00",
+    "data_ultimo": "2026-08-25T02:36:45.555885+00:00",
     "titulo": "RABINO DAVID WEITMAN | BENJA ME MUCHO #182",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      475.9
+      475.9,
+      979.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
