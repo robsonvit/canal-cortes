@@ -1003,12 +1003,13 @@
   },
   "OBAD0V7rK_U": {
     "data_primeiro": "2026-07-26T08:16:04.645178+00:00",
-    "data_ultimo": "2026-08-17T09:39:32.751140+00:00",
+    "data_ultimo": "2026-08-25T13:30:41.260820+00:00",
     "titulo": "COVERAGE FAILURE #286: 3rd Place Is Coming Home",
     "canal": "Podpah",
     "picos_usados": [
       184.7,
-      563.7
+      563.7,
+      187.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
