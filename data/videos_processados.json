@@ -3081,5 +3081,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "JoEAECtXNxc": {
+    "data_primeiro": "2026-08-25T22:20:22.185566+00:00",
+    "data_ultimo": "2026-08-25T22:20:22.185566+00:00",
+    "titulo": "THE REPUBLIC WAS BORN FROM A COUP AGAINST THE IMPERIAL FAMILY",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      38.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
