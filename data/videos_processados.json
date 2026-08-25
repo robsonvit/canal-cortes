@@ -3053,5 +3053,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "B2sDovuwfLM": {
+    "data_primeiro": "2026-08-25T15:21:04.303884+00:00",
+    "data_ultimo": "2026-08-25T15:21:04.303884+00:00",
+    "titulo": "INTERESTING FACTS ABOUT THE PARAGUAYAN WAR",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      31.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
