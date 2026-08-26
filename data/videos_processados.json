@@ -1206,15 +1206,16 @@
   },
   "yV-dze6yWGE": {
     "data_primeiro": "2026-07-29T13:23:35.621485+00:00",
-    "data_ultimo": "2026-08-20T15:16:56.149503+00:00",
+    "data_ultimo": "2026-08-26T17:04:23.194880+00:00",
     "titulo": "Falha de Cobertura #288: Lucas Mugni 2026 World Cup",
     "canal": "Podpah",
     "picos_usados": [
       220.2,
-      1589.9
+      1589.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "1oEaEB0j3bc": {
     "data_primeiro": "2026-07-29T18:52:48.335403+00:00",
@@ -2289,14 +2290,15 @@
   },
   "lofn5JYtA70": {
     "data_primeiro": "2026-08-15T01:01:46.435819+00:00",
-    "data_ultimo": "2026-08-15T01:01:46.435819+00:00",
+    "data_ultimo": "2026-08-26T17:04:07.186567+00:00",
     "titulo": "How to BUILD a BUSINESS Ecosystem (FELIPE TITTO) | JOTA JOTA PODCAST #287",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      2109.2
+      2109.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "LZHbBKV8w64": {
     "data_primeiro": "2026-08-15T09:41:30.613291+00:00",
@@ -2629,14 +2631,15 @@
   },
   "tm3hxhBxRBo": {
     "data_primeiro": "2026-08-18T02:40:08.699011+00:00",
-    "data_ultimo": "2026-08-18T02:40:08.699011+00:00",
+    "data_ultimo": "2026-08-26T17:05:10.524672+00:00",
     "titulo": "INSPIRING WOMEN with BIA FIGUEIREDO and RE GOMIDE - Venus Podcast",
     "canal": "Vênus Podcast",
     "picos_usados": [
-      457.6
+      457.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "JPRDLz_qqxE": {
     "data_primeiro": "2026-08-18T09:39:29.278705+00:00",
@@ -2886,14 +2889,15 @@
   },
   "qOSaSua5HeA": {
     "data_primeiro": "2026-08-20T20:00:54.044958+00:00",
-    "data_ultimo": "2026-08-20T20:00:54.044958+00:00",
+    "data_ultimo": "2026-08-26T17:04:54.242973+00:00",
     "titulo": "Podcast Revela: \"Eu Gosto de Menina\" - E Mais!",
     "canal": "Papagaio Falante",
     "picos_usados": [
-      10.1
+      10.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "vaaD9tds-As": {
     "data_primeiro": "2026-08-20T20:58:36.652419+00:00",
@@ -3119,6 +3123,17 @@
     "data_primeiro": "2026-08-26T02:30:57.578767+00:00",
     "data_ultimo": "2026-08-26T02:30:57.578767+00:00",
     "titulo": "WAS DOM PEDRO II THE BEST RULER IN BRAZIL'S HISTORY",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "QQ8rlGOKPeI": {
+    "data_primeiro": "2026-08-26T17:04:38.877683+00:00",
+    "data_ultimo": "2026-08-26T17:04:38.877683+00:00",
+    "titulo": "THE STORY OF THE MAN WHO CREATED BRAZIL (Dom João VI)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       -1.0
