@@ -444,16 +444,17 @@
   },
   "2pImyz5E2hg": {
     "data_primeiro": "2026-07-16T17:35:10.040169+00:00",
-    "data_ultimo": "2026-08-23T20:01:34.065880+00:00",
+    "data_ultimo": "2026-08-26T21:01:18.205308+00:00",
     "titulo": "MC LIVINHO É O MAIOR FUNKEIRO DO BRASIL? - RANGO BRABO #137",
     "canal": "Podpah",
     "picos_usados": [
       1108.9,
       2299.3,
-      380.6
+      380.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "DQCEqeHSX7k": {
     "data_primeiro": "2026-07-16T20:50:54.101093+00:00",
@@ -1946,15 +1947,16 @@
   },
   "6bGNjh7Ewrc": {
     "data_primeiro": "2026-08-11T21:03:09.347506+00:00",
-    "data_ultimo": "2026-08-23T02:32:42.803235+00:00",
+    "data_ultimo": "2026-08-26T21:00:28.418918+00:00",
     "titulo": "ZÉ LOVE | BENJA ME MUCHO #184",
     "canal": "Benja Me Mucho",
     "picos_usados": [
       473.8,
-      975.1
+      975.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "v6BaPbq6oD4": {
     "data_primeiro": "2026-08-11T22:19:46.291694+00:00",
@@ -2531,14 +2533,15 @@
   },
   "ZSh7kpiU_SU": {
     "data_primeiro": "2026-08-17T02:40:51.238458+00:00",
-    "data_ultimo": "2026-08-17T02:40:51.238458+00:00",
+    "data_ultimo": "2026-08-26T21:01:01.254738+00:00",
     "titulo": "WHY your business STOPPED GROWING (MAURO SANTOS) JOTA JOTA PODCAST #286",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      490.3
+      490.3,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "afQzgj6LoDk": {
     "data_primeiro": "2026-08-17T11:37:24.727823+00:00",
@@ -2669,14 +2672,15 @@
   },
   "fotuegXGFco": {
     "data_primeiro": "2026-08-18T17:12:02.459511+00:00",
-    "data_ultimo": "2026-08-18T17:12:02.459511+00:00",
+    "data_ultimo": "2026-08-26T21:00:43.756781+00:00",
     "titulo": "DESVENDANDO OS MISTÉRIOS DA MENTE HUMANA -  TICARACATICAST | EP 783",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1017.1
+      1017.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "UQJMp0-6QTo": {
     "data_primeiro": "2026-08-18T20:20:29.408634+00:00",
@@ -3135,6 +3139,17 @@
     "data_primeiro": "2026-08-26T17:04:38.877683+00:00",
     "data_ultimo": "2026-08-26T17:04:38.877683+00:00",
     "titulo": "THE STORY OF THE MAN WHO CREATED BRAZIL (Dom João VI)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "bRKRWWqouLE": {
+    "data_primeiro": "2026-08-26T21:01:33.918633+00:00",
+    "data_ultimo": "2026-08-26T21:01:33.918633+00:00",
+    "titulo": "THE TRUTH ABOUT THE \"DISCOVERY\" OF BRAZIL (with Rafael Nogueira)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       -1.0
