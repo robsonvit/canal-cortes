@@ -2583,11 +2583,12 @@
   },
   "qonZzFzQX84": {
     "data_primeiro": "2026-08-17T17:08:29.662913+00:00",
-    "data_ultimo": "2026-08-17T17:08:29.662913+00:00",
+    "data_ultimo": "2026-08-26T13:31:12.185765+00:00",
     "titulo": "DELEGADO BRUNO LIMA + JULINHO CASARES - TICARACATICAST | EP 704",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1021.6
+      1021.6,
+      2070.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
