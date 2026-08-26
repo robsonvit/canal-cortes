@@ -935,15 +935,16 @@
   },
   "67tADA787vY": {
     "data_primeiro": "2026-07-24T18:56:44.924074+00:00",
-    "data_ultimo": "2026-08-18T15:22:01.217012+00:00",
+    "data_ultimo": "2026-08-26T00:57:38.505018+00:00",
     "titulo": "PERDIGÃO | BENJA ME MUCHO #177",
     "canal": "Benja Me Mucho",
     "picos_usados": [
       547.9,
-      550.4
+      550.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "xUO4b44qP_Q": {
     "data_primeiro": "2026-07-24T23:57:44.829202+00:00",
@@ -2238,15 +2239,16 @@
   },
   "WAV3EkLj1PM": {
     "data_primeiro": "2026-08-14T17:07:45.583767+00:00",
-    "data_ultimo": "2026-08-23T13:29:25.901450+00:00",
+    "data_ultimo": "2026-08-26T00:57:21.887809+00:00",
     "titulo": "O UNIVERSO DOS ENDINHEIRADOS!",
     "canal": "Festa da Firma",
     "picos_usados": [
       1.9,
-      31.4
+      31.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "UZDsrbXjpao": {
     "data_primeiro": "2026-08-14T19:57:16.443644+00:00",
@@ -2319,14 +2321,15 @@
   },
   "ymc5iMG3o_E": {
     "data_primeiro": "2026-08-15T13:33:53.423117+00:00",
-    "data_ultimo": "2026-08-15T13:33:53.423117+00:00",
+    "data_ultimo": "2026-08-26T00:57:06.538064+00:00",
     "titulo": "LOVE LANGUAGE? WE NEED TO STOP THIS - LOVES OF VENUS",
     "canal": "Vênus Podcast",
     "picos_usados": [
-      271.8
+      271.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "zqtlaK4sNYs": {
     "data_primeiro": "2026-08-15T15:19:13.422354+00:00",
@@ -2510,14 +2513,15 @@
   },
   "BaaqdWdbnI8": {
     "data_primeiro": "2026-08-16T21:05:46.940210+00:00",
-    "data_ultimo": "2026-08-16T21:05:46.940210+00:00",
+    "data_ultimo": "2026-08-26T00:57:53.795910+00:00",
     "titulo": "GRACYANNE BARBOSA - TICARACATICAST | EP 720",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      2164.7
+      2164.7,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ZSh7kpiU_SU": {
     "data_primeiro": "2026-08-17T02:40:51.238458+00:00",
@@ -2609,14 +2613,15 @@
   },
   "MATelZ_xPnk": {
     "data_primeiro": "2026-08-18T01:13:52.654040+00:00",
-    "data_ultimo": "2026-08-18T01:13:52.654040+00:00",
+    "data_ultimo": "2026-08-26T00:56:49.635191+00:00",
     "titulo": "Podcast Revela: \"Eu Gosto de Menina\" - E Mais!",
     "canal": "Papagaio Falante",
     "picos_usados": [
-      10.1
+      10.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "tm3hxhBxRBo": {
     "data_primeiro": "2026-08-18T02:40:08.699011+00:00",
