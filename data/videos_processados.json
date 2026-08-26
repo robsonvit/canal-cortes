@@ -1110,15 +1110,16 @@
   },
   "YEcZ7LKvq1E": {
     "data_primeiro": "2026-07-28T08:14:23.425904+00:00",
-    "data_ultimo": "2026-08-17T21:07:28.351290+00:00",
+    "data_ultimo": "2026-08-26T02:30:43.319125+00:00",
     "titulo": "WHO IS THE PRO PLAYER?",
     "canal": "Podpah",
     "picos_usados": [
       2254.1,
-      2255.0
+      2255.0,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "OZmkQFG0s7E": {
     "data_primeiro": "2026-07-28T15:38:00.537875+00:00",
@@ -2401,14 +2402,15 @@
   },
   "GjjLNLlYunI": {
     "data_primeiro": "2026-08-16T02:32:27.351173+00:00",
-    "data_ultimo": "2026-08-16T02:32:27.351173+00:00",
+    "data_ultimo": "2026-08-26T02:31:24.717844+00:00",
     "titulo": "WHO ISN'T A COMEDIAN? - Those Mines",
     "canal": "Vênus Podcast",
     "picos_usados": [
-      1985.3
+      1985.3,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ppBwOTAmMmU": {
     "data_primeiro": "2026-08-16T09:39:35.052994+00:00",
@@ -2836,14 +2838,15 @@
   },
   "YrIqfZwrIv8": {
     "data_primeiro": "2026-08-20T02:33:15.642632+00:00",
-    "data_ultimo": "2026-08-20T02:33:15.642632+00:00",
+    "data_ultimo": "2026-08-26T02:31:10.980394+00:00",
     "titulo": "Raul Gazolla | Podcast Papagaio Falante",
     "canal": "Papagaio Falante",
     "picos_usados": [
-      1719.4
+      1719.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "1OXcCn_z9rc": {
     "data_primeiro": "2026-08-20T09:35:40.926854+00:00",
@@ -3097,5 +3100,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "WjTyagI_vTc": {
+    "data_primeiro": "2026-08-26T02:30:29.578118+00:00",
+    "data_ultimo": "2026-08-26T02:30:29.578118+00:00",
+    "titulo": "Behind a COMPANY Heading Toward its First BILLION (YURI AND FABI ABREU) | JOTA JOTA PODCAST #293",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "SLQpXo7wfO4": {
+    "data_primeiro": "2026-08-26T02:30:57.578767+00:00",
+    "data_ultimo": "2026-08-26T02:30:57.578767+00:00",
+    "titulo": "WAS DOM PEDRO II THE BEST RULER IN BRAZIL'S HISTORY",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
