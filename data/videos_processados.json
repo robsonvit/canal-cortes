@@ -3163,5 +3163,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "_nYV-Oyhs1M": {
+    "data_primeiro": "2026-08-27T09:36:26.746078+00:00",
+    "data_ultimo": "2026-08-27T09:36:26.746078+00:00",
+    "titulo": "WE HAVE HAD A CIVIL WAR (but they’re hiding it from you)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      10.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
