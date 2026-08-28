@@ -2092,12 +2092,13 @@
   },
   "hkDEQdx-PsQ": {
     "data_primeiro": "2026-08-13T01:01:26.993354+00:00",
-    "data_ultimo": "2026-08-24T13:31:13.878871+00:00",
+    "data_ultimo": "2026-08-28T01:00:42.985410+00:00",
     "titulo": "A DUPLA QUE TOCA O SERTANEJO RAIZ COM HUMOR - TICARACATICAST | EP 785",
     "canal": "Ticaracaticast",
     "picos_usados": [
       6658.5,
-      1022.5
+      1022.5,
+      2072.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
