@@ -2097,28 +2097,30 @@
   },
   "hkDEQdx-PsQ": {
     "data_primeiro": "2026-08-13T01:01:26.993354+00:00",
-    "data_ultimo": "2026-08-28T01:00:42.985410+00:00",
+    "data_ultimo": "2026-08-28T17:02:57.132078+00:00",
     "titulo": "A DUPLA QUE TOCA O SERTANEJO RAIZ COM HUMOR - TICARACATICAST | EP 785",
     "canal": "Ticaracaticast",
     "picos_usados": [
       6658.5,
       1022.5,
-      2072.5
+      2072.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "mdZzgrZTxoU": {
     "data_primeiro": "2026-08-13T02:46:23.896466+00:00",
-    "data_ultimo": "2026-08-25T11:41:22.157784+00:00",
+    "data_ultimo": "2026-08-28T17:03:13.258769+00:00",
     "titulo": "How to CHOOSE the RIGHT People to Build Businesses (KAKÁ DINIZ) | JOTA JOTA PODCAST #289",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       720.8,
-      1469.1
+      1469.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Gv2152td-A4": {
     "data_primeiro": "2026-08-13T11:43:22.101575+00:00",
@@ -2631,15 +2633,16 @@
   },
   "1nLyJVk0OhY": {
     "data_primeiro": "2026-08-17T20:10:22.363320+00:00",
-    "data_ultimo": "2026-08-27T01:00:31.332622+00:00",
+    "data_ultimo": "2026-08-28T17:03:45.521082+00:00",
     "titulo": "Why Every Company Should Host Events (THIAGO GRANITO) | JOTA JOTA PODCAST #291",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       660.5,
-      1348.5
+      1348.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "hXxvZqUgzx0": {
     "data_primeiro": "2026-08-17T22:17:58.796016+00:00",
@@ -3089,14 +3092,15 @@
   },
   "2InwEiFOWJU": {
     "data_primeiro": "2026-08-22T17:05:27.212810+00:00",
-    "data_ultimo": "2026-08-22T17:05:27.212810+00:00",
+    "data_ultimo": "2026-08-28T17:03:29.521949+00:00",
     "titulo": "BRAZIL could GO BACK to being an OIL IMPORTER",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      102.4
+      102.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "QxBzHbAeMWo": {
     "data_primeiro": "2026-08-23T09:33:45.528260+00:00",
@@ -3122,14 +3126,15 @@
   },
   "B2sDovuwfLM": {
     "data_primeiro": "2026-08-25T15:21:04.303884+00:00",
-    "data_ultimo": "2026-08-25T15:21:04.303884+00:00",
+    "data_ultimo": "2026-08-28T17:04:01.298538+00:00",
     "titulo": "INTERESTING FACTS ABOUT THE PARAGUAYAN WAR",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      31.6
+      31.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "TLBxDhPOxKA": {
     "data_primeiro": "2026-08-25T20:59:27.078250+00:00",
