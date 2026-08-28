@@ -1530,13 +1530,14 @@
   },
   "X3ZyOGdr0zg": {
     "data_primeiro": "2026-08-06T13:05:20.180966+00:00",
-    "data_ultimo": "2026-08-27T11:41:17.532411+00:00",
+    "data_ultimo": "2026-08-28T11:41:59.569727+00:00",
     "titulo": "Márcio Gomes | PODCAST PAPAGAIO FALANTE",
     "canal": "Papagaio Falante",
     "picos_usados": [
       854.9,
       1737.4,
-      2619.8
+      2619.8,
+      3502.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
