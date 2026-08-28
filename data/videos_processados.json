@@ -728,13 +728,14 @@
   },
   "E_88NVBswyI": {
     "data_primeiro": "2026-07-20T23:59:02.087930+00:00",
-    "data_ultimo": "2026-08-27T21:01:56.810622+00:00",
+    "data_ultimo": "2026-08-28T20:00:51.666759+00:00",
     "titulo": "How to Turn KNOWLEDGE into MONEY (FLÁVIO AUGUSTO) | JOTA JOTA PODCAST #282",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       2986.6,
       2998.0,
-      565.1
+      565.1,
+      1157.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
