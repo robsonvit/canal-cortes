@@ -3266,5 +3266,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "ZP8QW-xhQQE": {
+    "data_primeiro": "2026-08-29T17:06:52.069647+00:00",
+    "data_ultimo": "2026-08-29T17:06:52.069647+00:00",
+    "titulo": "ROMEU TUMA JR | BENJA ME MUCHO #175",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      814.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
