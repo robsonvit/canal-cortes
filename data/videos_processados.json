@@ -3277,5 +3277,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "rYYR-9oPixU": {
+    "data_primeiro": "2026-08-29T20:01:25.261512+00:00",
+    "data_ultimo": "2026-08-29T20:01:25.261512+00:00",
+    "titulo": "ANDRÉ MATTOS | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      769.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
