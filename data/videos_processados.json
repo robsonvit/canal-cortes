@@ -728,7 +728,7 @@
   },
   "E_88NVBswyI": {
     "data_primeiro": "2026-07-20T23:59:02.087930+00:00",
-    "data_ultimo": "2026-08-29T02:34:19.887003+00:00",
+    "data_ultimo": "2026-08-29T09:34:02.740338+00:00",
     "titulo": "How to Turn KNOWLEDGE into MONEY (FLÁVIO AUGUSTO) | JOTA JOTA PODCAST #282",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
@@ -736,10 +736,11 @@
       2998.0,
       565.1,
       1157.6,
-      1750.2
+      1750.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "0tChCmQHqjs": {
     "data_primeiro": "2026-07-21T08:15:39.311837+00:00",
@@ -1192,17 +1193,18 @@
   },
   "WYSusHl3lV0": {
     "data_primeiro": "2026-07-28T18:55:00.255348+00:00",
-    "data_ultimo": "2026-08-28T22:20:06.652464+00:00",
+    "data_ultimo": "2026-08-29T09:33:36.883279+00:00",
     "titulo": "The MINDSET Shift That Made Me a Billionaire (Guilherme Benchimol) | Jota Jota Podcast #284",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       176.4,
       3014.4,
       709.5,
-      1446.5
+      1446.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ywu_wRv7JSw": {
     "data_primeiro": "2026-07-28T23:58:05.114546+00:00",
@@ -2877,15 +2879,16 @@
   },
   "MVbGAFAoXIc": {
     "data_primeiro": "2026-08-20T00:59:15.099049+00:00",
-    "data_ultimo": "2026-08-28T09:37:09.063404+00:00",
+    "data_ultimo": "2026-08-29T09:33:23.615396+00:00",
     "titulo": "CAN ARTIFICIAL INTELLIGENCE CAUSE AN ENERGY CRISIS?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       28.4,
-      84.2
+      84.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "YrIqfZwrIv8": {
     "data_primeiro": "2026-08-20T02:33:15.642632+00:00",
@@ -3152,15 +3155,16 @@
   },
   "JoEAECtXNxc": {
     "data_primeiro": "2026-08-25T22:20:22.185566+00:00",
-    "data_ultimo": "2026-08-28T21:02:42.060648+00:00",
+    "data_ultimo": "2026-08-29T09:33:49.714328+00:00",
     "titulo": "THE REPUBLIC WAS BORN FROM A COUP AGAINST THE IMPERIAL FAMILY",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       38.4,
-      104.2
+      104.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "WjTyagI_vTc": {
     "data_primeiro": "2026-08-26T02:30:29.578118+00:00",
@@ -3208,15 +3212,16 @@
   },
   "_nYV-Oyhs1M": {
     "data_primeiro": "2026-08-27T09:36:26.746078+00:00",
-    "data_ultimo": "2026-08-29T00:59:50.613634+00:00",
+    "data_ultimo": "2026-08-29T09:34:15.854145+00:00",
     "titulo": "WE HAVE HAD A CIVIL WAR (but they’re hiding it from you)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       10.2,
-      47.9
+      47.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Fv-evhYthBs": {
     "data_primeiro": "2026-08-27T11:37:44.191850+00:00",
