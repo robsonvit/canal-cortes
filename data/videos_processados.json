@@ -3299,5 +3299,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "fBIdjYDpG9s": {
+    "data_primeiro": "2026-08-29T22:20:02.249734+00:00",
+    "data_ultimo": "2026-08-29T22:20:02.249734+00:00",
+    "titulo": "GUSTAVO PARDAL + ANDERSON JUSTUS - TICARACATICAST | EP 596",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      1027.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
