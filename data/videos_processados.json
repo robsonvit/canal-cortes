@@ -3255,5 +3255,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Tae3dJ39cY8": {
+    "data_primeiro": "2026-08-29T15:19:04.161133+00:00",
+    "data_ultimo": "2026-08-29T15:19:04.161133+00:00",
+    "titulo": "COVERAGE FAILURE #277: Soft Feet in Mzoleira's Hands",
+    "canal": "Podpah",
+    "picos_usados": [
+      231.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
