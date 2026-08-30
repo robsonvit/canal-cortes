@@ -3321,5 +3321,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "DVpNrdmnGlE": {
+    "data_primeiro": "2026-08-30T02:34:15.747547+00:00",
+    "data_ultimo": "2026-08-30T02:34:15.747547+00:00",
+    "titulo": "Guilherme Freire discusses the FUTURE of BRAZIL",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      92.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
