@@ -3354,5 +3354,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "40eFkmCn8JQ": {
+    "data_primeiro": "2026-08-30T13:27:33.444390+00:00",
+    "data_ultimo": "2026-08-30T13:27:33.444390+00:00",
+    "titulo": "COVERAGE FAIL #271: Liters of Goals Project",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "awsvI_m-ow8": {
+    "data_primeiro": "2026-08-30T13:28:01.848894+00:00",
+    "data_ultimo": "2026-08-30T13:28:01.848894+00:00",
+    "titulo": "What was Ronaldo like at Corinthians?!",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "bn9FmEAYrlo": {
+    "data_primeiro": "2026-08-30T13:28:30.266059+00:00",
+    "data_ultimo": "2026-08-30T13:28:30.266059+00:00",
+    "titulo": "UMA HOMENAGEM À QUERIDA LÚCIA ALVES",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "NH1SDwMxkMQ": {
+    "data_primeiro": "2026-08-30T13:28:58.524732+00:00",
+    "data_ultimo": "2026-08-30T13:28:58.524732+00:00",
+    "titulo": "WHAT REALLY HAPPENED to ELANA",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "wXToUN63Qvw": {
+    "data_primeiro": "2026-08-30T13:29:26.239453+00:00",
+    "data_ultimo": "2026-08-30T13:29:26.239453+00:00",
+    "titulo": "ESPECIAL DE ANO NOVO - PARTE 2 (COMPILADO) - TICARACATICAST | EP 700",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
