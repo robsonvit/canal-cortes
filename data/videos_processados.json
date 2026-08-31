@@ -3596,5 +3596,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "OJ350WixTOw": {
+    "data_primeiro": "2026-08-31T22:16:31.355509+00:00",
+    "data_ultimo": "2026-08-31T22:16:31.355509+00:00",
+    "titulo": "OS SEGREDOS DA INDUSTRIA ALIMENTÍCIA - DAVI LARANJEIRA - TICARACATICAST | EP 624",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "G4PUkK6u66k": {
+    "data_primeiro": "2026-08-31T22:16:57.667171+00:00",
+    "data_ultimo": "2026-08-31T22:16:57.667171+00:00",
+    "titulo": "Why MENTAL HEALTH Will Get Worse in the Coming Years? (ANA BEATRIZ BARBOSA) | JOTA JOTA PODCAST #261",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "OT939_b3unE": {
+    "data_primeiro": "2026-08-31T22:17:23.590823+00:00",
+    "data_ultimo": "2026-08-31T22:17:23.590823+00:00",
+    "titulo": "VARGINHA INCIDENT: The Investigation That Still Haunts Brazil",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "2Vxfb48M8ws": {
+    "data_primeiro": "2026-08-31T22:17:49.365644+00:00",
+    "data_ultimo": "2026-08-31T22:17:49.365644+00:00",
+    "titulo": "Something went wrong with the tire on the red Mercedes | Members",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "YptDMQKe2qo": {
+    "data_primeiro": "2026-08-31T22:18:15.330576+00:00",
+    "data_ultimo": "2026-08-31T22:18:15.330576+00:00",
+    "titulo": "JÁ ERROU NOTÍCIA AO VIVO?",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
