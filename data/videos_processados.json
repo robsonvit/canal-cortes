@@ -3585,5 +3585,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "XPBOikbGSq8": {
+    "data_primeiro": "2026-08-31T21:02:51.518945+00:00",
+    "data_ultimo": "2026-08-31T21:02:51.518945+00:00",
+    "titulo": "LAST CHAPTER OF THE STORY WITH VENUS TALKS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      35.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
