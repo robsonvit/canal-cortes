@@ -3563,5 +3563,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "m85oIkf_J5Q": {
+    "data_primeiro": "2026-08-31T17:07:16.946843+00:00",
+    "data_ultimo": "2026-08-31T17:07:16.946843+00:00",
+    "titulo": "Is Luciano an idol?!",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      0.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
