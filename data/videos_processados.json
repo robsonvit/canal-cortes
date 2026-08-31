@@ -3497,5 +3497,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "nXUDPSGnkGY": {
+    "data_primeiro": "2026-08-31T13:30:15.296526+00:00",
+    "data_ultimo": "2026-08-31T13:30:15.296526+00:00",
+    "titulo": "ESPECIAL DE NATAL - PARTE 2 (COMPILADO) - TICARACATICAST | EP 697",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      680.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
