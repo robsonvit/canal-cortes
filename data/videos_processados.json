@@ -3574,5 +3574,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Yg-4KHP0b2I": {
+    "data_primeiro": "2026-08-31T20:01:26.429932+00:00",
+    "data_ultimo": "2026-08-31T20:01:26.429932+00:00",
+    "titulo": "JACKELINE PETKOVIC | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      1027.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
