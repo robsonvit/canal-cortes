@@ -3464,5 +3464,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Mwkm17KY-AI": {
+    "data_primeiro": "2026-08-31T01:01:00.213537+00:00",
+    "data_ultimo": "2026-08-31T01:01:00.213537+00:00",
+    "titulo": "DATENA | BENJA ME MUCHO #172",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      537.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
