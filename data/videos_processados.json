@@ -3821,13 +3821,58 @@
   },
   "aa1IwvyW3AI": {
     "data_primeiro": "2026-09-01T15:21:44.070169+00:00",
-    "data_ultimo": "2026-09-01T15:21:44.070169+00:00",
+    "data_ultimo": "2026-09-01T17:03:11.889253+00:00",
     "titulo": "LUIS CRAZY NEAR AND THE EPIC MEETING WITH FADINHA - Rango Brabo #142",
     "canal": "Podpah",
     "picos_usados": [
-      462.5
+      462.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "PdtyKsUy74k": {
+    "data_primeiro": "2026-09-01T17:02:56.803147+00:00",
+    "data_ultimo": "2026-09-01T17:02:56.803147+00:00",
+    "titulo": "Coverage Failure #293 Irregular Artillery",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "oXszUnlg5n4": {
+    "data_primeiro": "2026-09-01T17:03:38.695245+00:00",
+    "data_ultimo": "2026-09-01T17:03:38.695245+00:00",
+    "titulo": "The HIDDEN Cost of Sending Money to Invest OUTSIDE OF BRAZIL",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "bh2mYldkyMg": {
+    "data_primeiro": "2026-09-01T17:04:08.394160+00:00",
+    "data_ultimo": "2026-09-01T17:04:08.394160+00:00",
+    "titulo": "EMPREENDEDOR DESDE OS 10 ANOS",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "zbJA4WPrUdk": {
+    "data_primeiro": "2026-09-01T17:04:36.880335+00:00",
+    "data_ultimo": "2026-09-01T17:04:36.880335+00:00",
+    "titulo": "WASHINGTON \"BRAVEHEART\" | BENJA ME MUCHO #173",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
