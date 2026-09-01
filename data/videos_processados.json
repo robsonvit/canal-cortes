@@ -142,14 +142,15 @@
   },
   "poyJKFrEBuY": {
     "data_primeiro": "2026-07-04T22:38:13.095380+00:00",
-    "data_ultimo": "2026-07-04T22:38:13.095380+00:00",
+    "data_ultimo": "2026-09-01T11:39:20.635099+00:00",
     "titulo": "COVERAGE FAILURE #272: Loose Foot",
     "canal": "Podpah",
     "picos_usados": [
-      1654.8
+      1654.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "-TARjg1liFI": {
     "data_primeiro": "2026-07-04T23:41:05.131452+00:00",
@@ -3720,13 +3721,47 @@
   },
   "t_Bvzq3K3g8": {
     "data_primeiro": "2026-09-01T09:37:02.761790+00:00",
-    "data_ultimo": "2026-09-01T09:37:02.761790+00:00",
+    "data_ultimo": "2026-09-01T11:38:01.158901+00:00",
     "titulo": "EDITOR-IN-CHIEF OF CITADEL EDITORA - Marcial Conte",
     "canal": "Flow Podcast",
     "picos_usados": [
-      513.6
+      513.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "vGs8YDrKYKY": {
+    "data_primeiro": "2026-09-01T11:38:27.712927+00:00",
+    "data_ultimo": "2026-09-01T11:38:27.712927+00:00",
+    "titulo": "A TEORIA Que Diz Que os OVNIs JÁ ESTÃO Entre Nós",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Zx9TG3XCpL4": {
+    "data_primeiro": "2026-09-01T11:38:54.105601+00:00",
+    "data_ultimo": "2026-09-01T11:38:54.105601+00:00",
+    "titulo": "DANI BRANDI | FESTA DA FIRMA PODCAST #110",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "BOTkmH4uyFg": {
+    "data_primeiro": "2026-09-01T11:39:46.374292+00:00",
+    "data_ultimo": "2026-09-01T11:39:46.374292+00:00",
+    "titulo": "GUILHERME ALVES | BENJA ME MUCHO #174",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
