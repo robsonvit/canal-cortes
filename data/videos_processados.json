@@ -3874,5 +3874,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "2-32Bus4jRY": {
+    "data_primeiro": "2026-09-01T20:01:39.607908+00:00",
+    "data_ultimo": "2026-09-01T20:01:39.607908+00:00",
+    "titulo": "ROGER MOREIRA | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      1172.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
