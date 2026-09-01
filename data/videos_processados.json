@@ -3930,5 +3930,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "FYK45gaDhMQ": {
+    "data_primeiro": "2026-09-01T22:20:04.243559+00:00",
+    "data_ultimo": "2026-09-01T22:20:04.243559+00:00",
+    "titulo": "O CUSTO INVISÍVEL da SAÚDE MENTAL Dentro das EMPRESAS | TEMPO DE MESA",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      826.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
