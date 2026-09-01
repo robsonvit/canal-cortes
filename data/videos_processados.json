@@ -3662,5 +3662,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "rrKWnTNXlk0": {
+    "data_primeiro": "2026-09-01T02:30:48.066971+00:00",
+    "data_ultimo": "2026-09-01T02:30:48.066971+00:00",
+    "titulo": "RONALDÃO | BENJA ME MUCHO #176",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "E3Wb6_t0Zc8": {
+    "data_primeiro": "2026-09-01T02:31:16.279002+00:00",
+    "data_ultimo": "2026-09-01T02:31:16.279002+00:00",
+    "titulo": "MYLENA CIRIBELLI | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "ROioglNU3Hc": {
+    "data_primeiro": "2026-09-01T02:31:41.484644+00:00",
+    "data_ultimo": "2026-09-01T02:31:41.484644+00:00",
+    "titulo": "KNOWING THE CHILDHOOD OF A DRAG",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "aAG0h_669u0": {
+    "data_primeiro": "2026-09-01T02:32:07.540186+00:00",
+    "data_ultimo": "2026-09-01T02:32:07.540186+00:00",
+    "titulo": "SAMY DANA + ENRIQUE LORA - TICARACATICAST | EP 570",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "L9pDQRaRkns": {
+    "data_primeiro": "2026-09-01T02:32:33.699029+00:00",
+    "data_ultimo": "2026-09-01T02:32:33.699029+00:00",
+    "titulo": "How to Build a Business Ecosystem from Scratch (SEU ELIAS) | JOTA JOTA PODCAST #267",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
