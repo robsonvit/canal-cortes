@@ -3717,5 +3717,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "t_Bvzq3K3g8": {
+    "data_primeiro": "2026-09-01T09:37:02.761790+00:00",
+    "data_ultimo": "2026-09-01T09:37:02.761790+00:00",
+    "titulo": "EDITOR-IN-CHIEF OF CITADEL EDITORA - Marcial Conte",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      513.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
