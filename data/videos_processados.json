@@ -3933,13 +3933,14 @@
   },
   "FYK45gaDhMQ": {
     "data_primeiro": "2026-09-01T22:20:04.243559+00:00",
-    "data_ultimo": "2026-09-02T02:34:22.432459+00:00",
+    "data_ultimo": "2026-09-02T09:41:04.020434+00:00",
     "titulo": "What You Need to Understand About MENTAL HEALTH and BURNOUT | TABLE TALK",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       826.8,
       1681.1,
-      2535.4
+      2535.4,
+      3389.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
