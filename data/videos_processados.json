@@ -3933,7 +3933,7 @@
   },
   "FYK45gaDhMQ": {
     "data_primeiro": "2026-09-01T22:20:04.243559+00:00",
-    "data_ultimo": "2026-09-02T11:41:08.329483+00:00",
+    "data_ultimo": "2026-09-02T13:27:11.635439+00:00",
     "titulo": "What You Need to Understand About MENTAL HEALTH and BURNOUT | TABLE TALK",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
@@ -3941,9 +3941,54 @@
       1681.1,
       2535.4,
       3389.6,
-      4243.9
+      4243.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "oP9YOlea6aU": {
+    "data_primeiro": "2026-09-02T13:27:37.114050+00:00",
+    "data_ultimo": "2026-09-02T13:27:37.114050+00:00",
+    "titulo": "What the US Knows About the Varginha UFO Case",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "435j801drMI": {
+    "data_primeiro": "2026-09-02T13:28:01.578539+00:00",
+    "data_ultimo": "2026-09-02T13:28:01.578539+00:00",
+    "titulo": "SERGIO ZIMERMAN | FESTA DA FIRMA PODCAST #109",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "cFHM-Ex4g60": {
+    "data_primeiro": "2026-09-02T13:28:26.135474+00:00",
+    "data_ultimo": "2026-09-02T13:28:26.135474+00:00",
+    "titulo": "DR. CESAR SAAD | BENJA ME MUCHO #169",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "g26iBg8H7gE": {
+    "data_primeiro": "2026-09-02T13:28:51.475873+00:00",
+    "data_ultimo": "2026-09-02T13:28:51.475873+00:00",
+    "titulo": "ALEXANDRE CORREA | (Ex-Ana Hickmann) | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
