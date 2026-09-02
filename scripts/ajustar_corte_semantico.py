@@ -197,7 +197,7 @@ FIM: <segundos>"""
 
     try:
         resp = cliente.chat.completions.create(
-            model="meta-llama/llama-3.3-70b-instruct:free",
+            model="meta-llama/llama-3.3-70b-instruct",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=50,
             temperature=0.1,

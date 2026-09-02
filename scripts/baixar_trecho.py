@@ -57,7 +57,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
     # ── TRAVA DE QUALIDADE: NENHUMA tentativa aceita abaixo de 1080p ─────────
     # O fallback muda a estratégia anti-bot, NÃO a qualidade mínima.
     # Se todas as 4 tentativas falharem em 1080p, o pipeline aborta com erro.
-    FILTRO_1080P = "bestvideo[height>=1080]+bestaudio/bestvideo[height>=1080]+bestaudio[ext=m4a]"
+    FILTRO_1080P = "bestvideo[height>=1080]+bestaudio/best[height>=1080]"
 
     tentativas = [
         {
