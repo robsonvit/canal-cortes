@@ -61,57 +61,44 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
 
     tentativas = [
         {
-            "desc": "Prioridade 1: 1080p+ | anti-bot completo (WARP + curl-cffi + mweb,android)",
-            "cmd": args_base_ytdlp([
-                "--download-sections", trecho_str,
-                "-f", FILTRO_1080P,
-                "--merge-output-format", "mkv",
-                "-o", output_path,
-                "--quiet",
-            ]) + [video_url],
-        },
-        {
-            # Muda apenas o player_client — mantém 1080p mínimo
-            "desc": "Prioridade 2: 1080p+ | player_client=web,android (sem curl-cffi)",
+            # Usa o default do yt-dlp (curl-cffi/deno embutido lidará com bot check via WARP)
+            "desc": "Prioridade 1: 1080p+ | Client Padrão (Sem forçar player, confia no WARP)",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
-                "--extractor-args", "youtube:player_client=web,android",
                 "-f", FILTRO_1080P,
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
-                video_url,
-            ],
+            ] + (["--cookies", "cookies.txt"] if os.path.exists("cookies.txt") else []) + [video_url],
         },
         {
-            # Tenta player_client=android,ios — mantém 1080p mínimo
-            "desc": "Prioridade 3: 1080p+ | player_client=android,ios",
+            # Força cliente tv (tvhtml5simples) que costuma não ter check pesado e retorna 1080p
+            "desc": "Prioridade 2: 1080p+ | player_client=tv",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
-                "--extractor-args", "youtube:player_client=android,ios",
+                "--extractor-args", "youtube:player_client=tv",
                 "-f", FILTRO_1080P,
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
-                video_url,
-            ],
+            ] + (["--cookies", "cookies.txt"] if os.path.exists("cookies.txt") else []) + [video_url],
         },
         {
-            # Último recurso: tv_downgraded (contorna alguns bot-checks) — AINDA 1080p mínimo
-            "desc": "Prioridade 4: 1080p+ | player_client=tv_downgraded (último recurso anti-bot)",
+            # Força o client web padrão com bypass de restrição de idade
+            "desc": "Prioridade 3: 1080p+ | player_client=web + bypass cookies",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
-                "--extractor-args", "youtube:player_client=tv_downgraded",
+                "--extractor-args", "youtube:player_client=web",
+                "--age-limit", "21",
                 "-f", FILTRO_1080P,
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
-                video_url,
-            ],
-        },
+            ] + (["--cookies", "cookies.txt"] if os.path.exists("cookies.txt") else []) + [video_url],
+        }
     ]
 
     for t in tentativas:
