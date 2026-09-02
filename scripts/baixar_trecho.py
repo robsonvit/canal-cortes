@@ -6,12 +6,17 @@ Passo 3 do Pipeline Canal Cortes.
 Baixa apenas o trecho exato do vídeo (do pico de replay)
 usando yt-dlp com --download-sections.
 
+🔒 TRAVA DE QUALIDADE MÍNIMA: 1080p (height >= 1080)
+  - NENHUMA tentativa aceita vídeo abaixo de 1080p
+  - O fallback muda a estratégia anti-bot, NÃO a qualidade
+  - Se nenhuma tentativa conseguir 1080p, o pipeline ABORTA com erro
+
 Técnicas anti-bloqueio aplicadas:
   - curl-cffi: TLS fingerprint de Chrome real
-  - player_client múltiplo: web > android > tv_downgraded
+  - player_client múltiplo: mweb,android > web,android > android,ios > tv_downgraded
   - cookies autenticados (via ytdlp_helper)
   - Deno para JS challenges (instalado pelo workflow)
-  - 3 tentativas com fallback automático de qualidade
+  - 4 tentativas com estratégias anti-bot diferentes (sem abaixar qualidade)
 
 Fix A/V sync:
   Após o download, normaliza os PTS via FFmpeg para evitar o delay
@@ -49,24 +54,30 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
     print(f"  ⬇️  Baixando trecho (com margem) {_formatar_tempo(inicio_dl)} → {_formatar_tempo(fim_s)}...")
     print(f"     URL: {video_url}")
 
+    # ── TRAVA DE QUALIDADE: NENHUMA tentativa aceita abaixo de 1080p ─────────
+    # O fallback muda a estratégia anti-bot, NÃO a qualidade mínima.
+    # Se todas as 4 tentativas falharem em 1080p, o pipeline aborta com erro.
+    FILTRO_1080P = "bestvideo[height>=1080]+bestaudio/bestvideo[height>=1080]+bestaudio[ext=m4a]"
+
     tentativas = [
         {
-            "desc": "Prioridade 1: 1080p exato ou superior + anti-bot completo (WARP + curl-cffi)",
+            "desc": "Prioridade 1: 1080p+ | anti-bot completo (WARP + curl-cffi + mweb,android)",
             "cmd": args_base_ytdlp([
                 "--download-sections", trecho_str,
-                "-f", "bestvideo[height>=1080]+bestaudio/best[height>=1080]",
+                "-f", FILTRO_1080P,
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--quiet",
             ]) + [video_url],
         },
         {
-            "desc": "Prioridade 2: 720p exato ou superior (sem impersonation)",
+            # Muda apenas o player_client — mantém 1080p mínimo
+            "desc": "Prioridade 2: 1080p+ | player_client=web,android (sem curl-cffi)",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
                 "--extractor-args", "youtube:player_client=web,android",
-                "-f", "bestvideo[height>=720]+bestaudio/best[height>=720]",
+                "-f", FILTRO_1080P,
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
@@ -74,12 +85,13 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             ],
         },
         {
-            "desc": "Prioridade 3: Fallback alternativo forçando HD (720p+)",
+            # Tenta player_client=android,ios — mantém 1080p mínimo
+            "desc": "Prioridade 3: 1080p+ | player_client=android,ios",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
                 "--extractor-args", "youtube:player_client=android,ios",
-                "-f", "bestvideo[height>=720]+bestaudio/best[height>=720]",
+                "-f", FILTRO_1080P,
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
@@ -87,12 +99,13 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             ],
         },
         {
-            "desc": "Prioridade 4: Fallback absoluto (aceita o que vier, último caso)",
+            # Último recurso: tv_downgraded (contorna alguns bot-checks) — AINDA 1080p mínimo
+            "desc": "Prioridade 4: 1080p+ | player_client=tv_downgraded (último recurso anti-bot)",
             "cmd": [
                 "yt-dlp",
                 "--download-sections", trecho_str,
-                "--extractor-args", "youtube:player_client=android,ios",
-                "-f", "best",
+                "--extractor-args", "youtube:player_client=tv_downgraded",
+                "-f", FILTRO_1080P,
                 "--merge-output-format", "mkv",
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
@@ -114,7 +127,20 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             if arquivo:
                 tamanho_mb = os.path.getsize(arquivo) / (1024 * 1024)
                 print(f"  ✅ Trecho cru baixado: {arquivo} ({tamanho_mb:.1f} MB)")
-                
+
+                # ── Verificação de qualidade pós-download ─────────────────────
+                resolucao = _verificar_resolucao(arquivo)
+                if resolucao:
+                    print(f"  🔍 Resolução detectada: {resolucao[0]}x{resolucao[1]}")
+                    if resolucao[1] < 1080:
+                        print(f"  🚫 TRAVA DE QUALIDADE: {resolucao[1]}p < 1080p. Descartando e tentando próxima estratégia...")
+                        os.remove(arquivo)
+                        continue
+                    else:
+                        print(f"  ✅ Qualidade aprovada: {resolucao[1]}p >= 1080p")
+                else:
+                    print("  ⚠️  Não foi possível verificar resolução — prosseguindo com cautela")
+
                 # Executa o corte exato removendo a margem e recodificando
                 cmd_trim = [
                     "ffmpeg", "-y",
@@ -142,8 +168,10 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
         print(f"  ⚠️  Falhou: {resultado.stderr[-150:]}")
 
     raise RuntimeError(
-        f"Todas as tentativas de download falharam para: {video_url}\n"
-        f"Último erro: {tentativas[-1]['cmd']}"
+        f"\n🚫 ERRO DE QUALIDADE: Todas as {len(tentativas)} tentativas de download em 1080p+ falharam."
+        f"\n   URL: {video_url}"
+        f"\n   Isso pode indicar que o vídeo não está disponível em 1080p ou bloqueio anti-bot."
+        f"\n   NOTA: O pipeline NÃO aceita vídeos abaixo de 1080p por política de qualidade."
     )
 
 
@@ -155,6 +183,32 @@ def _encontrar_arquivo(output_path: str) -> str | None:
         alt = output_path.rsplit(".", 1)[0] + ext
         if os.path.exists(alt):
             return alt
+    return None
+
+
+def _verificar_resolucao(arquivo: str) -> tuple[int, int] | None:
+    """
+    Usa ffprobe para verificar a resolução real do arquivo baixado.
+    Retorna (largura, altura) ou None se não conseguir verificar.
+
+    🔒 Esta verificação é a SEGUNDA camada da trava de qualidade:
+       A primeira é o filtro do yt-dlp, esta é a confirmação pós-download.
+    """
+    try:
+        cmd = [
+            "ffprobe", "-v", "quiet",
+            "-select_streams", "v:0",
+            "-show_entries", "stream=width,height",
+            "-of", "csv=p=0",
+            arquivo,
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        if result.returncode == 0 and result.stdout.strip():
+            partes = result.stdout.strip().split(",")
+            if len(partes) >= 2:
+                return (int(partes[0]), int(partes[1]))
+    except Exception as e:
+        print(f"  ⚠️  ffprobe falhou: {e}")
     return None
 
 
