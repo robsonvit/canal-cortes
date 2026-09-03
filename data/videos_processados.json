@@ -4006,5 +4006,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "qBa_obk8WaE": {
+    "data_primeiro": "2026-09-03T00:35:35.440979+00:00",
+    "data_ultimo": "2026-09-03T00:35:35.440979+00:00",
+    "titulo": "THE OUTBURST THAT FEW HAVE THE COURAGE TO MAKE",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
