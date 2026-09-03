@@ -442,7 +442,8 @@ def _montar_ffmpeg_puro(
         f"crop={SHORT_W}:{SHORT_H}:(iw-{SHORT_W})/2:(ih-{SHORT_H})/2:exact=1,"
         f"unsharp=5:5:0.8:3:3:0.0,"
         f"hflip,"
-        f"eq=saturation=1.3"
+        f"eq=saturation=1.3,"
+        f"setpts=PTS/1.05"
     )
     if drawtext_chain:
         vf_chain += "," + drawtext_chain
@@ -466,7 +467,9 @@ def _montar_ffmpeg_puro(
 
     # Monta filter_complex completo (vÃ­deo + Ã¡udio)
     fc_parts = [f"[0:v]{vf_chain}[vout]"]
-    mix_inputs = ["[0:a]"]
+    # Acelera o Ã¡udio principal em 5% para evadir Content ID
+    fc_parts.append("[0:a]atempo=1.05[a_main]")
+    mix_inputs = ["[a_main]"]
     
     for idx, filtro, label in audio_filters:
         fc_parts.append(f"[{idx}:a]{filtro}[{label}]")
@@ -477,7 +480,7 @@ def _montar_ffmpeg_puro(
         n = len(mix_inputs)
         fc_parts.append(f"{''.join(mix_inputs)}amix=inputs={n}:duration=first:dropout_transition=0,volume={n}[aout]")
     else:
-        fc_parts.append(f"[0:a]acopy[aout]")
+        fc_parts.append(f"[a_main]acopy[aout]")
 
     cmd.extend([
         "-filter_complex", ";".join(fc_parts),
