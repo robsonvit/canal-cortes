@@ -381,14 +381,15 @@
   },
   "Eb7AZogg6UA": {
     "data_primeiro": "2026-07-07T20:54:05.121586+00:00",
-    "data_ultimo": "2026-07-07T20:54:05.121586+00:00",
+    "data_ultimo": "2026-09-03T02:59:52.840346+00:00",
     "titulo": "WE WORKED AT THE BIGGEST MOTEL IN BRAZIL ft. VINI MAGA - Podpah Visita #113",
     "canal": "Podpah",
     "picos_usados": [
-      741.4
+      741.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "WuqRirznE_8": {
     "data_primeiro": "2026-07-07T23:10:55.681966+00:00",
@@ -4157,6 +4158,28 @@
     "data_ultimo": "2026-09-03T02:33:28.202116+00:00",
     "titulo": "LUIZ TONISI | BENJA ME MUCHO #166",
     "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "QeY12HHJ2AI": {
+    "data_primeiro": "2026-09-03T02:59:27.883558+00:00",
+    "data_ultimo": "2026-09-03T02:59:27.883558+00:00",
+    "titulo": "RICK BONADIO | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "6ITPrHfGuGA": {
+    "data_primeiro": "2026-09-03T03:00:18.064215+00:00",
+    "data_ultimo": "2026-09-03T03:00:18.064215+00:00",
+    "titulo": "WHO IS RAQUEL REAL'S EX [with Sofia Santino and Doarda] - Aquelas Minas",
+    "canal": "Vênus Podcast",
     "picos_usados": [
       -1.0
     ],
