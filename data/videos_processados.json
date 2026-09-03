@@ -4185,5 +4185,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "exyDSMBiO-M": {
+    "data_primeiro": "2026-09-03T03:33:36.880936+00:00",
+    "data_ultimo": "2026-09-03T03:33:36.880936+00:00",
+    "titulo": "EIKE BATISTA - TICARACATICAST | EP 574",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      1092.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
