@@ -147,8 +147,14 @@ def _buscar_imagem_pinterest(termo: str) -> str | None:
 
     print(f"  📌 [Pinterest] Buscando: '{termo}'")
     try:
-        p = Pinterest(proxies={}, sleep_time=1)
-        urls = p.search(keyword=termo, images_to_download=15)
+        # Instancia com ou sem sleep_time dependendo da versão da lib
+        try:
+            p = Pinterest(proxies={}, sleep_time=1)
+        except TypeError:
+            p = Pinterest(proxies={})
+
+        # API do pinscrape: search(termo, quantidade) - sem keyword=
+        urls = p.search(termo, 15)
 
         if not urls:
             print(f"  ⚠️  [Pinterest] Nenhuma imagem encontrada para '{termo}'")
