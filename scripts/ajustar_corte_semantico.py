@@ -197,7 +197,7 @@ FIM: <segundos>"""
 
     try:
         resp = cliente.chat.completions.create(
-            model="google/gemini-2.0-flash-exp:free",
+            model="minimax/minimax-m3:free",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=50,
             temperature=0.1,

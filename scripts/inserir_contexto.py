@@ -101,7 +101,7 @@ Retorne apenas o JSON, sem explicações."""
 
     try:
         resp = cliente.chat.completions.create(
-            model="google/gemini-2.0-flash-exp:free",
+            model="minimax/minimax-m3:free",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=400,
