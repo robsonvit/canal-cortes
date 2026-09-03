@@ -5,19 +5,23 @@ Passo 6 do Pipeline Canal Cortes.
 
 Enriquece o Short com:
   1. Inserções visuais 1:1 (imagens contextuais de alta qualidade)
-     sobrepostas no canto inferior direito por 3-4 segundos
-  2. Estratégia dupla de busca de imagens:
+     sobrepostas no centro do vídeo por ~2.5 segundos
+  2. Cascata de 4 estratégias de busca de imagens:
+     - Estratégia 0: Pinterest (pinscrape) → CDN pinimg.com HD (MELHOR CURADORIA)
      - Estratégia 1: DuckDuckGo (via ddgs) → CDN do Bing em &w=800 (HD)
      - Estratégia 2: API Wikipedia PT (fallback) → pithumbsize=1000
+     - Estratégia 3: Pexels API (fallback final)
      - Abortagem de segurança se nenhuma imagem for encontrada
 
 Fluxo:
   a. Envia o SRT para Groq AI → extrai 2-3 temas visuais com termos HIPER-ESPECÍFICOS
-  b. Busca imagens via DuckDuckGo → Bing CDN HD (Estratégia 1)
-  c. Fallback para Wikipedia PT se DuckDuckGo falhar (Estratégia 2)
-  d. Aborta se nenhuma imagem for encontrada (evita vídeos quebrados)
-  e. Cria um plano de timing (quando mostrar cada inserção)
-  f. Aplica os overlays via FFmpeg filter_complex
+  b. Busca imagens no Pinterest via pinscrape (Estratégia 0) — melhor curadoria editorial
+  c. Fallback DuckDuckGo → Bing CDN HD se Pinterest falhar (Estratégia 1)
+  d. Fallback Wikipedia PT se DDG falhar (Estratégia 2)
+  e. Fallback Pexels API se tudo falhar (Estratégia 3)
+  f. Aborta overlay se nenhuma estratégia encontrar imagem (evita vídeos quebrados)
+  g. Cria um plano de timing (quando mostrar cada inserção)
+  h. Aplica os overlays via FFmpeg filter_complex (crop automático 1:1)
 """
 
 import os
@@ -120,6 +124,69 @@ Retorne apenas o JSON, sem explicações."""
         {"tema_pt": "podcast conversa", "termo_busca_a": "podcast microphone studio HD professional", "sujeito_wikipedia": "Microfone", "segundo": 5},
         {"tema_pt": "sucesso profissional", "termo_busca_a": "businessman success achievement trophy winner", "sujeito_wikipedia": "Troféu", "segundo": 25},
     ]
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ESTRATÉGIA 0: Pinterest via pinscrape → CDN pinimg.com em alta resolução
+# ─────────────────────────────────────────────────────────────────────────────
+def _buscar_imagem_pinterest(termo: str) -> str | None:
+    """
+    Busca imagem no Pinterest usando a biblioteca pinscrape.
+    Retorna a URL de melhor resolução encontrada no CDN pinimg.com,
+    ou None se falhar (sem travar o pipeline).
+
+    O Pinterest tem curadoria editorial muito superior para celebridades,
+    eventos esportivos e cultura pop — temas típicos dos podcasts de corte.
+    """
+    try:
+        from pinscrape import Pinterest  # type: ignore
+    except ImportError:
+        print("  ⚠️  [Pinterest] pinscrape não instalado. Pulando Estratégia 0.")
+        print("      Instale com: pip install pinscrape")
+        return None
+
+    print(f"  📌 [Pinterest] Buscando: '{termo}'")
+    try:
+        p = Pinterest(proxies={}, sleep_time=1)
+        urls = p.search(keyword=termo, images_to_download=15)
+
+        if not urls:
+            print(f"  ⚠️  [Pinterest] Nenhuma imagem encontrada para '{termo}'")
+            return None
+
+        # Prefere imagens do CDN oficial do Pinterest (pinimg.com)
+        # e filtra para originals/ (maior resolução)
+        urls_lista = list(urls) if not isinstance(urls, list) else urls
+
+        # Prioridade 1: originals do pinimg.com (resolução máxima)
+        urls_orig = [
+            u for u in urls_lista
+            if isinstance(u, str) and "pinimg.com" in u and "/originals/" in u
+        ]
+        # Prioridade 2: qualquer URL do pinimg.com
+        urls_pinimg = [
+            u for u in urls_lista
+            if isinstance(u, str) and "pinimg.com" in u and u not in urls_orig
+        ]
+        # Prioridade 3: qualquer URL válida retornada
+        urls_outras = [
+            u for u in urls_lista
+            if isinstance(u, str) and u not in urls_orig and u not in urls_pinimg
+        ]
+
+        candidatas = urls_orig[:5] + urls_pinimg[:5] + urls_outras[:5]
+
+        for url in candidatas:
+            if _testar_url(url):
+                print(f"  ✅ [Pinterest] Imagem encontrada: {url[:80]}...")
+                return url
+
+        print(f"  ⚠️  [Pinterest] Nenhuma URL válida para '{termo}'")
+        return None
+
+    except Exception as e:
+        print(f"  ⚠️  [Pinterest] Erro na busca: {e}")
+        return None
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -397,6 +464,7 @@ def _testar_url(url: str, timeout: int = 8, headers: dict = None) -> bool:
 def _buscar_melhor_imagem(termo: str, tema_pt: str, sujeito_wiki: str = "") -> str | None:
     """
     Executa as estratégias de busca em ordem de qualidade:
+      0. Pinterest (pinscrape) → CDN pinimg.com HD [MELHOR CURADORIA EDITORIAL]
       1. DuckDuckGo → Bing CDN HD (&w=800)
       2. Wikipedia PT API (pithumbsize=1000)
       3. Pexels API (Fallback Final)
@@ -404,11 +472,17 @@ def _buscar_melhor_imagem(termo: str, tema_pt: str, sujeito_wiki: str = "") -> s
     Se NENHUMA estratégia encontrar imagem, retorna None.
     """
     print(f"\n  🔎 Buscando imagem para: '{tema_pt}'")
-    print(f"     Termo específico (Bing): '{termo}'")
+    print(f"     Termo Pinterest/Bing: '{termo}'")
     if sujeito_wiki:
         print(f"     Sujeito Wikipédia: '{sujeito_wiki}'")
 
+    # ── Estratégia 0: Pinterest (melhor curadoria para cultura pop/esportes) ──
+    url = _buscar_imagem_pinterest(termo)
+    if url:
+        return url
+
     # ── Estratégia 1: DuckDuckGo / Bing CDN ──────────────────────────────────
+    print(f"  🔄 [Pinterest] Falhou. Tentando DuckDuckGo/Bing...")
     url = _buscar_imagem_ddgs(termo)
     if url:
         return url
@@ -501,9 +575,11 @@ def inserir_contexto(
     """
     Adiciona inserções 1:1 contextuais ao Short (mantém o áudio intacto).
 
-    Estratégia de busca de imagens:
+    Cascata de busca de imagens:
+      0. Pinterest (pinscrape) → CDN pinimg.com HD [curadoria editorial superior]
       1. DuckDuckGo → Bing CDN HD (&w=800)
       2. Wikipedia PT API (pithumbsize=1000)
+      3. Pexels API (fallback final)
       Aborta overlay se nenhuma estratégia funcionar (sem placeholders/imagens quebradas).
 
     Args:

@@ -16,6 +16,9 @@ opencv-python-headless>=4.8.0
 # HTTP — downloads e APIs de imagem
 requests>=2.31.0
 
+# Busca de imagens via Pinterest (Estratégia 0: melhor curadoria visual)
+pinscrape>=1.4.0
+
 # Busca de imagens via DuckDuckGo (Estratégia 1: Bing CDN HD)
 duckduckgo-search>=6.0.0
 
