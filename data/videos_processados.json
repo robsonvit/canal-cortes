@@ -4231,5 +4231,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "-fUcD_uIQOc": {
+    "data_primeiro": "2026-09-03T20:05:10.267386+00:00",
+    "data_ultimo": "2026-09-03T20:05:10.267386+00:00",
+    "titulo": "NARJARA TURETTA | PODCAST PAPAGAIO FALANTE",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      1253.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
