@@ -4106,5 +4106,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "VEf5niuKrII": {
+    "data_primeiro": "2026-09-03T02:21:45.211323+00:00",
+    "data_ultimo": "2026-09-03T02:21:45.211323+00:00",
+    "titulo": "JOEL DATENA - TICARACATICAST | EP 683",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      644.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
