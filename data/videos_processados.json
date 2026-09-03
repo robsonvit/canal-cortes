@@ -415,11 +415,12 @@
   },
   "kZnO7eYsr8w": {
     "data_primeiro": "2026-07-07T23:13:41.011593+00:00",
-    "data_ultimo": "2026-07-07T23:13:41.011593+00:00",
-    "titulo": "COVERAGE FAIL #273: We’ve Got a Team to Fear Everyone",
+    "data_ultimo": "2026-09-03T21:07:43.253864+00:00",
+    "titulo": "FALHA DE COBERTURA #273: Temos Time pra Temer Todo Mundo",
     "canal": "Podpah",
     "picos_usados": [
-      1398.3
+      1398.3,
+      227.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
