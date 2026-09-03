@@ -4072,5 +4072,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "ju-9o40wens": {
+    "data_primeiro": "2026-09-03T01:05:19.671942+00:00",
+    "data_ultimo": "2026-09-03T01:05:19.671942+00:00",
+    "titulo": "BRUNO FORMIGA | BENJA ME MUCHO #171",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      801.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
