@@ -224,14 +224,15 @@
   },
   "HVDvpPG69v4": {
     "data_primeiro": "2026-07-06T04:23:54.117038+00:00",
-    "data_ultimo": "2026-07-06T04:23:54.117038+00:00",
+    "data_ultimo": "2026-09-03T02:31:14.348633+00:00",
     "titulo": "I changed my torn tire.",
     "canal": "Flow Podcast",
     "picos_usados": [
-      46.9
+      46.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "f3N6Okd-rTA": {
     "data_primeiro": "2026-07-06T04:34:56.779003+00:00",
@@ -4117,5 +4118,49 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Dbwm3JUC4Fo": {
+    "data_primeiro": "2026-09-03T02:31:36.756532+00:00",
+    "data_ultimo": "2026-09-03T02:31:36.756532+00:00",
+    "titulo": "How Nubank Became One of the Most Valuable Companies (Cris Junqueira) | JOTA JOTA PODCAST #273",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "86MNaG2dzb0": {
+    "data_primeiro": "2026-09-03T02:32:07.057598+00:00",
+    "data_ultimo": "2026-09-03T02:32:07.057598+00:00",
+    "titulo": "The NEW PATTERN of ABDUCTIONS That Baffles Researchers",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "2Rxf0-IKR84": {
+    "data_primeiro": "2026-09-03T02:32:38.238540+00:00",
+    "data_ultimo": "2026-09-03T02:32:38.238540+00:00",
+    "titulo": "CAROL E ANDRÉ DIAS | FESTA DA FIRMA PODCAST #112",
+    "canal": "Festa da Firma",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "GxSa0WJKNWI": {
+    "data_primeiro": "2026-09-03T02:33:28.202116+00:00",
+    "data_ultimo": "2026-09-03T02:33:28.202116+00:00",
+    "titulo": "LUIZ TONISI | BENJA ME MUCHO #166",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
