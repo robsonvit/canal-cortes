@@ -153,8 +153,8 @@ def _buscar_imagem_pinterest(termo: str) -> str | None:
         except TypeError:
             p = Pinterest(proxies={})
 
-        # API do pinscrape: search(termo, quantidade) - sem keyword=
-        urls = p.search(termo, 15)
+        # API REAL do pinscrape: search(query, page_size=26)
+        urls = p.search(termo, page_size=26)
 
         if not urls:
             print(f"  ⚠️  [Pinterest] Nenhuma imagem encontrada para '{termo}'")
