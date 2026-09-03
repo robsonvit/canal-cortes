@@ -107,7 +107,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
         if os.path.exists(output_path):
             os.remove(output_path)
             
-        resultado = subprocess.run(t["cmd"], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=600)
+        resultado = subprocess.run(t["cmd"], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=1500)
 
         if resultado.returncode == 0:
             arquivo = _encontrar_arquivo(output_path)

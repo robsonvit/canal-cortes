@@ -136,7 +136,7 @@ Retorne apenas o JSON, sem explicações adicionais."""
         from openai import OpenAI
         cliente = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ.get("OPENROUTER_API_KEY"))
         resp = cliente.chat.completions.create(
-            model="google/gemini-2.0-flash-lite-preview-02-05:free",
+            model="google/gemini-2.0-flash-exp:free",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
             max_tokens=800,
