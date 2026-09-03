@@ -4083,5 +4083,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "CS305v8_P0A": {
+    "data_primeiro": "2026-09-03T01:18:00.514342+00:00",
+    "data_ultimo": "2026-09-03T01:18:00.514342+00:00",
+    "titulo": "CINTIA ABRAVANEL | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      964.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
