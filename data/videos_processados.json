@@ -4246,11 +4246,12 @@
   },
   "52n8Mhti6A0": {
     "data_primeiro": "2026-09-03T22:20:36.405650+00:00",
-    "data_ultimo": "2026-09-03T22:20:36.405650+00:00",
+    "data_ultimo": "2026-09-04T01:01:56.842417+00:00",
     "titulo": "NEWTON INVENTOU UMA MATEMÁTICA PARA MUDAR O MUNDO (explicado)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      32.2
+      32.2,
+      91.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
