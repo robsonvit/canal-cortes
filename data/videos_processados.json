@@ -4270,5 +4270,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "wfgXjrffCwA": {
+    "data_primeiro": "2026-09-04T17:04:06.106093+00:00",
+    "data_ultimo": "2026-09-04T17:04:06.106093+00:00",
+    "titulo": "RATÃO DIRIGIU UMA HUMVEE MILITAR EM SÃO PAULO",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "PdpNIBeceBI": {
+    "data_primeiro": "2026-09-04T17:09:45.846400+00:00",
+    "data_ultimo": "2026-09-04T17:09:45.846400+00:00",
+    "titulo": "DR. NICO - OPERAÇÕES POLICIAIS - TICARACATICAST | EP 625",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      1054.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
