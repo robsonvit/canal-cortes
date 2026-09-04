@@ -4259,5 +4259,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "fAz1ku7bISk": {
+    "data_primeiro": "2026-09-04T15:22:39.359498+00:00",
+    "data_ultimo": "2026-09-04T15:22:39.359498+00:00",
+    "titulo": "BASTIDORES do “DANDO DURO”",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      70.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
