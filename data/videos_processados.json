@@ -554,14 +554,15 @@
   },
   "wuctIlqZ8c0": {
     "data_primeiro": "2026-07-17T23:16:01.030795+00:00",
-    "data_ultimo": "2026-07-17T23:16:01.030795+00:00",
+    "data_ultimo": "2026-09-04T22:16:56.088446+00:00",
     "titulo": "COVERAGE FAIL #274: Messi vs. CR7 vs. Modric, Battle of the Old-Timers",
     "canal": "Podpah",
     "picos_usados": [
-      1028.8
+      1028.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "pO7bmdk1e0Q": {
     "data_primeiro": "2026-07-18T14:29:59.048412+00:00",
@@ -4304,5 +4305,49 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "ZHKV_k0oRlo": {
+    "data_primeiro": "2026-09-04T22:15:39.106389+00:00",
+    "data_ultimo": "2026-09-04T22:15:39.106389+00:00",
+    "titulo": "WHY IS THIS NUMBER FORBIDDEN? | Legend or truth?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "zQsfrXhSax4": {
+    "data_primeiro": "2026-09-04T22:16:05.502813+00:00",
+    "data_ultimo": "2026-09-04T22:16:05.502813+00:00",
+    "titulo": "DENTINHO | BENJA ME MUCHO #170",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "pFsqWfU0uFg": {
+    "data_primeiro": "2026-09-04T22:16:30.314828+00:00",
+    "data_ultimo": "2026-09-04T22:16:30.314828+00:00",
+    "titulo": "PROFISSIONAIS EM DESTAQUE | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "hDKU7Zt6_oU": {
+    "data_primeiro": "2026-09-04T22:17:21.058860+00:00",
+    "data_ultimo": "2026-09-04T22:17:21.058860+00:00",
+    "titulo": "ELANA SINGS “RIPPLE GOOD” for YAS YASSINE",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
