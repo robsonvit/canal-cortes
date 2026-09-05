@@ -3357,11 +3357,12 @@
   },
   "89c44HS43HU": {
     "data_primeiro": "2026-08-30T11:40:31.905986+00:00",
-    "data_ultimo": "2026-08-30T11:40:31.905986+00:00",
+    "data_ultimo": "2026-09-05T11:43:05.695794+00:00",
     "titulo": "DANI BRANDI NO ENTRETENIMENTO!?",
     "canal": "Festa da Firma",
     "picos_usados": [
-      26.9
+      26.9,
+      81.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
