@@ -4409,5 +4409,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "bzwfJueYF1g": {
+    "data_primeiro": "2026-09-05T22:20:49.014716+00:00",
+    "data_ultimo": "2026-09-05T22:20:49.014716+00:00",
+    "titulo": "THE MATHEMATICIAN WHO SOLVED AN IMPOSSIBLE PROBLEM (and turned down $1 million)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      2.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
