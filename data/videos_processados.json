@@ -1909,11 +1909,12 @@
   },
   "Ab0xANQAwKg": {
     "data_primeiro": "2026-08-11T11:43:43.318390+00:00",
-    "data_ultimo": "2026-08-11T11:43:43.318390+00:00",
+    "data_ultimo": "2026-09-05T13:32:31.760948+00:00",
     "titulo": "Can you LOSE MONEY investing in ETFs?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      11.4
+      11.4,
+      50.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
