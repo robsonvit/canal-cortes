@@ -4350,5 +4350,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "Bfu8kjnlrTQ": {
+    "data_primeiro": "2026-09-05T02:35:03.845314+00:00",
+    "data_ultimo": "2026-09-05T02:35:03.845314+00:00",
+    "titulo": "CLEBER ROSA - TICARACATICAST | EP 551",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      977.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
