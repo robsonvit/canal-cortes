@@ -521,15 +521,16 @@
   },
   "NTHhJe8CXqk": {
     "data_primeiro": "2026-07-17T14:31:41.705317+00:00",
-    "data_ultimo": "2026-08-15T02:35:27.614369+00:00",
+    "data_ultimo": "2026-09-06T17:03:21.801883+00:00",
     "titulo": "FALHA DE COBERTURA #280: Cristiano Ronaldo is a Company",
     "canal": "Podpah",
     "picos_usados": [
       870.0,
-      875.0
+      875.0,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "w6w6cCnWAag": {
     "data_primeiro": "2026-07-17T20:51:00.912270+00:00",
@@ -2031,14 +2032,15 @@
   },
   "Q5nC63gXGAw": {
     "data_primeiro": "2026-08-12T13:31:32.726617+00:00",
-    "data_ultimo": "2026-08-12T13:31:32.726617+00:00",
+    "data_ultimo": "2026-09-06T17:04:38.766668+00:00",
     "titulo": "How do ETFs simplify investing?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      62.2
+      62.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "pRiGPt571i4": {
     "data_primeiro": "2026-08-12T15:22:45.249025+00:00",
@@ -3449,14 +3451,15 @@
   },
   "tOnOB6aYOyk": {
     "data_primeiro": "2026-08-30T20:01:59.280186+00:00",
-    "data_ultimo": "2026-08-30T20:01:59.280186+00:00",
+    "data_ultimo": "2026-09-06T17:04:13.650181+00:00",
     "titulo": "Something went wrong with the tire on the red Mercedes.",
     "canal": "Flow Podcast",
     "picos_usados": [
-      86.6
+      86.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "n5H95Nrzt7M": {
     "data_primeiro": "2026-08-30T21:01:21.635579+00:00",
@@ -4452,6 +4455,28 @@
     "data_ultimo": "2026-09-06T15:17:34.894104+00:00",
     "titulo": "HOW DID HE END UP AT CORINTHIANS?!",
     "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "RSlpmsPrNjI": {
+    "data_primeiro": "2026-09-06T17:02:55.291500+00:00",
+    "data_ultimo": "2026-09-06T17:02:55.291500+00:00",
+    "titulo": "EIKE BATISTA | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "zO1slC37q4g": {
+    "data_primeiro": "2026-09-06T17:03:47.942299+00:00",
+    "data_ultimo": "2026-09-06T17:03:47.942299+00:00",
+    "titulo": "WHY DO PEOPLE DISAPPEAR? - LOVES OF VENUS",
+    "canal": "Vênus Podcast",
     "picos_usados": [
       -1.0
     ],
