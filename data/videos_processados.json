@@ -3460,14 +3460,15 @@
   },
   "n5H95Nrzt7M": {
     "data_primeiro": "2026-08-30T21:01:21.635579+00:00",
-    "data_ultimo": "2026-08-30T21:01:21.635579+00:00",
+    "data_ultimo": "2026-09-06T15:17:06.752428+00:00",
     "titulo": "OS MAIORES DESAFIOS DA PETZ ",
     "canal": "Festa da Firma",
     "picos_usados": [
-      0
+      0,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Tep_k3YED4w": {
     "data_primeiro": "2026-08-30T22:19:19.830926+00:00",
@@ -4412,15 +4413,49 @@
   },
   "bzwfJueYF1g": {
     "data_primeiro": "2026-09-05T22:20:49.014716+00:00",
-    "data_ultimo": "2026-09-06T02:34:45.348350+00:00",
+    "data_ultimo": "2026-09-06T15:15:42.811239+00:00",
     "titulo": "THE MATHEMATICIAN WHO SOLVED AN IMPOSSIBLE PROBLEM (and turned down $1 million)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       2.2,
       31.9,
-      61.6
+      61.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "KvBvQPOt57A": {
+    "data_primeiro": "2026-09-06T15:16:11.188106+00:00",
+    "data_ultimo": "2026-09-06T15:16:11.188106+00:00",
+    "titulo": "ESPECIAL DE ANO NOVO - PARTE 3 (COMPILADO) - TICARACATICAST | EP 701",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "x7d3DMFTh7s": {
+    "data_primeiro": "2026-09-06T15:16:39.206333+00:00",
+    "data_ultimo": "2026-09-06T15:16:39.206333+00:00",
+    "titulo": "Discover the SECRET of Lawyers Who Make HIGH REVENUE (CRISTIANO FERREIRA) | JOTA JOTA PODCAST #270",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "-1--RuVA0_A": {
+    "data_primeiro": "2026-09-06T15:17:34.894104+00:00",
+    "data_ultimo": "2026-09-06T15:17:34.894104+00:00",
+    "titulo": "HOW DID HE END UP AT CORINTHIANS?!",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
