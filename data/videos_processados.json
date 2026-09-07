@@ -4485,14 +4485,15 @@
   },
   "Z8cyFpO3cXg": {
     "data_primeiro": "2026-09-06T22:20:50.366862+00:00",
-    "data_ultimo": "2026-09-07T09:38:26.612169+00:00",
+    "data_ultimo": "2026-09-07T11:42:06.574092+00:00",
     "titulo": "EINSTEIN CHANGED PHYSICS, BUT WAS ALMOST SHUT OUT BY THE SCIENTIFIC COMMUNITY",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       18.1,
       63.6,
       109.2,
-      154.8
+      154.8,
+      200.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
