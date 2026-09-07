@@ -498,15 +498,16 @@
   },
   "OEe4gOjFdSg": {
     "data_primeiro": "2026-07-16T23:16:36.699987+00:00",
-    "data_ultimo": "2026-09-03T09:51:20.755993+00:00",
-    "titulo": "O FUSION ERA MELHOR?",
+    "data_ultimo": "2026-09-07T22:16:32.644922+00:00",
+    "titulo": "Was Fusion better?",
     "canal": "Flow Podcast",
     "picos_usados": [
       354.1,
-      95.4
+      95.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "9i69XPtwq9g": {
     "data_primeiro": "2026-07-17T14:25:50.620068+00:00",
@@ -3273,14 +3274,15 @@
   },
   "Tae3dJ39cY8": {
     "data_primeiro": "2026-08-29T15:19:04.161133+00:00",
-    "data_ultimo": "2026-08-29T15:19:04.161133+00:00",
+    "data_ultimo": "2026-09-07T22:17:24.067008+00:00",
     "titulo": "COVERAGE FAILURE #277: Soft Feet in Mzoleira's Hands",
     "canal": "Podpah",
     "picos_usados": [
-      231.5
+      231.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ZP8QW-xhQQE": {
     "data_primeiro": "2026-08-29T17:06:52.069647+00:00",
@@ -4550,6 +4552,39 @@
     "data_ultimo": "2026-09-07T19:59:42.377121+00:00",
     "titulo": "Newton Neto e Anselmo Albuquerque (Lean Agency) | Podcast Papagaio Falante",
     "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "CL_5GOdQ4uM": {
+    "data_primeiro": "2026-09-07T22:15:40.334314+00:00",
+    "data_ultimo": "2026-09-07T22:15:40.334314+00:00",
+    "titulo": "WHY DO SO MANY PEOPLE USE QUANTUM PHYSICS TO DECEIVE OTHERS?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "9k9RGc0-16Q": {
+    "data_primeiro": "2026-09-07T22:16:06.736790+00:00",
+    "data_ultimo": "2026-09-07T22:16:06.736790+00:00",
+    "titulo": "HOW THE WRONG PODCAST CONFUSION STARTED",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "kSSnWdQiyPE": {
+    "data_primeiro": "2026-09-07T22:16:58.300941+00:00",
+    "data_ultimo": "2026-09-07T22:16:58.300941+00:00",
+    "titulo": "OS MISTÉRIOS E OS MITOS DA HIGIENE - DR.BACTÉRIA - TICARACATICAST | EP 626",
+    "canal": "Ticaracaticast",
     "picos_usados": [
       -1.0
     ],
