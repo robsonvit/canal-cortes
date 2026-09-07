@@ -4224,14 +4224,15 @@
   },
   "UrE4jhgSiCM": {
     "data_primeiro": "2026-09-03T15:20:13.605321+00:00",
-    "data_ultimo": "2026-09-03T15:20:13.605321+00:00",
+    "data_ultimo": "2026-09-07T19:58:51.438366+00:00",
     "titulo": "COMO CONTRATAR PESSOAS?",
     "canal": "Festa da Firma",
     "picos_usados": [
-      0.2
+      0.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "8upnyECrNZc": {
     "data_primeiro": "2026-09-03T17:09:17.400014+00:00",
@@ -4512,13 +4513,47 @@
   },
   "1ED3cLJQrxQ": {
     "data_primeiro": "2026-09-07T17:12:51.958539+00:00",
-    "data_ultimo": "2026-09-07T17:12:51.958539+00:00",
-    "titulo": "Falha de Cobertura #294 Obrigado a Ser Feliz",
+    "data_ultimo": "2026-09-07T19:58:02.599071+00:00",
+    "titulo": "Falha de Cobertura #294 Forced to Be Happy",
     "canal": "Podpah",
     "picos_usados": [
-      303.9
+      303.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "qjUeeBwJvS8": {
+    "data_primeiro": "2026-09-07T19:58:27.375422+00:00",
+    "data_ultimo": "2026-09-07T19:58:27.375422+00:00",
+    "titulo": "Como Planejar METAS e OBJETIVOS Vencedores para 2026 (JOEL JOTA) | JOTA JOTA PODCAST #269",
+    "canal": "Jota Jota Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "pCDf2qUSZuc": {
+    "data_primeiro": "2026-09-07T19:59:17.386149+00:00",
+    "data_ultimo": "2026-09-07T19:59:17.386149+00:00",
+    "titulo": "Is the quality of football today bad?!",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "dfKDIGcwHq0": {
+    "data_primeiro": "2026-09-07T19:59:42.377121+00:00",
+    "data_ultimo": "2026-09-07T19:59:42.377121+00:00",
+    "titulo": "Newton Neto e Anselmo Albuquerque (Lean Agency) | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
