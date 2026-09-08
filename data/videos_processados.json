@@ -427,16 +427,17 @@
   },
   "LUVJbPRaGbY": {
     "data_primeiro": "2026-07-08T14:27:33.692472+00:00",
-    "data_ultimo": "2026-09-05T01:12:36.601635+00:00",
+    "data_ultimo": "2026-09-08T13:29:10.918120+00:00",
     "titulo": "MORE THAN 100 RARE CARS",
     "canal": "Flow Podcast",
     "picos_usados": [
       702.8,
       707.8,
-      131.4
+      131.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "zw5XEvJqVxc": {
     "data_primeiro": "2026-07-15T14:53:13.459210+00:00",
@@ -2354,14 +2355,15 @@
   },
   "LZHbBKV8w64": {
     "data_primeiro": "2026-08-15T09:41:30.613291+00:00",
-    "data_ultimo": "2026-08-15T09:41:30.613291+00:00",
+    "data_ultimo": "2026-09-08T13:28:12.793794+00:00",
     "titulo": "HOW TO BUILD A WINNING COMPANY (with G4 Educação)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      28.1
+      28.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "2lbn0fn_wR4": {
     "data_primeiro": "2026-08-15T11:46:54.628387+00:00",
@@ -4603,5 +4605,38 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "fMJu9TN8zBE": {
+    "data_primeiro": "2026-09-08T13:27:43.661938+00:00",
+    "data_ultimo": "2026-09-08T13:27:43.661938+00:00",
+    "titulo": "DÉCIO PICCININI | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "hIwGA8nxOHQ": {
+    "data_primeiro": "2026-09-08T13:28:42.003246+00:00",
+    "data_ultimo": "2026-09-08T13:28:42.003246+00:00",
+    "titulo": "I'VE ALREADY THOUGHT ABOUT GETTING BACK WITH MY EX (and you too) - LOVES OF VENUS",
+    "canal": "Vênus Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "u8Yzie66_qg": {
+    "data_primeiro": "2026-09-08T13:29:39.852899+00:00",
+    "data_ultimo": "2026-09-08T13:29:39.852899+00:00",
+    "titulo": "KAREN KARDASHA - TICARACATICAST | EP 571",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
