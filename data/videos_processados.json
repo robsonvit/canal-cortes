@@ -4592,5 +4592,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "bPvP7zUwiqc": {
+    "data_primeiro": "2026-09-08T09:38:11.362101+00:00",
+    "data_ultimo": "2026-09-08T09:38:11.362101+00:00",
+    "titulo": "BEHIND THE SCENES OF THE ATTEMPT TO BRING RONY TO TIMÃO!",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      14.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
