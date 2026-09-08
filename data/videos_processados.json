@@ -1638,11 +1638,12 @@
   },
   "VEFJP2YeV8M": {
     "data_primeiro": "2026-08-08T00:03:30.488520+00:00",
-    "data_ultimo": "2026-08-08T00:03:30.488520+00:00",
+    "data_ultimo": "2026-09-08T20:05:13.363293+00:00",
     "titulo": "The Secret to High-Performance Sales (Dani Martins) | JOTA JOTA PODCAST #272",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      2017.6
+      2017.6,
+      703.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
