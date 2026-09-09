@@ -61,10 +61,22 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
 
     tentativas = [
         {
+            "desc": "Prioridade 0: 1080p+ | Client Mobile (ios,android,mweb)",
+            "cmd": [
+                "yt-dlp", "--force-ipv4",
+                "--download-sections", trecho_str,
+                "--extractor-args", "youtube:player_client=ios,android,mweb",
+                "-f", FILTRO_1080P,
+                "--merge-output-format", "mkv",
+                "-o", output_path,
+                "--no-playlist", "--no-warnings", "--quiet",
+            ] + (["--cookies", "cookies.txt"] if os.path.exists("cookies.txt") else []) + [video_url],
+        },
+        {
             # Usa o default do yt-dlp (curl-cffi/deno embutido lidará com bot check via WARP)
             "desc": "Prioridade 1: 1080p+ | Client Padrão (Sem forçar player, confia no WARP)",
             "cmd": [
-                "yt-dlp",
+                "yt-dlp", "--force-ipv4",
                 "--download-sections", trecho_str,
                 "-f", FILTRO_1080P,
                 "--merge-output-format", "mkv",
@@ -76,7 +88,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             # Força cliente tv (tvhtml5simples) que costuma não ter check pesado e retorna 1080p
             "desc": "Prioridade 2: 1080p+ | player_client=tv",
             "cmd": [
-                "yt-dlp",
+                "yt-dlp", "--force-ipv4",
                 "--download-sections", trecho_str,
                 "--extractor-args", "youtube:player_client=tv",
                 "-f", FILTRO_1080P,
@@ -89,7 +101,7 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
             # Força o client web padrão com bypass de restrição de idade
             "desc": "Prioridade 3: 1080p+ | player_client=web + bypass cookies",
             "cmd": [
-                "yt-dlp",
+                "yt-dlp", "--force-ipv4",
                 "--download-sections", trecho_str,
                 "--extractor-args", "youtube:player_client=web",
                 "--age-limit", "21",

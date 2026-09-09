@@ -74,48 +74,70 @@ def _baixar_audio_expandido(
 
     inicio_exp = max(0.0, inicio_s - JANELA_EXPANSAO_S)
     fim_exp    = fim_s + JANELA_EXPANSAO_S
-    trecho_str = f"*{_formatar_tempo(inicio_exp)}-{_formatar_tempo(fim_exp)}"
 
     audio_dir  = os.path.join(output_dir, "tmp")
     os.makedirs(audio_dir, exist_ok=True)
+    full_audio_path = os.path.join(audio_dir, "_full_audio.mp3")
     audio_path = os.path.join(audio_dir, "_semantico_audio.mp3")
 
-    print(f"  ðŸŽ™ï¸   [SemÃ¢ntico] Baixando Ã¡udio expandido: {_formatar_tempo(inicio_exp)} â†’ {_formatar_tempo(fim_exp)}...")
+    print(f"  🎙️  [Semântico] Baixando áudio completo para corte local: {_formatar_tempo(inicio_exp)} → {_formatar_tempo(fim_exp)}...")
 
-    # Tenta com anti-bot completo primeiro
+    # Tenta com anti-bot completo primeiro (sem download-sections)
     cmds = [
         args_base_ytdlp([
-            "--download-sections", trecho_str,
+            "--force-ipv4",
             "-f", "bestaudio/best",
-            "-x",                              # Extrai apenas Ã¡udio
+            "-x",                              # Extrai apenas áudio
             "--audio-format", "mp3",
-            "--audio-quality", "3",            # Qualidade mÃ©dia â€” suficiente para ASR
-            "-o", audio_path,
+            "--audio-quality", "3",            # Qualidade média
+            "-o", full_audio_path,
             "--quiet",
         ]) + [video_url],
         [
             "yt-dlp",
-            "--download-sections", trecho_str,
+            "--force-ipv4",
             "--extractor-args", "youtube:player_client=web,android,tv_downgraded",
             "-f", "bestaudio/best",
             "-x",
             "--audio-format", "mp3",
             "--audio-quality", "3",
-            "-o", audio_path,
+            "-o", full_audio_path,
             "--no-playlist", "--no-warnings", "--quiet",
             video_url,
         ],
     ]
 
     for cmd in cmds:
+        if os.path.exists(full_audio_path):
+            os.remove(full_audio_path)
+            
         resultado = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300)
-        # yt-dlp com -x pode gerar .mp3 diretamente ou com sufixo diferente
-        arquivo_real = _encontrar_audio(audio_path)
+        arquivo_real = _encontrar_audio(full_audio_path)
+        
         if resultado.returncode == 0 and arquivo_real:
             tamanho_mb = os.path.getsize(arquivo_real) / (1024 * 1024)
-            print(f"  âœ… [SemÃ¢ntico] Ã udio baixado: {arquivo_real} ({tamanho_mb:.1f} MB)")
-            return arquivo_real, inicio_exp
-        print(f"  âš ï¸   [SemÃ¢ntico] Falhou: {resultado.stderr[-100:]}")
+            print(f"  ✅ [Semântico] Áudio completo baixado: {arquivo_real} ({tamanho_mb:.1f} MB)")
+            
+            # Corta localmente
+            print(f"  ✂️  Cortando áudio localmente...")
+            cmd_corte = [
+                "ffmpeg", "-y",
+                "-i", arquivo_real,
+                "-ss", str(inicio_exp),
+                "-to", str(fim_exp),
+                "-c", "copy",
+                audio_path
+            ]
+            res_corte = subprocess.run(cmd_corte, capture_output=True, text=True, encoding='utf-8', errors='replace')
+            if res_corte.returncode == 0 and os.path.exists(audio_path):
+                # Opcional: remove o audio completo
+                os.remove(arquivo_real)
+                return audio_path, inicio_exp
+            else:
+                print(f"  ⚠️  Falha no corte local do áudio: {res_corte.stderr[-100:]}")
+                return arquivo_real, 0.0  # Fallback para o áudio inteiro
+
+        print(f"  ⚠️  [Semântico] Falhou: {resultado.stderr[-100:]}")
 
     raise RuntimeError(f"[SemÃ¢ntico] NÃ£o foi possÃ­vel baixar Ã¡udio expandido de {video_url}")
 
