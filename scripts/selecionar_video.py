@@ -322,6 +322,8 @@ def selecionar_video() -> dict:
     # Lógica de intercalação (alternar canais e vídeos)
     ultimo_uso_canal = {}
     ultimo_uso_video = {}
+    ultimo_canal_global = None
+    maior_data_global = datetime.min.replace(tzinfo=timezone.utc)
 
     for vid, info in processados.items():
         if isinstance(info, dict) and "data_ultimo" in info:
@@ -331,6 +333,18 @@ def selecionar_video() -> dict:
                 ultimo_uso_canal[c] = dt
             if vid not in ultimo_uso_video or dt > ultimo_uso_video[vid]:
                 ultimo_uso_video[vid] = dt
+            if dt > maior_data_global:
+                maior_data_global = dt
+                ultimo_canal_global = c
+
+    # Regra Magna: Evitar o último canal postado consecutivamente
+    if ultimo_canal_global and len(canais_ativos) > 1:
+        candidatos_sem_ultimo = [v for v in todos_candidatos if v["canal"] != ultimo_canal_global]
+        if candidatos_sem_ultimo:
+            print(f"  🔄 Regra de Rotação: Evitando último canal postado ({ultimo_canal_global}).")
+            todos_candidatos = candidatos_sem_ultimo
+        else:
+            print(f"  ⚠️ Apenas vídeos do último canal ({ultimo_canal_global}) estão disponíveis.")
 
     # Data mínima para canais/vídeos nunca usados
     min_date = datetime.min.replace(tzinfo=timezone.utc)
@@ -345,6 +359,17 @@ def selecionar_video() -> dict:
     
     # Ordena priorizando canais menos recentes e, em seguida, vídeos menos recentes
     todos_candidatos.sort(key=chave_ordenacao)
+    
+    print("\n  📊 Fila de Rotação de Canais (próximos da fila):")
+    canais_vistos = set()
+    for v in todos_candidatos:
+        if v["canal"] not in canais_vistos:
+            canais_vistos.add(v["canal"])
+            if len(canais_vistos) <= 5:
+                ult_uso = ultimo_uso_canal.get(v["canal"])
+                str_uso = ult_uso.strftime("%d/%m %H:%M") if ult_uso else "Nunca"
+                print(f"     - {v['canal']} (Último uso: {str_uso})")
+    
     escolhido = todos_candidatos[0]
 
     print(f"\n  🎬 Vídeo selecionado:")

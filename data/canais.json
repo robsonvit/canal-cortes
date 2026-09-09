@@ -27,24 +27,6 @@
       "ativo": true
     },
     {
-      "nome": "Festa da Firma",
-      "url": "https://www.youtube.com/@FestadaFirmaPodcast",
-      "handle": "@FestadaFirmaPodcast",
-      "ativo": true
-    },
-    {
-      "nome": "Vênus Podcast",
-      "url": "https://www.youtube.com/@venuspdc",
-      "handle": "@venuspdc",
-      "ativo": true
-    },
-    {
-      "nome": "Papagaio Falante",
-      "url": "https://www.youtube.com/@PodcastPapagaioFalante",
-      "handle": "@PodcastPapagaioFalante",
-      "ativo": true
-    },
-    {
       "nome": "Benja Me Mucho",
       "url": "https://www.youtube.com/@benjamemucho",
       "handle": "@benjamemucho",
@@ -66,6 +48,36 @@
       "nome": "Ciência Sem Fim",
       "url": "https://www.youtube.com/@cienciasemfim",
       "handle": "@cienciasemfim",
+      "ativo": true
+    },
+    {
+      "nome": "Achismos TV",
+      "url": "https://www.youtube.com/@AchismosTV",
+      "handle": "@AchismosTV",
+      "ativo": true
+    },
+    {
+      "nome": "PrimoCast",
+      "url": "https://www.youtube.com/@PrimoCast",
+      "handle": "@PrimoCast",
+      "ativo": true
+    },
+    {
+      "nome": "LendaCast",
+      "url": "https://www.youtube.com/@danpireslenda",
+      "handle": "@danpireslenda",
+      "ativo": true
+    },
+    {
+      "nome": "Divã Podcast",
+      "url": "https://www.youtube.com/@andrea.vermont",
+      "handle": "@andrea.vermont",
+      "ativo": true
+    },
+    {
+      "nome": "Alanzoca",
+      "url": "https://www.youtube.com/@alanzoca",
+      "handle": "@alanzoca",
       "ativo": true
     }
   ]
