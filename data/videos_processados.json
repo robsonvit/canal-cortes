@@ -4644,26 +4644,61 @@
   },
   "ibffWskchrk": {
     "data_primeiro": "2026-09-08T22:20:59.715981+00:00",
-    "data_ultimo": "2026-09-09T02:36:13.570451+00:00",
+    "data_ultimo": "2026-09-09T15:15:48.813084+00:00",
     "titulo": "ARCHIMEDES MADE CALCULATIONS THAT WOULD ONLY BE FORMALIZED 2,000 YEARS LATER",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       43.9,
-      115.4
+      115.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "FIVlimr3FVM": {
     "data_primeiro": "2026-09-09T01:11:51.076553+00:00",
-    "data_ultimo": "2026-09-09T11:54:09.853594+00:00",
+    "data_ultimo": "2026-09-09T15:16:02.786138+00:00",
     "titulo": "The MISTAKES That Make Companies Lose Money (DANI MARTINS) | JOTA JOTA PODCAST #294",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       774.8,
-      1577.1
+      1577.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "3iUbwW9VcFM": {
+    "data_primeiro": "2026-09-09T15:15:34.906084+00:00",
+    "data_ultimo": "2026-09-09T15:15:34.906084+00:00",
+    "titulo": "PCD SHOW - TIMER GAME - DILERA, TOURETTE REPORTER, RIBEIRO and BAPTISTA",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "kAWBElXnAXU": {
+    "data_primeiro": "2026-09-09T15:16:27.873656+00:00",
+    "data_ultimo": "2026-09-09T15:16:27.873656+00:00",
+    "titulo": "MARCELO PAZ | BENJA ME MUCHO #168",
+    "canal": "Benja Me Mucho",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "h6wX_rOPnB0": {
+    "data_primeiro": "2026-09-09T15:16:52.705937+00:00",
+    "data_ultimo": "2026-09-09T15:16:52.705937+00:00",
+    "titulo": "André Mantovanni | Podcast Papagaio Falante",
+    "canal": "Papagaio Falante",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
