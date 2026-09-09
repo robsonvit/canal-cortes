@@ -4644,11 +4644,12 @@
   },
   "ibffWskchrk": {
     "data_primeiro": "2026-09-08T22:20:59.715981+00:00",
-    "data_ultimo": "2026-09-08T22:20:59.715981+00:00",
+    "data_ultimo": "2026-09-09T02:36:13.570451+00:00",
     "titulo": "ARCHIMEDES MADE CALCULATIONS THAT WOULD ONLY BE FORMALIZED 2,000 YEARS LATER",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      43.9
+      43.9,
+      115.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
