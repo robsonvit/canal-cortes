@@ -347,15 +347,16 @@
   },
   "H0I1_Dfs90I": {
     "data_primeiro": "2026-07-06T23:13:44.858686+00:00",
-    "data_ultimo": "2026-09-03T01:38:15.451953+00:00",
-    "titulo": "O EPISÓDIO MAIS CAFAJESTE COM NEGOT E BIEL - Rango Brabo #137",
+    "data_ultimo": "2026-09-09T22:16:50.709247+00:00",
+    "titulo": "THE MOST SHAMELESS EPISODE WITH NEGOT AND BIEL - Rango Brabo #137",
     "canal": "Podpah",
     "picos_usados": [
       2240.8,
-      437.1
+      437.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Kq2Gew7e6-A": {
     "data_primeiro": "2026-07-07T14:25:36.463229+00:00",
@@ -3266,16 +3267,17 @@
   },
   "WdwqsnjqOFE": {
     "data_primeiro": "2026-08-29T13:30:04.353889+00:00",
-    "data_ultimo": "2026-09-08T02:35:52.276502+00:00",
+    "data_ultimo": "2026-09-09T22:17:16.118020+00:00",
     "titulo": "PREMONIÇÃO AMOROSA PRO CEARÁ! ❤️‍🔥",
     "canal": "Festa da Firma",
     "picos_usados": [
       7.8,
       43.1,
-      78.4
+      78.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Tae3dJ39cY8": {
     "data_primeiro": "2026-08-29T15:19:04.161133+00:00",
@@ -3357,15 +3359,16 @@
   },
   "5EQ8l9Dfahg": {
     "data_primeiro": "2026-08-30T09:36:41.098310+00:00",
-    "data_ultimo": "2026-09-05T17:13:13.176501+00:00",
+    "data_ultimo": "2026-09-09T22:17:41.934420+00:00",
     "titulo": "FILIPE RET and IGOR in an ADULT CHAT",
     "canal": "Flow Podcast",
     "picos_usados": [
       265.6,
-      558.8
+      558.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "89c44HS43HU": {
     "data_primeiro": "2026-08-30T11:40:31.905986+00:00",
@@ -4711,5 +4714,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "OdMS-5ID4MQ": {
+    "data_primeiro": "2026-09-09T22:15:59.760947+00:00",
+    "data_ultimo": "2026-09-09T22:15:59.760947+00:00",
+    "titulo": "HAS MODERN MAN BEEN \"DOMESTICATED\" BY HIS OWN EVOLUTION?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "TQpKz9GrKKQ": {
+    "data_primeiro": "2026-09-09T22:16:25.162994+00:00",
+    "data_ultimo": "2026-09-09T22:16:25.162994+00:00",
+    "titulo": "JULIO ETORRE + TINA ROMA (AS VOZES QUE VOCÊ CONHECE) - TICARACATICAST | EP 617",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
