@@ -4758,5 +4758,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "l_kBvIqRtPY": {
+    "data_primeiro": "2026-09-10T13:50:21.064917+00:00",
+    "data_ultimo": "2026-09-10T13:54:52.321863+00:00",
+    "titulo": "MY FAMILY'S SUPERNATURAL STORIES",
+    "canal": "LendaCast",
+    "picos_usados": [
+      226.6,
+      480.8,
+      734.9,
+      989.1,
+      1243.2,
+      1497.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
