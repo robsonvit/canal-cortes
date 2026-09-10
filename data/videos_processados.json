@@ -4856,5 +4856,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "SLhD61UiTf8": {
+    "data_primeiro": "2026-09-10T20:44:00.476213+00:00",
+    "data_ultimo": "2026-09-10T20:56:27.523333+00:00",
+    "titulo": "13 OU 22: PERSONAGENS DE DESENHOS | #VARANDAGOURMET #70",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      476.9,
+      981.4,
+      1485.8,
+      1990.2,
+      2494.6,
+      2999.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
