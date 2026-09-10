@@ -157,13 +157,43 @@ def main():
     _titulo(4, 7, "Baixando trecho (pontos de corte semanticamente ajustados)...")
     from scripts.baixar_trecho import baixar_trecho
 
-    video_path = baixar_trecho(
-        video_url,
-        inicio_s=inicio_s_final,
-        fim_s=fim_s_final,
-        output_dir=OUTPUT_DIR,
-    )
-    print(f"\n✅ Trecho baixado: {video_path}")
+    video_path = None
+    for idx_pico, pico_tentativa in enumerate(picos_disponiveis):
+        if idx_pico > 0:
+            # Reajusta para o próximo pico
+            pico = pico_tentativa
+            inicio_s_final = pico["inicio_s"]
+            fim_s_final    = pico["fim_s"]
+            print(f"\n  🔄 Tentando pico alternativo #{idx_pico+1} ({inicio_s_final:.1f}s → {fim_s_final:.1f}s)...")
+
+        try:
+            video_path = baixar_trecho(
+                video_url,
+                inicio_s=inicio_s_final,
+                fim_s=fim_s_final,
+                output_dir=OUTPUT_DIR,
+            )
+            print(f"\n✅ Trecho baixado: {video_path}")
+            break  # Download bem-sucedido, sai do loop
+        except RuntimeError as e:
+            print(f"\n  ⚠️  Pico #{idx_pico+1} falhou no download: {e}")
+            print(f"  🗑️  Marcando pico {pico['inicio_s']:.1f}s como esgotado e tentando o próximo...")
+            # Marca este pico específico como esgotado para não tentar novamente
+            salvar_processado(
+                video_id,
+                video_info,
+                pico_inicio_s=pico["inicio_s"],
+                total_picos=len(todos_picos),
+            )
+            if idx_pico >= min(2, len(picos_disponiveis) - 1):
+                print(f"\n❌ ERRO CRÍTICO: Todos os {idx_pico+1} picos tentados falharam no download.")
+                sys.exit(1)
+            continue
+
+    if video_path is None:
+        print("\n❌ ERRO CRÍTICO: Nenhum pico disponível produziu um download válido.")
+        sys.exit(1)
+
 
     # ──────────────────────────────────────────────────────────────────────────
     # PASSO 4 — Transcrever áudio com Groq Whisper

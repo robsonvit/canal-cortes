@@ -54,9 +54,10 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
     print(f"  ⬇️  Baixando trecho (com margem) {_formatar_tempo(inicio_dl)} → {_formatar_tempo(fim_s)}...")
     print(f"     URL: {video_url}")
 
-    # ── TRAVA DE QUALIDADE: NENHUMA tentativa aceita abaixo de 1080p ─────────
-    # O fallback muda a estratégia anti-bot, NÃO a qualidade mínima.
-    # Se todas as 4 tentativas falharem em 1080p, o pipeline aborta com erro.
+    # ── TRAVA DE QUALIDADE: Tenta 1080p em todas as estratégias; fallback final para 720p ──
+    # As primeiras 4 tentativas exigem 1080p (apenas muda a estratégia anti-bot).
+    # A 5ª tentativa é um fallback para 720p caso o vídeo simplesmente não tenha 1080p
+    # (ex: vídeo antigo do canal, upload original em baixa resolução).
     FILTRO_1080P = "bestvideo[height>=1080]+bestaudio/best[height>=1080]"
 
     tentativas = [
@@ -110,11 +111,28 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                 "-o", output_path,
                 "--no-playlist", "--no-warnings", "--quiet",
             ] + (["--cookies", "cookies.txt"] if os.path.exists("cookies.txt") else []) + [video_url],
+        },
+        {
+            # Fallback final: aceita 720p se nenhuma tentativa anterior funcionou com 1080p
+            # Isso resolve casos onde o vídeo não foi upado em 1080p pelo criador
+            "desc": "Prioridade 4: FALLBACK 720p | bestvideo[height>=720] (vídeo não tem 1080p)",
+            "filtro": "bestvideo[height>=720]+bestaudio/best[height>=720]",
+            "tamanho_min_mb": 2.0,
+            "cmd": [
+                "yt-dlp", "--force-ipv4",
+                "--download-sections", trecho_str,
+                "-f", "bestvideo[height>=720]+bestaudio/best[height>=720]",
+                "--merge-output-format", "mkv",
+                "-o", output_path,
+                "--no-playlist", "--no-warnings", "--quiet",
+            ] + (["--cookies", "cookies.txt"] if os.path.exists("cookies.txt") else []) + [video_url],
         }
     ]
 
     for t in tentativas:
         print(f"  🔄 {t['desc']}...")
+        # Tamanho mínimo específico da tentativa (fallback 720p aceita 2 MB)
+        tamanho_min_mb = t.get("tamanho_min_mb", TAMANHO_MIN_MB)
         # Remove arquivo temp se existir de tentativa anterior
         if os.path.exists(output_path):
             os.remove(output_path)
@@ -128,20 +146,20 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                 print(f"  ✅ Trecho cru baixado: {arquivo} ({tamanho_mb:.1f} MB)")
 
                 # ── Validação de tamanho mínimo ────────────────────────────────
-                # Um trecho 1080p de 65s deve ter pelo menos 5 MB.
-                # Arquivos menores que isso indicam download corrompido ou stream parcial.
-                TAMANHO_MIN_MB = 5.0
-                if tamanho_mb < TAMANHO_MIN_MB:
-                    print(f"  🚫 ARQUIVO MUITO PEQUENO: {tamanho_mb:.1f} MB < {TAMANHO_MIN_MB} MB. Download corrompido ou incompleto. Descartando...")
+                # Usa o tamanho mínimo específico da tentativa (fallback 720p aceita 2 MB)
+                if tamanho_mb < tamanho_min_mb:
+                    print(f"  🚫 ARQUIVO MUITO PEQUENO: {tamanho_mb:.1f} MB < {tamanho_min_mb} MB. Download corrompido ou incompleto. Descartando...")
                     os.remove(arquivo)
                     continue
 
                 # ── Verificação de qualidade pós-download ─────────────────────
+                # O fallback (720p) tem threshold reduzido
+                resolucao_min = 720 if "720p" in t["desc"] else 1080
                 resolucao = _verificar_resolucao(arquivo)
                 if resolucao:
                     print(f"  🔍 Resolução detectada: {resolucao[0]}x{resolucao[1]}")
-                    if resolucao[1] < 1080:
-                        print(f"  🚫 TRAVA DE QUALIDADE: {resolucao[1]}p < 1080p. Descartando e tentando próxima estratégia...")
+                    if resolucao[1] < resolucao_min:
+                        print(f"  🚫 TRAVA DE QUALIDADE: {resolucao[1]}p < {resolucao_min}p. Descartando e tentando próxima estratégia...")
                         os.remove(arquivo)
                         continue
                     else:
@@ -186,10 +204,10 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
         print(f"  ⚠️  Falhou: {resultado.stderr[-150:]}")
 
     raise RuntimeError(
-        f"\n🚫 ERRO DE QUALIDADE: Todas as {len(tentativas)} tentativas de download em 1080p+ falharam."
+        f"\n🚫 ERRO DE DOWNLOAD: Todas as {len(tentativas)} tentativas falharam (incluindo fallback 720p)."
         f"\n   URL: {video_url}"
-        f"\n   Isso pode indicar que o vídeo não está disponível em 1080p ou bloqueio anti-bot."
-        f"\n   NOTA: O pipeline NÃO aceita vídeos abaixo de 1080p por política de qualidade."
+        f"\n   Isso pode indicar bloqueio anti-bot severo ou vídeo indisponível nessa região."
+        f"\n   O pipeline tentará o próximo pico/vídeo disponível."
     )
 
 
