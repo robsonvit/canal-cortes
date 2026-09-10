@@ -131,8 +131,8 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
 
     for t in tentativas:
         print(f"  🔄 {t['desc']}...")
-        # Tamanho mínimo específico da tentativa (fallback 720p aceita 2 MB)
-        tamanho_min_mb = t.get("tamanho_min_mb", TAMANHO_MIN_MB)
+        # Tamanho mínimo específico da tentativa (padrão 5 MB para 1080p, 2 MB para fallback 720p)
+        tamanho_min_mb = t.get("tamanho_min_mb", 5.0)
         # Remove arquivo temp se existir de tentativa anterior
         if os.path.exists(output_path):
             os.remove(output_path)

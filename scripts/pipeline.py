@@ -159,11 +159,12 @@ def main():
 
     video_path = None
     for idx_pico, pico_tentativa in enumerate(picos_disponiveis):
+        # Sempre atualiza 'pico' para o pico atual (inclusive no idx=0)
+        pico = pico_tentativa
+        inicio_s_final = pico["inicio_s"]
+        fim_s_final    = pico["fim_s"]
+
         if idx_pico > 0:
-            # Reajusta para o próximo pico
-            pico = pico_tentativa
-            inicio_s_final = pico["inicio_s"]
-            fim_s_final    = pico["fim_s"]
             print(f"\n  🔄 Tentando pico alternativo #{idx_pico+1} ({inicio_s_final:.1f}s → {fim_s_final:.1f}s)...")
 
         try:
@@ -176,8 +177,8 @@ def main():
             print(f"\n✅ Trecho baixado: {video_path}")
             break  # Download bem-sucedido, sai do loop
         except RuntimeError as e:
-            print(f"\n  ⚠️  Pico #{idx_pico+1} falhou no download: {e}")
-            print(f"  🗑️  Marcando pico {pico['inicio_s']:.1f}s como esgotado e tentando o próximo...")
+            print(f"\n  ⚠️  Pico #{idx_pico+1} ({pico['inicio_s']:.1f}s) falhou no download.")
+            print(f"  🗑️  Marcando pico como esgotado e tentando o próximo...")
             # Marca este pico específico como esgotado para não tentar novamente
             salvar_processado(
                 video_id,
@@ -185,8 +186,17 @@ def main():
                 pico_inicio_s=pico["inicio_s"],
                 total_picos=len(todos_picos),
             )
-            if idx_pico >= min(2, len(picos_disponiveis) - 1):
+            max_tentativas = min(3, len(picos_disponiveis))
+            if idx_pico >= max_tentativas - 1:
                 print(f"\n❌ ERRO CRÍTICO: Todos os {idx_pico+1} picos tentados falharam no download.")
+                print(f"   Marcando vídeo {video_id} como completamente esgotado para evitar loops...")
+                # Marca todos os picos do vídeo como esgotados
+                for p_extra in picos_disponiveis[idx_pico+1:]:
+                    salvar_processado(
+                        video_id, video_info,
+                        pico_inicio_s=p_extra["inicio_s"],
+                        total_picos=len(todos_picos),
+                    )
                 sys.exit(1)
             continue
 
