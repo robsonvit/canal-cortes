@@ -50,7 +50,7 @@ Texto: {texto[:1000]}"""
 
     try:
         resp = cliente.chat.completions.create(
-            model="minimax/minimax-m3:free",
+            model="google/gemma-4-31b-it:free",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
             max_tokens=20,

@@ -127,6 +127,15 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                 tamanho_mb = os.path.getsize(arquivo) / (1024 * 1024)
                 print(f"  ✅ Trecho cru baixado: {arquivo} ({tamanho_mb:.1f} MB)")
 
+                # ── Validação de tamanho mínimo ────────────────────────────────
+                # Um trecho 1080p de 65s deve ter pelo menos 5 MB.
+                # Arquivos menores que isso indicam download corrompido ou stream parcial.
+                TAMANHO_MIN_MB = 5.0
+                if tamanho_mb < TAMANHO_MIN_MB:
+                    print(f"  🚫 ARQUIVO MUITO PEQUENO: {tamanho_mb:.1f} MB < {TAMANHO_MIN_MB} MB. Download corrompido ou incompleto. Descartando...")
+                    os.remove(arquivo)
+                    continue
+
                 # ── Verificação de qualidade pós-download ─────────────────────
                 resolucao = _verificar_resolucao(arquivo)
                 if resolucao:
@@ -157,12 +166,22 @@ def baixar_trecho(video_url: str, inicio_s: float, fim_s: float, output_dir: str
                 res_trim = subprocess.run(cmd_trim, capture_output=True, text=True, encoding='utf-8', errors='replace')
                 if res_trim.returncode == 0 and os.path.exists(final_path):
                     t_mb = os.path.getsize(final_path) / (1024 * 1024)
+                    if t_mb < 1.0:
+                        print(f"  🚫 ARQUIVO FINAL MUITO PEQUENO: {t_mb:.1f} MB. Recodificação falhou silenciosamente. Descartando...")
+                        os.remove(final_path)
+                        if os.path.exists(arquivo):
+                            os.remove(arquivo)
+                        continue
                     print(f"  ✅ Corte exato concluído: {final_path} ({t_mb:.1f} MB)")
                     return final_path
                 else:
                     print(f"  ⚠️  Falha ao aparar trecho: {res_trim.stderr[-200:]}")
-                    # Retorna o arquivo bruto em caso de falha extrema
-                    return arquivo
+                    # NÃO retorna arquivo bruto corrompido — tenta próxima estratégia
+                    if os.path.exists(arquivo):
+                        os.remove(arquivo)
+                    if os.path.exists(final_path):
+                        os.remove(final_path)
+                    continue
 
         print(f"  ⚠️  Falhou: {resultado.stderr[-150:]}")
 
