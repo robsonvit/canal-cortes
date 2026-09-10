@@ -4774,5 +4774,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "fe8eeJN_f2w": {
+    "data_primeiro": "2026-09-10T15:15:48.058771+00:00",
+    "data_ultimo": "2026-09-10T15:16:00.417239+00:00",
+    "titulo": "Nobody's  Home (Trabalho de Inglês)",
+    "canal": "Alanzoca",
+    "picos_usados": [
+      4.4,
+      36.2,
+      68.1,
+      99.9,
+      131.8,
+      163.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
