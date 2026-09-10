@@ -4872,5 +4872,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "g-MKSF8DyQY": {
+    "data_primeiro": "2026-09-10T21:06:44.739504+00:00",
+    "data_ultimo": "2026-09-10T21:06:44.739504+00:00",
+    "titulo": "THE BIGGEST REASON YOU STAY POOR NOBODY TALKS ABOUT THIS",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      34.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
