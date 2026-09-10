@@ -4883,5 +4883,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "E6Ep5lGDAE0": {
+    "data_primeiro": "2026-09-10T22:20:38.449797+00:00",
+    "data_ultimo": "2026-09-10T22:22:35.399274+00:00",
+    "titulo": "WHY DO BEAUTY, HUMOR, AND INTELLIGENCE MATTER SO MUCH IN ATTRACTION?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      132.1,
+      291.6,
+      451.2,
+      610.8,
+      770.4,
+      929.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
