@@ -5008,5 +5008,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "o-EFsWVXsck": {
+    "data_primeiro": "2026-09-11T15:51:14.291778+00:00",
+    "data_ultimo": "2026-09-11T16:24:22.435226+00:00",
+    "titulo": "P4CT0, PECADO E MALDIÇÃO: OS RELATOS DE UM PADRE EXORCISTA - Padre Iágaro Domingos | LendaCast #304",
+    "canal": "LendaCast",
+    "picos_usados": [
+      1635.1,
+      3297.6,
+      4960.2,
+      6622.8,
+      8285.4,
+      9947.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
