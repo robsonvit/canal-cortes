@@ -4926,5 +4926,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "Qdcry-ydcUM": {
+    "data_primeiro": "2026-09-11T09:48:00.553045+00:00",
+    "data_ultimo": "2026-09-11T10:00:08.816779+00:00",
+    "titulo": "COMO É A REALIDADE DE VIVER NA ÍNDIA SENDO BRASILEIRA | #3CONTINENTES #137",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      525.4,
+      1078.2,
+      1631.1,
+      2183.9,
+      2736.8,
+      3289.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
