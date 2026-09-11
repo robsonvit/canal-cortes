@@ -5057,5 +5057,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "72E25Y7eIHU": {
+    "data_primeiro": "2026-09-11T22:20:58.217249+00:00",
+    "data_ultimo": "2026-09-11T22:20:58.217249+00:00",
+    "titulo": "CRISPR: CAN SCIENCE ALREADY EDIT HUMAN EMBRYOS?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      7.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
