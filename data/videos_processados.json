@@ -4910,5 +4910,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "aLWVf1rLW-E": {
+    "data_primeiro": "2026-09-11T02:43:18.060721+00:00",
+    "data_ultimo": "2026-09-11T02:57:42.222560+00:00",
+    "titulo": "HE IS A GRAVEDIGGER AND TELLS WHAT HE SAW IN THE CEMETERY",
+    "canal": "LendaCast",
+    "picos_usados": [
+      163.5,
+      354.5,
+      545.5,
+      736.5,
+      927.5,
+      1118.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
