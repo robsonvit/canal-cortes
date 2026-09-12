@@ -5100,5 +5100,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "w7Q2Fa9g_Ec": {
+    "data_primeiro": "2026-09-12T09:43:13.264999+00:00",
+    "data_ultimo": "2026-09-12T09:43:13.264999+00:00",
+    "titulo": "The Routine of One of the Greatest Jiu-Jitsu Champions | 24 Hours with Fábio Gurgel",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      529.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
