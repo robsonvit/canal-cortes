@@ -5068,5 +5068,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "YyTGsinn0lM": {
+    "data_primeiro": "2026-09-12T01:16:56.581286+00:00",
+    "data_ultimo": "2026-09-12T01:33:37.073557+00:00",
+    "titulo": "NIGHT TOUR OF ARAÇÁ CEMETERY IN SÃO PAULO - with Thiago de Souza",
+    "canal": "LendaCast",
+    "picos_usados": [
+      606.6,
+      1240.8,
+      1874.9,
+      2509.1,
+      3143.2,
+      3777.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
