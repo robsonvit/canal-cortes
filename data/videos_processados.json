@@ -5166,5 +5166,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "8uvCMnlqp10": {
+    "data_primeiro": "2026-09-12T21:05:58.214590+00:00",
+    "data_ultimo": "2026-09-12T21:09:13.392355+00:00",
+    "titulo": "Anxiety May Just Be a Warning Sign | Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      60.4,
+      148.2,
+      236.1,
+      323.9,
+      411.8,
+      499.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
