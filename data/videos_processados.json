@@ -5155,5 +5155,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "bXYnTmjo5AU": {
+    "data_primeiro": "2026-09-12T20:10:15.791881+00:00",
+    "data_ultimo": "2026-09-12T20:10:15.791881+00:00",
+    "titulo": "THE ROUTINE OF BRAZIL'S #1 IN SALES AND NETWORKING | 24 HOURS WITH ALFREDO SOARES",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      913.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
