@@ -5123,5 +5123,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "KAMO6eEETpM": {
+    "data_primeiro": "2026-09-12T15:27:05.876855+00:00",
+    "data_ultimo": "2026-09-12T15:32:47.848044+00:00",
+    "titulo": "SUPERNATURAL FAMILY STORIES - Based on true events",
+    "canal": "LendaCast",
+    "picos_usados": [
+      332.4,
+      692.2,
+      1052.1,
+      1411.9,
+      1771.8,
+      2131.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
