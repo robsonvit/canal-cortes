@@ -5308,5 +5308,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "iMoFr_8d4bE": {
+    "data_primeiro": "2026-09-13T20:05:09.674266+00:00",
+    "data_ultimo": "2026-09-13T20:12:24.720924+00:00",
+    "titulo": "#FAQ #76 | HOJE VAI TER BRIGA POR CAUSA DE IPHONE! | #3CONTINENTES",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      101.2,
+      229.9,
+      358.6,
+      487.4,
+      616.1,
+      744.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
