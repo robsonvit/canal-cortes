@@ -5297,5 +5297,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "A4hriSBPGvU": {
+    "data_primeiro": "2026-09-13T17:10:17.677026+00:00",
+    "data_ultimo": "2026-09-13T17:10:17.677026+00:00",
+    "titulo": "The best stories from truck drivers you'll ever hear.",
+    "canal": "LendaCast",
+    "picos_usados": [
+      246.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
