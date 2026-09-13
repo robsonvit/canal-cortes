@@ -5270,5 +5270,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "fQGslw1_xmI": {
+    "data_primeiro": "2026-09-13T11:45:35.225937+00:00",
+    "data_ultimo": "2026-09-13T11:45:35.225937+00:00",
+    "titulo": "The true enemy of communism is NOT capitalism | The war against faith and family",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      27.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
