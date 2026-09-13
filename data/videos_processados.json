@@ -5186,14 +5186,19 @@
   },
   "XPuqV9dUTUI": {
     "data_primeiro": "2026-09-12T22:21:14.355998+00:00",
-    "data_ultimo": "2026-09-12T22:21:14.355998+00:00",
+    "data_ultimo": "2026-09-13T15:21:22.968909+00:00",
     "titulo": "HOW LONG WOULD IT TAKE FOR HUMANS TO BECOME ANOTHER SPECIES?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      45.9
+      45.9,
+      119.4,
+      192.8,
+      266.2,
+      339.6,
+      413.1
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "WmgvO07MyGM": {
     "data_primeiro": "2026-09-13T01:14:52.712319+00:00",
