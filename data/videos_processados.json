@@ -5193,5 +5193,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "WmgvO07MyGM": {
+    "data_primeiro": "2026-09-13T01:14:52.712319+00:00",
+    "data_ultimo": "2026-09-13T01:29:04.626835+00:00",
+    "titulo": "I WENT TO THE SCARIEST EVENT IN THE US - Halloween Horror Nights",
+    "canal": "LendaCast",
+    "picos_usados": [
+      547.5,
+      1122.5,
+      1697.5,
+      2272.5,
+      2847.5,
+      3422.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
