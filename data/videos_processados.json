@@ -5324,5 +5324,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "ves9S2ww4hE": {
+    "data_primeiro": "2026-09-13T21:07:21.450859+00:00",
+    "data_ultimo": "2026-09-13T21:07:21.450859+00:00",
+    "titulo": "ASKING BILLIONAIRES WHAT THEY SACRIFICED FOR SUCCESS",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      301.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
