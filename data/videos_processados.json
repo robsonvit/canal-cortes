@@ -5209,5 +5209,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "BeXpsGqUkG0": {
+    "data_primeiro": "2026-09-13T02:52:28.290936+00:00",
+    "data_ultimo": "2026-09-13T03:19:46.349617+00:00",
+    "titulo": "ENTENDENDO A DIVISÃO DO ISLÃ: XIITAS E SUNITAS | #ACHISMOS PODCAST #430",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      716.8,
+      1461.1,
+      2205.4,
+      2949.6,
+      3693.9,
+      4438.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
