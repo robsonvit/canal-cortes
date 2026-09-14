@@ -5349,14 +5349,15 @@
   },
   "hqZ_IZ4BU5A": {
     "data_primeiro": "2026-09-14T01:02:08.913818+00:00",
-    "data_ultimo": "2026-09-14T01:02:08.913818+00:00",
+    "data_ultimo": "2026-09-14T11:38:08.482568+00:00",
     "titulo": "IS THE CELL PHONE REPROGRAMMING THE FUTURE OF HUMANITY?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      17.2
+      17.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "_zvxJDfOnws": {
     "data_primeiro": "2026-09-14T02:38:35.780715+00:00",
@@ -5384,5 +5385,49 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "w5qbaZAFYO0": {
+    "data_primeiro": "2026-09-14T11:37:40.170716+00:00",
+    "data_ultimo": "2026-09-14T11:37:40.170716+00:00",
+    "titulo": "IS REMOTE WORK DESTROYING COMPANIES? THE TRUTH NO ONE TELLS YOU!",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Nm5QjVLJk5I": {
+    "data_primeiro": "2026-09-14T11:37:54.195016+00:00",
+    "data_ultimo": "2026-09-14T11:37:54.195016+00:00",
+    "titulo": "You Are Not Weak, You Just Were Never Taught to Listen to Yourself! | Dr. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "vXht1HOG54s": {
+    "data_primeiro": "2026-09-14T11:38:23.164018+00:00",
+    "data_ultimo": "2026-09-14T11:38:23.164018+00:00",
+    "titulo": "ONLY TERRIFYING CEMETERY STORIES",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "WC3aTGAAwgQ": {
+    "data_primeiro": "2026-09-14T11:38:37.573280+00:00",
+    "data_ultimo": "2026-09-14T11:38:37.573280+00:00",
+    "titulo": "POR QUE O BRASILEIRO É VICIADO EM INFLUENCIADORES? | #3CONTINENTES #136",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
