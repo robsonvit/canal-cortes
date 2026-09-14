@@ -5357,5 +5357,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "_zvxJDfOnws": {
+    "data_primeiro": "2026-09-14T02:38:35.780715+00:00",
+    "data_ultimo": "2026-09-14T02:44:52.384579+00:00",
+    "titulo": "I ATTENDED A HAUNTED SCHOOL and other viewer stories",
+    "canal": "LendaCast",
+    "picos_usados": [
+      229.5,
+      486.5,
+      743.5,
+      1000.5,
+      1257.5,
+      1514.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
