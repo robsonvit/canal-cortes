@@ -5373,5 +5373,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "K4p3HTFa1hs": {
+    "data_primeiro": "2026-09-14T09:43:34.882354+00:00",
+    "data_ultimo": "2026-09-14T09:43:34.882354+00:00",
+    "titulo": "ENCONTRAMOS UM PEDAÇO DO TEXAS ESCONDIDO EM SÃO PAULO | #MEIOAMEIO #50",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      365.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
