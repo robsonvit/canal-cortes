@@ -5451,5 +5451,60 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "WHVyY7p6m7Q": {
+    "data_primeiro": "2026-09-14T17:02:49.553538+00:00",
+    "data_ultimo": "2026-09-14T17:02:49.553538+00:00",
+    "titulo": "THE COMPLETE STORY OF THE MAYK LEÃO CASE IN PARANÁ",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "h-3vrPmZnjM": {
+    "data_primeiro": "2026-09-14T17:03:05.416436+00:00",
+    "data_ultimo": "2026-09-14T17:03:05.416436+00:00",
+    "titulo": "PROVAMOS TUDO NO Z DELI PRA DESCOBRIR SE VALE O HYPE | #MEIOAMEIO #49",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "EH37AtPMUGA": {
+    "data_primeiro": "2026-09-14T17:03:20.951018+00:00",
+    "data_ultimo": "2026-09-14T17:03:20.951018+00:00",
+    "titulo": "TALLIS GOMES FALA SOBRE O FUTURO DO BRASIL NAS ELEIÇÕES",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "sj_5uBOHmg4": {
+    "data_primeiro": "2026-09-14T17:03:36.495107+00:00",
+    "data_ultimo": "2026-09-14T17:03:36.495107+00:00",
+    "titulo": "LEARN TO SAY NO - Healing Conversations #1 | With Dr. Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "bsPTZp56ZVY": {
+    "data_primeiro": "2026-09-14T17:03:51.436953+00:00",
+    "data_ultimo": "2026-09-14T17:03:51.436953+00:00",
+    "titulo": "WHAT IT'S LIKE TO LIVE IN A HAUNTED HOUSE - Sheikh Rodrigo Jalloul",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
