@@ -5517,5 +5517,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "wmxBUsKgti0": {
+    "data_primeiro": "2026-09-14T21:04:53.791386+00:00",
+    "data_ultimo": "2026-09-14T21:09:19.798235+00:00",
+    "titulo": "COMO É VIVER COM UM CARRO MILIONÁRIO EM NOVA YORK? ft. IGORFINA | #PELOMUNDO #04",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      186.4,
+      400.2,
+      614.1,
+      827.9,
+      1041.8,
+      1255.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
