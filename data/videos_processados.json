@@ -5566,5 +5566,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "ZREf3LX22PA": {
+    "data_primeiro": "2026-09-15T09:44:39.248705+00:00",
+    "data_ultimo": "2026-09-15T09:58:09.619375+00:00",
+    "titulo": "REAL TALES OF HAUNTED JOBS",
+    "canal": "LendaCast",
+    "picos_usados": [
+      251.5,
+      530.5,
+      809.5,
+      1088.5,
+      1367.5,
+      1646.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
