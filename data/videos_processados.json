@@ -5644,5 +5644,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "kfkD5-BUG_U": {
+    "data_primeiro": "2026-09-15T17:12:47.576356+00:00",
+    "data_ultimo": "2026-09-15T17:12:47.576356+00:00",
+    "titulo": "CEMITÉRIO DA CONSOLAÇÃO: ONDE SÃO ENTERRADOS FAMOSOS, ANÔNIMOS E ATÉ UM CACHORRO | #VIDAREAL #33",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      387.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
