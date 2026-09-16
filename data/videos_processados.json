@@ -5737,5 +5737,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "cZHkIAG8jUo": {
+    "data_primeiro": "2026-09-16T13:34:59.808065+00:00",
+    "data_ultimo": "2026-09-16T13:34:59.808065+00:00",
+    "titulo": "THE TRUTH ABOUT TALLIS GOMES' PHOTO WITH MARK ZUCKERBERG",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      62.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
