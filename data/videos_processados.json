@@ -5688,5 +5688,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "2cZS4syMWRQ": {
+    "data_primeiro": "2026-09-16T01:06:17.162330+00:00",
+    "data_ultimo": "2026-09-16T01:16:32.048342+00:00",
+    "titulo": "DO YOU KNOW YOURSELF?",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      103.5,
+      234.5,
+      365.5,
+      496.5,
+      627.5,
+      758.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
