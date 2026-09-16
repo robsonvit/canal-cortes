@@ -5704,5 +5704,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "sR4UxUtv3P4": {
+    "data_primeiro": "2026-09-16T02:38:52.785237+00:00",
+    "data_ultimo": "2026-09-16T02:49:20.897016+00:00",
+    "titulo": "I visited the cemetery in Bethlehem and met the ghost that rides in taxis.",
+    "canal": "LendaCast",
+    "picos_usados": [
+      183.9,
+      395.4,
+      606.8,
+      818.2,
+      1029.6,
+      1241.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
