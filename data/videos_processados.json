@@ -5760,5 +5760,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "4ssDFXRdS1I": {
+    "data_primeiro": "2026-09-16T20:12:48.534638+00:00",
+    "data_ultimo": "2026-09-16T20:28:32.909320+00:00",
+    "titulo": "THIS IS WHY WE'RE AFRAID OF THE DARK - Scary fan stories",
+    "canal": "LendaCast",
+    "picos_usados": [
+      323.1,
+      673.6,
+      1024.2,
+      1374.8,
+      1725.4,
+      2075.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
