@@ -5798,5 +5798,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "zjPYGSrfS20": {
+    "data_primeiro": "2026-09-17T01:07:56.312098+00:00",
+    "data_ultimo": "2026-09-17T01:19:33.741005+00:00",
+    "titulo": "#FAQ #78 | O QUE ACONTECE SE VOCÊ DEMONSTRAR CARINHO NA ÍNDIA? | #3CONTINENTES",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      196.9,
+      421.4,
+      645.8,
+      870.2,
+      1094.6,
+      1319.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
