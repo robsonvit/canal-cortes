@@ -5827,5 +5827,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "U387T4JgYZU": {
+    "data_primeiro": "2026-09-17T15:31:12.301260+00:00",
+    "data_ultimo": "2026-09-17T15:45:00.711915+00:00",
+    "titulo": "\"SHE DIDN'T PAY ME FOR THE WORK WITH BEELZEBUB\", says Mãe Michelly about Cariúcha",
+    "canal": "LendaCast",
+    "picos_usados": [
+      473.1,
+      973.6,
+      1474.2,
+      1974.8,
+      2475.4,
+      2975.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
