@@ -4739,11 +4739,12 @@
   },
   "cUBa7tgLi-4": {
     "data_primeiro": "2026-09-10T00:01:01.059007+00:00",
-    "data_ultimo": "2026-09-10T00:01:01.059007+00:00",
+    "data_ultimo": "2026-09-17T02:41:21.741577+00:00",
     "titulo": "THE ROUTINE OF THE OWNER OF CACAU SHOW | 24 HOURS WITH ALÊ COSTA",
     "canal": "PrimoCast",
     "picos_usados": [
-      809.9
+      809.9,
+      1647.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
