@@ -4876,14 +4876,15 @@
   },
   "g-MKSF8DyQY": {
     "data_primeiro": "2026-09-10T21:06:44.739504+00:00",
-    "data_ultimo": "2026-09-10T21:06:44.739504+00:00",
+    "data_ultimo": "2026-09-17T19:58:26.401172+00:00",
     "titulo": "THE BIGGEST REASON YOU STAY POOR NOBODY TALKS ABOUT THIS",
     "canal": "PrimoCast",
     "picos_usados": [
-      34.8
+      34.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "E6Ep5lGDAE0": {
     "data_primeiro": "2026-09-10T22:20:38.449797+00:00",
@@ -5683,16 +5684,17 @@
   },
   "pWQzez6eBK4": {
     "data_primeiro": "2026-09-15T22:33:57.780959+00:00",
-    "data_ultimo": "2026-09-17T11:51:42.457621+00:00",
+    "data_ultimo": "2026-09-17T19:58:58.661497+00:00",
     "titulo": "How to Build a CAREER Beyond Your Schedule (VANESSA GOLTZMAN) | JOTA JOTA PODCAST #295",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       689.6,
       1406.8,
-      2123.9
+      2123.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "2cZS4syMWRQ": {
     "data_primeiro": "2026-09-16T01:06:17.162330+00:00",
@@ -5843,6 +5845,39 @@
       2975.9
     ],
     "total_picos": 6,
+    "picos_esgotados": true
+  },
+  "Ya3njG7q-mA": {
+    "data_primeiro": "2026-09-17T19:57:54.360653+00:00",
+    "data_ultimo": "2026-09-17T19:57:54.360653+00:00",
+    "titulo": "O MERCADO DE ALTA JÁ COMEÇOU? (com Gustavo Gomes, Fernando Ulrich e Felipe Sant'Ana) | Os Sócios 316",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "7KMLO3cVXZQ": {
+    "data_primeiro": "2026-09-17T19:58:10.577216+00:00",
+    "data_ultimo": "2026-09-17T19:58:10.577216+00:00",
+    "titulo": "O BOTO COR DE ROSA VAI PEGAR A RUSSA NA AMAZÔNIA? | #3CONTINENTES #138",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "WkOke9U2QRw": {
+    "data_primeiro": "2026-09-17T19:58:42.414141+00:00",
+    "data_ultimo": "2026-09-17T19:58:42.414141+00:00",
+    "titulo": "AT WHAT POINT DID YOU ABANDON YOURSELF? | Conversations That Heal - With Dr. Andrea Vermont #2",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
     "picos_esgotados": true
   }
 }
