@@ -5815,5 +5815,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "2i-ye_3ZIOY": {
+    "data_primeiro": "2026-09-17T09:42:11.218498+00:00",
+    "data_ultimo": "2026-09-17T09:42:11.218498+00:00",
+    "titulo": "The pain you feel today may have started long before adulthood | Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      55.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
