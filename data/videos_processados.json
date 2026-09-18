@@ -5936,5 +5936,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "4Vhs1semlc8": {
+    "data_primeiro": "2026-09-18T21:29:05.446031+00:00",
+    "data_ultimo": "2026-09-18T21:49:56.441142+00:00",
+    "titulo": "COMO A ESPIRITUALIDADE CONTRIBUI PRA SAÚDE MENTAL | LendaCast #305",
+    "canal": "LendaCast",
+    "picos_usados": [
+      1514.1,
+      3055.6,
+      4597.2,
+      6138.8,
+      7680.4,
+      9221.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
