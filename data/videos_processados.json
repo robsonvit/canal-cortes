@@ -5879,5 +5879,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "v6_R9EkUHQM": {
+    "data_primeiro": "2026-09-18T01:49:17.027817+00:00",
+    "data_ultimo": "2026-09-18T02:08:58.579052+00:00",
+    "titulo": "I VISITED THE CAMPINAS CEMETERY AT NIGHT",
+    "canal": "LendaCast",
+    "picos_usados": [
+      836.8,
+      1701.1,
+      2565.4,
+      3429.6,
+      4293.9,
+      5158.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
