@@ -5907,5 +5907,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "BDV8AoQdU8M": {
+    "data_primeiro": "2026-09-18T11:50:28.755717+00:00",
+    "data_ultimo": "2026-09-18T11:59:55.912688+00:00",
+    "titulo": "ESSAS SÃO AS COISAS QUE OS GRINGOS NÃO ENTENDEM NO BRASIL | #3CONTINENTES #135",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      492.4,
+      1012.2,
+      1532.1,
+      2051.9,
+      2571.8,
+      3091.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
