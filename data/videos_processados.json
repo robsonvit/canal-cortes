@@ -4751,11 +4751,12 @@
   },
   "2459v2bwmG0": {
     "data_primeiro": "2026-09-10T02:37:38.384156+00:00",
-    "data_ultimo": "2026-09-10T02:37:38.384156+00:00",
+    "data_ultimo": "2026-09-18T15:23:13.744513+00:00",
     "titulo": "Why do so many women fade away? | Dr. Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      141.5
+      141.5,
+      310.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -5923,6 +5924,17 @@
       3091.6
     ],
     "total_picos": 6,
+    "picos_esgotados": true
+  },
+  "6k1RNwNXs_w": {
+    "data_primeiro": "2026-09-18T15:15:40.769456+00:00",
+    "data_ultimo": "2026-09-18T15:15:40.769456+00:00",
+    "titulo": "GAVI'S GARAGE",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
     "picos_esgotados": true
   }
 }
