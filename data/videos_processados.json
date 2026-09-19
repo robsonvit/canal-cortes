@@ -5975,5 +5975,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "cQYe715JFLs": {
+    "data_primeiro": "2026-09-19T10:02:42.187784+00:00",
+    "data_ultimo": "2026-09-19T10:12:21.406963+00:00",
+    "titulo": "ATÉ ONDE A INTELIGÊNCIA ARTIFICIAL REALMENTE PODE CHEGAR? FT. PAULO AGUIAR | #ACHISMOS PODCAST #432",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      694.5,
+      1416.5,
+      2138.5,
+      2860.5,
+      3582.5,
+      4304.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
