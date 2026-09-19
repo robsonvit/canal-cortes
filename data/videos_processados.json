@@ -4905,14 +4905,15 @@
   },
   "XkOHoiuHcUg": {
     "data_primeiro": "2026-09-11T01:04:27.229624+00:00",
-    "data_ultimo": "2026-09-11T01:04:27.229624+00:00",
-    "titulo": "Psicanálise e Autoconhecimento: por que você continua repetindo os mesmos padrões? | Andrea Vermont",
+    "data_ultimo": "2026-09-19T13:27:29.226719+00:00",
+    "titulo": "Psychoanalysis and Self-Knowledge: Why Do You Keep Repeating the Same Patterns? | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      68.6
+      68.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "aLWVf1rLW-E": {
     "data_primeiro": "2026-09-11T02:43:18.060721+00:00",
@@ -5788,26 +5789,28 @@
   },
   "SgwsuZpU138": {
     "data_primeiro": "2026-09-16T21:06:57.089112+00:00",
-    "data_ultimo": "2026-09-18T02:40:04.773271+00:00",
+    "data_ultimo": "2026-09-19T13:28:01.796671+00:00",
     "titulo": "MC CAVERINHA vs 5 WOMEN ft KOSKY & SIDOKA - Podpaquera #38",
     "canal": "Podpah",
     "picos_usados": [
       277.5,
-      582.5
+      582.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "dqwJBh9zHoE": {
     "data_primeiro": "2026-09-16T22:22:37.590761+00:00",
-    "data_ultimo": "2026-09-16T22:22:37.590761+00:00",
+    "data_ultimo": "2026-09-19T13:28:19.367352+00:00",
     "titulo": "HOW TO PROTECT YOUR PORTFOLIO FROM ELECTION SURPRISES?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      22.1
+      22.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "zjPYGSrfS20": {
     "data_primeiro": "2026-09-17T01:07:56.312098+00:00",
@@ -5957,14 +5960,15 @@
   },
   "B_i69BtQGGY": {
     "data_primeiro": "2026-09-18T22:20:53.235164+00:00",
-    "data_ultimo": "2026-09-18T22:20:53.235164+00:00",
+    "data_ultimo": "2026-09-19T13:27:45.926844+00:00",
     "titulo": "How to Choose a Property for Investment (MARCELLO MOREIRA) | JOTA JOTA PODCAST #296",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      342.5
+      342.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "4oU7kbWiNi0": {
     "data_primeiro": "2026-09-19T02:35:15.112094+00:00",
@@ -5991,6 +5995,17 @@
       4304.5
     ],
     "total_picos": 6,
+    "picos_esgotados": true
+  },
+  "VNQcusH99vY": {
+    "data_primeiro": "2026-09-19T13:27:13.148854+00:00",
+    "data_ultimo": "2026-09-19T13:27:13.148854+00:00",
+    "titulo": "PCD SHOW - CUP GAME - DILERA, TOURETTE REPORTER and BAPTISTA",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
     "picos_esgotados": true
   }
 }
