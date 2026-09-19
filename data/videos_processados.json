@@ -5517,7 +5517,7 @@
   },
   "I8j_joB7a8Y": {
     "data_primeiro": "2026-09-14T20:04:49.532779+00:00",
-    "data_ultimo": "2026-09-19T01:04:27.136888+00:00",
+    "data_ultimo": "2026-09-19T21:07:14.679483+00:00",
     "titulo": "Falha de Cobertura #295: Sleeping Is Dangerous",
     "canal": "Podpah",
     "picos_usados": [
@@ -5525,10 +5525,11 @@
       614.5,
       935.5,
       1256.5,
-      1577.5
+      1577.5,
+      1898.5
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "wmxBUsKgti0": {
     "data_primeiro": "2026-09-14T21:04:53.791386+00:00",
