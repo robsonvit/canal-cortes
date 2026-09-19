@@ -6026,5 +6026,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "DBaXSyfqUsg": {
+    "data_primeiro": "2026-09-19T22:20:01.730687+00:00",
+    "data_ultimo": "2026-09-19T22:20:01.730687+00:00",
+    "titulo": "YOU MIGHT BE LOSING MONEY BY DOING THIS (be careful!)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      16.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
