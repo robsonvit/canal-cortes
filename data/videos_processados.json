@@ -6007,5 +6007,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "IpjJmOlvm0c": {
+    "data_primeiro": "2026-09-19T15:18:57.858406+00:00",
+    "data_ultimo": "2026-09-19T15:21:32.178231+00:00",
+    "titulo": "#FAQ #77 | ESSA PIADA QUASE ACABOU COM O 3 CONTINENTES! | #3CONTINENTES",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      110.8,
+      249.1,
+      387.4,
+      525.6,
+      663.9,
+      802.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
