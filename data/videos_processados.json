@@ -5033,14 +5033,15 @@
   },
   "cAqbltX08Io": {
     "data_primeiro": "2026-09-11T17:14:23.882790+00:00",
-    "data_ultimo": "2026-09-11T17:14:23.882790+00:00",
+    "data_ultimo": "2026-09-20T13:27:36.134339+00:00",
     "titulo": "COMO A CARNE CHEGA NO SEU PRATO? FUI NO FRIGORÍFICO DESCOBRIR! | #VIDAREAL #34",
     "canal": "Achismos TV",
     "picos_usados": [
-      232.2
+      232.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "j9avHJ45bPc": {
     "data_primeiro": "2026-09-11T20:04:07.118101+00:00",
@@ -5125,14 +5126,15 @@
   },
   "KnNhByGio_c": {
     "data_primeiro": "2026-09-12T11:45:20.826297+00:00",
-    "data_ultimo": "2026-09-12T11:45:20.826297+00:00",
+    "data_ultimo": "2026-09-20T13:28:06.560327+00:00",
     "titulo": "WHY I CHOSE PSYCHOANALYSIS (And How It Saved Me Three Times) | ANDREA VERMONT",
     "canal": "Divã Podcast",
     "picos_usados": [
-      360.2
+      360.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "KAMO6eEETpM": {
     "data_primeiro": "2026-09-12T15:27:05.876855+00:00",
@@ -5338,14 +5340,15 @@
   },
   "ves9S2ww4hE": {
     "data_primeiro": "2026-09-13T21:07:21.450859+00:00",
-    "data_ultimo": "2026-09-13T21:07:21.450859+00:00",
+    "data_ultimo": "2026-09-20T13:27:51.285740+00:00",
     "titulo": "ASKING BILLIONAIRES WHAT THEY SACRIFICED FOR SUCCESS",
     "canal": "PrimoCast",
     "picos_usados": [
-      301.1
+      301.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "wjXiuFE1TPA": {
     "data_primeiro": "2026-09-13T22:24:21.925788+00:00",
@@ -5388,14 +5391,15 @@
   },
   "K4p3HTFa1hs": {
     "data_primeiro": "2026-09-14T09:43:34.882354+00:00",
-    "data_ultimo": "2026-09-14T09:43:34.882354+00:00",
-    "titulo": "ENCONTRAMOS UM PEDAÇO DO TEXAS ESCONDIDO EM SÃO PAULO | #MEIOAMEIO #50",
+    "data_ultimo": "2026-09-20T13:28:36.845396+00:00",
+    "titulo": "O VERDADEIRO CAFÉ TEXANO NO INTERIOR DE SP! | #MEIOAMEIO #50",
     "canal": "Achismos TV",
     "picos_usados": [
-      365.8
+      365.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "w5qbaZAFYO0": {
     "data_primeiro": "2026-09-14T11:37:40.170716+00:00",
@@ -6041,5 +6045,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "hFFC1JQb0oY": {
+    "data_primeiro": "2026-09-20T13:28:21.803705+00:00",
+    "data_ultimo": "2026-09-20T13:28:21.803705+00:00",
+    "titulo": "IS IT STILL TIME TO BUY BITCOIN?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
