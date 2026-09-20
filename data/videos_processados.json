@@ -5571,11 +5571,12 @@
   },
   "fqJlrHIQuT0": {
     "data_primeiro": "2026-09-15T01:08:16.808892+00:00",
-    "data_ultimo": "2026-09-15T01:08:16.808892+00:00",
+    "data_ultimo": "2026-09-20T22:26:59.815518+00:00",
     "titulo": "THE DAILY ROUTINE OF ONE OF BRAZIL'S MOST SUCCESSFUL ENTREPRENEURS | 24 HOURS WITH BRUNO NARDON",
     "canal": "PrimoCast",
     "picos_usados": [
-      826.8
+      826.8,
+      1681.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
