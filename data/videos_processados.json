@@ -5912,11 +5912,12 @@
   },
   "5VgZWOcYVag": {
     "data_primeiro": "2026-09-18T09:37:15.332899+00:00",
-    "data_ultimo": "2026-09-18T09:37:15.332899+00:00",
+    "data_ultimo": "2026-09-20T11:42:45.066053+00:00",
     "titulo": "IS THE BRAZILIAN STOCK MARKET CHEAP?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      29.4
+      29.4,
+      86.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
