@@ -5462,11 +5462,12 @@
   },
   "KDZ8zIDT9-4": {
     "data_primeiro": "2026-09-14T15:25:11.916357+00:00",
-    "data_ultimo": "2026-09-14T15:25:11.916357+00:00",
+    "data_ultimo": "2026-09-21T13:34:34.649864+00:00",
     "titulo": "Viktor Frankl explains why you have lost your sense of purpose | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      87.8
+      87.8,
+      203.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
