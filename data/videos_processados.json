@@ -6063,5 +6063,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "4-A2kR6VffA": {
+    "data_primeiro": "2026-09-21T09:57:03.087754+00:00",
+    "data_ultimo": "2026-09-21T10:24:44.792820+00:00",
+    "titulo": "GUIA PRÁTICO DE COMO NÃO CHEGAR EM UMA MULHER | #VARANDAGOURMET #71",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      452.9,
+      933.4,
+      1413.8,
+      1894.2,
+      2374.6,
+      2855.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
