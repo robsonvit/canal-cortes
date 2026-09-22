@@ -6108,5 +6108,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "ljrFOWwEomI": {
+    "data_primeiro": "2026-09-22T15:23:17.793909+00:00",
+    "data_ultimo": "2026-09-22T15:26:41.559306+00:00",
+    "titulo": "#FAQ #79 | AS MAIORES BIZARRICES CULTURAIS DOS ESTADOS UNIDOS | #3CONTINENTES",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      272.8,
+      573.1,
+      873.4,
+      1173.6,
+      1473.9,
+      1774.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
