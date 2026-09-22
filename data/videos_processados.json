@@ -5585,11 +5585,12 @@
   },
   "VXl9HEzVhrY": {
     "data_primeiro": "2026-09-15T02:39:26.664969+00:00",
-    "data_ultimo": "2026-09-15T02:39:26.664969+00:00",
+    "data_ultimo": "2026-09-22T02:42:27.232102+00:00",
     "titulo": "How to rediscover yourself after years of living for others | Dr. Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      110.8
+      110.8,
+      249.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
