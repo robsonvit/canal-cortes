@@ -6162,14 +6162,18 @@
   },
   "SW5PDEJtHlY": {
     "data_primeiro": "2026-09-23T03:12:50.641371+00:00",
-    "data_ultimo": "2026-09-23T03:42:50.485015+00:00",
+    "data_ultimo": "2026-09-23T21:18:59.772263+00:00",
     "titulo": "QUAL O PIOR PODCAST DE TODOS OS TEMPOS? FT. LORD VINHETEIRO E IGORFINA | #ACHISMOS PODCAST #434",
     "canal": "Achismos TV",
     "picos_usados": [
       781.6,
-      1590.8
+      1590.8,
+      2399.9,
+      3209.1,
+      4018.2,
+      4827.4
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   }
 }
