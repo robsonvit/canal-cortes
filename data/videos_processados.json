@@ -5784,11 +5784,12 @@
   },
   "FD2Qcp019h0": {
     "data_primeiro": "2026-09-16T15:23:55.300255+00:00",
-    "data_ultimo": "2026-09-16T15:23:55.300255+00:00",
+    "data_ultimo": "2026-09-23T11:45:11.993654+00:00",
     "titulo": "You spent your whole life trying to be who they expected you to be | Dr. Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      254.6
+      254.6,
+      536.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
