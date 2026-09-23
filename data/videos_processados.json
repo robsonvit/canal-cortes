@@ -5117,15 +5117,16 @@
   },
   "w7Q2Fa9g_Ec": {
     "data_primeiro": "2026-09-12T09:43:13.264999+00:00",
-    "data_ultimo": "2026-09-19T11:49:08.914609+00:00",
+    "data_ultimo": "2026-09-23T15:16:44.041033+00:00",
     "titulo": "The Routine of One of the Greatest Jiu-Jitsu Champions | 24 Hours with Fábio Gurgel",
     "canal": "PrimoCast",
     "picos_usados": [
       529.5,
-      1086.5
+      1086.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "KnNhByGio_c": {
     "data_primeiro": "2026-09-12T11:45:20.826297+00:00",
@@ -5853,14 +5854,15 @@
   },
   "2i-ye_3ZIOY": {
     "data_primeiro": "2026-09-17T09:42:11.218498+00:00",
-    "data_ultimo": "2026-09-17T09:42:11.218498+00:00",
+    "data_ultimo": "2026-09-23T15:17:01.151537+00:00",
     "titulo": "The pain you feel today may have started long before adulthood | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      55.6
+      55.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "U387T4JgYZU": {
     "data_primeiro": "2026-09-17T15:31:12.301260+00:00",
@@ -6094,26 +6096,28 @@
   },
   "8T5hcnyBaz0": {
     "data_primeiro": "2026-09-21T20:09:11.659429+00:00",
-    "data_ultimo": "2026-09-22T11:46:14.214312+00:00",
+    "data_ultimo": "2026-09-23T15:16:08.764785+00:00",
     "titulo": "Falha de Cobertura #296: Happy Gaucho Day",
     "canal": "Podpah",
     "picos_usados": [
       268.4,
-      564.2
+      564.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "XW516OlyQgk": {
     "data_primeiro": "2026-09-21T22:30:51.110393+00:00",
-    "data_ultimo": "2026-09-21T22:30:51.110393+00:00",
+    "data_ultimo": "2026-09-23T15:16:26.948380+00:00",
     "titulo": "LEVAMOS O CHINÊS E A RUSSA PARA A AMAZÔNIA ft. Richard Rasmussen e Tavião | EP 1 #PELOMUNDO",
     "canal": "Achismos TV",
     "picos_usados": [
-      239.8
+      239.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ljrFOWwEomI": {
     "data_primeiro": "2026-09-22T15:23:17.793909+00:00",
@@ -6133,14 +6137,15 @@
   },
   "1oTRGpwahX8": {
     "data_primeiro": "2026-09-22T22:31:14.122087+00:00",
-    "data_ultimo": "2026-09-22T22:31:14.122087+00:00",
+    "data_ultimo": "2026-09-23T15:15:51.340063+00:00",
     "titulo": "How to CHANGE YOUR LIFE Starting With Yourself (DOUGLAS VIEGAS) | JOTA JOTA PODCAST #297",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      738.6
+      738.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "2w1RupxY9fs": {
     "data_primeiro": "2026-09-23T01:06:41.019603+00:00",
