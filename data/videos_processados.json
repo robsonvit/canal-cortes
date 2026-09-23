@@ -6138,5 +6138,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "2w1RupxY9fs": {
+    "data_primeiro": "2026-09-23T01:06:41.019603+00:00",
+    "data_ultimo": "2026-09-23T01:06:41.019603+00:00",
+    "titulo": "RELIC: THE PROPHECY COMES FROM THE STREETS",
+    "canal": "Podpah",
+    "picos_usados": [
+      363.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
