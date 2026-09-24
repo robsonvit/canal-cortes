@@ -6203,5 +6203,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "OQbyy84uM-8": {
+    "data_primeiro": "2026-09-24T09:35:35.764514+00:00",
+    "data_ultimo": "2026-09-24T09:37:22.809294+00:00",
+    "titulo": "IS THE BITCOIN BOTTOM BEHIND US?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      44.6,
+      116.8,
+      188.9,
+      261.1,
+      333.2,
+      405.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
