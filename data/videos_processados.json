@@ -6255,5 +6255,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "4hRe52oAKaY": {
+    "data_primeiro": "2026-09-24T22:28:56.885246+00:00",
+    "data_ultimo": "2026-09-24T22:40:24.329466+00:00",
+    "titulo": "PROVAMOS AS COMIDINHAS DE MERCADO MAIS ESTRANHAS DA ÍNDIA | #3CONTINENTES #139",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      591.4,
+      1210.2,
+      1829.1,
+      2447.9,
+      3066.8,
+      3685.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
