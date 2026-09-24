@@ -4752,12 +4752,13 @@
   },
   "2459v2bwmG0": {
     "data_primeiro": "2026-09-10T02:37:38.384156+00:00",
-    "data_ultimo": "2026-09-18T15:23:13.744513+00:00",
+    "data_ultimo": "2026-09-24T17:08:32.943762+00:00",
     "titulo": "Why do so many women fade away? | Dr. Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       141.5,
-      310.5
+      310.5,
+      479.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
