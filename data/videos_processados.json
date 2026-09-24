@@ -6192,5 +6192,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "1PGV-OBGkwo": {
+    "data_primeiro": "2026-09-24T02:39:44.366619+00:00",
+    "data_ultimo": "2026-09-24T02:39:44.366619+00:00",
+    "titulo": "Bees: How far would you go for someone you love? Psychoanalysis explains | Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      131.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
