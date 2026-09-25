@@ -6282,5 +6282,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "cS3PZF40nDM": {
+    "data_primeiro": "2026-09-25T02:34:57.585374+00:00",
+    "data_ultimo": "2026-09-25T02:34:57.585374+00:00",
+    "titulo": "THE POWER OF NOW!",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      87.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
