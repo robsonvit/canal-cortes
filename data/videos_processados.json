@@ -6306,5 +6306,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "zoQerxF5DGM": {
+    "data_primeiro": "2026-09-25T15:24:24.551985+00:00",
+    "data_ultimo": "2026-09-25T15:28:34.973783+00:00",
+    "titulo": "⁠PROVANDO COMIDAS ESTRANHAS DOS FAMOSOS! | #MEIOAMEIO #51",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      218.2,
+      463.9,
+      709.6,
+      955.4,
+      1201.1,
+      1446.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
