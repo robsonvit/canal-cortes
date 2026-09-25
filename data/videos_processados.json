@@ -5457,12 +5457,13 @@
   },
   "s6xA6EDNprs": {
     "data_primeiro": "2026-09-14T13:34:44.806966+00:00",
-    "data_ultimo": "2026-09-20T15:23:45.015658+00:00",
+    "data_ultimo": "2026-09-25T17:12:11.699648+00:00",
     "titulo": "Science confirmed what the Bible said 3,000 years ago | Tassos Lycurgo explains",
     "canal": "PrimoCast",
     "picos_usados": [
       50.2,
-      127.9
+      127.9,
+      205.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
