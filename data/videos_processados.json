@@ -6329,5 +6329,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "M_VIPuKm-r4": {
+    "data_primeiro": "2026-09-25T22:20:03.082282+00:00",
+    "data_ultimo": "2026-09-25T22:20:03.082282+00:00",
+    "titulo": "THE BRAZILIAN COMPANY THAT RAISED R$210 MILLION TO BUY BITCOIN",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      23.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
