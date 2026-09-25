@@ -6271,5 +6271,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "9yjYxhLmr0o": {
+    "data_primeiro": "2026-09-25T01:06:51.436979+00:00",
+    "data_ultimo": "2026-09-25T01:06:51.436979+00:00",
+    "titulo": "THE ROUTINE OF THE RESERVA FOUNDER | 24 HOURS WITH RONY MEISLER",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      826.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
