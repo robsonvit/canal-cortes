@@ -6251,11 +6251,12 @@
   },
   "XlzgWAGypk4": {
     "data_primeiro": "2026-09-24T21:08:57.191379+00:00",
-    "data_ultimo": "2026-09-24T21:08:57.191379+00:00",
+    "data_ultimo": "2026-09-26T01:08:16.370083+00:00",
     "titulo": "BELLE DALTRO vs VENENO! MEDIEVAL DUEL - Podpah Visit #118",
     "canal": "Podpah",
     "picos_usados": [
-      283.9
+      283.9,
+      595.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
