@@ -6422,5 +6422,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "-t_YmPZWm_o": {
+    "data_primeiro": "2026-09-27T21:28:18.482125+00:00",
+    "data_ultimo": "2026-09-27T21:36:23.755650+00:00",
+    "titulo": "13 OU 22: ESPORTES | #VARANDAGOURMET #72",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      473.9,
+      975.4,
+      1476.8,
+      1978.2,
+      2479.6,
+      2981.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
