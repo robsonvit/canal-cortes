@@ -101,7 +101,7 @@ Retorne apenas o JSON, sem explicações."""
 
     try:
         resp = cliente.chat.completions.create(
-            model="google/gemma-4-31b-it:free",
+            model="meta-llama/llama-3.1-8b-instruct:free",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=400,
@@ -119,11 +119,8 @@ Retorne apenas o JSON, sem explicações."""
     except Exception as e:
         print(f"  ⚠️  Erro ao extrair temas: {e}")
 
-    # Fallback mínimo
-    return [
-        {"tema_pt": "podcast conversa", "termo_busca_a": "podcast microphone studio HD professional", "sujeito_wikipedia": "Microfone", "segundo": 5},
-        {"tema_pt": "sucesso profissional", "termo_busca_a": "businessman success achievement trophy winner", "sujeito_wikipedia": "Troféu", "segundo": 25},
-    ]
+    # Fallback vazio para não inserir imagens desconexas se a IA falhar
+    return []
 
 
 # ─────────────────────────────────────────────────────────────────────────────
