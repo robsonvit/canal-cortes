@@ -4739,16 +4739,17 @@
   },
   "cUBa7tgLi-4": {
     "data_primeiro": "2026-09-10T00:01:01.059007+00:00",
-    "data_ultimo": "2026-09-22T17:15:57.431757+00:00",
+    "data_ultimo": "2026-09-27T00:58:00.156810+00:00",
     "titulo": "THE ROUTINE OF THE OWNER OF CACAU SHOW | 24 HOURS WITH ALÊ COSTA",
     "canal": "PrimoCast",
     "picos_usados": [
       809.9,
       1647.4,
-      2484.8
+      2484.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "2459v2bwmG0": {
     "data_primeiro": "2026-09-10T02:37:38.384156+00:00",
@@ -5473,15 +5474,16 @@
   },
   "KDZ8zIDT9-4": {
     "data_primeiro": "2026-09-14T15:25:11.916357+00:00",
-    "data_ultimo": "2026-09-21T13:34:34.649864+00:00",
+    "data_ultimo": "2026-09-27T00:56:51.616629+00:00",
     "titulo": "Viktor Frankl explains why you have lost your sense of purpose | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       87.8,
-      203.1
+      203.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "WHVyY7p6m7Q": {
     "data_primeiro": "2026-09-14T17:02:49.553538+00:00",
@@ -6260,16 +6262,17 @@
   },
   "XlzgWAGypk4": {
     "data_primeiro": "2026-09-24T21:08:57.191379+00:00",
-    "data_ultimo": "2026-09-26T20:06:32.508273+00:00",
+    "data_ultimo": "2026-09-27T00:57:26.353789+00:00",
     "titulo": "A PRINCESS DAY ft. BELLE DALTRO AND VENENO - Podpah Visits #118",
     "canal": "Podpah",
     "picos_usados": [
       283.9,
       595.4,
-      906.8
+      906.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "4hRe52oAKaY": {
     "data_primeiro": "2026-09-24T22:28:56.885246+00:00",
@@ -6354,15 +6357,16 @@
   },
   "ugIjx2w3sAs": {
     "data_primeiro": "2026-09-26T02:45:31.513602+00:00",
-    "data_ultimo": "2026-09-26T21:12:09.554666+00:00",
+    "data_ultimo": "2026-09-27T00:57:43.384401+00:00",
     "titulo": "LEVAMOS OS GRINGOS PARA UMA ALDEIA INDÍGENA NA AMAZÔNIA ft. Richard Rasmussen | EP 3 #PELOMUNDO",
     "canal": "Achismos TV",
     "picos_usados": [
       304.4,
-      636.2
+      636.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "qeeJ4zPzQj0": {
     "data_primeiro": "2026-09-26T11:40:13.397276+00:00",
@@ -6378,6 +6382,17 @@
       547.6
     ],
     "total_picos": 6,
+    "picos_esgotados": true
+  },
+  "pxhmuWsLUqo": {
+    "data_primeiro": "2026-09-27T00:57:09.058014+00:00",
+    "data_ultimo": "2026-09-27T00:57:09.058014+00:00",
+    "titulo": "US DEBT COULD BE THE BIGGEST FUEL FOR BITCOIN",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
     "picos_esgotados": true
   }
 }
