@@ -83,8 +83,8 @@ jobs:
 
       - name: 🎥 Instalar yt-dlp (mais atualizado para anti-bot)
         run: |
-          # Instala via pip para garantir versão mais recente e compatível com Python
-          pip install -U "yt-dlp[default]"
+          # Instala a versão mais recente direto do repositório para contornar bloqueios do YouTube (PoToken, JS challenges)
+          pip install -U https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
           yt-dlp --version
 
       - name: 📦 Instalar dependências Python (incluindo curl-cffi para TLS)

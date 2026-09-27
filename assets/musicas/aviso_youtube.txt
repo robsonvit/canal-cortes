@@ -1,0 +1,1 @@
+As músicas originais do YouTube (superação, lição, mistério) configuradas no projeto estão dando Erro 403 (Forbidden) no momento via yt-dlp. Baixei uma de fallback (musica_fallback.mp3) para testes.

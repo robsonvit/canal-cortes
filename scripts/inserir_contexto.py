@@ -180,7 +180,16 @@ def _buscar_imagem_pinterest(termo: str) -> str | None:
             if isinstance(u, str) and u not in urls_orig and u not in urls_pinimg
         ]
 
-        candidatas = urls_orig[:5] + urls_pinimg[:5] + urls_outras[:5]
+        urls_orig = urls_orig[:5]
+        urls_pinimg = urls_pinimg[:5]
+        urls_outras = urls_outras[:5]
+        
+        import random
+        random.shuffle(urls_orig)
+        random.shuffle(urls_pinimg)
+        random.shuffle(urls_outras)
+
+        candidatas = urls_orig + urls_pinimg + urls_outras
 
         for url in candidatas:
             if _testar_url(url):
@@ -247,15 +256,21 @@ def _buscar_imagem_ddgs(termo: str) -> str | None:
             if r.get("image") and r["image"] not in urls_bing
         ]
 
+        import random
+        urls_bing = urls_bing[:5]
+        urls_outras = urls_outras[:5]
+        random.shuffle(urls_bing)
+        random.shuffle(urls_outras)
+
         # Tenta Bing CDN primeiro (permite forçar alta resolução)
-        for url_original in urls_bing[:5]:
+        for url_original in urls_bing:
             url_hd = _forcar_resolucao_bing(url_original, largura=800)
             if _testar_url(url_hd):
                 print(f"  ✅ [DDG→Bing] Imagem HD encontrada: {url_hd[:80]}...")
                 return url_hd
 
         # Tenta outras URLs
-        for url in urls_outras[:5]:
+        for url in urls_outras:
             if _testar_url(url):
                 print(f"  ✅ [DDG→Outra] Imagem encontrada: {url[:80]}...")
                 return url
@@ -353,7 +368,10 @@ def _buscar_imagem_wikipedia(termo: str, sujeito: str = "") -> str | None:
             return None
 
         # Passo 2: Para cada artigo encontrado, busca a imagem principal
-        for artigo in resultados[:3]:
+        import random
+        resultados_top = resultados[:3]
+        random.shuffle(resultados_top)
+        for artigo in resultados_top:
             titulo_pagina = artigo["title"]
             print(f"  📖 [Wiki] Artigo encontrado: '{titulo_pagina}'")
 
