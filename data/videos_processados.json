@@ -6027,7 +6027,7 @@
   },
   "4oU7kbWiNi0": {
     "data_primeiro": "2026-09-19T02:35:15.112094+00:00",
-    "data_ultimo": "2026-09-27T09:37:25.812712+00:00",
+    "data_ultimo": "2026-09-28T15:19:06.019403+00:00",
     "titulo": "THE NEW THESIS FOR INVESTING WORLDWIDE (diversify your investments)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
@@ -6035,10 +6035,11 @@
       38.8,
       71.9,
       105.1,
-      138.2
+      138.2,
+      171.4
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "cQYe715JFLs": {
     "data_primeiro": "2026-09-19T10:02:42.187784+00:00",
