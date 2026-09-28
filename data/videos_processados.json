@@ -6221,11 +6221,12 @@
   },
   "1PGV-OBGkwo": {
     "data_primeiro": "2026-09-24T02:39:44.366619+00:00",
-    "data_ultimo": "2026-09-24T02:39:44.366619+00:00",
-    "titulo": "Bees: How far would you go for someone you love? Psychoanalysis explains | Andrea Vermont",
+    "data_ultimo": "2026-09-28T02:23:15.437438+00:00",
+    "titulo": "To love is to care, but how far is too far? The line between love and sacrifice | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      131.8
+      131.8,
+      291.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
