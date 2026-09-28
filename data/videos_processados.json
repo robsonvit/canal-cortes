@@ -6471,5 +6471,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "82F74BDi_00": {
+    "data_primeiro": "2026-09-28T17:36:39.723580+00:00",
+    "data_ultimo": "2026-09-28T18:20:42.284642+00:00",
+    "titulo": "O QUE REALMENTE ACONTECE NOS BASTIDORES DE UM CRUZEIRO? FT. LOBO DOS MARES | #ACHISMOS PODCAST #435",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      672.8,
+      1373.1,
+      2073.4,
+      2773.6,
+      3473.9,
+      4174.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
