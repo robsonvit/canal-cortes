@@ -6440,5 +6440,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "a8cqnbTBcDU": {
+    "data_primeiro": "2026-09-28T01:06:47.155371+00:00",
+    "data_ultimo": "2026-09-28T01:06:47.155371+00:00",
+    "titulo": "O YOUTUBE RAIZ ESTÁ DE VOLTA! - BATE OU REGAÇA #01",
+    "canal": "Podpah",
+    "picos_usados": [
+      286.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
