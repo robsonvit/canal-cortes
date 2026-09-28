@@ -6330,14 +6330,19 @@
   },
   "0uF88plBXxw": {
     "data_primeiro": "2026-09-25T11:42:12.339676+00:00",
-    "data_ultimo": "2026-09-25T11:42:12.339676+00:00",
+    "data_ultimo": "2026-09-28T02:37:03.408998+00:00",
     "titulo": "CAN BITCOIN REACH 3 MILLION DOLLARS?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      44.6
+      44.6,
+      116.8,
+      188.9,
+      261.1,
+      333.2,
+      405.4
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "zoQerxF5DGM": {
     "data_primeiro": "2026-09-25T15:24:24.551985+00:00",
