@@ -99,25 +99,32 @@ Transcrição com tempos (SRT):
 
 Retorne apenas o JSON, sem explicações."""
 
-    try:
-        resp = cliente.chat.completions.create(
-            model="google/gemma-4-31b-it:free",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.3,
-            max_tokens=400,
-        )
-        conteudo = resp.choices[0].message.content.strip()
+    modelos_fallback = [
+        "google/gemma-4-31b-it:free",
+        "qwen/qwen3.8-27b:free",
+        "google/gemma-4-26b-a4b-it:free"
+    ]
 
-        # Extrai o JSON da resposta
-        match = re.search(r"\[.*?\]", conteudo, re.DOTALL)
-        if match:
-            temas = json.loads(match.group())
-            print(f"  🧠 Temas extraídos pela IA: {[t['tema_pt'] for t in temas]}")
-            print(f"  🔍 Termos de busca (Bing): {[t.get('termo_busca_a', '?') for t in temas]}")
-            print(f"  📖 Entidades Wikipedia: {[t.get('sujeito_wikipedia', '?') for t in temas]}")
-            return temas
-    except Exception as e:
-        print(f"  ⚠️  Erro ao extrair temas: {e}")
+    for modelo in modelos_fallback:
+        try:
+            resp = cliente.chat.completions.create(
+                model=modelo,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.3,
+                max_tokens=400,
+            )
+            conteudo = resp.choices[0].message.content.strip()
+
+            # Extrai o JSON da resposta
+            match = re.search(r"\[.*?\]", conteudo, re.DOTALL)
+            if match:
+                temas = json.loads(match.group())
+                print(f"  🧠 Temas extraídos pela IA ({modelo}): {[t.get('tema_pt', '') for t in temas]}")
+                print(f"  🔍 Termos de busca (Bing): {[t.get('termo_busca_a', '?') for t in temas]}")
+                print(f"  📖 Entidades Wikipedia: {[t.get('sujeito_wikipedia', '?') for t in temas]}")
+                return temas
+        except Exception as e:
+            print(f"  ⚠️  Erro ao extrair temas com {modelo}: {e}")
 
     # Fallback vazio para não inserir imagens desconexas se a IA falhar
     return []

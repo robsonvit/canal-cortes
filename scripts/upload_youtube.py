@@ -135,31 +135,41 @@ Retorne apenas o JSON, sem explicações adicionais."""
     try:
         from openai import OpenAI
         cliente = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ.get("OPENROUTER_API_KEY"))
-        resp = cliente.chat.completions.create(
-            model="google/gemma-4-31b-it:free",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.7,
-            max_tokens=800,
-        )
-        conteudo = resp.choices[0].message.content.strip()
+        modelos_fallback = [
+            "google/gemma-4-31b-it:free",
+            "qwen/qwen3.8-27b:free",
+            "google/gemma-4-26b-a4b-it:free"
+        ]
 
-        # Extrai JSON da resposta
-        match = re.search(r'\{.*\}', conteudo, re.DOTALL)
-        if match:
-            seo = json.loads(match.group())
-            titulo   = seo.get("titulo", "").strip()[:100]
-            descricao = seo.get("descricao", "").strip()[:5000]
-            tags      = seo.get("tags", [])
+        for modelo in modelos_fallback:
+            try:
+                resp = cliente.chat.completions.create(
+                    model=modelo,
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0.7,
+                    max_tokens=800,
+                )
+                conteudo = resp.choices[0].message.content.strip()
 
-            if titulo and descricao and tags:
-                print(f"  🤖 SEO gerado pela IA:")
-                print(f"     Título   : {titulo}")
-                print(f"     Tags     : {len(tags)} tags geradas")
-                print(f"     Descrição: {len(descricao)} chars")
-                return {"titulo": titulo, "descricao": descricao, "tags": tags}
+                # Extrai JSON da resposta
+                match = re.search(r'\{.*\}', conteudo, re.DOTALL)
+                if match:
+                    seo = json.loads(match.group())
+                    titulo   = seo.get("titulo", "").strip()[:100]
+                    descricao = seo.get("descricao", "").strip()[:5000]
+                    tags      = seo.get("tags", [])
+
+                    if titulo and descricao and tags:
+                        print(f"  🤖 SEO gerado pela IA ({modelo}):")
+                        print(f"     Título   : {titulo}")
+                        print(f"     Tags     : {len(tags)} tags geradas")
+                        print(f"     Descrição: {len(descricao)} chars")
+                        return {"titulo": titulo, "descricao": descricao, "tags": tags}
+            except Exception as e:
+                print(f"  ⚠️  Erro ao gerar SEO com {modelo}: {e}")
 
     except Exception as e:
-        print(f"  ⚠️  Groq AI falhou ao gerar SEO: {e}")
+        print(f"  ⚠️  Falha geral na geração de SEO: {e}")
 
     return {}
 
