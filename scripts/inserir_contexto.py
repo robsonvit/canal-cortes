@@ -101,7 +101,7 @@ Retorne apenas o JSON, sem explicações."""
 
     try:
         resp = cliente.chat.completions.create(
-            model="meta-llama/llama-3.1-8b-instruct:free",
+            model="google/gemma-4-31b-it:free",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
             max_tokens=400,
