@@ -6487,5 +6487,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "EGgplOMtxFQ": {
+    "data_primeiro": "2026-09-28T20:04:47.565941+00:00",
+    "data_ultimo": "2026-09-28T20:04:47.565941+00:00",
+    "titulo": "Coverage Failure #297: Neyárbitro and Better Sufferings",
+    "canal": "Podpah",
+    "picos_usados": [
+      187.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
