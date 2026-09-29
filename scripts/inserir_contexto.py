@@ -100,9 +100,13 @@ Transcrição com tempos (SRT):
 Retorne apenas o JSON, sem explicações."""
 
     modelos_fallback = [
+        "google/gemini-2.0-flash-exp:free",
+        "meta-llama/llama-3-8b-instruct:free",
+        "google/gemma-2-9b-it:free",
+        "mistralai/mistral-7b-instruct:free",
+        "qwen/qwen-2-7b-instruct:free",
         "google/gemma-4-31b-it:free",
         "qwen/qwen3.8-27b:free",
-        "google/gemma-4-26b-a4b-it:free"
     ]
 
     for modelo in modelos_fallback:
