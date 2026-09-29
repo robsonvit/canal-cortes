@@ -5052,17 +5052,18 @@
   },
   "j9avHJ45bPc": {
     "data_primeiro": "2026-09-11T20:04:07.118101+00:00",
-    "data_ultimo": "2026-09-27T11:43:44.701238+00:00",
+    "data_ultimo": "2026-09-29T09:33:50.802428+00:00",
     "titulo": "The need to be loved is destroying your life.",
     "canal": "PrimoCast",
     "picos_usados": [
       42.1,
       111.6,
       181.2,
-      250.8
+      250.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "esuhz1FXYEk": {
     "data_primeiro": "2026-09-11T21:04:28.589003+00:00",
@@ -5610,16 +5611,17 @@
   },
   "VXl9HEzVhrY": {
     "data_primeiro": "2026-09-15T02:39:26.664969+00:00",
-    "data_ultimo": "2026-09-27T02:37:49.516080+00:00",
+    "data_ultimo": "2026-09-29T09:34:08.505447+00:00",
     "titulo": "How to rediscover yourself after years of living for others | Dr. Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       110.8,
       249.1,
-      387.4
+      387.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ZREf3LX22PA": {
     "data_primeiro": "2026-09-15T09:44:39.248705+00:00",
@@ -6424,14 +6426,15 @@
   },
   "xlARQqRvgjc": {
     "data_primeiro": "2026-09-27T15:19:02.746483+00:00",
-    "data_ultimo": "2026-09-27T15:19:02.746483+00:00",
+    "data_ultimo": "2026-09-29T09:34:25.231592+00:00",
     "titulo": "THE HACK THAT MADE BITCOINERS RETHINK SELF-CUSTODY",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      60.8
+      60.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "6P6iMlNwlio": {
     "data_primeiro": "2026-09-27T17:14:32.143399+00:00",
@@ -6492,14 +6495,15 @@
   },
   "EGgplOMtxFQ": {
     "data_primeiro": "2026-09-28T20:04:47.565941+00:00",
-    "data_ultimo": "2026-09-28T20:04:47.565941+00:00",
+    "data_ultimo": "2026-09-29T09:33:34.122880+00:00",
     "titulo": "Coverage Failure #297: Neyárbitro and Better Sufferings",
     "canal": "Podpah",
     "picos_usados": [
-      187.4
+      187.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "r07756dF_B4": {
     "data_primeiro": "2026-09-29T01:00:46.208563+00:00",
@@ -6514,13 +6518,14 @@
   },
   "wPcNLBY0mg4": {
     "data_primeiro": "2026-09-29T02:43:08.624368+00:00",
-    "data_ultimo": "2026-09-29T02:43:08.624368+00:00",
-    "titulo": "ENTRAMOS EM UM SANATÓRIO ABANDONADO CHEIO DE ARANHAS! ft. Richard Rasmussen | EP 4 #PELOMUNDO",
+    "data_ultimo": "2026-09-29T09:34:42.029410+00:00",
+    "titulo": "ENCARAMOS AS ARANHAS GIGANTES NA AMAZÔNIA ft. Richard Rasmussen | EP 4 #PELOMUNDO",
     "canal": "Achismos TV",
     "picos_usados": [
-      337.4
+      337.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
