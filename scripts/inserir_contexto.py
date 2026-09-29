@@ -673,8 +673,8 @@ def inserir_contexto(
         # Com overlays:
         # Input 0 é o video_base, Inputs 1..N são os overlays
         inputs = ["-i", video_base]
-        for _, clip_path in overlays_prontos:
-            inputs += ["-i", clip_path]
+        for segundo, clip_path in overlays_prontos:
+            inputs += ["-itsoffset", str(segundo), "-i", clip_path]
 
         # Encadeia overlays: [prev_v][N:v]overlay=...[next_v]
         filters = []
