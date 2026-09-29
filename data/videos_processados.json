@@ -6571,5 +6571,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "aLhsooUugqo": {
+    "data_primeiro": "2026-09-29T20:06:35.509200+00:00",
+    "data_ultimo": "2026-09-29T20:06:35.509200+00:00",
+    "titulo": "TONY VENTURA E KENNETH CORRÊA - TICARACATICAST | EP 667",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      1112.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
