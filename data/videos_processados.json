@@ -1761,14 +1761,15 @@
   },
   "UQoeIj6vZ_s": {
     "data_primeiro": "2026-08-09T15:31:02.379363+00:00",
-    "data_ultimo": "2026-08-09T15:31:02.379363+00:00",
+    "data_ultimo": "2026-09-29T20:59:37.834521+00:00",
     "titulo": "COMO Ser uma Mulher de Sucesso (Lalas Cieslak e Camila Vieira) | TEMPO DE MESA",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      6393.4
+      6393.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "CSQeu-qpeEk": {
     "data_primeiro": "2026-08-09T17:09:28.258221+00:00",
@@ -6582,5 +6583,49 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "VGKAGse1-5k": {
+    "data_primeiro": "2026-09-29T20:59:03.509882+00:00",
+    "data_ultimo": "2026-09-29T20:59:03.509882+00:00",
+    "titulo": "BRUXOS LANÇAM FEITIÇO E PEDEM JUSTIÇA POR ORELHA",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "IjPMrmkBb70": {
+    "data_primeiro": "2026-09-29T21:00:13.226824+00:00",
+    "data_ultimo": "2026-09-29T21:00:13.226824+00:00",
+    "titulo": "TOUR PELA NOITE CARIOCA: O QUE VOCÊ PRECISA CONHECER NA LAPA! | #MEIOAMEIO #47",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "o-eJ4EPlnqs": {
+    "data_primeiro": "2026-09-29T21:00:49.536517+00:00",
+    "data_ultimo": "2026-09-29T21:00:49.536517+00:00",
+    "titulo": "HOW TO CHANGE YOUR ENVIRONMENT AND TRANSFORM YOUR LIFE (HE DID IT AT AGE 35)",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "_fK0TleXgO4": {
+    "data_primeiro": "2026-09-29T21:01:33.502661+00:00",
+    "data_ultimo": "2026-09-29T21:01:33.502661+00:00",
+    "titulo": "Por Que Você Sempre Se Sabota? | Dra. Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
