@@ -5804,30 +5804,32 @@
   },
   "cZHkIAG8jUo": {
     "data_primeiro": "2026-09-16T13:34:59.808065+00:00",
-    "data_ultimo": "2026-09-28T21:05:26.135949+00:00",
+    "data_ultimo": "2026-09-29T15:16:47.521635+00:00",
     "titulo": "THE TRUTH ABOUT TALLIS GOMES' PHOTO WITH MARK ZUCKERBERG",
     "canal": "PrimoCast",
     "picos_usados": [
       62.6,
       152.8,
       242.9,
-      333.1
+      333.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "FD2Qcp019h0": {
     "data_primeiro": "2026-09-16T15:23:55.300255+00:00",
-    "data_ultimo": "2026-09-27T21:05:07.100461+00:00",
+    "data_ultimo": "2026-09-29T15:17:04.540561+00:00",
     "titulo": "You spent your whole life trying to be who they expected you to be | Dr. Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       254.6,
       536.8,
-      818.9
+      818.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "4ssDFXRdS1I": {
     "data_primeiro": "2026-09-16T20:12:48.534638+00:00",
@@ -6276,15 +6278,16 @@
   },
   "epLGfer8LCc": {
     "data_primeiro": "2026-09-24T20:08:45.160511+00:00",
-    "data_ultimo": "2026-09-27T21:51:04.512375+00:00",
+    "data_ultimo": "2026-09-29T15:16:13.446378+00:00",
     "titulo": "AUGUSTO CURY: LIFE, POLITICS, AND THE FUTURE OF BRAZIL | Os Sócios 317",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       943.2,
-      1913.9
+      1913.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "XlzgWAGypk4": {
     "data_primeiro": "2026-09-24T21:08:57.191379+00:00",
@@ -6527,6 +6530,28 @@
     "canal": "Achismos TV",
     "picos_usados": [
       337.4,
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Bh8sMWSU1d4": {
+    "data_primeiro": "2026-09-29T15:15:56.622568+00:00",
+    "data_ultimo": "2026-09-29T15:15:56.622568+00:00",
+    "titulo": "QUEM É MAIS ENGRAÇADO? ft. IGOR GUIMARÃES, NABOTE E ED GAMA - Rango Brabo #144",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "xvSA6KGJaww": {
+    "data_primeiro": "2026-09-29T15:16:30.675548+00:00",
+    "data_ultimo": "2026-09-29T15:16:30.675548+00:00",
+    "titulo": "#FAQ #80 | O QUE É TOTALMENTE PROIBIDO NA CHINA E NA RÚSSIA? | #3CONTINENTES",
+    "canal": "Achismos TV",
+    "picos_usados": [
       -1.0
     ],
     "total_picos": 0,
