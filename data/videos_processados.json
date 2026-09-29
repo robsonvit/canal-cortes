@@ -5183,7 +5183,7 @@
   },
   "bXYnTmjo5AU": {
     "data_primeiro": "2026-09-12T20:10:15.791881+00:00",
-    "data_ultimo": "2026-09-29T11:49:45.552590+00:00",
+    "data_ultimo": "2026-09-29T17:03:14.148011+00:00",
     "titulo": "THE ROUTINE OF BRAZIL'S #1 IN SALES AND NETWORKING | 24 HOURS WITH ALFREDO SOARES",
     "canal": "PrimoCast",
     "picos_usados": [
@@ -5191,10 +5191,11 @@
       1853.6,
       2794.2,
       3734.8,
-      4675.4
+      4675.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "8uvCMnlqp10": {
     "data_primeiro": "2026-09-12T21:05:58.214590+00:00",
@@ -5322,17 +5323,18 @@
   },
   "jjku9-PT9i4": {
     "data_primeiro": "2026-09-13T13:33:44.390015+00:00",
-    "data_ultimo": "2026-09-28T22:22:53.553843+00:00",
+    "data_ultimo": "2026-09-29T17:03:45.540596+00:00",
     "titulo": "STOP SEEKING EVERYONE'S APPROVAL | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       76.4,
       180.2,
       284.1,
-      387.9
+      387.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "A4hriSBPGvU": {
     "data_primeiro": "2026-09-13T17:10:17.677026+00:00",
@@ -6238,15 +6240,16 @@
   },
   "1PGV-OBGkwo": {
     "data_primeiro": "2026-09-24T02:39:44.366619+00:00",
-    "data_ultimo": "2026-09-28T02:23:15.437438+00:00",
+    "data_ultimo": "2026-09-29T17:03:29.853608+00:00",
     "titulo": "To love is to care, but how far is too far? The line between love and sacrifice | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       131.8,
-      291.1
+      291.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "OQbyy84uM-8": {
     "data_primeiro": "2026-09-24T09:35:35.764514+00:00",
@@ -6514,14 +6517,15 @@
   },
   "r07756dF_B4": {
     "data_primeiro": "2026-09-29T01:00:46.208563+00:00",
-    "data_ultimo": "2026-09-29T01:00:46.208563+00:00",
+    "data_ultimo": "2026-09-29T17:02:57.285103+00:00",
     "titulo": "THE NEW ETF PROMISING INCOME USING BITCOIN COMPANIES",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      30.6
+      30.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "wPcNLBY0mg4": {
     "data_primeiro": "2026-09-29T02:43:08.624368+00:00",
@@ -6551,6 +6555,17 @@
     "data_ultimo": "2026-09-29T15:16:30.675548+00:00",
     "titulo": "#FAQ #80 | O QUE É TOTALMENTE PROIBIDO NA CHINA E NA RÚSSIA? | #3CONTINENTES",
     "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "UQytvM_0bCw": {
+    "data_primeiro": "2026-09-29T17:04:13.953790+00:00",
+    "data_ultimo": "2026-09-29T17:04:13.953790+00:00",
+    "titulo": "Has the stadium experience changed?!",
+    "canal": "Benja Me Mucho",
     "picos_usados": [
       -1.0
     ],
