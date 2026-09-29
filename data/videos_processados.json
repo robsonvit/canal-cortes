@@ -6630,14 +6630,19 @@
   },
   "i7PM95M-nso": {
     "data_primeiro": "2026-09-29T22:33:40.103825+00:00",
-    "data_ultimo": "2026-09-29T22:33:40.103825+00:00",
+    "data_ultimo": "2026-09-29T23:06:18.903556+00:00",
     "titulo": "Crenças Que Impedem Empresários de Crescer (FERNANDA TOCHETTO) | JOTA JOTA PODCAST #298",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      777.4
+      777.4,
+      1582.2,
+      2387.1,
+      3191.9,
+      3996.8,
+      4801.6
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "twfJzIaGr9I": {
     "data_primeiro": "2026-09-29T22:49:44.144792+00:00",
