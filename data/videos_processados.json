@@ -6646,7 +6646,7 @@
   },
   "twfJzIaGr9I": {
     "data_primeiro": "2026-09-29T22:49:44.144792+00:00",
-    "data_ultimo": "2026-09-30T11:52:10.084412+00:00",
+    "data_ultimo": "2026-09-30T13:43:31.027694+00:00",
     "titulo": "O DIA QUE O CHINÊS FOI ATACADO POR UM BOTO NA AMAZÔNIA! ft. Richard Rasmussen | EP 5 #PELOMUNDO",
     "canal": "Achismos TV",
     "picos_usados": [
@@ -6654,10 +6654,11 @@
       787.9,
       1195.6,
       1603.4,
-      2011.1
+      2011.1,
+      2418.8
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "DGCTDtEnLrU": {
     "data_primeiro": "2026-09-30T02:38:58.919774+00:00",
