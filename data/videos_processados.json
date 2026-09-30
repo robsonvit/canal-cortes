@@ -6765,5 +6765,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "GWvlr0wrDXI": {
+    "data_primeiro": "2026-09-30T20:04:38.687907+00:00",
+    "data_ultimo": "2026-09-30T20:04:38.687907+00:00",
+    "titulo": "O DUELO ENTRE OS GRANDES CEO'S - RICARDO NUNES + LÉO COSTA - TICARACATICAST | EP 820",
+    "canal": "Ticaracaticast",
+    "picos_usados": [
+      871.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
