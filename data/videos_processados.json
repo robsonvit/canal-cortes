@@ -2812,14 +2812,15 @@
   },
   "KEFT4PUViWk": {
     "data_primeiro": "2026-08-19T12:26:20.738693+00:00",
-    "data_ultimo": "2026-08-19T12:26:20.738693+00:00",
+    "data_ultimo": "2026-09-30T17:19:20.583613+00:00",
     "titulo": "Como MUDAR sua MENTALIDADE e seus RESULTADOS (TIAGO BRUNET) | Jota Jota Podcast #275",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      1446.5
+      1446.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "4eRk1VN7nVU": {
     "data_primeiro": "2026-08-19T13:26:41.552996+00:00",
@@ -3294,14 +3295,15 @@
   },
   "ZP8QW-xhQQE": {
     "data_primeiro": "2026-08-29T17:06:52.069647+00:00",
-    "data_ultimo": "2026-08-29T17:06:52.069647+00:00",
+    "data_ultimo": "2026-09-30T17:20:24.337378+00:00",
     "titulo": "ROMEU TUMA JR | BENJA ME MUCHO #175",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      814.4
+      814.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "rYYR-9oPixU": {
     "data_primeiro": "2026-08-29T20:01:25.261512+00:00",
@@ -6725,6 +6727,39 @@
     "data_ultimo": "2026-09-30T15:48:50.230650+00:00",
     "titulo": "HOW THE RICH COUSIN BUILT A BILLION-DOLLAR BUSINESS",
     "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "aleJW40q5Hk": {
+    "data_primeiro": "2026-09-30T17:18:49.823548+00:00",
+    "data_ultimo": "2026-09-30T17:18:49.823548+00:00",
+    "titulo": "Ansiedade Brasileira: por que o Brasil é o país mais ansioso do mundo | Dra. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "QZJjSSooO1c": {
+    "data_primeiro": "2026-09-30T17:19:52.713779+00:00",
+    "data_ultimo": "2026-09-30T17:19:52.713779+00:00",
+    "titulo": "TOP 10 COISAS MAIS F3Z3S DO BRASIL FT. LORD VINHETEIRO | #VARANDAGOURMET #68",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "e-n-ueH4YXY": {
+    "data_primeiro": "2026-09-30T17:20:56.185344+00:00",
+    "data_ultimo": "2026-09-30T17:20:56.185344+00:00",
+    "titulo": "CAIO CASTRO - TICARACATICAST | EP 572",
+    "canal": "Ticaracaticast",
     "picos_usados": [
       -1.0
     ],
