@@ -6656,5 +6656,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "DGCTDtEnLrU": {
+    "data_primeiro": "2026-09-30T02:38:58.919774+00:00",
+    "data_ultimo": "2026-09-30T02:48:39.632519+00:00",
+    "titulo": "What they didn't tell you about freedom.",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      76.8,
+      181.1,
+      285.4,
+      389.6,
+      493.9,
+      598.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
