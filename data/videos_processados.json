@@ -6870,5 +6870,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "g8Sp9dlrv3A": {
+    "data_primeiro": "2026-10-01T13:34:12.298664+00:00",
+    "data_ultimo": "2026-10-01T13:34:12.298664+00:00",
+    "titulo": "The bizarre rule that forces Guto Galamba to be disciplined with money.",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      21.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
