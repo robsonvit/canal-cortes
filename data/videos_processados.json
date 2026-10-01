@@ -6768,25 +6768,60 @@
   },
   "GWvlr0wrDXI": {
     "data_primeiro": "2026-09-30T20:04:38.687907+00:00",
-    "data_ultimo": "2026-09-30T21:05:52.053399+00:00",
+    "data_ultimo": "2026-10-01T00:57:58.957161+00:00",
     "titulo": "O DUELO ENTRE OS GRANDES CEO'S - RICARDO NUNES + LÉO COSTA - TICARACATICAST | EP 820",
     "canal": "Ticaracaticast",
     "picos_usados": [
       871.6,
-      1770.8
+      1770.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "9AMYMzZAei0": {
     "data_primeiro": "2026-09-30T22:20:24.964649+00:00",
-    "data_ultimo": "2026-09-30T22:20:24.964649+00:00",
+    "data_ultimo": "2026-10-01T00:58:15.693376+00:00",
     "titulo": "AUGUSTO CURY CRITICIZES THE STF: \"IT HAS MORE POWER THAN CONGRESS\"",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      23.6
+      23.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "FJK-c7DfVFk": {
+    "data_primeiro": "2026-10-01T00:57:26.959743+00:00",
+    "data_ultimo": "2026-10-01T00:57:26.959743+00:00",
+    "titulo": "The Problems With Telling Everyone Everything About Your Life | Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "sDfczJFb3F4": {
+    "data_primeiro": "2026-10-01T00:57:42.839699+00:00",
+    "data_ultimo": "2026-10-01T00:57:42.839699+00:00",
+    "titulo": "COMEMOS LARVA VIVA E MANDIOCA VENENOSA NA AMAZÔNIA ft. Richard Rasmussen | EP 06 #PELOMUNDO",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "q0Bhsu23P5Q": {
+    "data_primeiro": "2026-10-01T00:58:43.493454+00:00",
+    "data_ultimo": "2026-10-01T00:58:43.493454+00:00",
+    "titulo": "SEGREDO REVELADO NA CONSTELAÇÃO FAMILIAR",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
