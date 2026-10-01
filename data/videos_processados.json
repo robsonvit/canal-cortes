@@ -3329,14 +3329,15 @@
   },
   "fBIdjYDpG9s": {
     "data_primeiro": "2026-08-29T22:20:02.249734+00:00",
-    "data_ultimo": "2026-08-29T22:20:02.249734+00:00",
+    "data_ultimo": "2026-10-01T11:39:47.892345+00:00",
     "titulo": "GUSTAVO PARDAL + ANDERSON JUSTUS - TICARACATICAST | EP 596",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1027.5
+      1027.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "0LO-9U4pO7Y": {
     "data_primeiro": "2026-08-30T01:00:13.377602+00:00",
@@ -3502,14 +3503,15 @@
   },
   "Mwkm17KY-AI": {
     "data_primeiro": "2026-08-31T01:01:00.213537+00:00",
-    "data_ultimo": "2026-08-31T01:01:00.213537+00:00",
+    "data_ultimo": "2026-10-01T11:38:07.750208+00:00",
     "titulo": "DATENA | BENJA ME MUCHO #172",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      537.8
+      537.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "QPBL5HgVveQ": {
     "data_primeiro": "2026-08-31T02:35:23.639913+00:00",
@@ -6835,5 +6837,38 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "NbNn0NvX1xg": {
+    "data_primeiro": "2026-10-01T11:38:41.101331+00:00",
+    "data_ultimo": "2026-10-01T11:38:41.101331+00:00",
+    "titulo": "Os Sinais Clássicos do Passivo-agressivo: a raiva que não fala, mas ataca | Dra. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "7ES1FNNh4_w": {
+    "data_primeiro": "2026-10-01T11:39:14.446494+00:00",
+    "data_ultimo": "2026-10-01T11:39:14.446494+00:00",
+    "titulo": "#FAQ #75 | A ANGOLA QUE O BAPTISTA NÃO QUIS MOSTRAR | #3CONTINENTES",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "Rh713yyn2R4": {
+    "data_primeiro": "2026-10-01T11:40:21.319097+00:00",
+    "data_ultimo": "2026-10-01T11:40:21.319097+00:00",
+    "titulo": "I participated in the \"Comforting Letters\" session by Maira Rocha.",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
