@@ -6892,5 +6892,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "drd_kLnXdUI": {
+    "data_primeiro": "2026-10-01T17:09:50.863428+00:00",
+    "data_ultimo": "2026-10-01T17:09:50.863428+00:00",
+    "titulo": "OSSOCIOS PRISCILA PERINI FINISHED",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      722.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
