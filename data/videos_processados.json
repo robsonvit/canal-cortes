@@ -6823,5 +6823,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "2cV8wXS3qxs": {
+    "data_primeiro": "2026-10-01T02:37:05.659380+00:00",
+    "data_ultimo": "2026-10-01T02:37:05.659380+00:00",
+    "titulo": "Why EVERY investor gives up before 5 years (and how NOT to be one of them)",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      0
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
