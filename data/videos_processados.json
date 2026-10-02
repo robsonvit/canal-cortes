@@ -6954,5 +6954,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Vtd0k2uWAvA": {
+    "data_primeiro": "2026-10-02T17:12:35.013231+00:00",
+    "data_ultimo": "2026-10-02T17:22:35.038427+00:00",
+    "titulo": "A VERDADE SOBRE AMARRAÇÃO AMOROSA",
+    "canal": "LendaCast",
+    "picos_usados": [
+      91.2,
+      209.9,
+      328.6,
+      447.4,
+      566.1,
+      684.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
