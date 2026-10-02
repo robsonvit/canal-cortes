@@ -6908,15 +6908,19 @@
   },
   "ezlOevRZHzk": {
     "data_primeiro": "2026-10-01T20:07:03.890917+00:00",
-    "data_ultimo": "2026-10-02T01:04:49.134023+00:00",
+    "data_ultimo": "2026-10-02T14:01:34.587479+00:00",
     "titulo": "MENTALISMO, PSICOLOGIA E HUMOR - BETO E RAFA (OS MENTALISTAS) - TICARACATICAST | EP 821",
     "canal": "Ticaracaticast",
     "picos_usados": [
       977.1,
-      1981.6
+      1981.6,
+      2986.2,
+      3990.8,
+      4995.4,
+      5999.9
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "dd08KrR-N5E": {
     "data_primeiro": "2026-10-01T22:20:42.725229+00:00",
