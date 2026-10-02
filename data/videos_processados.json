@@ -6970,5 +6970,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "Wi3cltz6TZQ": {
+    "data_primeiro": "2026-10-02T19:57:57.544418+00:00",
+    "data_ultimo": "2026-10-02T19:57:57.544418+00:00",
+    "titulo": "WE BOUGHT GUI'S AMG",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "u8yTtNJyxZs": {
+    "data_primeiro": "2026-10-02T20:01:56.431936+00:00",
+    "data_ultimo": "2026-10-02T20:01:56.431936+00:00",
+    "titulo": "Augusto Cury responds to the DRONE MEME and explains his proposal",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      9.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
