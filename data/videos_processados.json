@@ -6884,14 +6884,15 @@
   },
   "cVldSSNmRWM": {
     "data_primeiro": "2026-10-01T15:50:30.126775+00:00",
-    "data_ultimo": "2026-10-02T21:02:25.219806+00:00",
+    "data_ultimo": "2026-10-03T11:42:24.417179+00:00",
     "titulo": "O QUE ACONTECE QUANDO UM AMERICANO TENTA ENTENDER O BRASIL? | #3CONTINENTES #140",
     "canal": "Achismos TV",
     "picos_usados": [
       492.9,
       1013.4,
       1533.8,
-      2054.2
+      2054.2,
+      2574.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
