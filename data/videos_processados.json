@@ -7005,5 +7005,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "Nw1gdCCrJcw": {
+    "data_primeiro": "2026-10-03T02:40:40.446723+00:00",
+    "data_ultimo": "2026-10-03T02:51:04.718133+00:00",
+    "titulo": "HEAVYWEIGHTS WEIGHING WEIGHTS - IGOR, DILERA, SKIPNHO AND DECO",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      124.9,
+      277.4,
+      429.8,
+      582.2,
+      734.6,
+      887.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
