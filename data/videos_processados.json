@@ -6884,7 +6884,7 @@
   },
   "cVldSSNmRWM": {
     "data_primeiro": "2026-10-01T15:50:30.126775+00:00",
-    "data_ultimo": "2026-10-03T11:42:24.417179+00:00",
+    "data_ultimo": "2026-10-03T13:28:24.302565+00:00",
     "titulo": "O QUE ACONTECE QUANDO UM AMERICANO TENTA ENTENDER O BRASIL? | #3CONTINENTES #140",
     "canal": "Achismos TV",
     "picos_usados": [
@@ -6892,21 +6892,23 @@
       1013.4,
       1533.8,
       2054.2,
-      2574.6
+      2574.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "drd_kLnXdUI": {
     "data_primeiro": "2026-10-01T17:09:50.863428+00:00",
-    "data_ultimo": "2026-10-01T17:09:50.863428+00:00",
+    "data_ultimo": "2026-10-03T13:27:28.662549+00:00",
     "titulo": "OSSOCIOS PRISCILA PERINI FINISHED",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      722.1
+      722.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ezlOevRZHzk": {
     "data_primeiro": "2026-10-01T20:07:03.890917+00:00",
@@ -6926,37 +6928,40 @@
   },
   "dd08KrR-N5E": {
     "data_primeiro": "2026-10-01T22:20:42.725229+00:00",
-    "data_ultimo": "2026-10-01T22:20:42.725229+00:00",
+    "data_ultimo": "2026-10-03T13:28:05.879897+00:00",
     "titulo": "AUGUSTO CURY REVEALS WHY HE STOPPED BEING AN ATHEIST AFTER STUDYING THE LIFE OF JESUS CHRIST",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      32.1
+      32.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "wRar7kGXlSE": {
     "data_primeiro": "2026-10-02T09:37:31.491867+00:00",
-    "data_ultimo": "2026-10-02T09:37:31.491867+00:00",
+    "data_ultimo": "2026-10-03T13:28:42.999631+00:00",
     "titulo": "AUGUSTO CURY BLASTS LULA: \"YOU ARE THE FATHER OF POVERTY\"",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      13.5
+      13.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "8QzxnAtZHdw": {
     "data_primeiro": "2026-10-02T15:28:36.213092+00:00",
-    "data_ultimo": "2026-10-03T01:06:51.904869+00:00",
+    "data_ultimo": "2026-10-03T13:27:47.420581+00:00",
     "titulo": "RESTAURANTE SECRETO DE RAÍZES TAIWANESAS EM SÃO PAULO | #MEIOAMEIO #52",
     "canal": "Achismos TV",
     "picos_usados": [
       414.8,
-      857.1
+      857.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Vtd0k2uWAvA": {
     "data_primeiro": "2026-10-02T17:12:35.013231+00:00",
