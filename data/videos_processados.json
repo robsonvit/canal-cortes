@@ -6992,11 +6992,12 @@
   },
   "u8yTtNJyxZs": {
     "data_primeiro": "2026-10-02T20:01:56.431936+00:00",
-    "data_ultimo": "2026-10-02T20:01:56.431936+00:00",
+    "data_ultimo": "2026-10-03T20:02:14.993085+00:00",
     "titulo": "Augusto Cury responds to the DRONE MEME and explains his proposal",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      9.4
+      9.4,
+      46.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
