@@ -7021,5 +7021,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "8uhfi7_lAKY": {
+    "data_primeiro": "2026-10-03T09:37:17.238701+00:00",
+    "data_ultimo": "2026-10-03T09:37:17.238701+00:00",
+    "titulo": "Augusto Cury criticizes VORCARO and the Central Bank's handling of the Master case",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      12.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
