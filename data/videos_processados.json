@@ -6992,27 +6992,29 @@
   },
   "u8yTtNJyxZs": {
     "data_primeiro": "2026-10-02T20:01:56.431936+00:00",
-    "data_ultimo": "2026-10-03T20:02:14.993085+00:00",
+    "data_ultimo": "2026-10-04T11:38:05.348878+00:00",
     "titulo": "Augusto Cury responds to the DRONE MEME and explains his proposal",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       9.4,
-      46.2
+      46.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "0xK_za5KSZY": {
     "data_primeiro": "2026-10-02T22:18:50.464470+00:00",
-    "data_ultimo": "2026-10-03T21:03:55.436565+00:00",
+    "data_ultimo": "2026-10-04T11:38:22.708233+00:00",
     "titulo": "AUGUSTO CURY PROMISES SELIC AT 4% TO 5% AND EXPLAINS HIS PLAN",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       9.8,
-      47.1
+      47.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Nw1gdCCrJcw": {
     "data_primeiro": "2026-10-03T02:40:40.446723+00:00",
@@ -7032,27 +7034,29 @@
   },
   "8uhfi7_lAKY": {
     "data_primeiro": "2026-10-03T09:37:17.238701+00:00",
-    "data_ultimo": "2026-10-04T01:01:48.846550+00:00",
+    "data_ultimo": "2026-10-04T11:38:56.697469+00:00",
     "titulo": "Augusto Cury criticizes VORCARO and the Central Bank's handling of the Master case",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       12.2,
-      51.9
+      51.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Rna6faHQt9A": {
     "data_primeiro": "2026-10-03T15:19:52.041575+00:00",
-    "data_ultimo": "2026-10-04T02:34:24.320998+00:00",
+    "data_ultimo": "2026-10-04T11:39:13.734211+00:00",
     "titulo": "AUGUSTO CURY HAD TO SELL BOOKS TO SURVIVE BEFORE FAME",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       40.8,
-      109.1
+      109.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "fbwmQPd36t0": {
     "data_primeiro": "2026-10-03T17:08:55.293042+00:00",
@@ -7068,13 +7072,14 @@
   },
   "PY1sFIH_yEc": {
     "data_primeiro": "2026-10-03T22:19:55.993036+00:00",
-    "data_ultimo": "2026-10-03T22:19:55.993036+00:00",
+    "data_ultimo": "2026-10-04T11:38:39.837167+00:00",
     "titulo": "WHY DID AUGUSTO CURY ENTER POLITICS EVEN WITH HIS LIFE ALREADY SORTED OUT?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      23.4
+      23.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
