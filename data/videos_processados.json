@@ -7060,14 +7060,15 @@
   },
   "fbwmQPd36t0": {
     "data_primeiro": "2026-10-03T17:08:55.293042+00:00",
-    "data_ultimo": "2026-10-04T15:20:25.912446+00:00",
+    "data_ultimo": "2026-10-04T17:07:44.894737+00:00",
     "titulo": "AUGUSTO CURY CRITICIZES IDOLATRY OF LULA AND BOLSONARO",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       19.9,
       67.4,
       114.8,
-      162.2
+      162.2,
+      209.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
