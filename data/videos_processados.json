@@ -4225,14 +4225,15 @@
   },
   "exyDSMBiO-M": {
     "data_primeiro": "2026-09-03T03:33:36.880936+00:00",
-    "data_ultimo": "2026-09-03T03:33:36.880936+00:00",
+    "data_ultimo": "2026-10-05T15:18:36.489154+00:00",
     "titulo": "EIKE BATISTA - TICARACATICAST | EP 574",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1092.5
+      1092.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Y6P7t_oPK1s": {
     "data_primeiro": "2026-09-03T11:45:59.013777+00:00",
@@ -4259,14 +4260,15 @@
   },
   "8upnyECrNZc": {
     "data_primeiro": "2026-09-03T17:09:17.400014+00:00",
-    "data_ultimo": "2026-09-03T17:09:17.400014+00:00",
+    "data_ultimo": "2026-10-05T15:16:45.158520+00:00",
     "titulo": "\"FIZ TUDO QUE PRECISAVA PARA VOLTAR A JOGAR!\"",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      42.5
+      42.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "-fUcD_uIQOc": {
     "data_primeiro": "2026-09-03T20:05:10.267386+00:00",
@@ -4812,16 +4814,17 @@
   },
   "z1tu2oHPcY0": {
     "data_primeiro": "2026-09-10T17:15:19.082385+00:00",
-    "data_ultimo": "2026-09-20T21:09:17.079984+00:00",
+    "data_ultimo": "2026-10-05T15:16:11.366190+00:00",
     "titulo": "VALE O HYPE? MEIO BRASILEIRA E PEDRO CONHECEM A GALERIA METROPOLE EM SP! | #MEIOAMEIO #48",
     "canal": "Achismos TV",
     "picos_usados": [
       202.2,
       431.9,
-      661.6
+      661.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "61Mkn93HugM": {
     "data_primeiro": "2026-09-10T19:57:41.810759+00:00",
@@ -7179,6 +7182,28 @@
       529.6
     ],
     "total_picos": 6,
+    "picos_esgotados": true
+  },
+  "ZZ8TVhVOz4Y": {
+    "data_primeiro": "2026-10-05T15:17:19.138259+00:00",
+    "data_ultimo": "2026-10-05T15:17:19.138259+00:00",
+    "titulo": "Seu cérebro não é defeituoso: a verdade sobre TDAH e Autismo | Dra. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "mhRgoklroCw": {
+    "data_primeiro": "2026-10-05T15:18:02.903641+00:00",
+    "data_ultimo": "2026-10-05T15:18:02.903641+00:00",
+    "titulo": "The dark pattern behind science's most mysterious deaths",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
     "picos_esgotados": true
   }
 }
