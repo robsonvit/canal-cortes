@@ -7163,5 +7163,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "rHokIPizp9U": {
+    "data_primeiro": "2026-10-05T11:43:15.088675+00:00",
+    "data_ultimo": "2026-10-05T11:45:24.645664+00:00",
+    "titulo": "RELATO REAL: CARANDIRU DOIS DIAS APÓS O MASSACRE",
+    "canal": "LendaCast",
+    "picos_usados": [
+      65.4,
+      158.2,
+      251.1,
+      343.9,
+      436.8,
+      529.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
