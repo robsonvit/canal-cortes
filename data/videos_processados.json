@@ -7121,5 +7121,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "4JDTNnr6b10": {
+    "data_primeiro": "2026-10-05T01:02:14.093864+00:00",
+    "data_ultimo": "2026-10-05T01:05:07.338917+00:00",
+    "titulo": "AMITYVILLE: ELE FOI ATÉ A CASA E CAPTOU ALGO ÀS 3:15",
+    "canal": "LendaCast",
+    "picos_usados": [
+      143.9,
+      315.4,
+      486.8,
+      658.2,
+      829.6,
+      1001.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
