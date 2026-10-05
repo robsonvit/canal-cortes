@@ -4113,14 +4113,15 @@
   },
   "ju-9o40wens": {
     "data_primeiro": "2026-09-03T01:05:19.671942+00:00",
-    "data_ultimo": "2026-09-03T01:05:19.671942+00:00",
+    "data_ultimo": "2026-10-05T02:32:08.792266+00:00",
     "titulo": "BRUNO FORMIGA | BENJA ME MUCHO #171",
     "canal": "Benja Me Mucho",
     "picos_usados": [
-      801.4
+      801.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "CS305v8_P0A": {
     "data_primeiro": "2026-09-03T01:18:00.514342+00:00",
@@ -4328,14 +4329,15 @@
   },
   "BL1a3T-8piA": {
     "data_primeiro": "2026-09-04T20:06:07.176050+00:00",
-    "data_ultimo": "2026-09-04T20:06:07.176050+00:00",
+    "data_ultimo": "2026-10-05T02:31:03.436138+00:00",
     "titulo": "Como a PROCRASTINAÇÃO vai DESTRUIR seus resultados em 2026 (JOEL JOTA) | JOTA JOTA PODCAST #264",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      149.8
+      149.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ZHKV_k0oRlo": {
     "data_primeiro": "2026-09-04T22:15:39.106389+00:00",
@@ -5713,14 +5715,15 @@
   },
   "kfkD5-BUG_U": {
     "data_primeiro": "2026-09-15T17:12:47.576356+00:00",
-    "data_ultimo": "2026-09-15T17:12:47.576356+00:00",
+    "data_ultimo": "2026-10-05T02:31:36.111989+00:00",
     "titulo": "CEMITÉRIO DA CONSOLAÇÃO: ONDE SÃO ENTERRADOS FAMOSOS, ANÔNIMOS E ATÉ UM CACHORRO | #VIDAREAL #33",
     "canal": "Achismos TV",
     "picos_usados": [
-      387.4
+      387.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "VQ50qxRez-s": {
     "data_primeiro": "2026-09-15T20:11:51.663246+00:00",
@@ -7136,6 +7139,28 @@
       1001.1
     ],
     "total_picos": 6,
+    "picos_esgotados": true
+  },
+  "4xyjXGQvmzg": {
+    "data_primeiro": "2026-10-05T02:32:41.485279+00:00",
+    "data_ultimo": "2026-10-05T02:32:41.485279+00:00",
+    "titulo": "Heal your traumas and build a profitable career | Dr. Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "vFTmhuqgEgw": {
+    "data_primeiro": "2026-10-05T02:33:15.686340+00:00",
+    "data_ultimo": "2026-10-05T02:33:15.686340+00:00",
+    "titulo": "ASKED ON THE STREET: IS AI GOING TO STEAL YOUR JOB? \"The answer shocked me\"",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
     "picos_esgotados": true
   }
 }
