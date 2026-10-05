@@ -7216,5 +7216,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "kB-3sJnDAy0": {
+    "data_primeiro": "2026-10-05T21:16:47.384010+00:00",
+    "data_ultimo": "2026-10-05T21:22:42.149292+00:00",
+    "titulo": "BASTIDORES DA POLÍTICA NOS PODCASTS ft. 3 Irmãos | #ACHISMOS PODCAST #436",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      786.9,
+      1601.4,
+      2415.8,
+      3230.2,
+      4044.6,
+      4859.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
