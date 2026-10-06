@@ -7322,5 +7322,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "4UDz-Gcs3I4": {
+    "data_primeiro": "2026-10-06T22:21:50.111973+00:00",
+    "data_ultimo": "2026-10-06T22:27:15.131558+00:00",
+    "titulo": "WHAT ARE THE BIGGEST RISKS FOR THOSE INVESTING IN AUCTION PROPERTIES?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      63.4,
+      154.2,
+      245.1,
+      335.9,
+      426.8,
+      517.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
