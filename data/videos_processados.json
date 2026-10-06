@@ -7208,14 +7208,15 @@
   },
   "dX4Uk1eo4vw": {
     "data_primeiro": "2026-10-05T17:09:34.182803+00:00",
-    "data_ultimo": "2026-10-06T01:46:50.098776+00:00",
+    "data_ultimo": "2026-10-06T02:35:02.554564+00:00",
     "titulo": "Coverage Failure #298: Less Than a Lasagna",
     "canal": "Podpah",
     "picos_usados": [
       146.2,
       319.9,
       493.6,
-      667.4
+      667.4,
+      841.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
