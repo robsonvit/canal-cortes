@@ -4322,14 +4322,19 @@
   },
   "PdpNIBeceBI": {
     "data_primeiro": "2026-09-04T17:09:45.846400+00:00",
-    "data_ultimo": "2026-09-04T17:09:45.846400+00:00",
+    "data_ultimo": "2026-10-06T14:34:08.938810+00:00",
     "titulo": "DR. NICO - OPERAÇÕES POLICIAIS - TICARACATICAST | EP 625",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1054.6
+      1054.6,
+      2136.8,
+      3218.9,
+      4301.1,
+      5383.2,
+      6465.4
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "BL1a3T-8piA": {
     "data_primeiro": "2026-09-04T20:06:07.176050+00:00",
