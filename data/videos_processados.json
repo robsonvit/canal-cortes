@@ -7310,5 +7310,17 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "huYN8PVn_Jw": {
+    "data_primeiro": "2026-10-06T21:00:21.577919+00:00",
+    "data_ultimo": "2026-10-06T21:06:47.230061+00:00",
+    "titulo": "Why can't you change your life (even though you know what to do) | Dr. Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      103.2,
+      233.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
