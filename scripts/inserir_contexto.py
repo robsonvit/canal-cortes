@@ -99,12 +99,15 @@ Transcrição com tempos (SRT):
 
 Retorne apenas o JSON, sem explicações."""
 
+    # Modelos ordenados por estabilidade/disponibilidade (menos propensos a rate-limit primeiro)
     modelos_fallback = [
+        "meta-llama/llama-3.1-8b-instruct:free",
+        "mistralai/mistral-7b-instruct:free",
+        "qwen/qwen-2-7b-instruct:free",
+        "microsoft/phi-3-mini-128k-instruct:free",
         "google/gemini-2.0-flash-exp:free",
         "meta-llama/llama-3-8b-instruct:free",
         "google/gemma-2-9b-it:free",
-        "mistralai/mistral-7b-instruct:free",
-        "qwen/qwen-2-7b-instruct:free",
         "google/gemma-4-31b-it:free",
         "qwen/qwen3.8-27b:free",
     ]
@@ -117,21 +120,83 @@ Retorne apenas o JSON, sem explicações."""
                 temperature=0.3,
                 max_tokens=400,
             )
-            conteudo = resp.choices[0].message.content.strip()
+            # ── FIX: Protege contra resposta None (ex: qwen/qwen3.8-27b) ──────
+            mensagem = resp.choices[0].message.content if resp.choices else None
+            if not mensagem:
+                print(f"  ⚠️  [{modelo}] Resposta vazia ou None. Tentando próximo modelo...")
+                continue
+            conteudo = mensagem.strip()
 
             # Extrai o JSON da resposta
             match = re.search(r"\[.*?\]", conteudo, re.DOTALL)
             if match:
                 temas = json.loads(match.group())
-                print(f"  🧠 Temas extraídos pela IA ({modelo}): {[t.get('tema_pt', '') for t in temas]}")
-                print(f"  🔍 Termos de busca (Bing): {[t.get('termo_busca_a', '?') for t in temas]}")
-                print(f"  📖 Entidades Wikipedia: {[t.get('sujeito_wikipedia', '?') for t in temas]}")
-                return temas
+                if temas:  # garante lista não vazia
+                    print(f"  🧠 Temas extraídos pela IA ({modelo}): {[t.get('tema_pt', '') for t in temas]}")
+                    print(f"  🔍 Termos de busca (Bing): {[t.get('termo_busca_a', '?') for t in temas]}")
+                    print(f"  📖 Entidades Wikipedia: {[t.get('sujeito_wikipedia', '?') for t in temas]}")
+                    return temas
         except Exception as e:
             print(f"  ⚠️  Erro ao extrair temas com {modelo}: {e}")
 
-    # Fallback vazio para não inserir imagens desconexas se a IA falhar
-    return []
+    # ── FALLBACK ROBUSTO: extrai temas via NLP simples do texto ──────────────
+    # Garante que SEMPRE haverá imagens mesmo quando TODOS os LLMs falharem
+    print("  ⚠️  Todos os modelos LLM falharam. Usando extração de temas por NLP simples...")
+    return _extrair_temas_fallback(texto_para_ia)
+
+
+def _extrair_temas_fallback(texto: str) -> list:
+    """
+    Extrai temas visuais diretamente do texto da transcrição quando todos os LLMs
+    falham (rate-limit ou indisponibilidade). Usa frequência de palavras + stopwords
+    para identificar os termos mais relevantes visualmente.
+    Retorna lista de dicts compatível com o formato esperado pelo pipeline.
+    """
+    import re as _re
+
+    # Stopwords PT-BR (palavras sem valor visual)
+    stopwords = {
+        "de", "da", "do", "das", "dos", "em", "no", "na", "nos", "nas", "um", "uma",
+        "uns", "umas", "e", "o", "a", "os", "as", "que", "se", "por", "com", "para",
+        "não", "mais", "mas", "ou", "eu", "ele", "ela", "nós", "você", "eles", "elas",
+        "isso", "isto", "aqui", "ali", "quando", "como", "porque", "então", "já",
+        "até", "só", "bem", "muito", "pouco", "todo", "toda", "vai", "foi", "ser",
+        "ter", "tem", "tinha", "sobre", "tudo", "cara", "tipo", "né", "aí", "pra",
+        "lá", "aqui", "assim", "mesmo", "ainda", "então", "agora", "depois",
+        "gente", "coisa", "coisas", "vez", "vezes", "deu", "dá", "dando",
+    }
+
+    # Remove marcações SRT (números de linha, timestamps)
+    texto_limpo = _re.sub(r'\d+\n\d{2}:\d{2}:\d{2},\d{3}.*?\n', ' ', texto)
+    texto_limpo = _re.sub(r'<[^>]+>', '', texto_limpo)  # Remove tags HTML
+
+    # Tokeniza e conta frequência das palavras com 4+ chars
+    palavras = _re.findall(r'\b[a-záéíóúâêîôûãõàü]{4,}\b', texto_limpo.lower())
+    freq = {}
+    for p in palavras:
+        if p not in stopwords:
+            freq[p] = freq.get(p, 0) + 1
+
+    # Pega as 3 palavras mais frequentes como temas
+    top_termos = sorted(freq.items(), key=lambda x: x[1], reverse=True)[:3]
+
+    if not top_termos:
+        # Último recurso: temas genéricos de podcast
+        top_termos = [("podcast", 1), ("conversa", 1), ("entrevista", 1)]
+
+    temas = []
+    intervalos = [5, 20, 40]
+    for i, (termo, freq_count) in enumerate(top_termos):
+        tema_capitalizado = termo.capitalize()
+        temas.append({
+            "tema_pt": tema_capitalizado,
+            "termo_busca_a": f"{tema_capitalizado} foto HD",
+            "sujeito_wikipedia": tema_capitalizado,
+            "segundo": intervalos[i] if i < len(intervalos) else i * 15 + 5,
+        })
+        print(f"  📝 [NLP Fallback] Tema {i+1}: '{tema_capitalizado}' (freq={freq_count})")
+
+    return temas
 
 
 # ─────────────────────────────────────────────────────────────────────────────
