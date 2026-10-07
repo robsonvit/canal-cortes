@@ -7435,5 +7435,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "sf5_PlB2exs": {
+    "data_primeiro": "2026-10-07T22:21:39.730214+00:00",
+    "data_ultimo": "2026-10-07T22:26:58.779892+00:00",
+    "titulo": "HOW TO START BUYING AUCTION PROPERTIES?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      45.4,
+      118.2,
+      191.1,
+      263.9,
+      336.8,
+      409.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
