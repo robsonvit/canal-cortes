@@ -4536,14 +4536,15 @@
   },
   "dVuHkzpDwcA": {
     "data_primeiro": "2026-09-07T15:21:23.946206+00:00",
-    "data_ultimo": "2026-09-07T15:21:23.946206+00:00",
+    "data_ultimo": "2026-10-07T02:32:22.354758+00:00",
     "titulo": "JOÃO NETO + FREDERICO - TICARACATICAST | EP 588",
     "canal": "Ticaracaticast",
     "picos_usados": [
-      1008.1
+      1008.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "1ED3cLJQrxQ": {
     "data_primeiro": "2026-09-07T17:12:51.958539+00:00",
@@ -7341,13 +7342,47 @@
   },
   "vSbnkhhf6Vo": {
     "data_primeiro": "2026-10-07T01:08:41.909298+00:00",
-    "data_ultimo": "2026-10-07T01:08:41.909298+00:00",
-    "titulo": "Como Sair do ZERO e Construir Uma Vida Melhor (RICK CHESTHER) | JOTA JOTA PODCAST #299",
+    "data_ultimo": "2026-10-07T02:31:13.584655+00:00",
+    "titulo": "O Que Você Precisa Fazer Antes da OPORTUNIDADE Chegar (RICK CHESTHER) | JOTA JOTA PODCAST #299",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      1042.6
+      1042.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "yBAfiO9O4Ak": {
+    "data_primeiro": "2026-10-07T02:30:55.016994+00:00",
+    "data_ultimo": "2026-10-07T02:30:55.016994+00:00",
+    "titulo": "CHOICES: THE PERSON YOU DIDN'T BECOME",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "bcOAUO_lVgM": {
+    "data_primeiro": "2026-10-07T02:31:47.784704+00:00",
+    "data_ultimo": "2026-10-07T02:31:47.784704+00:00",
+    "titulo": "He created a business that makes millions (but doesn't make a profit) | The Mentor",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "0GGsZ_dBaEs": {
+    "data_primeiro": "2026-10-07T02:32:56.712299+00:00",
+    "data_ultimo": "2026-10-07T02:32:56.712299+00:00",
+    "titulo": "ELA ESTUDOU OS DEMÔNIOS E SABE COMO ENFRENTÁ-LOS - Thalita Lemos | LendaCast #283",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
