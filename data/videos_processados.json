@@ -7407,5 +7407,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "SuemxaMgusg": {
+    "data_primeiro": "2026-10-07T20:12:06.599725+00:00",
+    "data_ultimo": "2026-10-07T20:12:25.087713+00:00",
+    "titulo": "A REALIDADE DAS RUAS: TRABALHEI UM DIA COMO ENTREGADOR | #VIDAREAL #35",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      255.5,
+      538.5,
+      821.5,
+      1104.5,
+      1387.5,
+      1670.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
