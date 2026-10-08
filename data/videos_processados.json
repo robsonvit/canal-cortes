@@ -7486,5 +7486,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "MBXT5XAT6Qc": {
+    "data_primeiro": "2026-10-08T02:36:56.414462+00:00",
+    "data_ultimo": "2026-10-08T02:36:56.414462+00:00",
+    "titulo": "You're not weak, you just never learned to listen to yourself! | Dr. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      102.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
