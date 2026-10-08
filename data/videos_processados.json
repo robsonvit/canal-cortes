@@ -7534,5 +7534,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "JLwaVvoj7Ds": {
+    "data_primeiro": "2026-10-08T22:16:36.553559+00:00",
+    "data_ultimo": "2026-10-08T22:16:57.466958+00:00",
+    "titulo": "IS IT BETTER TO SELL OR RENT A PROPERTY BOUGHT AT AUCTION?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      49.4,
+      126.2,
+      203.1,
+      279.9,
+      356.8,
+      433.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
