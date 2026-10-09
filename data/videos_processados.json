@@ -7556,5 +7556,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "sqr2P4mq7DA": {
+    "data_primeiro": "2026-10-09T17:09:34.824458+00:00",
+    "data_ultimo": "2026-10-09T17:14:24.156494+00:00",
+    "titulo": "LARICAS ESTRANHAS: QUEM TOMA DRINK DE COCA-COLA COM PICLES? | #MEIOAMEIO #53",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      222.4,
+      472.2,
+      722.1,
+      971.9,
+      1221.8,
+      1471.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
