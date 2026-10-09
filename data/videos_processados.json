@@ -7516,14 +7516,15 @@
   },
   "Y9SPLUraFlY": {
     "data_primeiro": "2026-10-08T15:23:51.795746+00:00",
-    "data_ultimo": "2026-10-09T15:22:34.910368+00:00",
+    "data_ultimo": "2026-10-09T20:05:12.630677+00:00",
     "titulo": "POISON GIRL WENT TO THE BEACH WITH MC BINN! - Podpah Visits #119",
     "canal": "Podpah",
     "picos_usados": [
       361.9,
       751.4,
       1140.8,
-      1530.2
+      1530.2,
+      1919.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
