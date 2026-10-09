@@ -7500,14 +7500,15 @@
   },
   "hOhLiNx1_f0": {
     "data_primeiro": "2026-10-08T09:38:30.484600+00:00",
-    "data_ultimo": "2026-10-08T20:03:14.824261+00:00",
+    "data_ultimo": "2026-10-09T02:36:41.279505+00:00",
     "titulo": "GWM CHIEF OPERATING OFFICER — Diego Fernandes",
     "canal": "Flow Podcast",
     "picos_usados": [
       447.8,
       923.1,
       1398.4,
-      1873.6
+      1873.6,
+      2348.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
