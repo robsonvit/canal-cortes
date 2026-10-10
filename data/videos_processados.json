@@ -7660,5 +7660,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "uJzh3-j-ln4": {
+    "data_primeiro": "2026-10-10T22:19:54.826754+00:00",
+    "data_ultimo": "2026-10-10T22:23:27.234191+00:00",
+    "titulo": "SHE BOUGHT A MOVE-IN READY APARTMENT FOR R$125K AND CAN SELL IT FOR R$240K",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      46.5,
+      120.5,
+      194.5,
+      268.5,
+      342.5,
+      416.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
