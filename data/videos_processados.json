@@ -1640,13 +1640,14 @@
   },
   "VEFJP2YeV8M": {
     "data_primeiro": "2026-08-08T00:03:30.488520+00:00",
-    "data_ultimo": "2026-10-06T20:07:29.878688+00:00",
+    "data_ultimo": "2026-10-10T15:26:56.561944+00:00",
     "titulo": "The Secret to High-Performance Sales (Dani Martins) | JOTA JOTA PODCAST #272",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       2017.6,
       703.8,
-      1435.1
+      1435.1,
+      2166.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -7624,6 +7625,17 @@
       9338.5
     ],
     "total_picos": 6,
+    "picos_esgotados": true
+  },
+  "ZWvaAFxGW94": {
+    "data_primeiro": "2026-10-10T15:15:58.634850+00:00",
+    "data_ultimo": "2026-10-10T15:15:58.634850+00:00",
+    "titulo": "A SERIOUS TRACK DAY",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
     "picos_esgotados": true
   }
 }
