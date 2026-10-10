@@ -7591,5 +7591,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "T4BbBVdvzuY": {
+    "data_primeiro": "2026-10-10T02:49:05.654431+00:00",
+    "data_ultimo": "2026-10-10T02:58:19.143039+00:00",
+    "titulo": "IMPOSTOR GAME | DILERA, PROFESSOR TOURETTE, DR. DANI AND RIBEIRO | PCD SHOW",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      116.9,
+      261.4,
+      405.8,
+      550.2,
+      694.6,
+      839.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
