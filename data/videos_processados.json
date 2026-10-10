@@ -7532,7 +7532,7 @@
   },
   "oFlELqpiNxo": {
     "data_primeiro": "2026-10-08T17:08:58.719965+00:00",
-    "data_ultimo": "2026-10-10T09:43:12.335016+00:00",
+    "data_ultimo": "2026-10-10T11:45:30.338988+00:00",
     "titulo": "VERDADES E MENTIRAS SOBRE NOSSOS PAÍSES | #3CONTINENTES #141",
     "canal": "Achismos TV",
     "picos_usados": [
@@ -7540,10 +7540,11 @@
       1041.9,
       1576.6,
       2111.4,
-      2646.1
+      2646.1,
+      3180.8
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "JLwaVvoj7Ds": {
     "data_primeiro": "2026-10-08T22:16:36.553559+00:00",
