@@ -7637,5 +7637,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "pNUm2jQd6FU": {
+    "data_primeiro": "2026-10-10T17:14:15.155236+00:00",
+    "data_ultimo": "2026-10-10T17:14:15.155236+00:00",
+    "titulo": "THE ROUTINE OF ONE OF BRAZIL'S TOP SALESPEOPLE | 24 HOURS WITH CAIO CARNEIRO",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      687.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
