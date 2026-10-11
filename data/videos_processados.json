@@ -7749,5 +7749,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "cOXU4I_XODE": {
+    "data_primeiro": "2026-10-11T22:21:31.169219+00:00",
+    "data_ultimo": "2026-10-11T22:21:31.169219+00:00",
+    "titulo": "TOURETTE SHOW COM DILERA E REPÓRTER TOURETTE | #VARANDAGOURMET #74",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      408.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
