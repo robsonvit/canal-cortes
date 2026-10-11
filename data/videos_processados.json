@@ -7705,5 +7705,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "vtfAZoqmTfQ": {
+    "data_primeiro": "2026-10-11T13:31:35.423109+00:00",
+    "data_ultimo": "2026-10-11T13:34:30.255350+00:00",
+    "titulo": "CAN YOU BUY A $500K PROPERTY WITH A $15K DOWN PAYMENT? | Buying property at auction",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      33.5,
+      94.5,
+      155.5,
+      216.5,
+      277.5,
+      338.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
