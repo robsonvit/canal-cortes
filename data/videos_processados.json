@@ -7676,5 +7676,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "xgael86qhQY": {
+    "data_primeiro": "2026-10-11T01:02:34.282043+00:00",
+    "data_ultimo": "2026-10-11T01:06:50.350018+00:00",
+    "titulo": "A LENDA BIZARRA DA ESTÁTUA DE VICTOR NOIR",
+    "canal": "LendaCast",
+    "picos_usados": [
+      171.9,
+      371.4,
+      570.8,
+      770.2,
+      969.6,
+      1169.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
