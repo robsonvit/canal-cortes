@@ -7721,5 +7721,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "DOOHvBsZOrw": {
+    "data_primeiro": "2026-10-11T15:23:21.019380+00:00",
+    "data_ultimo": "2026-10-11T15:23:21.019380+00:00",
+    "titulo": "Why Deciding to Change Was Never Enough... | Dr. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      83.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
