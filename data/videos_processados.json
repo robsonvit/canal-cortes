@@ -6906,14 +6906,15 @@
   },
   "g8Sp9dlrv3A": {
     "data_primeiro": "2026-10-01T13:34:12.298664+00:00",
-    "data_ultimo": "2026-10-01T13:34:12.298664+00:00",
+    "data_ultimo": "2026-10-12T15:17:04.163123+00:00",
     "titulo": "The bizarre rule that forces Guto Galamba to be disciplined with money.",
     "canal": "PrimoCast",
     "picos_usados": [
-      21.8
+      21.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "cVldSSNmRWM": {
     "data_primeiro": "2026-10-01T15:50:30.126775+00:00",
@@ -7887,5 +7888,49 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "FOkLEDBNYHA": {
+    "data_primeiro": "2026-10-12T15:15:54.986938+00:00",
+    "data_ultimo": "2026-10-12T15:15:54.986938+00:00",
+    "titulo": "OS BASTIDORES DO PODER EM BRASÍLIA ft. José Eduardo Cardozo | #ACHISMOS PODCAST #437",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "z98nlebH0Pc": {
+    "data_primeiro": "2026-10-12T15:16:28.802736+00:00",
+    "data_ultimo": "2026-10-12T15:16:28.802736+00:00",
+    "titulo": "RELATOS ASSUSTADORES DA ROÇA",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "kX7ECi10zzA": {
+    "data_primeiro": "2026-10-12T15:17:37.369237+00:00",
+    "data_ultimo": "2026-10-12T15:17:37.369237+00:00",
+    "titulo": "What Limits You Today Was Decided When You Were a Child | Dr. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "FMiqAA8sB6Q": {
+    "data_primeiro": "2026-10-12T15:18:11.505559+00:00",
+    "data_ultimo": "2026-10-12T15:18:11.505559+00:00",
+    "titulo": "PREDICTIONS FOR 2026 - with psychic Chaline Grazik | LendaCast #257",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
