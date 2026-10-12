@@ -1640,7 +1640,7 @@
   },
   "VEFJP2YeV8M": {
     "data_primeiro": "2026-08-08T00:03:30.488520+00:00",
-    "data_ultimo": "2026-10-11T21:10:29.169383+00:00",
+    "data_ultimo": "2026-10-12T11:38:07.271522+00:00",
     "titulo": "The Secret to High-Performance Sales (Dani Martins) | JOTA JOTA PODCAST #272",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
@@ -1648,10 +1648,11 @@
       703.8,
       1435.1,
       2166.4,
-      2897.6
+      2897.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ZEZbsD-jvhM": {
     "data_primeiro": "2026-08-08T08:17:04.518808+00:00",
@@ -6860,14 +6861,15 @@
   },
   "2cV8wXS3qxs": {
     "data_primeiro": "2026-10-01T02:37:05.659380+00:00",
-    "data_ultimo": "2026-10-01T02:37:05.659380+00:00",
+    "data_ultimo": "2026-10-12T11:40:14.863220+00:00",
     "titulo": "Why EVERY investor gives up before 5 years (and how NOT to be one of them)",
     "canal": "PrimoCast",
     "picos_usados": [
-      0
+      0,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "NbNn0NvX1xg": {
     "data_primeiro": "2026-10-01T11:38:41.101331+00:00",
@@ -7835,6 +7837,39 @@
     "data_primeiro": "2026-10-12T09:36:07.543039+00:00",
     "data_ultimo": "2026-10-12T09:36:07.543039+00:00",
     "titulo": "COMO É A VIDA DENTRO DA PENITENCIÁRIA DE TREMEMBÉ - com Ullisses Campbell | LendaCast #238",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "0vyw6jkpyE4": {
+    "data_primeiro": "2026-10-12T11:38:39.088292+00:00",
+    "data_ultimo": "2026-10-12T11:38:39.088292+00:00",
+    "titulo": "24 HOURS WITH MANU CIT | THE ROUTINE OF A 22-YEAR-OLD BUSINESSWOMAN AND MILLIONAIRE",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "crm1uv2OHyA": {
+    "data_primeiro": "2026-10-12T11:39:11.651935+00:00",
+    "data_ultimo": "2026-10-12T11:39:11.651935+00:00",
+    "titulo": "The Basement Metaphor: What Psychoanalysis Reveals About You | Dr. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "DLVzsK7elDg": {
+    "data_primeiro": "2026-10-12T11:39:43.592252+00:00",
+    "data_ultimo": "2026-10-12T11:39:43.592252+00:00",
+    "titulo": "CAMINHONEIRO FALA DAS APARIÇÕES QUE VIU NA ESTRADA - Márcio Coxxa | LendaCast #285",
     "canal": "LendaCast",
     "picos_usados": [
       -1.0
