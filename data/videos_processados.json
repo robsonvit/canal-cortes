@@ -6606,17 +6606,18 @@
   },
   "aLhsooUugqo": {
     "data_primeiro": "2026-09-29T20:06:35.509200+00:00",
-    "data_ultimo": "2026-10-11T11:46:50.936792+00:00",
+    "data_ultimo": "2026-10-12T02:32:25.642107+00:00",
     "titulo": "TONY VENTURA E KENNETH CORRÊA - TICARACATICAST | EP 667",
     "canal": "Ticaracaticast",
     "picos_usados": [
       1112.8,
       2253.1,
       3393.4,
-      4533.6
+      4533.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "VGKAGse1-5k": {
     "data_primeiro": "2026-09-29T20:59:03.509882+00:00",
@@ -7752,24 +7753,48 @@
   },
   "cOXU4I_XODE": {
     "data_primeiro": "2026-10-11T22:21:31.169219+00:00",
-    "data_ultimo": "2026-10-11T22:21:31.169219+00:00",
+    "data_ultimo": "2026-10-12T02:31:11.968942+00:00",
     "titulo": "TOURETTE SHOW COM DILERA E REPÓRTER TOURETTE | #VARANDAGOURMET #74",
     "canal": "Achismos TV",
     "picos_usados": [
-      408.8
+      408.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "hIJfhukUmA4": {
     "data_primeiro": "2026-10-12T01:07:32.693704+00:00",
-    "data_ultimo": "2026-10-12T01:07:32.693704+00:00",
+    "data_ultimo": "2026-10-12T02:31:27.297441+00:00",
     "titulo": "NIPPLE PIERCING! - Hit or Miss #02",
     "canal": "Podpah",
     "picos_usados": [
-      208.6
+      208.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "AvOBh2MoD8o": {
+    "data_primeiro": "2026-10-12T02:31:56.835556+00:00",
+    "data_ultimo": "2026-10-12T02:31:56.835556+00:00",
+    "titulo": "How to create content to make your business sell more.",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "4ul-vyqWCQI": {
+    "data_primeiro": "2026-10-12T02:32:56.170648+00:00",
+    "data_ultimo": "2026-10-12T02:32:56.170648+00:00",
+    "titulo": "Who Are You When No One Is Watching? | IAV Experience 1st Edition",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
