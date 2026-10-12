@@ -3449,17 +3449,18 @@
   },
   "BkJVIcs6_2I": {
     "data_primeiro": "2026-08-30T15:19:33.354106+00:00",
-    "data_ultimo": "2026-10-11T02:44:59.726478+00:00",
+    "data_ultimo": "2026-10-12T09:34:47.301193+00:00",
     "titulo": "How to GROW on Social Media and Turn VIEWS into MONEY (CHEF JU LIMA) | JOTA JOTA PODCAST #266",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       852.6,
       1732.8,
       2612.9,
-      3493.1
+      3493.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "4K0khou80DU": {
     "data_primeiro": "2026-08-30T17:05:42.991930+00:00",
@@ -7791,6 +7792,50 @@
     "data_ultimo": "2026-10-12T02:32:56.170648+00:00",
     "titulo": "Who Are You When No One Is Watching? | IAV Experience 1st Edition",
     "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "xTUwgyPh1Zw": {
+    "data_primeiro": "2026-10-12T09:34:21.243335+00:00",
+    "data_ultimo": "2026-10-12T09:34:21.243335+00:00",
+    "titulo": "ACOMPANHEI UM RITUAL DE BELZEBU NO RS (+18)",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "lmyNF46v8V8": {
+    "data_primeiro": "2026-10-12T09:35:15.337249+00:00",
+    "data_ultimo": "2026-10-12T09:35:15.337249+00:00",
+    "titulo": "60 DAYS TO SAVE A COMPANY THAT INVESTS MILLIONS AND DOESN'T MAKE A PROFIT | The Mentor #04",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "VlElnQM-dIc": {
+    "data_primeiro": "2026-10-12T09:35:41.308231+00:00",
+    "data_ultimo": "2026-10-12T09:35:41.308231+00:00",
+    "titulo": "The silent crisis many women are experiencing | Dr. Andréa Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "qso3Ceb_gJQ": {
+    "data_primeiro": "2026-10-12T09:36:07.543039+00:00",
+    "data_ultimo": "2026-10-12T09:36:07.543039+00:00",
+    "titulo": "COMO É A VIDA DENTRO DA PENITENCIÁRIA DE TREMEMBÉ - com Ullisses Campbell | LendaCast #238",
+    "canal": "LendaCast",
     "picos_usados": [
       -1.0
     ],
