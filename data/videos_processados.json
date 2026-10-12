@@ -7935,12 +7935,13 @@
   },
   "IMkmnFJPgrk": {
     "data_primeiro": "2026-10-12T17:13:12.057206+00:00",
-    "data_ultimo": "2026-10-12T20:04:11.874673+00:00",
+    "data_ultimo": "2026-10-12T21:08:28.217502+00:00",
     "titulo": "Fail of Coverage #299: All Happiness Will Be Punished",
     "canal": "Podpah",
     "picos_usados": [
       298.6,
-      624.8
+      624.8,
+      950.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
