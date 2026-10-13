@@ -7971,5 +7971,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "1u5w12itfx0": {
+    "data_primeiro": "2026-10-13T17:11:27.004920+00:00",
+    "data_ultimo": "2026-10-13T17:11:27.004920+00:00",
+    "titulo": "BECA BARRETO REUNITES WITH EX LIVE! - Rango Brabo #145",
+    "canal": "Podpah",
+    "picos_usados": [
+      412.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
