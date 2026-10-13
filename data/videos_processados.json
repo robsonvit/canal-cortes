@@ -7955,5 +7955,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "6XqC7UMxzCA": {
+    "data_primeiro": "2026-10-13T15:25:18.317509+00:00",
+    "data_ultimo": "2026-10-13T15:30:56.048162+00:00",
+    "titulo": "#FAQ #82 | QUALQUER ROUPA PODE SER PIJAMA? | #3CONTINENTES",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      261.6,
+      550.8,
+      839.9,
+      1129.1,
+      1418.2,
+      1707.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
