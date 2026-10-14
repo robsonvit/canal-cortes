@@ -7988,11 +7988,12 @@
   },
   "un7cZEs56JE": {
     "data_primeiro": "2026-10-13T22:20:37.482582+00:00",
-    "data_ultimo": "2026-10-13T22:20:37.482582+00:00",
+    "data_ultimo": "2026-10-14T09:36:59.567193+00:00",
     "titulo": "THE $10 GYM THAT INSPIRED THE CREATION OF SMART FIT",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      40.1
+      40.1,
+      107.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
