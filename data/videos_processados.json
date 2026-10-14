@@ -8034,5 +8034,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "qlmaZ6O53ag": {
+    "data_primeiro": "2026-10-14T22:28:22.255974+00:00",
+    "data_ultimo": "2026-10-14T22:39:13.536996+00:00",
+    "titulo": "O MAIOR VARANDA DE TODOS OS TEMPOS! ft. Neymar, Cariani, Gabi Martins e Tcar | #VARANDAGOURMET #75",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      656.1,
+      1339.6,
+      2023.2,
+      2706.8,
+      3390.4,
+      4073.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
