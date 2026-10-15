@@ -8076,5 +8076,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "dDON9BFlLqk": {
+    "data_primeiro": "2026-10-15T11:40:57.863144+00:00",
+    "data_ultimo": "2026-10-15T11:48:18.673356+00:00",
+    "titulo": "THE PERFORMANCE WE CALL LOVE",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      89.6,
+      206.8,
+      323.9,
+      441.1,
+      558.2,
+      675.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
