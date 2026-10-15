@@ -7974,7 +7974,7 @@
   },
   "1u5w12itfx0": {
     "data_primeiro": "2026-10-13T17:11:27.004920+00:00",
-    "data_ultimo": "2026-10-14T13:36:16.178313+00:00",
+    "data_ultimo": "2026-10-15T02:31:18.456754+00:00",
     "titulo": "BECA BARRETO REUNITES WITH EX LIVE! - Rango Brabo #145",
     "canal": "Podpah",
     "picos_usados": [
@@ -7982,10 +7982,11 @@
       851.6,
       1291.2,
       1730.8,
-      2170.4
+      2170.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "un7cZEs56JE": {
     "data_primeiro": "2026-10-13T22:20:37.482582+00:00",
@@ -8002,27 +8003,29 @@
   },
   "KH-io2ZoVcQ": {
     "data_primeiro": "2026-10-14T01:15:18.194992+00:00",
-    "data_ultimo": "2026-10-14T20:10:46.585622+00:00",
+    "data_ultimo": "2026-10-15T02:31:02.685811+00:00",
     "titulo": "How to SELL MORE and INCREASE Your Business PROFITS | JOTA JOTA PODCAST #300",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       867.8,
       1763.1,
-      2658.4
+      2658.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "T5Yo9jtKzCU": {
     "data_primeiro": "2026-10-14T15:28:24.089037+00:00",
-    "data_ultimo": "2026-10-14T15:28:24.089037+00:00",
+    "data_ultimo": "2026-10-15T02:31:34.591335+00:00",
     "titulo": "O LADO ASSOMBRADO DO CENTRO DE SÃO PAULO | #VIDAREAL #36",
     "canal": "Achismos TV",
     "picos_usados": [
-      377.8
+      377.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "bK7DNHGCzHc": {
     "data_primeiro": "2026-10-14T21:06:18.708884+00:00",
@@ -8053,13 +8056,25 @@
   },
   "DbaEIUPqemw": {
     "data_primeiro": "2026-10-15T01:03:47.551428+00:00",
-    "data_ultimo": "2026-10-15T01:03:47.551428+00:00",
+    "data_ultimo": "2026-10-15T02:31:50.107567+00:00",
     "titulo": "Adult ADHD: Why Do Simple Things Require So Much Effort? | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      82.2
+      82.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "ZwsuyFyooWo": {
+    "data_primeiro": "2026-10-15T02:30:47.382236+00:00",
+    "data_ultimo": "2026-10-15T02:30:47.382236+00:00",
+    "titulo": "HOW DID SMART FIT ALMOST GO BUST DURING THE PANDEMIC?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
