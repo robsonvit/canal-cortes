@@ -8094,5 +8094,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "Ob3BCA6ETYU": {
+    "data_primeiro": "2026-10-15T17:09:27.500632+00:00",
+    "data_ultimo": "2026-10-15T17:09:27.500632+00:00",
+    "titulo": "QUASE FOMOS CANCELADOS POR UMA PALAVRA! | #3CONTINENTES #142",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      416.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
