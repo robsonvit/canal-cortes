@@ -8050,5 +8050,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "DbaEIUPqemw": {
+    "data_primeiro": "2026-10-15T01:03:47.551428+00:00",
+    "data_ultimo": "2026-10-15T01:03:47.551428+00:00",
+    "titulo": "Adult ADHD: Why Do Simple Things Require So Much Effort? | Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      82.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
