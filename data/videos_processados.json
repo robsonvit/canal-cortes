@@ -8118,5 +8118,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "E_DRm4_nAUM": {
+    "data_primeiro": "2026-10-16T01:08:56.445821+00:00",
+    "data_ultimo": "2026-10-16T01:08:56.445821+00:00",
+    "titulo": "COMPRAR E VENDER CARRO | SERÁ QUE DÁ DINHEIRO?",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      436.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
