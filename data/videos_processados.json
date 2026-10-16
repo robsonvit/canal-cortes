@@ -7507,14 +7507,15 @@
   },
   "MBXT5XAT6Qc": {
     "data_primeiro": "2026-10-08T02:36:56.414462+00:00",
-    "data_ultimo": "2026-10-08T02:36:56.414462+00:00",
+    "data_ultimo": "2026-10-16T15:17:01.304105+00:00",
     "titulo": "You're not weak, you just never learned to listen to yourself! | Dr. Andréa Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      102.8
+      102.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "hOhLiNx1_f0": {
     "data_primeiro": "2026-10-08T09:38:30.484600+00:00",
@@ -7657,14 +7658,15 @@
   },
   "pNUm2jQd6FU": {
     "data_primeiro": "2026-10-10T17:14:15.155236+00:00",
-    "data_ultimo": "2026-10-10T17:14:15.155236+00:00",
+    "data_ultimo": "2026-10-16T15:16:26.933675+00:00",
     "titulo": "THE ROUTINE OF ONE OF BRAZIL'S TOP SALESPEOPLE | 24 HOURS WITH CAIO CARNEIRO",
     "canal": "PrimoCast",
     "picos_usados": [
-      687.5
+      687.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "DcQ-ArGxMc0": {
     "data_primeiro": "2026-10-10T21:06:58.461480+00:00",
@@ -7711,14 +7713,15 @@
   },
   "t8Lwf0GiHds": {
     "data_primeiro": "2026-10-11T09:42:47.958239+00:00",
-    "data_ultimo": "2026-10-11T09:42:47.958239+00:00",
+    "data_ultimo": "2026-10-16T15:17:36.019751+00:00",
     "titulo": "HOW TO BUY FORECLOSURE PROPERTIES AND MAKE MONEY | IS IT PROFITABLE?",
     "canal": "PrimoCast",
     "picos_usados": [
-      298.6
+      298.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "vtfAZoqmTfQ": {
     "data_primeiro": "2026-10-11T13:31:35.423109+00:00",
@@ -7738,14 +7741,15 @@
   },
   "DOOHvBsZOrw": {
     "data_primeiro": "2026-10-11T15:23:21.019380+00:00",
-    "data_ultimo": "2026-10-11T15:23:21.019380+00:00",
+    "data_ultimo": "2026-10-16T15:18:09.805757+00:00",
     "titulo": "Why Deciding to Change Was Never Enough... | Dr. Andréa Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      83.1
+      83.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "amE-b0Du2Vs": {
     "data_primeiro": "2026-10-11T20:08:29.288473+00:00",
@@ -8147,6 +8151,17 @@
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       53.5,
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "EQJg4jGWTxI": {
+    "data_primeiro": "2026-10-16T15:15:50.997122+00:00",
+    "data_ultimo": "2026-10-16T15:15:50.997122+00:00",
+    "titulo": "24H NA FESTA MAIS ALEMÃ DAS AMÉRICAS - OKTOBERFEST BLUMENAU | #MEIOAMEIO #54",
+    "canal": "Achismos TV",
+    "picos_usados": [
       -1.0
     ],
     "total_picos": 0,
