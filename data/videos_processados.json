@@ -7990,7 +7990,7 @@
   },
   "un7cZEs56JE": {
     "data_primeiro": "2026-10-13T22:20:37.482582+00:00",
-    "data_ultimo": "2026-10-15T20:03:07.126204+00:00",
+    "data_ultimo": "2026-10-16T11:38:48.292321+00:00",
     "titulo": "THE $10 GYM THAT INSPIRED THE CREATION OF SMART FIT",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
@@ -7998,10 +7998,11 @@
       107.6,
       175.2,
       242.8,
-      310.4
+      310.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "KH-io2ZoVcQ": {
     "data_primeiro": "2026-10-14T01:15:18.194992+00:00",
@@ -8031,16 +8032,17 @@
   },
   "bK7DNHGCzHc": {
     "data_primeiro": "2026-10-14T21:06:18.708884+00:00",
-    "data_ultimo": "2026-10-15T21:05:06.548309+00:00",
+    "data_ultimo": "2026-10-16T11:38:02.418452+00:00",
     "titulo": "BELLA LONGUINHO vs 5 MEN ft. MALÉVOLA AND MARTINA - Podpaquera #40",
     "canal": "Podpah",
     "picos_usados": [
       211.8,
       451.1,
-      690.4
+      690.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "qlmaZ6O53ag": {
     "data_primeiro": "2026-10-14T22:28:22.255974+00:00",
@@ -8115,35 +8117,38 @@
   },
   "Lb5aKUznBvI": {
     "data_primeiro": "2026-10-15T22:22:17.698450+00:00",
-    "data_ultimo": "2026-10-15T22:22:17.698450+00:00",
+    "data_ultimo": "2026-10-16T11:38:18.783296+00:00",
     "titulo": "The Book That Changed How I Think and Do Business | Joel Jota",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      53.5
+      53.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "E_DRm4_nAUM": {
     "data_primeiro": "2026-10-16T01:08:56.445821+00:00",
-    "data_ultimo": "2026-10-16T01:08:56.445821+00:00",
-    "titulo": "COMPRAR E VENDER CARRO | SERÁ QUE DÁ DINHEIRO?",
+    "data_ultimo": "2026-10-16T11:38:33.773041+00:00",
+    "titulo": "BUYING AND SELLING CARS | IS IT PROFITABLE?",
     "canal": "PrimoCast",
     "picos_usados": [
-      436.5
+      436.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "FeUuSyfdl_0": {
     "data_primeiro": "2026-10-16T09:37:58.123898+00:00",
-    "data_ultimo": "2026-10-16T09:37:58.123898+00:00",
+    "data_ultimo": "2026-10-16T11:39:03.576468+00:00",
     "titulo": "HOW AN ACCIDENT LED TO THE CREATION OF SMART FIT?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      53.5
+      53.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
