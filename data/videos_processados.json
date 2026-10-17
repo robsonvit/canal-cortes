@@ -8181,5 +8181,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "sBzN8EGbGiY": {
+    "data_primeiro": "2026-10-17T02:37:35.493887+00:00",
+    "data_ultimo": "2026-10-17T02:44:59.045474+00:00",
+    "titulo": "Blindfolded Snake with a Nerf Gun - Dilera, Reporter Tourette and Vega - PCD Show",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      68.1,
+      163.6,
+      259.2,
+      354.8,
+      450.4,
+      545.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
