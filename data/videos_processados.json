@@ -8172,14 +8172,15 @@
   },
   "zJqDcvmxiHo": {
     "data_primeiro": "2026-10-16T22:21:23.789462+00:00",
-    "data_ultimo": "2026-10-17T11:43:35.944918+00:00",
+    "data_ultimo": "2026-10-17T13:32:22.924152+00:00",
     "titulo": "THE SUCCESS OF THE FIRST SMART FIT UNIT (2,400 students)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       26.9,
       81.4,
       135.8,
-      190.2
+      190.2,
+      244.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
