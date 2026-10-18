@@ -8247,5 +8247,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "cDE6JzTkT0o": {
+    "data_primeiro": "2026-10-18T22:51:18.764098+00:00",
+    "data_ultimo": "2026-10-18T23:32:29.802161+00:00",
+    "titulo": "RANKING DAS MAIORES COISAS DE TIOZÃO | #VARANDAGOURMET #76",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      454.1,
+      935.6,
+      1417.2,
+      1898.8,
+      2380.4,
+      2861.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
