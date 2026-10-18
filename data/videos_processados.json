@@ -8220,7 +8220,7 @@
   },
   "Np0cfVIO4rg": {
     "data_primeiro": "2026-10-17T22:21:22.708875+00:00",
-    "data_ultimo": "2026-10-18T11:42:11.473740+00:00",
+    "data_ultimo": "2026-10-18T15:20:33.825700+00:00",
     "titulo": "HOW SMART FIT WILL USE ARTIFICIAL INTELLIGENCE TO CREATE PERSONALIZED WORKOUTS AND DIETS",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
@@ -8228,10 +8228,11 @@
       161.4,
       255.8,
       350.2,
-      444.6
+      444.6,
+      539.1
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "cKEkQMDzlTI": {
     "data_primeiro": "2026-10-18T13:32:37.642339+00:00",
