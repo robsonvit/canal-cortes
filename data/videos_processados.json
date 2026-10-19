@@ -7897,17 +7897,19 @@
   },
   "B6GTDrsjUtk": {
     "data_primeiro": "2026-10-12T13:35:36.184464+00:00",
-    "data_ultimo": "2026-10-17T21:04:55.403720+00:00",
+    "data_ultimo": "2026-10-19T09:34:19.531553+00:00",
     "titulo": "Why do you get lost trying to be accepted by others? | Dr. Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       31.5,
       90.5,
       149.5,
-      208.5
+      208.5,
+      267.5,
+      326.5
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "FOkLEDBNYHA": {
     "data_primeiro": "2026-10-12T15:15:54.986938+00:00",
