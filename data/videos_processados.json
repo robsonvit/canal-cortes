@@ -8270,15 +8270,19 @@
   },
   "b6-nU7ecj3U": {
     "data_primeiro": "2026-10-19T17:52:00.275317+00:00",
-    "data_ultimo": "2026-10-19T18:25:44.780270+00:00",
+    "data_ultimo": "2026-10-19T21:27:47.547699+00:00",
     "titulo": "VIVER DE STAND-UP DÁ MEDO? ft. Fernando Pedrosa | #ACHISMOS PODCAST #438",
     "canal": "Achismos TV",
     "picos_usados": [
       824.5,
-      1676.5
+      1676.5,
+      2528.5,
+      3380.5,
+      4232.5,
+      5084.5
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "diJM_Igj12g": {
     "data_primeiro": "2026-10-19T20:06:05.935300+00:00",
