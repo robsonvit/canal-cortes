@@ -8236,7 +8236,7 @@
   },
   "cKEkQMDzlTI": {
     "data_primeiro": "2026-10-18T13:32:37.642339+00:00",
-    "data_ultimo": "2026-10-19T01:00:27.079765+00:00",
+    "data_ultimo": "2026-10-19T02:35:32.288430+00:00",
     "titulo": "EDGARD CORONA EXPLAINS THE NEW PROBLEM IN THE FITNESS MARKET (are we in a gym bubble?)",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
@@ -8244,10 +8244,11 @@
       145.1,
       231.4,
       317.6,
-      403.9
+      403.9,
+      490.2
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "cDE6JzTkT0o": {
     "data_primeiro": "2026-10-18T22:51:18.764098+00:00",
