@@ -8286,7 +8286,7 @@
   },
   "diJM_Igj12g": {
     "data_primeiro": "2026-10-19T20:06:05.935300+00:00",
-    "data_ultimo": "2026-10-20T09:41:44.436652+00:00",
+    "data_ultimo": "2026-10-20T11:45:42.575249+00:00",
     "titulo": "Coverage Failure #300: Enters and Exits in a Sadistic Way",
     "canal": "Podpah",
     "picos_usados": [
@@ -8294,10 +8294,11 @@
       624.8,
       950.9,
       1277.1,
-      1603.2
+      1603.2,
+      1929.4
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "TRpZF83o_fk": {
     "data_primeiro": "2026-10-20T00:57:15.713365+00:00",
