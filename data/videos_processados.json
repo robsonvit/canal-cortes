@@ -8286,14 +8286,26 @@
   },
   "diJM_Igj12g": {
     "data_primeiro": "2026-10-19T20:06:05.935300+00:00",
-    "data_ultimo": "2026-10-19T22:24:02.968772+00:00",
+    "data_ultimo": "2026-10-20T01:05:55.170842+00:00",
     "titulo": "Coverage Failure #300: Enters and Exits in a Sadistic Way",
     "canal": "Podpah",
     "picos_usados": [
       298.6,
-      624.8
+      624.8,
+      950.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "TRpZF83o_fk": {
+    "data_primeiro": "2026-10-20T00:57:15.713365+00:00",
+    "data_ultimo": "2026-10-20T00:57:15.713365+00:00",
+    "titulo": "What was it like TALKING to PRESIDENT LULA? | Q&A",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
