@@ -8353,13 +8353,18 @@
   },
   "WXtxwOgU3_E": {
     "data_primeiro": "2026-10-21T02:36:59.377862+00:00",
-    "data_ultimo": "2026-10-21T02:36:59.377862+00:00",
+    "data_ultimo": "2026-10-21T14:08:20.492315+00:00",
     "titulo": "OS MITOS DA ECONOMIA NO BRASIL ft. Olivia Carneiro | #ACHISMOS PODCAST #439",
     "canal": "Achismos TV",
     "picos_usados": [
-      859.5
+      859.5,
+      1746.5,
+      2633.5,
+      3520.5,
+      4407.5,
+      5294.5
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   }
 }
