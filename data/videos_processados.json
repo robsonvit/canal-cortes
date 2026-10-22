@@ -8418,13 +8418,14 @@
   },
   "5etrYum7H0g": {
     "data_primeiro": "2026-10-21T22:20:02.036942+00:00",
-    "data_ultimo": "2026-10-22T20:00:24.076606+00:00",
+    "data_ultimo": "2026-10-22T21:57:35.458633+00:00",
     "titulo": "BRUNO PERINI REVEALS HOW HE ACHIEVED NEARLY 800% RETURN",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       7.8,
       43.1,
-      78.4
+      78.4,
+      113.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
@@ -8489,6 +8490,17 @@
     "data_ultimo": "2026-10-22T17:04:25.345378+00:00",
     "titulo": "COMO SAIR DAS DÍVIDAS E GUARDAR DINHEIRO | Os Sócios 321",
     "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "2ysuXXrMuDc": {
+    "data_primeiro": "2026-10-22T21:54:24.969598+00:00",
+    "data_ultimo": "2026-10-22T21:54:24.969598+00:00",
+    "titulo": "O que os membros do Achismos estão reclamando? | SAC #02",
+    "canal": "Achismos TV",
     "picos_usados": [
       -1.0
     ],
