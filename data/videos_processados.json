@@ -8416,11 +8416,12 @@
   },
   "5etrYum7H0g": {
     "data_primeiro": "2026-10-21T22:20:02.036942+00:00",
-    "data_ultimo": "2026-10-21T22:20:02.036942+00:00",
+    "data_ultimo": "2026-10-22T12:15:41.177916+00:00",
     "titulo": "BRUNO PERINI REVEALS HOW HE ACHIEVED NEARLY 800% RETURN",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      7.8
+      7.8,
+      43.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
