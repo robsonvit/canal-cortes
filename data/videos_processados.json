@@ -8439,5 +8439,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "qg7XuNMxxk8": {
+    "data_primeiro": "2026-10-22T02:36:44.917738+00:00",
+    "data_ultimo": "2026-10-22T02:36:44.917738+00:00",
+    "titulo": "CEO AND FOUNDER OF FIRST CLASS HOME - André Pivetti",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      468.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
