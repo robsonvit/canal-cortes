@@ -8393,26 +8393,28 @@
   },
   "-pmiqUpHRSg": {
     "data_primeiro": "2026-10-21T20:05:49.393023+00:00",
-    "data_ultimo": "2026-10-22T09:41:21.547626+00:00",
+    "data_ultimo": "2026-10-22T17:05:02.600162+00:00",
     "titulo": "THE MISTAKE PARENTS MAKE BY LEAVING THEIR CHILDREN'S EDUCATION IN THE HANDS OF SCHOOLS | RODRIGO ...",
     "canal": "PrimoCast",
     "picos_usados": [
       29.1,
-      85.6
+      85.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "-R5O7p2QqCM": {
     "data_primeiro": "2026-10-21T21:05:31.091771+00:00",
-    "data_ultimo": "2026-10-21T21:05:31.091771+00:00",
+    "data_ultimo": "2026-10-22T17:04:06.600964+00:00",
     "titulo": "RODRIGO SILVA SHARES THE STORY OF WHEN XANDE DE PILARES REUNITED WITH THE MAN WHO HELPED HIM IN H...",
     "canal": "PrimoCast",
     "picos_usados": [
-      11.1
+      11.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "5etrYum7H0g": {
     "data_primeiro": "2026-10-21T22:20:02.036942+00:00",
@@ -8460,13 +8462,36 @@
   },
   "wsO2pYSm_0s": {
     "data_primeiro": "2026-10-22T15:27:56.660352+00:00",
-    "data_ultimo": "2026-10-22T15:27:56.660352+00:00",
-    "titulo": "POR DENTRO DA FÁBRICA MAIS HYPADA DO BRASIL - Podpah Visita #120",
+    "data_ultimo": "2026-10-22T17:04:44.231248+00:00",
+    "titulo": "INVADIMOS A MAIOR FÁBRICA DE REMÉDIOS DA AMÉRICA LATINA! - Podpah Visita #120",
     "canal": "Podpah",
     "picos_usados": [
-      281.5
+      281.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "NuI9Plz7s6I": {
+    "data_primeiro": "2026-10-22T17:03:47.621313+00:00",
+    "data_ultimo": "2026-10-22T17:03:47.621313+00:00",
+    "titulo": "COMO É MORAR NO ÁRTICO? | #3CONTINENTES #143",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "drFK__8_WQk": {
+    "data_primeiro": "2026-10-22T17:04:25.345378+00:00",
+    "data_ultimo": "2026-10-22T17:04:25.345378+00:00",
+    "titulo": "COMO SAIR DAS DÍVIDAS E GUARDAR DINHEIRO | Os Sócios 321",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
