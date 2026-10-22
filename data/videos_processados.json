@@ -8423,5 +8423,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "uB-SlkoOsJQ": {
+    "data_primeiro": "2026-10-22T01:08:52.821411+00:00",
+    "data_ultimo": "2026-10-22T01:19:13.815349+00:00",
+    "titulo": "NEYMAR JR NO VARANDA GOURMET! ft. Toguro e Tirullipa | #VARANDAGOURMET #77",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      474.1,
+      975.6,
+      1477.2,
+      1978.8,
+      2480.4,
+      2981.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
