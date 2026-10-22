@@ -8393,11 +8393,12 @@
   },
   "-pmiqUpHRSg": {
     "data_primeiro": "2026-10-21T20:05:49.393023+00:00",
-    "data_ultimo": "2026-10-21T20:05:49.393023+00:00",
+    "data_ultimo": "2026-10-22T09:41:21.547626+00:00",
     "titulo": "THE MISTAKE PARENTS MAKE BY LEAVING THEIR CHILDREN'S EDUCATION IN THE HANDS OF SCHOOLS | RODRIGO ...",
     "canal": "PrimoCast",
     "picos_usados": [
-      29.1
+      29.1,
+      85.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
