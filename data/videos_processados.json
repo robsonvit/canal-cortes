@@ -8457,5 +8457,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": true
+  },
+  "wsO2pYSm_0s": {
+    "data_primeiro": "2026-10-22T15:27:56.660352+00:00",
+    "data_ultimo": "2026-10-22T15:27:56.660352+00:00",
+    "titulo": "POR DENTRO DA FÁBRICA MAIS HYPADA DO BRASIL - Podpah Visita #120",
+    "canal": "Podpah",
+    "picos_usados": [
+      281.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
