@@ -8506,5 +8506,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "4ZuptlHCeQo": {
+    "data_primeiro": "2026-10-22T22:23:07.621872+00:00",
+    "data_ultimo": "2026-10-22T22:23:07.621872+00:00",
+    "titulo": "Você está perdendo sua liberdade? Os sinais de um relacionamento tóxico | Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      78.9
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
