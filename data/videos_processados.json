@@ -8418,17 +8418,18 @@
   },
   "5etrYum7H0g": {
     "data_primeiro": "2026-10-21T22:20:02.036942+00:00",
-    "data_ultimo": "2026-10-22T21:57:35.458633+00:00",
+    "data_ultimo": "2026-10-23T14:23:48.237765+00:00",
     "titulo": "BRUNO PERINI REVEALS HOW HE ACHIEVED NEARLY 800% RETURN",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       7.8,
       43.1,
       78.4,
-      113.6
+      113.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "uB-SlkoOsJQ": {
     "data_primeiro": "2026-10-22T01:08:52.821411+00:00",
@@ -8525,35 +8526,38 @@
   },
   "zK5EutlqnTQ": {
     "data_primeiro": "2026-10-23T01:03:13.082533+00:00",
-    "data_ultimo": "2026-10-23T01:03:13.082533+00:00",
-    "titulo": "ELA É REPTILIANA? Influenciadora investiga as falhas da vida real - Ana Woycick | LendaCast #342",
+    "data_ultimo": "2026-10-23T14:23:10.147594+00:00",
+    "titulo": "GLITCH IN THE MATRIX THEORY: Could our life be a simulation? With Ana Woycick | LendaCast #342",
     "canal": "LendaCast",
     "picos_usados": [
-      744.5
+      744.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "9Pu_GPHAatI": {
     "data_primeiro": "2026-10-23T02:46:50.857347+00:00",
-    "data_ultimo": "2026-10-23T02:46:50.857347+00:00",
-    "titulo": "How to Build a COMMUNITY That Makes CUSTOMERS RETURN and REFER | Joel Jota",
+    "data_ultimo": "2026-10-23T14:23:29.134062+00:00",
+    "titulo": "The rule that CHANGED the WAY I do BUSINESS | Joel Jota",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      46.9
+      46.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "MutZrNBtnZA": {
     "data_primeiro": "2026-10-23T09:38:13.186277+00:00",
-    "data_ultimo": "2026-10-23T09:38:13.186277+00:00",
+    "data_ultimo": "2026-10-23T14:24:06.661715+00:00",
     "titulo": "DOES HAVING MONEY BRING HAPPINESS?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      28.1
+      28.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
