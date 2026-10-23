@@ -8539,5 +8539,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "MutZrNBtnZA": {
+    "data_primeiro": "2026-10-23T09:38:13.186277+00:00",
+    "data_ultimo": "2026-10-23T09:38:13.186277+00:00",
+    "titulo": "DOES HAVING MONEY BRING HAPPINESS?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      28.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
