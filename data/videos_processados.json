@@ -8576,47 +8576,51 @@
   },
   "tWN-zwlqkgg": {
     "data_primeiro": "2026-10-23T22:40:17.399453+00:00",
-    "data_ultimo": "2026-10-24T09:38:12.147168+00:00",
+    "data_ultimo": "2026-10-24T13:27:23.127955+00:00",
     "titulo": "MADE R$ 50 MILLION, BUT ONLY WANTED TO INVEST R$ 100 THOUSAND! BRUNO PERINI REVEALS THE CASE",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       16.2,
-      59.9
+      59.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "SHJNDYJ55ks": {
     "data_primeiro": "2026-10-24T01:07:22.971615+00:00",
-    "data_ultimo": "2026-10-24T01:07:22.971615+00:00",
+    "data_ultimo": "2026-10-24T13:27:39.122421+00:00",
     "titulo": "She opened a R$ 180,000 franchise and sold 16 cars in one month",
     "canal": "PrimoCast",
     "picos_usados": [
-      27.9
+      27.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "iKsGIXHjCr4": {
     "data_primeiro": "2026-10-24T02:34:44.289101+00:00",
-    "data_ultimo": "2026-10-24T02:34:44.289101+00:00",
+    "data_ultimo": "2026-10-24T13:27:07.979333+00:00",
     "titulo": "THE GREATEST RUNOFF DEBATE - DILERA, REPORTER TOURETTE AND THIAGO SEM T - PCD SHOW",
     "canal": "Flow Podcast",
     "picos_usados": [
-      197.8
+      197.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ZpOHVV6itnw": {
     "data_primeiro": "2026-10-24T11:47:22.634209+00:00",
-    "data_ultimo": "2026-10-24T11:47:22.634209+00:00",
+    "data_ultimo": "2026-10-24T13:27:54.251042+00:00",
     "titulo": "Invested R$ 300k and makes R$ 60k a month selling other people's cars",
     "canal": "PrimoCast",
     "picos_usados": [
-      60.9
+      60.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
