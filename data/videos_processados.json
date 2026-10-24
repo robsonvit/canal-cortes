@@ -8622,5 +8622,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "Td8ZR8EXaoo": {
+    "data_primeiro": "2026-10-24T22:19:52.286987+00:00",
+    "data_ultimo": "2026-10-24T22:19:52.286987+00:00",
+    "titulo": "HOW MUCH DOES IT COST TO TRANSFER AN INHERITED PROPERTY?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      0.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
