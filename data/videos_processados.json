@@ -8648,5 +8648,21 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "_KfuT-PHFB4": {
+    "data_primeiro": "2026-10-25T22:50:49.904655+00:00",
+    "data_ultimo": "2026-10-25T23:35:30.758221+00:00",
+    "titulo": "OS PIORES LUGARES PARA DAR UM CUTUCO FT. MARTINA OLIVEIRA | #VARANDAGOURMET #78",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      495.4,
+      1018.2,
+      1541.1,
+      2063.9,
+      2586.8,
+      3109.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
