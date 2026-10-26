@@ -8637,7 +8637,7 @@
   },
   "zWoCSF9e2vM": {
     "data_primeiro": "2026-10-25T15:22:00.582640+00:00",
-    "data_ultimo": "2026-10-26T01:02:29.178267+00:00",
+    "data_ultimo": "2026-10-26T02:39:25.166232+00:00",
     "titulo": "THE NEW FLOW SIMULATOR",
     "canal": "Flow Podcast",
     "picos_usados": [
@@ -8645,10 +8645,11 @@
       382.8,
       587.9,
       793.1,
-      998.2
+      998.2,
+      1203.4
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "_KfuT-PHFB4": {
     "data_primeiro": "2026-10-25T22:50:49.904655+00:00",
