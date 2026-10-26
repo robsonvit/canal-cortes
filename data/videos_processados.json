@@ -8685,11 +8685,12 @@
   },
   "SsTTqqlkabY": {
     "data_primeiro": "2026-10-26T20:02:46.373027+00:00",
-    "data_ultimo": "2026-10-26T20:02:46.373027+00:00",
+    "data_ultimo": "2026-10-26T21:07:01.958235+00:00",
     "titulo": "Falha de Cobertura #301: You Have to Accept the Logic",
     "canal": "Podpah",
     "picos_usados": [
-      234.9
+      234.9,
+      497.4
     ],
     "total_picos": 6,
     "picos_esgotados": false
