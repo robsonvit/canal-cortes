@@ -8685,25 +8685,38 @@
   },
   "SsTTqqlkabY": {
     "data_primeiro": "2026-10-26T20:02:46.373027+00:00",
-    "data_ultimo": "2026-10-26T21:07:01.958235+00:00",
+    "data_ultimo": "2026-10-27T00:57:24.012164+00:00",
     "titulo": "Falha de Cobertura #301: You Have to Accept the Logic",
     "canal": "Podpah",
     "picos_usados": [
       234.9,
-      497.4
+      497.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "fODCoeqw5i0": {
     "data_primeiro": "2026-10-26T22:20:35.810291+00:00",
-    "data_ultimo": "2026-10-26T22:20:35.810291+00:00",
+    "data_ultimo": "2026-10-27T00:57:41.757280+00:00",
     "titulo": "How the RISING DOLLAR will affect your life (even if you don't invest)",
     "canal": "PrimoCast",
     "picos_usados": [
-      1.9
+      1.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "GkYZzRc-ap0": {
+    "data_primeiro": "2026-10-27T00:57:05.607955+00:00",
+    "data_ultimo": "2026-10-27T00:57:05.607955+00:00",
+    "titulo": "WHY YOU WON'T OUTPERFORM WALL STREET BY STOCK PICKING",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
