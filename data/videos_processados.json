@@ -8721,25 +8721,27 @@
   },
   "nTqD10xn_PM": {
     "data_primeiro": "2026-10-27T15:20:43.975431+00:00",
-    "data_ultimo": "2026-10-27T20:22:57.084652+00:00",
+    "data_ultimo": "2026-10-27T20:58:56.027744+00:00",
     "titulo": "#FAQ #84 | CHINA X ESPANHA X BRASIL: QUEM É MAIS O MENTIROSO? | #3CONTINENTES",
     "canal": "Achismos TV",
     "picos_usados": [
       380.9,
-      789.4
+      789.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "SU_MEUVb2Z0": {
     "data_primeiro": "2026-10-27T17:12:02.085238+00:00",
-    "data_ultimo": "2026-10-27T17:12:02.085238+00:00",
-    "titulo": "CRAQUE NETO FEZ AS PAZES COM O MEMPHIS? - Rango Brabo #146",
+    "data_ultimo": "2026-10-27T20:58:37.350419+00:00",
+    "titulo": "SETTLING OLD SCORES WITH CRAQUE NETO - Rango Brabo #146",
     "canal": "Podpah",
     "picos_usados": [
-      495.8
+      495.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
