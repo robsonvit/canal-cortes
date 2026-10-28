@@ -8746,7 +8746,7 @@
   },
   "WOzms82mNEs": {
     "data_primeiro": "2026-10-27T22:24:17.681188+00:00",
-    "data_ultimo": "2026-10-28T11:48:51.038644+00:00",
+    "data_ultimo": "2026-10-28T13:41:00.981673+00:00",
     "titulo": "What These KIDS Know That Many ADULTS Have Forgotten? | TABLE TALK #3",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
@@ -8754,9 +8754,10 @@
       1661.1,
       2505.4,
       3349.6,
-      4193.9
+      4193.9,
+      5038.2
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   }
 }
