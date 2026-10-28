@@ -8770,5 +8770,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "4CuIZkHA3iE": {
+    "data_primeiro": "2026-10-28T22:16:38.750230+00:00",
+    "data_ultimo": "2026-10-28T22:16:59.955192+00:00",
+    "titulo": "Why Do You Explain Yourself So Much to People Who Have Already Decided Who You Are? | Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      92.8,
+      213.1,
+      333.4,
+      453.6,
+      573.9,
+      694.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
