@@ -8789,16 +8789,17 @@
   },
   "kaTphV0m5LY": {
     "data_primeiro": "2026-10-29T01:01:38.340922+00:00",
-    "data_ultimo": "2026-10-29T13:32:55.401396+00:00",
+    "data_ultimo": "2026-10-29T17:03:46.828774+00:00",
     "titulo": "HOW TO NEGOTIATE YOUR DEBTS AND GET UP TO A 90% DISCOUNT?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       7.1,
       41.6,
-      76.2
+      76.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "mWopA_-rgSU": {
     "data_primeiro": "2026-10-29T02:43:03.648049+00:00",
@@ -8814,13 +8815,47 @@
   },
   "jiCw6EE0xyc": {
     "data_primeiro": "2026-10-29T15:28:45.929456+00:00",
-    "data_ultimo": "2026-10-29T15:28:45.929456+00:00",
+    "data_ultimo": "2026-10-29T17:04:06.514706+00:00",
     "titulo": "UNVEILING THE SECRETS OF DOWNTOWN SP ft. KAIO D'ELAQUA - Podpah Visits #121",
     "canal": "Podpah",
     "picos_usados": [
-      299.5
+      299.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "R29PPTdUp4s": {
+    "data_primeiro": "2026-10-29T17:03:07.949980+00:00",
+    "data_ultimo": "2026-10-29T17:03:07.949980+00:00",
+    "titulo": "The Creator of the Mizuno Wave Creation Reveals How the Sneaker Became a Hit in Brazil",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "0HN3MugfjKQ": {
+    "data_primeiro": "2026-10-29T17:03:28.077297+00:00",
+    "data_ultimo": "2026-10-29T17:03:28.077297+00:00",
+    "titulo": "O QUE NINGUÉM TE CONTA SOBRE A NORUEGA | #3CONTINENTES #144",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "y6mvwEajW50": {
+    "data_primeiro": "2026-10-29T17:04:25.594352+00:00",
+    "data_ultimo": "2026-10-29T17:04:25.594352+00:00",
+    "titulo": "Mbappé, Travis Scott and the NBA: how Oakley chooses its brand ambassadors",
+    "canal": "PrimoCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
