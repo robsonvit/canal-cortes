@@ -8803,12 +8803,13 @@
   },
   "mWopA_-rgSU": {
     "data_primeiro": "2026-10-29T02:43:03.648049+00:00",
-    "data_ultimo": "2026-10-29T11:50:05.310449+00:00",
+    "data_ultimo": "2026-10-29T20:13:04.151001+00:00",
     "titulo": "COMO É O LADO MAIS POBRE DE DUBAI? ft. Sultan Beydoun I | EP 01 #PELOMUNDO",
     "canal": "Achismos TV",
     "picos_usados": [
       371.9,
-      771.4
+      771.4,
+      1170.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
