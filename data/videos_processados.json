@@ -8803,17 +8803,18 @@
   },
   "mWopA_-rgSU": {
     "data_primeiro": "2026-10-29T02:43:03.648049+00:00",
-    "data_ultimo": "2026-10-29T21:08:01.407577+00:00",
+    "data_ultimo": "2026-10-30T00:58:32.130056+00:00",
     "titulo": "COMO É O LADO MAIS POBRE DE DUBAI? ft. Sultan Beydoun I | EP 01 #PELOMUNDO",
     "canal": "Achismos TV",
     "picos_usados": [
       371.9,
       771.4,
       1170.8,
-      1570.2
+      1570.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "jiCw6EE0xyc": {
     "data_primeiro": "2026-10-29T15:28:45.929456+00:00",
@@ -8862,13 +8863,36 @@
   },
   "frctra0d9Yc": {
     "data_primeiro": "2026-10-29T22:23:21.651407+00:00",
-    "data_ultimo": "2026-10-29T22:23:21.651407+00:00",
-    "titulo": "Why You CAN'T Celebrate Your Achievements? | Joel Jota",
+    "data_ultimo": "2026-10-30T00:58:50.690325+00:00",
+    "titulo": "THE MISTAKE of Those Always Chasing the Next Achievement | Joel Jota",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      18.9
+      18.9,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "8VTgtAGxOuw": {
+    "data_primeiro": "2026-10-30T00:57:54.015087+00:00",
+    "data_ultimo": "2026-10-30T00:57:54.015087+00:00",
+    "titulo": "LENDACAST NO TEATRO YOUTUBE com Luciano Milici e Thiago de Souza | LendaCast #346",
+    "canal": "LendaCast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "mO8Z6_s-AQQ": {
+    "data_primeiro": "2026-10-30T00:58:12.813755+00:00",
+    "data_ultimo": "2026-10-30T00:58:12.813755+00:00",
+    "titulo": "CAN ORDERING TAKEOUT DESTROY YOUR FAMILY'S BUDGET?",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
