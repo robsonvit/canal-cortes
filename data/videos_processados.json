@@ -8909,11 +8909,12 @@
   },
   "Rp_8pwsE63I": {
     "data_primeiro": "2026-10-31T01:09:00.468560+00:00",
-    "data_ultimo": "2026-10-31T01:09:00.468560+00:00",
+    "data_ultimo": "2026-10-31T11:52:03.524480+00:00",
     "titulo": "COMO É O PASSEIO NO DESERTO DE DUBAI? ft. Sultan Beydoun | EP 02 #PELOMUNDO",
     "canal": "Achismos TV",
     "picos_usados": [
-      230.6
+      230.6,
+      488.8
     ],
     "total_picos": 6,
     "picos_esgotados": false
