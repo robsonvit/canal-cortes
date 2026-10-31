@@ -8897,11 +8897,12 @@
   },
   "u_HWoSuErYc": {
     "data_primeiro": "2026-10-30T22:21:49.949711+00:00",
-    "data_ultimo": "2026-10-30T22:21:49.949711+00:00",
+    "data_ultimo": "2026-10-31T09:36:27.614305+00:00",
     "titulo": "WHY DID FLÁVIO BOLSONARO LOSE TO LULA?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      41.5
+      41.5,
+      110.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
