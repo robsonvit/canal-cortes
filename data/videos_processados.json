@@ -8956,5 +8956,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "5bGfk53wpUY": {
+    "data_primeiro": "2026-11-01T01:10:05.039873+00:00",
+    "data_ultimo": "2026-11-01T01:10:05.039873+00:00",
+    "titulo": "STOCK MARKET PLUMMETED AFTER LULA'S RE-ELECTION! BRUNO PERINI REVEALS WHICH STOCKS HE BOUGHT DURI...",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      38.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
