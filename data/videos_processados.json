@@ -8897,17 +8897,18 @@
   },
   "u_HWoSuErYc": {
     "data_primeiro": "2026-10-30T22:21:49.949711+00:00",
-    "data_ultimo": "2026-10-31T20:01:43.794542+00:00",
+    "data_ultimo": "2026-11-01T02:31:02.408221+00:00",
     "titulo": "WHY DID FLÁVIO BOLSONARO LOSE TO LULA?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       41.5,
       110.5,
       179.5,
-      248.5
+      248.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Rp_8pwsE63I": {
     "data_primeiro": "2026-10-31T01:09:00.468560+00:00",
@@ -8924,27 +8925,29 @@
   },
   "sVbEcZqzraM": {
     "data_primeiro": "2026-10-31T02:33:58.596678+00:00",
-    "data_ultimo": "2026-10-31T22:21:50.968373+00:00",
-    "titulo": "MESTRES DE OBRA - DILERA, REPORTER TOURETTE, VEGA E GIAN - PCD SHOW",
+    "data_ultimo": "2026-11-01T02:30:45.987847+00:00",
+    "titulo": "ACERTE O PREGO C/ DILERA, REPORTER TOURETTE, VEGA E GIAN - PCD SHOW",
     "canal": "Flow Podcast",
     "picos_usados": [
       50.4,
       128.2,
-      206.1
+      206.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "BnKSzUXuTls": {
     "data_primeiro": "2026-10-31T17:22:16.181122+00:00",
-    "data_ultimo": "2026-10-31T17:22:16.181122+00:00",
-    "titulo": "COMEMOS TUDO ISSO EM DUBAI FT. SULTAN BEYDOUN E YAS YASSINE  | #PELOMUNDO #DUBAI #03",
+    "data_ultimo": "2026-11-01T02:31:19.991901+00:00",
+    "titulo": "TUDO QUE COMEMOS POR 24HS EM DUBAI FT. SULTAN BEYDOUN E YAS YASSINE | #PELOMUNDO #DUBAI #03",
     "canal": "Achismos TV",
     "picos_usados": [
-      396.8
+      396.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "wnAAVd-t6Y4": {
     "data_primeiro": "2026-10-31T19:58:04.676208+00:00",
@@ -8959,13 +8962,25 @@
   },
   "5bGfk53wpUY": {
     "data_primeiro": "2026-11-01T01:10:05.039873+00:00",
-    "data_ultimo": "2026-11-01T01:10:05.039873+00:00",
+    "data_ultimo": "2026-11-01T02:31:36.186466+00:00",
     "titulo": "STOCK MARKET PLUMMETED AFTER LULA'S RE-ELECTION! BRUNO PERINI REVEALS WHICH STOCKS HE BOUGHT DURI...",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      38.2
+      38.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "uLHlVfqfUes": {
+    "data_primeiro": "2026-11-01T02:30:29.971694+00:00",
+    "data_ultimo": "2026-11-01T02:30:29.971694+00:00",
+    "titulo": "PEGUEI UMA TRAIÇÃO AO VIVO TRABALHANDO COMO DETETIVE | #VIDAREAL #38",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
