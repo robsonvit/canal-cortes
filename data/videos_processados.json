@@ -8988,14 +8988,15 @@
   },
   "47RDgX0HNRw": {
     "data_primeiro": "2026-11-01T15:27:53.194736+00:00",
-    "data_ultimo": "2026-11-01T21:09:19.981140+00:00",
+    "data_ultimo": "2026-11-02T13:41:00.191419+00:00",
     "titulo": "TUDO É OURO EM DUBAI? FT. SULTAN BEYDOUN E YAS YASSINE | #PELOMUNDO #DUBAI #04",
     "canal": "Achismos TV",
     "picos_usados": [
       315.5,
       658.5,
       1001.5,
-      1344.5
+      1344.5,
+      1687.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
