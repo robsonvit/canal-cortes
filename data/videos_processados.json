@@ -9003,12 +9003,13 @@
   },
   "Z1j3_x4QUTk": {
     "data_primeiro": "2026-11-01T22:20:19.675155+00:00",
-    "data_ultimo": "2026-11-02T09:36:20.781253+00:00",
+    "data_ultimo": "2026-11-02T15:18:57.194349+00:00",
     "titulo": "WHERE TO INVEST AFTER LULA'S REELECTION?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       36.1,
-      99.6
+      99.6,
+      163.2
     ],
     "total_picos": 6,
     "picos_esgotados": false
