@@ -9042,11 +9042,12 @@
   },
   "heoWstJTwu4": {
     "data_primeiro": "2026-11-02T17:10:05.641219+00:00",
-    "data_ultimo": "2026-11-02T17:10:05.641219+00:00",
+    "data_ultimo": "2026-11-03T09:44:24.297971+00:00",
     "titulo": "Falha de Cobertura #302: Believing Is Exhausting",
     "canal": "Podpah",
     "picos_usados": [
-      237.1
+      237.1,
+      501.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
