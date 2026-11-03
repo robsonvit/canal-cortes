@@ -8988,7 +8988,7 @@
   },
   "47RDgX0HNRw": {
     "data_primeiro": "2026-11-01T15:27:53.194736+00:00",
-    "data_ultimo": "2026-11-02T13:41:00.191419+00:00",
+    "data_ultimo": "2026-11-03T11:37:53.902457+00:00",
     "titulo": "TUDO É OURO EM DUBAI? FT. SULTAN BEYDOUN E YAS YASSINE | #PELOMUNDO #DUBAI #04",
     "canal": "Achismos TV",
     "picos_usados": [
@@ -8996,37 +8996,40 @@
       658.5,
       1001.5,
       1344.5,
-      1687.5
+      1687.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "Z1j3_x4QUTk": {
     "data_primeiro": "2026-11-01T22:20:19.675155+00:00",
-    "data_ultimo": "2026-11-02T21:03:19.271916+00:00",
+    "data_ultimo": "2026-11-03T11:38:07.926502+00:00",
     "titulo": "WHERE TO INVEST AFTER LULA'S REELECTION?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       36.1,
       99.6,
       163.2,
-      226.8
+      226.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "q3MsKp0prO4": {
     "data_primeiro": "2026-11-02T01:03:47.867656+00:00",
-    "data_ultimo": "2026-11-02T22:25:49.753318+00:00",
+    "data_ultimo": "2026-11-03T11:38:22.693197+00:00",
     "titulo": "ARUAN FELIX TOOK REVENGE ON JULIO COCIELO! - HIT OR GET SMASHED #03",
     "canal": "Podpah",
     "picos_usados": [
       183.2,
       393.9,
-      604.6
+      604.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "jJXqNlvA3Qg": {
     "data_primeiro": "2026-11-02T02:34:59.201569+00:00",
@@ -9054,24 +9057,26 @@
   },
   "nqZ1PKtnpVg": {
     "data_primeiro": "2026-11-02T20:01:59.992442+00:00",
-    "data_ultimo": "2026-11-02T20:01:59.992442+00:00",
+    "data_ultimo": "2026-11-03T11:38:37.774103+00:00",
     "titulo": "O QUE MUDOU DE UMA GERAÇÃO PARA OUTRA? | #ACHISMOSGERACOES #01",
     "canal": "Achismos TV",
     "picos_usados": [
-      638.4
+      638.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "CsJeV1Ogxi4": {
     "data_primeiro": "2026-11-03T02:33:58.103554+00:00",
-    "data_ultimo": "2026-11-03T02:33:58.103554+00:00",
+    "data_ultimo": "2026-11-03T11:38:53.001996+00:00",
     "titulo": "WHY DO BRAZILIANS WORK SO HARD AND EARN SO LITTLE?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      24.6
+      24.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
