@@ -9095,13 +9095,14 @@
   },
   "Coa1A2YrVSE": {
     "data_primeiro": "2026-11-03T22:33:17.234959+00:00",
-    "data_ultimo": "2026-11-04T17:39:30.376643+00:00",
+    "data_ultimo": "2026-11-05T02:42:59.864483+00:00",
     "titulo": "PODCAST 302 AMBRENNA AND VITTOR",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       738.5,
       1504.5,
-      2270.5
+      2270.5,
+      3036.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
