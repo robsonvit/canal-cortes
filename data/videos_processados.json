@@ -9220,5 +9220,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "PSSVRpTm6Nw": {
+    "data_primeiro": "2026-11-05T23:14:18.752258+00:00",
+    "data_ultimo": "2026-11-05T23:14:18.752258+00:00",
+    "titulo": "I VISITED THE REAL ANNABELLE ON HALLOWEEN IN THE USA - October 31st in Salem",
+    "canal": "LendaCast",
+    "picos_usados": [
+      557.1
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
