@@ -9109,13 +9109,14 @@
   },
   "4zTzeijAESM": {
     "data_primeiro": "2026-11-04T01:01:48.126275+00:00",
-    "data_ultimo": "2026-11-04T20:06:36.876999+00:00",
+    "data_ultimo": "2026-11-05T09:41:04.196686+00:00",
     "titulo": "ELE BAIXOU APLICATIVO PRA VER ESPÍRITOS com o Muita Brisa | LendaCast #347",
     "canal": "LendaCast",
     "picos_usados": [
       1231.5,
       2490.5,
-      3749.5
+      3749.5,
+      5008.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
