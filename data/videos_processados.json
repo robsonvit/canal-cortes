@@ -9095,44 +9095,47 @@
   },
   "Coa1A2YrVSE": {
     "data_primeiro": "2026-11-03T22:33:17.234959+00:00",
-    "data_ultimo": "2026-11-05T02:42:59.864483+00:00",
+    "data_ultimo": "2026-11-05T15:16:26.007393+00:00",
     "titulo": "PODCAST 302 AMBRENNA AND VITTOR",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       738.5,
       1504.5,
       2270.5,
-      3036.5
+      3036.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "4zTzeijAESM": {
     "data_primeiro": "2026-11-04T01:01:48.126275+00:00",
-    "data_ultimo": "2026-11-05T09:41:04.196686+00:00",
+    "data_ultimo": "2026-11-05T15:16:41.453602+00:00",
     "titulo": "ELE BAIXOU APLICATIVO PRA VER ESPÍRITOS com o Muita Brisa | LendaCast #347",
     "canal": "LendaCast",
     "picos_usados": [
       1231.5,
       2490.5,
       3749.5,
-      5008.5
+      5008.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "1l06m-UsL6c": {
     "data_primeiro": "2026-11-04T02:34:37.261106+00:00",
-    "data_ultimo": "2026-11-04T21:03:21.328784+00:00",
+    "data_ultimo": "2026-11-05T15:16:57.037106+00:00",
     "titulo": "COULD LULA BE IMPEACHED NEXT YEAR?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
       27.5,
       82.5,
-      137.5
+      137.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "J52s5HjUo5s": {
     "data_primeiro": "2026-11-04T15:28:13.585204+00:00",
@@ -9179,5 +9182,27 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "p7gSlsxgvBs": {
+    "data_primeiro": "2026-11-05T15:15:55.558621+00:00",
+    "data_ultimo": "2026-11-05T15:15:55.558621+00:00",
+    "titulo": "WE WENT TO SEE THE OTHER SIDE OF RIO DE JANEIRO ft. SAMANTA ALVES - Podpah Visits #122",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "qWcIHDRArdo": {
+    "data_primeiro": "2026-11-05T15:16:10.424317+00:00",
+    "data_ultimo": "2026-11-05T15:16:10.424317+00:00",
+    "titulo": "O LADO DA TURQUIA QUE VOCÊ NÃO CONHECE | #3CONTINENTES #145",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
