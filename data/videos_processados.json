@@ -9178,7 +9178,7 @@
   },
   "SSWOyyVe1nk": {
     "data_primeiro": "2026-11-05T11:37:51.871903+00:00",
-    "data_ultimo": "2026-11-05T21:05:37.167927+00:00",
+    "data_ultimo": "2026-11-06T21:01:01.751162+00:00",
     "titulo": "WHY DID BRUNO PERINI HAVE TO PAY R$ 45,000 ON HIS CREDIT CARD IN THE MIDDLE OF THE NIGHT?",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
@@ -9186,10 +9186,11 @@
       55.1,
       96.4,
       137.6,
-      178.9
+      178.9,
+      220.2
     ],
     "total_picos": 6,
-    "picos_esgotados": false
+    "picos_esgotados": true
   },
   "p7gSlsxgvBs": {
     "data_primeiro": "2026-11-05T15:15:55.558621+00:00",
