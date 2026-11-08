@@ -9248,14 +9248,15 @@
   },
   "496E0im8BmY": {
     "data_primeiro": "2026-11-06T02:36:24.535271+00:00",
-    "data_ultimo": "2026-11-08T01:00:25.475749+00:00",
+    "data_ultimo": "2026-11-08T17:08:35.077822+00:00",
     "titulo": "CEO AND CO-FOUNDER OF INCO - Leonardo Belisario",
     "canal": "Flow Podcast",
     "picos_usados": [
       384.5,
       796.5,
       1208.5,
-      1620.5
+      1620.5,
+      2032.5
     ],
     "total_picos": 6,
     "picos_esgotados": false
