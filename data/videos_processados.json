@@ -9299,11 +9299,12 @@
   },
   "haiCEfVGZsw": {
     "data_primeiro": "2026-11-07T11:42:39.682047+00:00",
-    "data_ultimo": "2026-11-07T11:42:39.682047+00:00",
+    "data_ultimo": "2026-11-08T09:38:35.460279+00:00",
     "titulo": "RODRIGO VIEGAS WARNS OF THE RISKS OF THE NEW LULA ADMINISTRATION",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      55.2
+      55.2,
+      137.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
