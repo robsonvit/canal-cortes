@@ -9366,5 +9366,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "TT64S4PWDo0": {
+    "data_primeiro": "2026-11-09T17:13:00.959413+00:00",
+    "data_ultimo": "2026-11-09T17:13:00.959413+00:00",
+    "titulo": "Falha de Cobertura #303: Acreditar na Chuva é Mais Difícil",
+    "canal": "Podpah",
+    "picos_usados": [
+      228.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
