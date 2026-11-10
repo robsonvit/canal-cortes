@@ -9362,11 +9362,12 @@
   },
   "r1ATeiQ1sbc": {
     "data_primeiro": "2026-11-09T15:21:12.945623+00:00",
-    "data_ultimo": "2026-11-09T15:21:12.945623+00:00",
+    "data_ultimo": "2026-11-10T02:36:09.172431+00:00",
     "titulo": "MÃES: O QUE MUDOU DE UMA GERAÇÃO PARA OUTRA? | #GERAÇÕES #02",
     "canal": "Achismos TV",
     "picos_usados": [
-      585.1
+      585.1,
+      1197.6
     ],
     "total_picos": 6,
     "picos_esgotados": false
