@@ -9337,15 +9337,16 @@
   },
   "_foOSKb-FxU": {
     "data_primeiro": "2026-11-09T01:04:51.134965+00:00",
-    "data_ultimo": "2026-11-09T22:22:38.000509+00:00",
+    "data_ultimo": "2026-11-10T09:39:02.849631+00:00",
     "titulo": "PARA DE SER TÃO IRRITANTE! | #VARANDAGOURMET #80",
     "canal": "Achismos TV",
     "picos_usados": [
       456.9,
-      941.4
+      941.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "W9VT3u5kO9I": {
     "data_primeiro": "2026-11-09T02:36:28.564249+00:00",
@@ -9362,15 +9363,16 @@
   },
   "r1ATeiQ1sbc": {
     "data_primeiro": "2026-11-09T15:21:12.945623+00:00",
-    "data_ultimo": "2026-11-10T02:36:09.172431+00:00",
+    "data_ultimo": "2026-11-10T09:39:19.982585+00:00",
     "titulo": "MÃES: O QUE MUDOU DE UMA GERAÇÃO PARA OUTRA? | #GERAÇÕES #02",
     "canal": "Achismos TV",
     "picos_usados": [
       585.1,
-      1197.6
+      1197.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "TT64S4PWDo0": {
     "data_primeiro": "2026-11-09T17:13:00.959413+00:00",
