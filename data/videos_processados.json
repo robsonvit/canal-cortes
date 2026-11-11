@@ -9434,27 +9434,51 @@
   },
   "XlEur09c0zk": {
     "data_primeiro": "2026-11-10T22:30:29.502654+00:00",
-    "data_ultimo": "2026-11-11T13:36:54.645254+00:00",
+    "data_ultimo": "2026-11-11T17:03:40.474525+00:00",
     "titulo": "Why Do Some People Grow More Than Others? (JOEL JOTA) | JOTA JOTA PODCAST #303",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       126.4,
       280.2,
-      434.1
+      434.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "NtnfMd9o6QM": {
     "data_primeiro": "2026-11-11T01:07:58.592024+00:00",
-    "data_ultimo": "2026-11-11T11:49:37.067521+00:00",
+    "data_ultimo": "2026-11-11T17:03:55.673685+00:00",
     "titulo": "FOMOS AO JAPÃO PARA DESCOBRIR OS SEGREDOS DA YAKUZA",
     "canal": "Podpah",
     "picos_usados": [
       272.5,
-      572.5
+      572.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "J8kj0x9L9dw": {
+    "data_primeiro": "2026-11-11T17:03:05.225546+00:00",
+    "data_ultimo": "2026-11-11T17:03:05.225546+00:00",
+    "titulo": "COMO É A ROTINA DE UMA ACOMPANHANTE? | #VIDAREAL #40",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "_xAgY1MdtTE": {
+    "data_primeiro": "2026-11-11T17:03:25.181636+00:00",
+    "data_ultimo": "2026-11-11T17:03:25.181636+00:00",
+    "titulo": "LUIZ CRAZY NEAR vs 20 WOMEN ft. ASPECT, ODEMETRU & THAIZOCA - Podpaquera #42",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
