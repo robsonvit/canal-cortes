@@ -9434,12 +9434,13 @@
   },
   "XlEur09c0zk": {
     "data_primeiro": "2026-11-10T22:30:29.502654+00:00",
-    "data_ultimo": "2026-11-11T09:43:15.355269+00:00",
+    "data_ultimo": "2026-11-11T13:36:54.645254+00:00",
     "titulo": "Why Do Some People Grow More Than Others? (JOEL JOTA) | JOTA JOTA PODCAST #303",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
       126.4,
-      280.2
+      280.2,
+      434.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
