@@ -9496,12 +9496,13 @@
   },
   "ZS7LhPeq1x0": {
     "data_primeiro": "2026-11-12T00:57:32.264004+00:00",
-    "data_ultimo": "2026-11-12T01:03:08.909606+00:00",
+    "data_ultimo": "2026-11-12T09:40:35.995285+00:00",
     "titulo": "Por que você continua vivendo padrões que gostaria de abandonar? | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       99.4,
-      226.2
+      226.2,
+      353.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
