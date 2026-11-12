@@ -9509,5 +9509,27 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "HCqZt0bByFc": {
+    "data_primeiro": "2026-11-12T15:15:35.390441+00:00",
+    "data_ultimo": "2026-11-12T15:15:35.390441+00:00",
+    "titulo": "A DAY AT RACHEL APOLLONIO’S PARADISE HOME - Podpah Visits #123",
+    "canal": "Podpah",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "FZyFyPYtHHQ": {
+    "data_primeiro": "2026-11-12T15:15:52.903651+00:00",
+    "data_ultimo": "2026-11-12T15:15:52.903651+00:00",
+    "titulo": "PROVANDO E DANDO NOTAS PRA DOCES TURCOS | #3CONTINENTES #146",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
