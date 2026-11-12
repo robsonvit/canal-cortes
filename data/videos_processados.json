@@ -9483,29 +9483,31 @@
   },
   "eZNcNkv9uLo": {
     "data_primeiro": "2026-11-11T22:19:38.393248+00:00",
-    "data_ultimo": "2026-11-12T11:44:44.727840+00:00",
-    "titulo": "MARIO SERGIO CORTELLA: O QUE SÓCRATES NOS ENSINA HOJE? | #PENSADORES #01",
+    "data_ultimo": "2026-11-12T13:27:45.974091+00:00",
+    "titulo": "INTELIGÊNCIA ARTIFICIAL, TÉDIO E MORTE ft. Mario Sergio Cortella | #PENSADORES #01",
     "canal": "Achismos TV",
     "picos_usados": [
       583.8,
       1195.1,
       1806.4,
-      2417.6
+      2417.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "ZS7LhPeq1x0": {
     "data_primeiro": "2026-11-12T00:57:32.264004+00:00",
-    "data_ultimo": "2026-11-12T09:40:35.995285+00:00",
+    "data_ultimo": "2026-11-12T13:27:26.772421+00:00",
     "titulo": "Por que você continua vivendo padrões que gostaria de abandonar? | Andrea Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
       99.4,
       226.2,
-      353.1
+      353.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
