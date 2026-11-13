@@ -9558,5 +9558,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "fl0wAlUxNu0": {
+    "data_primeiro": "2026-11-13T22:30:35.412146+00:00",
+    "data_ultimo": "2026-11-13T22:30:35.412146+00:00",
+    "titulo": "VISITEI A CASA DE AMITYVILLE E LIZZIE BORDEN",
+    "canal": "LendaCast",
+    "picos_usados": [
+      306.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
