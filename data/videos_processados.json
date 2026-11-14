@@ -9573,17 +9573,18 @@
   },
   "PPGdB-ilJ7E": {
     "data_primeiro": "2026-11-14T02:38:20.494544+00:00",
-    "data_ultimo": "2026-11-14T15:23:17.149904+00:00",
-    "titulo": "Repórter Tourette conheceu Lewis Hamilton",
+    "data_ultimo": "2026-11-14T17:03:11.168130+00:00",
+    "titulo": "Repórter Tourette achou que era o Lewis Hamilton de verdade - C/ Dilera, Igor3k e Gian - PCD SHOW",
     "canal": "Flow Podcast",
     "picos_usados": [
       203.2,
       433.9,
       664.6,
       895.4,
-      1126.1
+      1126.1,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
