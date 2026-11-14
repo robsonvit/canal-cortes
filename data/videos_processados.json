@@ -9573,14 +9573,15 @@
   },
   "PPGdB-ilJ7E": {
     "data_primeiro": "2026-11-14T02:38:20.494544+00:00",
-    "data_ultimo": "2026-11-14T13:31:58.506014+00:00",
-    "titulo": "Dilera lambuza Repórter Tourette no Roda a Roda PCD - C/ Igor3k e Gian - PCD SHOW",
+    "data_ultimo": "2026-11-14T15:23:17.149904+00:00",
+    "titulo": "Repórter Tourette conheceu Lewis Hamilton",
     "canal": "Flow Podcast",
     "picos_usados": [
       203.2,
       433.9,
       664.6,
-      895.4
+      895.4,
+      1126.1
     ],
     "total_picos": 6,
     "picos_esgotados": false
