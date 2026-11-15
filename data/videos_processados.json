@@ -9586,5 +9586,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "2dtHcUqhLmU": {
+    "data_primeiro": "2026-11-15T22:19:20.187666+00:00",
+    "data_ultimo": "2026-11-15T22:19:20.187666+00:00",
+    "titulo": "ISSO É MUITO SUPERESTIMADO! | #VARANDAGOURMET #81",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      488.4
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
