@@ -9612,12 +9612,13 @@
   },
   "7VQn2GlFAsA": {
     "data_primeiro": "2026-11-16T17:03:14.681367+00:00",
-    "data_ultimo": "2026-11-16T17:08:44.526795+00:00",
+    "data_ultimo": "2026-11-16T21:03:26.602874+00:00",
     "titulo": "Falha de Cobertura #304: Raphinha Pré-Pago",
     "canal": "Podpah",
     "picos_usados": [
       198.6,
-      424.8
+      424.8,
+      650.9
     ],
     "total_picos": 6,
     "picos_esgotados": false
