@@ -9635,5 +9635,21 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "E-lTLaVicAM": {
+    "data_primeiro": "2026-11-17T17:03:05.832885+00:00",
+    "data_ultimo": "2026-11-17T17:03:21.143426+00:00",
+    "titulo": "BLACK FRIDAY VITALÍCIA (reprise) | Instituto Andrea Vermont",
+    "canal": "Divã Podcast",
+    "picos_usados": [
+      1271.8,
+      2571.1,
+      3870.4,
+      5169.6,
+      6468.9,
+      7768.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": true
   }
 }
