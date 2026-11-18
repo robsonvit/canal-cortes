@@ -9685,5 +9685,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "MCWH5TqY5Fk": {
+    "data_primeiro": "2026-11-18T22:19:12.141546+00:00",
+    "data_ultimo": "2026-11-18T22:19:12.141546+00:00",
+    "titulo": "BRUNO PERINI REVEALS HOW GOOGLE AI HURT THE SEO OF ONE OF HIS GROUP'S COMPANIES!",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      25.2
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
