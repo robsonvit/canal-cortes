@@ -9676,13 +9676,14 @@
   },
   "-fgMscwh7jE": {
     "data_primeiro": "2026-11-18T15:27:34.437922+00:00",
-    "data_ultimo": "2026-11-18T15:27:34.437922+00:00",
-    "titulo": "DESCOBRI (NA PRÁTICA) POR QUE O METRÔ NUNCA SERÁ 24H! | #VIDAREAL #41",
+    "data_ultimo": "2026-11-18T17:29:10.124681+00:00",
+    "titulo": "PASSEI A MADRUGADA NOS TÚNEIS DO METRÔ DE SP! | #VIDAREAL #41",
     "canal": "Achismos TV",
     "picos_usados": [
-      317.8
+      317.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
