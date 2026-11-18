@@ -9673,5 +9673,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "-fgMscwh7jE": {
+    "data_primeiro": "2026-11-18T15:27:34.437922+00:00",
+    "data_ultimo": "2026-11-18T15:27:34.437922+00:00",
+    "titulo": "DESCOBRI (NA PRÁTICA) POR QUE O METRÔ NUNCA SERÁ 24H! | #VIDAREAL #41",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      317.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
