@@ -9744,5 +9744,16 @@
     ],
     "total_picos": 6,
     "picos_esgotados": false
+  },
+  "VozP52Day0E": {
+    "data_primeiro": "2026-11-19T17:09:30.871283+00:00",
+    "data_ultimo": "2026-11-19T17:09:30.871283+00:00",
+    "titulo": "PERSPECTIVAS PARA 2027: dívida global, crescimento e os desafios do Brasil | Os Sócios 324",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      833.8
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
