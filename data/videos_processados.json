@@ -9736,24 +9736,37 @@
   },
   "XXlY0-1d3mI": {
     "data_primeiro": "2026-11-19T15:23:55.135032+00:00",
-    "data_ultimo": "2026-11-19T15:23:55.135032+00:00",
+    "data_ultimo": "2026-11-19T20:06:28.954003+00:00",
     "titulo": "EXCLUSIVE! CAUÊ MOURA'S NEW MILLION-DOLLAR MANSION - Podpah Visits #124",
     "canal": "Podpah",
     "picos_usados": [
-      290.6
+      290.6,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "VozP52Day0E": {
     "data_primeiro": "2026-11-19T17:09:30.871283+00:00",
-    "data_ultimo": "2026-11-19T17:09:30.871283+00:00",
+    "data_ultimo": "2026-11-19T20:06:45.238167+00:00",
     "titulo": "PERSPECTIVAS PARA 2027: dívida global, crescimento e os desafios do Brasil | Os Sócios 324",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      833.8
+      833.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "RXj1uB0mtkI": {
+    "data_primeiro": "2026-11-19T20:06:13.657208+00:00",
+    "data_ultimo": "2026-11-19T20:06:13.657208+00:00",
+    "titulo": "O GTA 6 É TUDO ISSO MESMO OU SÓ HYPE? | #3CONTINENTES #147",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
