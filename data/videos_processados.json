@@ -9688,46 +9688,50 @@
   },
   "MCWH5TqY5Fk": {
     "data_primeiro": "2026-11-18T22:19:12.141546+00:00",
-    "data_ultimo": "2026-11-18T22:19:12.141546+00:00",
+    "data_ultimo": "2026-11-19T11:38:01.850845+00:00",
     "titulo": "BRUNO PERINI REVEALS HOW GOOGLE AI HURT THE SEO OF ONE OF HIS GROUP'S COMPANIES!",
     "canal": "Os Sócios Podcast",
     "picos_usados": [
-      25.2
+      25.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "VWYADmMI7K4": {
     "data_primeiro": "2026-11-19T01:02:28.118238+00:00",
-    "data_ultimo": "2026-11-19T01:02:28.118238+00:00",
+    "data_ultimo": "2026-11-19T11:38:18.541721+00:00",
     "titulo": "Você passou a vida cuidando dos outros e esqueceu de você | Dra. Andréa Vermont",
     "canal": "Divã Podcast",
     "picos_usados": [
-      125.5
+      125.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "9R32hnZd8io": {
     "data_primeiro": "2026-11-19T02:43:46.673090+00:00",
-    "data_ultimo": "2026-11-19T02:43:46.673090+00:00",
+    "data_ultimo": "2026-11-19T11:38:35.394721+00:00",
     "titulo": "A ROTINA DE UMA MULHER CEO BILIONÁRIA (que veio do zero) | 24 HORAS COM CARLA SARNI",
     "canal": "PrimoCast",
     "picos_usados": [
-      884.8
+      884.8,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   },
   "keQt6ORq27g": {
     "data_primeiro": "2026-11-19T09:40:03.501832+00:00",
-    "data_ultimo": "2026-11-19T09:40:03.501832+00:00",
-    "titulo": "NIETZSCHE: “DEUS ESTÁ MORTO” NÃO É O QUE VOCÊ PENSA - VIVIANE MOSÉ | #PENSADORES #02",
+    "data_ultimo": "2026-11-19T11:38:52.419515+00:00",
+    "titulo": "O QUE NIETZSCHE DIRIA DOS COACHES? - VIVIANE MOSÉ  | #PENSADORES #02",
     "canal": "Achismos TV",
     "picos_usados": [
-      865.2
+      865.2,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
