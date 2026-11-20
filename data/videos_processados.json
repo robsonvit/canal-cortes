@@ -9771,13 +9771,25 @@
   },
   "mBZAErbw-ik": {
     "data_primeiro": "2026-11-19T22:28:45.427244+00:00",
-    "data_ultimo": "2026-11-19T22:28:45.427244+00:00",
+    "data_ultimo": "2026-11-20T01:04:53.771778+00:00",
     "titulo": "How to Accelerate Your Results and Achieve More in Less Time | JOEL JOTA",
     "canal": "Jota Jota Podcast",
     "picos_usados": [
-      226.4
+      226.4,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "oMCMgI95AuU": {
+    "data_primeiro": "2026-11-20T01:04:37.397184+00:00",
+    "data_ultimo": "2026-11-20T01:04:37.397184+00:00",
+    "titulo": "HE JUST WANTED TO MAKE A KID'S DREAM COME TRUE (but NEYMAR did something unexpected)",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
