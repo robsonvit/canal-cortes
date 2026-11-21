@@ -9824,5 +9824,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "KPP2_daeBM4": {
+    "data_primeiro": "2026-11-21T01:04:12.568689+00:00",
+    "data_ultimo": "2026-11-21T01:04:12.568689+00:00",
+    "titulo": "ONLY HAUNTED OBJECT STORIES: don't watch at night | LendaCast Solo #117",
+    "canal": "LendaCast",
+    "picos_usados": [
+      754.5
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
