@@ -9827,13 +9827,36 @@
   },
   "KPP2_daeBM4": {
     "data_primeiro": "2026-11-21T01:04:12.568689+00:00",
-    "data_ultimo": "2026-11-21T01:04:12.568689+00:00",
+    "data_ultimo": "2026-11-21T02:31:52.610133+00:00",
     "titulo": "ONLY HAUNTED OBJECT STORIES: don't watch at night | LendaCast Solo #117",
     "canal": "LendaCast",
     "picos_usados": [
-      754.5
+      754.5,
+      -1.0
     ],
-    "total_picos": 6,
-    "picos_esgotados": false
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "-Qm7vs90ZAg": {
+    "data_primeiro": "2026-11-21T02:31:14.549663+00:00",
+    "data_ultimo": "2026-11-21T02:31:14.549663+00:00",
+    "titulo": "COMO CRIAR VÍDEOS DE MILHÕES E CHEGAR AO CINEMA IMAX ft. Abdala Brothers | #ACHISMOS PODCAST #446",
+    "canal": "Achismos TV",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
+  },
+  "0QmH4fzdAiw": {
+    "data_primeiro": "2026-11-21T02:31:33.591936+00:00",
+    "data_ultimo": "2026-11-21T02:31:33.591936+00:00",
+    "titulo": "KAIO D’LAQUÁ AND IGORFINA FACE OFF AGAINST DILERA AND REPORTER TOURETTE - CHARADES",
+    "canal": "Flow Podcast",
+    "picos_usados": [
+      -1.0
+    ],
+    "total_picos": 0,
+    "picos_esgotados": true
   }
 }
