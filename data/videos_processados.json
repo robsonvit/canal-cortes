@@ -9869,5 +9869,16 @@
     ],
     "total_picos": 0,
     "picos_esgotados": true
+  },
+  "e-kgesBeCiI": {
+    "data_primeiro": "2026-11-23T22:22:06.185213+00:00",
+    "data_ultimo": "2026-11-23T22:22:06.185213+00:00",
+    "titulo": "FORMER XP CMO REVEALS HOW THEY GREW INTERNATIONAL ACCOUNTS BY 10X",
+    "canal": "Os Sócios Podcast",
+    "picos_usados": [
+      3.6
+    ],
+    "total_picos": 6,
+    "picos_esgotados": false
   }
 }
